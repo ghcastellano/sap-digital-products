@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1F3458"/>
+    </pattern>
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.40"/>
+    </filter>
+  </defs>
+
+  <rect width="2400" height="1350" fill="#0E2240"/>
+  <rect width="2400" height="1350" fill="url(#dotgrid)" opacity="0.5"/>
+
+  <rect x="0" y="0" width="2400" height="14" fill="#4A90B8"/>
+  <text x="60" y="68" font-size="14" font-weight="700" fill="#F08A3E" letter-spacing="3">05  ·  VALUE STREAM DETAIL</text>
+  <text x="60" y="118" font-size="40" font-weight="800" fill="#FFFFFF">VS-3 · Corporate &amp; Global SAP</text>
+  <text x="60" y="148" font-size="16" fill="#B7DDEF">ITBA branch · Carlos Garbin · ~13 FTE · Two squads · Local Corporate SAP + Iberdrola Global SAP</text>
+
+  <!-- 2 squads -->
+  <g transform="translate(60,190)" filter="url(#cardShadow)">
+    <rect width="1140" height="370" rx="10" fill="#B7DDEF"/>
+    <rect width="1140" height="46" rx="10" fill="#0F4A6B"/>
+    <text x="20" y="30" font-size="18" font-weight="800" fill="#B7DDEF">SQUAD CORPORATE APPS</text>
+
+    <text x="20" y="78" font-size="13" font-weight="700" fill="#0F4A6B">Lead · Champion</text>
+    <text x="20" y="98" font-size="13" fill="#1A1A1A">Sarath Garikapati (Sr Mgr Corporate Apps)</text>
+    <text x="20" y="116" font-size="13" fill="#1A1A1A">Amit Patel (Corporate Champion) · Stephanie (SAP Champion)</text>
+
+    <text x="20" y="148" font-size="13" font-weight="700" fill="#0F4A6B">Capacity</text>
+    <text x="20" y="168" font-size="13" fill="#1A1A1A">8 FTE — Cyntia Faria · Ekta Shah · Gary Wiest · Greeshma Johnson (maternity) · Greg Howard · Vivian Lamonica · Ramkumar B</text>
+
+    <text x="20" y="200" font-size="13" font-weight="700" fill="#0F4A6B">Domains &amp; applications</text>
+    <text x="20" y="220" font-size="12" fill="#1A1A1A">Finance · HR · Procurement · Legal · Regulatory</text>
+    <text x="20" y="238" font-size="12" fill="#1A1A1A">Corporate SAP footprint (under Stephanie SAP Champion)</text>
+
+    <text x="20" y="270" font-size="13" font-weight="700" fill="#0F4A6B">Demand sources</text>
+    <text x="20" y="290" font-size="12" fill="#1A1A1A">Corporate functions (HR · Procurement · Finance · Legal)</text>
+    <text x="20" y="308" font-size="12" fill="#1A1A1A">Regulatory (rate cases · tariff updates · tax updates)</text>
+
+    <text x="20" y="340" font-size="11" font-style="italic" fill="#1F4E7A">Vendor: SWF (software factory) · SAP corporate vendor for project work · PDD-driven</text>
+  </g>
+
+  <g transform="translate(1220,190)" filter="url(#cardShadow)">
+    <rect width="1120" height="370" rx="10" fill="#B7DDEF"/>
+    <rect width="1120" height="46" rx="10" fill="#0F4A6B"/>
+    <text x="20" y="30" font-size="18" font-weight="800" fill="#B7DDEF">SQUAD GLOBAL SAP</text>
+
+    <text x="20" y="78" font-size="13" font-weight="700" fill="#0F4A6B">Lead · Champion</text>
+    <text x="20" y="98" font-size="13" fill="#1A1A1A">Vanessa Colombo (Mgr IT Apps Global SAP)</text>
+    <text x="20" y="116" font-size="13" fill="#1A1A1A">Michael Dubois (Global SAP Champion)</text>
+
+    <text x="20" y="148" font-size="13" font-weight="700" fill="#0F4A6B">Capacity</text>
+    <text x="20" y="168" font-size="13" fill="#1A1A1A">5 FTE — K. Langlois · James Pellegrino · K. Vaughn · Timoth Lugano</text>
+
+    <text x="20" y="200" font-size="13" font-weight="700" fill="#0F4A6B">Domains &amp; applications</text>
+    <text x="20" y="220" font-size="12" fill="#1A1A1A">Iberdrola corporate (Spain) · FI · PO · Budget control</text>
+
+    <text x="20" y="252" font-size="13" font-weight="700" fill="#0F4A6B">Demand sources</text>
+    <text x="20" y="272" font-size="12" fill="#1A1A1A">Iberdrola Finance · Controlling · Procurement · Vendors</text>
+    <text x="20" y="290" font-size="12" fill="#1A1A1A">Channels: IT Now (incidents) · RITM (minor) · Jira (small) · SharePoint (major)</text>
+
+    <text x="20" y="322" font-size="13" font-weight="700" fill="#DE350B">⚠ Constraint</text>
+    <text x="20" y="340" font-size="12" fill="#1A1A1A" font-style="italic">"Entire team on incidents" — incident flood caps strategic capacity (Michael Dubois)</text>
+
+    <text x="20" y="358" font-size="11" font-style="italic" fill="#1F4E7A">Vendor: Accenture (significant role) · SWF pipeline · Thursday Accenture Review (existing forum)</text>
+  </g>
+
+  <!-- HOW THEY WORK -->
+  <g transform="translate(60,590)" filter="url(#cardShadow)">
+    <rect width="1140" height="700" rx="10" fill="#15304F" stroke="#4A90B8" stroke-width="2"/>
+    <rect width="1140" height="46" rx="10" fill="#4A90B8"/>
+    <text x="20" y="30" font-size="18" font-weight="800" fill="#FFFFFF">HOW THE SQUADS WORK · Rituals &amp; Cadences</text>
+
+    <g transform="translate(20,68)">
+      <rect width="540" height="100" rx="6" fill="#1F4E79"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#B7DDEF" letter-spacing="1">DAILY</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Daily Flow Review · 15 min · per squad</text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">Squad Lead + Tech Lead + Accenture lead (Global SAP)</text>
+      <text x="14" y="84" font-size="11" fill="#9FB3D1">Walk board · unblock · escalate Expedite items</text>
+    </g>
+
+    <g transform="translate(580,68)">
+      <rect width="540" height="100" rx="6" fill="#1F4E79"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#B7DDEF" letter-spacing="1">WEEKLY</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Replenishment Meeting · per squad</text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">P&amp;T PM steward + Squad Lead pull from Portfolio Board</text>
+      <text x="14" y="84" font-size="11" fill="#9FB3D1">Regulatory items prioritized first (CoS Fixed-Date)</text>
+    </g>
+
+    <g transform="translate(20,184)">
+      <rect width="540" height="100" rx="6" fill="#1F4E79"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#B7DDEF" letter-spacing="1">WEEKLY · EXISTING</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Thursday Accenture Review</text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">Vanessa + Accenture leads · Iberdrola incident triage</text>
+      <text x="14" y="84" font-size="11" fill="#9FB3D1">Now visible on Squad Global SAP board (vendor swimlane)</text>
+    </g>
+
+    <g transform="translate(580,184)">
+      <rect width="540" height="100" rx="6" fill="#1F4E79"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#B7DDEF" letter-spacing="1">BI-WEEKLY</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Service Delivery Review · per squad</text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">Flow KPIs review + Pain Score trend</text>
+      <text x="14" y="84" font-size="11" fill="#9FB3D1">Compliance/Regulatory stakeholder participates</text>
+    </g>
+
+    <g transform="translate(20,300)">
+      <rect width="540" height="100" rx="6" fill="#0F4A6B"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#B7DDEF" letter-spacing="1">MONTHLY</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Portfolio Committee (Gate 2) · cross-VS</text>
+      <text x="14" y="68" font-size="11" fill="#B7DDEF">Vitor + Carlos + PM stewards · investment slotting</text>
+    </g>
+
+    <g transform="translate(580,300)">
+      <rect width="540" height="100" rx="6" fill="#0F4A6B"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#B7DDEF" letter-spacing="1">MONTHLY · NEW</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Iberdrola Sync · Squad Global SAP only</text>
+      <text x="14" y="68" font-size="11" fill="#B7DDEF">Vanessa + Iberdrola Spain stakeholders · cross-OPCO alignment</text>
+      <text x="14" y="84" font-size="11" fill="#B7DDEF">Strategic project visibility for non-incident work</text>
+    </g>
+
+    <g transform="translate(20,416)">
+      <rect width="1100" height="100" rx="6" fill="#0E2240" stroke="#F08A3E" stroke-width="2"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#F08A3E" letter-spacing="1">QUARTERLY</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Big Room Planning (BRP) · cross-VS · 2 days</text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">All 3 VS squad leads + P&amp;T PMs + Travis (PMO) + Accenture + SWF leads</text>
+      <text x="14" y="84" font-size="11" fill="#9FB3D1">Critical: Iberdrola Q-plan synchronized with Avangrid US plan</text>
+    </g>
+
+    <g transform="translate(20,532)">
+      <rect width="1100" height="80" rx="6" fill="#1F2A33" stroke="#9FB3D1"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#9FB3D1" letter-spacing="1">ANNUAL</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">PDD Governance · Corporate large projects</text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">Travis + Directors · Corporate SAP and Regulatory project approval</text>
+    </g>
+
+    <g transform="translate(20,632)">
+      <text x="0" y="14" font-size="11" font-weight="800" fill="#9FB3D1" letter-spacing="2">DUTY ROTATION (essential for incident-heavy Squad Global SAP)</text>
+      <text x="0" y="36" font-size="11" fill="#FFFFFF">2 people per squad on duty per week + Accenture as first-response layer (Squad Global SAP only)</text>
+      <text x="0" y="52" font-size="11" fill="#FFFFFF">Goal: reduce incident overload on FTE so strategic work can flow (Build/Transform protected)</text>
+    </g>
+  </g>
+
+  <!-- PM & Planning -->
+  <g transform="translate(1220,590)" filter="url(#cardShadow)">
+    <rect width="1120" height="700" rx="10" fill="#15304F" stroke="#4A90B8" stroke-width="2"/>
+    <rect width="1120" height="46" rx="10" fill="#4A90B8"/>
+    <text x="20" y="30" font-size="18" font-weight="800" fill="#FFFFFF">PRODUCT MANAGEMENT &amp; PLANNING</text>
+
+    <g transform="translate(20,68)">
+      <rect width="1080" height="160" rx="6" fill="#3A2D52"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#D4C4E8" letter-spacing="1">PM STEWARD POOL</text>
+      <text x="14" y="50" font-size="16" font-weight="700" fill="#FFFFFF">P&amp;T pool (existing intermediary) + vendor PMs</text>
+      <line x1="14" y1="62" x2="1066" y2="62" stroke="#8B6FB8" stroke-dasharray="3 3"/>
+      <text x="14" y="84" font-size="12" fill="#FFFFFF">• "P&amp;T serves as intermediary with business — Global SAP manages Jira" — Michael Dubois</text>
+      <text x="14" y="102" font-size="12" fill="#FFFFFF">• Same P&amp;T pool serves VS-2 (Field &amp; Network Operations)</text>
+      <text x="14" y="120" font-size="12" fill="#FFFFFF">• Accenture vendor PMs participate in replenishment for Squad Global SAP</text>
+      <text x="14" y="142" font-size="11" font-style="italic" fill="#D4C4E8">Source: AS-IS Slide 30 · Global SAP interview · vendor governance forum</text>
+    </g>
+
+    <g transform="translate(20,244)">
+      <rect width="1080" height="200" rx="6" fill="#1F4E79"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#B7DDEF" letter-spacing="1">PLANNING APPROACH (regulatory + project mix)</text>
+      <text x="14" y="50" font-size="13" fill="#FFFFFF">• <tspan font-weight="700">Regulatory items</tspan> always Class of Service Fixed-Date (deadline-locked)</text>
+      <text x="14" y="72" font-size="13" fill="#FFFFFF">• <tspan font-weight="700">PDD-driven planning</tspan> for medium/large Corporate projects (annual cycle)</text>
+      <text x="14" y="94" font-size="13" fill="#FFFFFF">• <tspan font-weight="700">Pain Score</tspan> ranks backlog (utility-calibrated):</text>
+      <text x="14" y="116" font-size="13" fill="#B7DDEF" font-weight="700">  H(x) = (BV·w₁ + UX·w₂ + Safety·w₃) / Effort</text>
+      <text x="14" y="138" font-size="13" fill="#FFFFFF">• <tspan font-weight="700">Class of Service mix</tspan> target: 50% Standard · 25% Fixed-Date (regulatory-heavy) · 10% Expedite · 15% Intangible</text>
+      <text x="14" y="160" font-size="13" fill="#FFFFFF">• <tspan font-weight="700">Run/Grow/Transform</tspan> Global SAP: ~80 Run · 15 Grow · 5 Transform (incident-dominated)</text>
+      <text x="14" y="184" font-size="11" font-style="italic" fill="#9FB3D1">Goal: shift mix toward Grow/Transform via Expedite policy + Intangible reserve</text>
+    </g>
+
+    <g transform="translate(20,460)">
+      <rect width="1080" height="220" rx="6" fill="#0E2240" stroke="#F08A3E"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#F08A3E" letter-spacing="1">FORUMS REQUIRED (cross-VS · governance)</text>
+
+      <text x="14" y="50" font-size="13" font-weight="700" fill="#FFFFFF">Critical Integrations <tspan fill="#9FB3D1" font-weight="400">— weekly</tspan></text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">Tech Leads cross-VS · esp. VS-3 ↔ M2C-RO (FI close ↔ billing) · VS-3 ↔ VS-2 (asset master data)</text>
+
+      <text x="14" y="98" font-size="13" font-weight="700" fill="#FFFFFF">Iberdrola Sync <tspan fill="#9FB3D1" font-weight="400">— monthly · NEW</tspan></text>
+      <text x="14" y="116" font-size="11" fill="#9FB3D1">Vanessa + Iberdrola Spain · cross-OPCO synchronization · strategic visibility</text>
+
+      <text x="14" y="146" font-size="13" font-weight="700" fill="#FFFFFF">Thursday Accenture Review <tspan fill="#9FB3D1" font-weight="400">— weekly · KEPT</tspan></text>
+      <text x="14" y="164" font-size="11" fill="#9FB3D1">Existing forum kept; folded into Squad Global SAP daily/weekly cadence</text>
+
+      <text x="14" y="194" font-size="13" font-weight="700" fill="#FFFFFF">Portfolio Committee + BRP + PDD <tspan fill="#9FB3D1" font-weight="400">— monthly + quarterly + annual</tspan></text>
+      <text x="14" y="212" font-size="11" font-style="italic" fill="#F08A3E">Three-tier governance covering monthly slotting, quarterly planning, annual large-project approval</text>
+    </g>
+  </g>
+
+  <text x="60" y="1320" font-size="11" fill="#6F87A8">Source: AS-IS Slide 30 · Global SAP &amp; Corporate interviews · Avangrid_Hierarchy_Overview.md · Champion data</text>
+  <text x="2340" y="1320" text-anchor="end" font-size="11" fill="#6F87A8">05 / 12</text>
+</svg>

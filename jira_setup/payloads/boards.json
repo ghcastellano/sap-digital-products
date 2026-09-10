@@ -1,0 +1,69 @@
+{
+  "_comment": "Boards: 1 Portfolio Overview + 10 Squad Boards (one per Value Stream). Created via POST /rest/agile/1.0/board. Filter, columns, swim lanes and WIP limits are applied AFTER board creation via the board configuration endpoints (note: Jira Cloud's board-config API is only partially exposed; some settings — notably WIP limits — must be set in the UI). Filters reference a saved JQL filter (POST /rest/api/3/filter first, then board references that filter id).",
+  "_endpoint_create_filter": "POST /rest/api/3/filter",
+  "_endpoint_create_board":  "POST /rest/agile/1.0/board",
+
+  "filters": [
+    {
+      "name": "DP_Filter_Portfolio",
+      "description": "All DGTLPROD demands past Triage · for Portfolio Overview Board",
+      "jql": "project = DGTLPROD AND status in (TRIAGED, REVIEWING, ANALYZING, BACKLOG, IMPLEMENTING, DONE) ORDER BY \"DP Pain Score\" DESC"
+    },
+    { "name": "DP_Filter_Squad_Field_Operations",            "jql": "project = DGTLPROD AND component = \"Field Operations\"             AND status not in (NEW, ROUTED) ORDER BY \"DP Pain Score\" DESC" },
+    { "name": "DP_Filter_Squad_Engineering_AssetMgmt",       "jql": "project = DGTLPROD AND component = \"Engineering & Asset Mgmt\"    AND status not in (NEW, ROUTED) ORDER BY \"DP Pain Score\" DESC" },
+    { "name": "DP_Filter_Squad_Network_Ops",                 "jql": "project = DGTLPROD AND component = \"Network Operations & Control\" AND status not in (NEW, ROUTED) ORDER BY \"DP Pain Score\" DESC" },
+    { "name": "DP_Filter_Squad_Corporate_Regulatory",        "jql": "project = DGTLPROD AND component = \"Corporate & Regulatory\"      AND status not in (NEW, ROUTED) ORDER BY \"DP Pain Score\" DESC" },
+    { "name": "DP_Filter_Squad_Iberdrola_Corp",              "jql": "project = DGTLPROD AND component = \"Iberdrola Corp Services\"     AND status not in (NEW, ROUTED) ORDER BY \"DP Pain Score\" DESC" },
+    { "name": "DP_Filter_Squad_Meter_Device",                "jql": "project = DGTLPROD AND component = \"Meter & Device Operations\"   AND status not in (NEW, ROUTED) ORDER BY \"DP Pain Score\" DESC" },
+    { "name": "DP_Filter_Squad_Billing_Operations",          "jql": "project = DGTLPROD AND component = \"Billing Operations\"          AND status not in (NEW, ROUTED) ORDER BY \"DP Pain Score\" DESC" },
+    { "name": "DP_Filter_Squad_Revenue_Collections",         "jql": "project = DGTLPROD AND component = \"Revenue & Collections\"       AND status not in (NEW, ROUTED) ORDER BY \"DP Pain Score\" DESC" },
+    { "name": "DP_Filter_Squad_Customer_Care",               "jql": "project = DGTLPROD AND component = \"Customer Care & Engagement\"  AND status not in (NEW, ROUTED) ORDER BY \"DP Pain Score\" DESC" },
+    { "name": "DP_Filter_Squad_Enabling_Foundation",         "jql": "project = DGTLPROD AND component = \"Enabling Team — Foundation\"  AND status not in (NEW, ROUTED) ORDER BY \"DP Pain Score\" DESC" }
+  ],
+
+  "boards": [
+    {
+      "name": "DP · Portfolio Overview",
+      "type": "kanban",
+      "filterRef": "DP_Filter_Portfolio",
+      "_columns": ["TRIAGED", "REVIEWING", "ANALYZING", "BACKLOG", "IMPLEMENTING", "DONE"],
+      "_swim_lanes": {
+        "type": "queries",
+        "lanes": [
+          { "name": "Expedite",   "jql": "\"DP Class of Service\" = Expedite",   "_wip_limit": 1 },
+          { "name": "Fixed-Date", "jql": "\"DP Class of Service\" = \"Fixed-Date\"", "_wip_limit": 2 },
+          { "name": "Standard",   "jql": "\"DP Class of Service\" = Standard",   "_wip_limit": 4 },
+          { "name": "Intangible", "jql": "\"DP Class of Service\" = Intangible", "_wip_limit": 1 }
+        ]
+      }
+    },
+
+    {
+      "name": "DP · Squad · Field Operations",
+      "type": "kanban",
+      "filterRef": "DP_Filter_Squad_Field_Operations",
+      "_columns": ["BACKLOG", "IMPLEMENTING (In Progress)", "REVIEW", "DONE"],
+      "_swim_lanes_by_cos_with_wip": true
+    },
+    { "name": "DP · Squad · Engineering & Asset Mgmt",       "type": "kanban", "filterRef": "DP_Filter_Squad_Engineering_AssetMgmt",       "_columns": ["BACKLOG", "IMPLEMENTING (In Progress)", "REVIEW", "DONE"], "_swim_lanes_by_cos_with_wip": true },
+    { "name": "DP · Squad · Network Operations & Control",   "type": "kanban", "filterRef": "DP_Filter_Squad_Network_Ops",                  "_columns": ["BACKLOG", "IMPLEMENTING (In Progress)", "REVIEW", "DONE"], "_swim_lanes_by_cos_with_wip": true },
+    { "name": "DP · Squad · Corporate & Regulatory",         "type": "kanban", "filterRef": "DP_Filter_Squad_Corporate_Regulatory",         "_columns": ["BACKLOG", "IMPLEMENTING (In Progress)", "REVIEW", "DONE"], "_swim_lanes_by_cos_with_wip": true },
+    { "name": "DP · Squad · Iberdrola Corp Services",        "type": "kanban", "filterRef": "DP_Filter_Squad_Iberdrola_Corp",               "_columns": ["BACKLOG", "IMPLEMENTING (In Progress)", "REVIEW", "DONE"], "_swim_lanes_by_cos_with_wip": true },
+    { "name": "DP · Squad · Meter & Device Operations",      "type": "kanban", "filterRef": "DP_Filter_Squad_Meter_Device",                 "_columns": ["BACKLOG", "IMPLEMENTING (In Progress)", "REVIEW", "DONE"], "_swim_lanes_by_cos_with_wip": true },
+    { "name": "DP · Squad · Billing Operations",             "type": "kanban", "filterRef": "DP_Filter_Squad_Billing_Operations",           "_columns": ["BACKLOG", "IMPLEMENTING (In Progress)", "REVIEW", "DONE"], "_swim_lanes_by_cos_with_wip": true },
+    { "name": "DP · Squad · Revenue & Collections",          "type": "kanban", "filterRef": "DP_Filter_Squad_Revenue_Collections",          "_columns": ["BACKLOG", "IMPLEMENTING (In Progress)", "REVIEW", "DONE"], "_swim_lanes_by_cos_with_wip": true },
+    { "name": "DP · Squad · Customer Care & Engagement",     "type": "kanban", "filterRef": "DP_Filter_Squad_Customer_Care",                "_columns": ["BACKLOG", "IMPLEMENTING (In Progress)", "REVIEW", "DONE"], "_swim_lanes_by_cos_with_wip": true },
+    { "name": "DP · Squad · Enabling Team — Foundation",     "type": "kanban", "filterRef": "DP_Filter_Squad_Enabling_Foundation",          "_columns": ["BACKLOG", "IMPLEMENTING (In Progress)", "REVIEW", "DONE"], "_swim_lanes_by_cos_with_wip": true }
+  ],
+
+  "_squad_swim_lane_template": {
+    "_comment": "Apply this swim-lane configuration to every squad board (10 boards). WIP limits per lane.",
+    "type": "queries",
+    "lanes": [
+      { "name": "Expedite",   "jql": "\"DP Class of Service\" = Expedite",   "wip_limit": 1 },
+      { "name": "Fixed-Date", "jql": "\"DP Class of Service\" = \"Fixed-Date\"", "wip_limit": 2 },
+      { "name": "Standard",   "jql": "\"DP Class of Service\" = Standard",   "wip_limit": 4 },
+      { "name": "Intangible", "jql": "\"DP Class of Service\" = Intangible", "wip_limit": 1 }
+    ]
+  }
+}

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1F3458"/>
+    </pattern>
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.40"/>
+    </filter>
+  </defs>
+
+  <rect width="2400" height="1350" fill="#0E2240"/>
+  <rect width="2400" height="1350" fill="url(#dotgrid)" opacity="0.5"/>
+
+  <!-- Header band with VS-1 amber -->
+  <rect x="0" y="0" width="2400" height="14" fill="#E8A24C"/>
+  <text x="60" y="68" font-size="14" font-weight="700" fill="#F08A3E" letter-spacing="3">03  ·  VALUE STREAM DETAIL</text>
+  <text x="60" y="118" font-size="40" font-weight="800" fill="#FFFFFF">VS-1 · M2C &amp; Customer Service</text>
+  <text x="60" y="148" font-size="16" fill="#F4C988">CS branch · Kumar Jaladanki · ~20 FTE · Three sub-VS formally proposed (Apr 2026)</text>
+
+  <!-- Top row: 3 squads as cards -->
+  <g transform="translate(60,190)" filter="url(#cardShadow)">
+    <rect width="760" height="370" rx="10" fill="#F4C988"/>
+    <rect width="760" height="46" rx="10" fill="#5A3A0E"/>
+    <text x="20" y="30" font-size="18" font-weight="800" fill="#F4C988">SQUAD M2C-SL · Service Lifecycle</text>
+
+    <text x="20" y="78" font-size="13" font-weight="700" fill="#5A3A0E">Lead · Champion</text>
+    <text x="20" y="98" font-size="13" fill="#1A1A1A">Vincent Lam (Sr Mgr Device &amp; Metering)</text>
+    <text x="20" y="116" font-size="13" fill="#1A1A1A">Iram Chowdhury (Smart Metering Champion)</text>
+
+    <text x="20" y="148" font-size="13" font-weight="700" fill="#5A3A0E">Capacity</text>
+    <text x="20" y="168" font-size="13" fill="#1A1A1A">8 FTE + 100% vendor-delivered</text>
+
+    <text x="20" y="200" font-size="13" font-weight="700" fill="#5A3A0E">Applications</text>
+    <text x="20" y="220" font-size="12" fill="#1A1A1A">SAP Metering · MV90</text>
+    <text x="20" y="238" font-size="11" fill="#5A3A0E" font-style="italic">Sub-team Meter &amp; Data Mgmt under Vincent</text>
+
+    <text x="20" y="270" font-size="13" font-weight="700" fill="#5A3A0E">Demand sources</text>
+    <text x="20" y="290" font-size="12" fill="#1A1A1A">Customer Operations · Field Services</text>
+    <text x="20" y="308" font-size="12" fill="#1A1A1A">Smart Metering Program (CT/ME/NY rollouts)</text>
+
+    <text x="20" y="340" font-size="13" font-weight="700" fill="#5A3A0E">Outcome</text>
+    <text x="20" y="358" font-size="12" fill="#1A1A1A">Sign up · activate · changes · disconnects</text>
+  </g>
+
+  <g transform="translate(840,190)" filter="url(#cardShadow)">
+    <rect width="760" height="370" rx="10" fill="#F4C988"/>
+    <rect width="760" height="46" rx="10" fill="#5A3A0E"/>
+    <text x="20" y="30" font-size="18" font-weight="800" fill="#F4C988">SQUAD M2C-RO · Revenue Operations</text>
+
+    <text x="20" y="78" font-size="13" font-weight="700" fill="#5A3A0E">Lead · Champion</text>
+    <text x="20" y="98" font-size="13" fill="#1A1A1A">Ivelisse Velazquez (Sr Mgr FICA Billing &amp; Collection)</text>
+    <text x="20" y="116" font-size="13" fill="#1A1A1A">Stephanie (SAP Champion)</text>
+
+    <text x="20" y="148" font-size="13" font-weight="700" fill="#5A3A0E">Capacity</text>
+    <text x="20" y="168" font-size="13" fill="#1A1A1A">8 FTE + Accenture pontual (build/upgrade)</text>
+
+    <text x="20" y="200" font-size="13" font-weight="700" fill="#5A3A0E">Applications</text>
+    <text x="20" y="220" font-size="12" fill="#1A1A1A">SAP FICA · ECC · StreamServe</text>
+
+    <text x="20" y="252" font-size="13" font-weight="700" fill="#5A3A0E">Demand sources</text>
+    <text x="20" y="272" font-size="12" fill="#1A1A1A">OPCO call centers (UIL · CMP · NY)</text>
+    <text x="20" y="290" font-size="12" fill="#1A1A1A">Regulatory affairs (rate cases · tariff updates)</text>
+
+    <text x="20" y="322" font-size="13" font-weight="700" fill="#5A3A0E">Outcome</text>
+    <text x="20" y="340" font-size="12" fill="#1A1A1A">"Bill once, bill right, collect on time"</text>
+  </g>
+
+  <g transform="translate(1620,190)" filter="url(#cardShadow)">
+    <rect width="720" height="370" rx="10" fill="#F4C988"/>
+    <rect width="720" height="46" rx="10" fill="#5A3A0E"/>
+    <text x="20" y="30" font-size="18" font-weight="800" fill="#F4C988">SQUAD CCC · Customer Care &amp; Contact</text>
+
+    <text x="20" y="78" font-size="13" font-weight="700" fill="#5A3A0E">Lead · Champion</text>
+    <text x="20" y="98" font-size="13" fill="#DE350B">VACANT 🔴 (Sr Mgr CRM &amp; Contact Center)</text>
+    <text x="20" y="116" font-size="13" fill="#1A1A1A">Champion: TBD post-hire</text>
+
+    <text x="20" y="148" font-size="13" font-weight="700" fill="#5A3A0E">Capacity</text>
+    <text x="20" y="168" font-size="13" fill="#1A1A1A">4 FTE + 3 vendors (multi-vendor model)</text>
+
+    <text x="20" y="200" font-size="13" font-weight="700" fill="#5A3A0E">Applications · Vendors</text>
+    <text x="20" y="220" font-size="12" fill="#1A1A1A">SAP CRM (Lemur-Salesforce) · IVR · Medallia</text>
+    <text x="20" y="238" font-size="12" fill="#1A1A1A">Blue Prism · Digital channel agency · chatbot</text>
+
+    <text x="20" y="270" font-size="13" font-weight="700" fill="#5A3A0E">Demand sources</text>
+    <text x="20" y="290" font-size="12" fill="#1A1A1A">Customer Operations (Heather's Product Mgmt)</text>
+    <text x="20" y="308" font-size="12" fill="#1A1A1A">Marketing &amp; Communications · GenAI pipeline</text>
+
+    <text x="20" y="340" font-size="13" font-weight="700" fill="#5A3A0E">Outcome</text>
+    <text x="20" y="358" font-size="12" fill="#1A1A1A">Resolve customer interactions on first contact</text>
+  </g>
+
+  <!-- HOW THEY WORK — rituals and cadences -->
+  <g transform="translate(60,590)" filter="url(#cardShadow)">
+    <rect width="1140" height="700" rx="10" fill="#15304F" stroke="#E8A24C" stroke-width="2"/>
+    <rect width="1140" height="46" rx="10" fill="#E8A24C"/>
+    <text x="20" y="30" font-size="18" font-weight="800" fill="#5A3A0E">HOW THE SQUADS WORK · Rituals &amp; Cadences</text>
+
+    <!-- Daily -->
+    <g transform="translate(20,68)">
+      <rect width="540" height="100" rx="6" fill="#1F4E79"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#F4C988" letter-spacing="1">DAILY</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Daily Flow Review · 15 min · per squad</text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">Squad Lead + Tech Lead + vendor PM (when applicable)</text>
+      <text x="14" y="84" font-size="11" fill="#9FB3D1">Walk the board right-to-left · unblock · rebalance WIP</text>
+    </g>
+
+    <g transform="translate(580,68)">
+      <rect width="540" height="100" rx="6" fill="#1F4E79"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#F4C988" letter-spacing="1">WEEKLY</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Replenishment Meeting · per squad</text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">PM steward (Heather/CoE) pulls from Portfolio Board</text>
+      <text x="14" y="84" font-size="11" fill="#9FB3D1">to Squad TODO column · respects Class of Service ratios</text>
+    </g>
+
+    <!-- Bi-weekly -->
+    <g transform="translate(20,184)">
+      <rect width="540" height="100" rx="6" fill="#1F4E79"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#F4C988" letter-spacing="1">BI-WEEKLY</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Service Delivery Review · per squad</text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">Flow KPIs review (Lead/Cycle/Throughput/WIP Aging)</text>
+      <text x="14" y="84" font-size="11" fill="#9FB3D1">Business stakeholder + vendor PM participate</text>
+    </g>
+
+    <g transform="translate(580,184)">
+      <rect width="540" height="100" rx="6" fill="#1F4E79"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#F4C988" letter-spacing="1">BI-WEEKLY</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Retrospective / Kaizen · per squad</text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">Squad-only · 60 min · continuous improvement</text>
+      <text x="14" y="84" font-size="11" fill="#9FB3D1">Output: 1–2 experiments tracked next sprint</text>
+    </g>
+
+    <!-- Monthly -->
+    <g transform="translate(20,300)">
+      <rect width="540" height="100" rx="6" fill="#5A3A0E"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#F4C988" letter-spacing="1">MONTHLY</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Portfolio Committee (Gate 2) · cross-VS</text>
+      <text x="14" y="68" font-size="11" fill="#F4C988">Vitor + Carlos + Kumar + PM stewards</text>
+      <text x="14" y="84" font-size="11" fill="#F4C988">Investment approval · capacity slotting · re-rank backlog</text>
+    </g>
+
+    <g transform="translate(580,300)">
+      <rect width="540" height="100" rx="6" fill="#5A3A0E"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#F4C988" letter-spacing="1">MONTHLY</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Customer Journey Forum · VS-1 only</text>
+      <text x="14" y="68" font-size="11" fill="#F4C988">VS-1 squad leads + Heather LaJoie + Digital CoE</text>
+      <text x="14" y="84" font-size="11" fill="#F4C988">CX strategy alignment · cross-VS conflicts (CRM ↔ Smart Metering)</text>
+    </g>
+
+    <!-- Quarterly -->
+    <g transform="translate(20,416)">
+      <rect width="1100" height="100" rx="6" fill="#0E2240" stroke="#F08A3E" stroke-width="2"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#F08A3E" letter-spacing="1">QUARTERLY</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">Big Room Planning (BRP) · cross-VS · 2 days</text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">All 3 VS squad leads + P&amp;T PMs + Heather/CoE + Travis (PMO) + strategic vendors</text>
+      <text x="14" y="84" font-size="11" fill="#9FB3D1">Output: next-quarter roadmap + cross-VS dependencies resolved + capacity rebalanced</text>
+    </g>
+
+    <!-- Annual -->
+    <g transform="translate(20,532)">
+      <rect width="1100" height="80" rx="6" fill="#1F2A33" stroke="#9FB3D1"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#9FB3D1" letter-spacing="1">ANNUAL</text>
+      <text x="14" y="48" font-size="14" font-weight="700" fill="#FFFFFF">PDD Governance · large projects only</text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">Travis (PMO Lead) + Directors + Vihn Nguyen (IT Program Delivery) · large project approval cycle</text>
+    </g>
+
+    <!-- Existing forums kept -->
+    <g transform="translate(20,632)">
+      <text x="0" y="14" font-size="11" font-weight="800" fill="#9FB3D1" letter-spacing="2">EXISTING FORUMS RETAINED (replace paralel meetings)</text>
+      <text x="0" y="36" font-size="11" fill="#FFFFFF">• Thursday Accenture Review (weekly, Iberdrola incidents) → folded into Squad Global SAP daily flow</text>
+      <text x="0" y="52" font-size="11" fill="#FFFFFF">• Smart Metering Internal Weekly → folded into Squad M2C-SL replenishment</text>
+    </g>
+  </g>
+
+  <!-- PLANNING & STEWARD COL -->
+  <g transform="translate(1220,590)" filter="url(#cardShadow)">
+    <rect width="1120" height="700" rx="10" fill="#15304F" stroke="#E8A24C" stroke-width="2"/>
+    <rect width="1120" height="46" rx="10" fill="#E8A24C"/>
+    <text x="20" y="30" font-size="18" font-weight="800" fill="#5A3A0E">PRODUCT MANAGEMENT &amp; PLANNING</text>
+
+    <!-- PM steward -->
+    <g transform="translate(20,68)">
+      <rect width="1080" height="160" rx="6" fill="#3A2D52"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#D4C4E8" letter-spacing="1">PM STEWARD POOL</text>
+      <text x="14" y="50" font-size="16" font-weight="700" fill="#FFFFFF">Heather LaJoie + Digital CoE Functional SAP PMs</text>
+      <line x1="14" y1="62" x2="1066" y2="62" stroke="#8B6FB8" stroke-dasharray="3 3"/>
+      <text x="14" y="84" font-size="12" fill="#FFFFFF">• Heather is "first prioritization layer" for Digital CoE — already established role</text>
+      <text x="14" y="102" font-size="12" fill="#FFFFFF">• Stephanie + Kumar bridge between Digital CoE and CS Apps</text>
+      <text x="14" y="120" font-size="12" fill="#FFFFFF">• Heather has Tuesday weekly with Vitor (Executive Sponsor cadence)</text>
+      <text x="14" y="142" font-size="11" font-style="italic" fill="#D4C4E8">"Heather is the first layer for prioritization" — Kumar Jaladanki interview</text>
+    </g>
+
+    <!-- Planning approach -->
+    <g transform="translate(20,244)">
+      <rect width="1080" height="200" rx="6" fill="#1F4E79"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#F4C988" letter-spacing="1">PLANNING APPROACH (continuous, not in batches)</text>
+      <text x="14" y="50" font-size="13" fill="#FFFFFF">• <tspan font-weight="700">Continuous prioritization</tspan> at sprint and BRP cadence (not waterfall annual)</text>
+      <text x="14" y="72" font-size="13" fill="#FFFFFF">• <tspan font-weight="700">Pain Score auto-ranks</tspan> the backlog with CS weighting (UX-heavy):</text>
+      <text x="14" y="94" font-size="13" fill="#F4C988" font-weight="700">  H(x) = (BV·0.35 + UX·0.40 + Safety·0.25) / Effort</text>
+      <text x="14" y="118" font-size="13" fill="#FFFFFF">• <tspan font-weight="700">Class of Service mix</tspan> per quarter target: 70% Standard · 15% Fixed-Date · 5–10% Expedite · 10–15% Intangible</text>
+      <text x="14" y="140" font-size="13" fill="#FFFFFF">• <tspan font-weight="700">Run/Grow/Transform</tspan> tagged at intake; default mix ~50% Run · 35% Grow · 15% Transform</text>
+      <text x="14" y="162" font-size="13" fill="#FFFFFF">• <tspan font-weight="700">Capacity reserve</tspan> 10–15% per quarter for Intangible (tech debt) + 5% for Expedite (P1/P2)</text>
+      <text x="14" y="184" font-size="11" font-style="italic" fill="#9FB3D1">Sources: CS Proposed Value Streams Slide 3 · Prioritization Criteria doc (2026-04)</text>
+    </g>
+
+    <!-- Cross-VS forums needed -->
+    <g transform="translate(20,460)">
+      <rect width="1080" height="220" rx="6" fill="#0E2240" stroke="#F08A3E"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#F08A3E" letter-spacing="1">FORUMS REQUIRED (cross-VS · governance)</text>
+
+      <text x="14" y="50" font-size="13" font-weight="700" fill="#FFFFFF">Critical Integrations <tspan fill="#9FB3D1" font-weight="400">— weekly</tspan></text>
+      <text x="14" y="68" font-size="11" fill="#9FB3D1">Tech Leads from 7 squads + SAP &amp; CS Architecture · cross-VS integration risks (M2C-RO ↔ Global SAP, CRM ↔ Smart Metering)</text>
+
+      <text x="14" y="98" font-size="13" font-weight="700" fill="#FFFFFF">Customer Journey Forum <tspan fill="#9FB3D1" font-weight="400">— monthly</tspan></text>
+      <text x="14" y="116" font-size="11" fill="#9FB3D1">VS-1 only · Heather + Digital CoE · CX strategy alignment with M2C-SL/RO/CCC squads</text>
+
+      <text x="14" y="146" font-size="13" font-weight="700" fill="#FFFFFF">Portfolio Committee (Gate 2) <tspan fill="#9FB3D1" font-weight="400">— monthly</tspan></text>
+      <text x="14" y="164" font-size="11" fill="#9FB3D1">Vitor + Carlos + Kumar + PM stewards · investment approval · capacity slotting</text>
+
+      <text x="14" y="194" font-size="13" font-weight="700" fill="#FFFFFF">Big Room Planning (BRP) <tspan fill="#9FB3D1" font-weight="400">— quarterly</tspan></text>
+      <text x="14" y="212" font-size="11" font-style="italic" fill="#F08A3E">Reference: P&amp;S nWOW v1.2 BRP cadence (most mature playbook in the org — Q2 2026 deck)</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="60" y="1320" font-size="11" fill="#6F87A8">Source: CS — Proposed Value Streams.pptx (Slides 1–6) · Prioritization Criteria doc · AS-IS Slide 21 · Avangrid_Hierarchy_Overview.md</text>
+  <text x="2340" y="1320" text-anchor="end" font-size="11" fill="#6F87A8">03 / 11</text>
+</svg>

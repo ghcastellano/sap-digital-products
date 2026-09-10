@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1F3458"/>
+    </pattern>
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.40"/>
+    </filter>
+    <marker id="arrowGreen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#5DA460"/>
+    </marker>
+  </defs>
+
+  <rect width="2400" height="1350" fill="#0E2240"/>
+  <rect width="2400" height="1350" fill="url(#dotgrid)" opacity="0.5"/>
+
+  <text x="60" y="68" font-size="14" font-weight="700" fill="#F08A3E" letter-spacing="3">07  ·  INTAKE PROCESS</text>
+  <text x="60" y="118" font-size="40" font-weight="800" fill="#FFFFFF">Step-by-Step Intake · Size-Conditional Gates</text>
+  <text x="60" y="148" font-size="16" fill="#9FB3D1">8 steps from request to squad board · paths differ by Size + Class of Service · Regulatory and Expedite have shortcuts</text>
+
+  <!-- Steps as numbered horizontal flow -->
+  <g transform="translate(60,200)">
+    <!-- Step 1 -->
+    <g>
+      <rect width="280" height="180" rx="10" fill="#15304F" stroke="#F08A3E" stroke-width="2"/>
+      <circle cx="32" cy="32" r="22" fill="#F08A3E"/>
+      <text x="32" y="40" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">1</text>
+      <text x="64" y="40" font-size="16" font-weight="800" fill="#F08A3E">REQUEST CREATION</text>
+      <text x="20" y="74" font-size="12" font-weight="700" fill="#FFFFFF">Actor:</text>
+      <text x="80" y="74" font-size="12" fill="#FFFFFF">Requestor</text>
+      <text x="20" y="96" font-size="12" font-weight="700" fill="#FFFFFF">Channel:</text>
+      <text x="80" y="96" font-size="12" fill="#FFFFFF">Jira (single front door)</text>
+      <text x="20" y="118" font-size="12" font-weight="700" fill="#FFFFFF">Output:</text>
+      <text x="80" y="118" font-size="12" fill="#FFFFFF">DGTL-PROD-NNNN</text>
+      <text x="20" y="140" font-size="12" font-weight="700" fill="#FFFFFF">Status:</text>
+      <text x="80" y="140" font-size="12" fill="#FFD166">NEW</text>
+      <text x="20" y="166" font-size="10" font-style="italic" fill="#9FB3D1">All mandatory fields filled</text>
+    </g>
+
+    <line x1="350" y1="290" x2="380" y2="290" stroke="#5DA460" stroke-width="3" marker-end="url(#arrowGreen)"/>
+
+    <!-- Step 2 -->
+    <g transform="translate(390,0)">
+      <rect width="280" height="180" rx="10" fill="#15304F" stroke="#F08A3E" stroke-width="2"/>
+      <circle cx="32" cy="32" r="22" fill="#F08A3E"/>
+      <text x="32" y="40" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">2</text>
+      <text x="64" y="40" font-size="16" font-weight="800" fill="#F08A3E">AUTO-ROUTING</text>
+      <text x="20" y="74" font-size="12" font-weight="700" fill="#FFFFFF">Actor:</text>
+      <text x="80" y="74" font-size="12" fill="#FFFFFF">Jira automation</text>
+      <text x="20" y="96" font-size="12" font-weight="700" fill="#FFFFFF">Trigger:</text>
+      <text x="80" y="96" font-size="12" fill="#FFFFFF">Value Stream field</text>
+      <text x="20" y="118" font-size="12" font-weight="700" fill="#FFFFFF">Action:</text>
+      <text x="80" y="118" font-size="11" fill="#FFFFFF">Assign to portfolio board · notify Champion</text>
+      <text x="20" y="155" font-size="12" font-weight="700" fill="#FFFFFF">Status:</text>
+      <text x="80" y="155" font-size="12" fill="#FFD166">ROUTED</text>
+    </g>
+
+    <line x1="740" y1="290" x2="770" y2="290" stroke="#5DA460" stroke-width="3" marker-end="url(#arrowGreen)"/>
+
+    <!-- Step 3 -->
+    <g transform="translate(780,0)">
+      <rect width="280" height="180" rx="10" fill="#15304F" stroke="#F08A3E" stroke-width="2"/>
+      <circle cx="32" cy="32" r="22" fill="#F08A3E"/>
+      <text x="32" y="40" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">3</text>
+      <text x="64" y="40" font-size="16" font-weight="800" fill="#F08A3E">TRIAGE</text>
+      <text x="20" y="74" font-size="12" font-weight="700" fill="#FFFFFF">Actor:</text>
+      <text x="80" y="74" font-size="12" fill="#FFFFFF">PM steward + Champion</text>
+      <text x="20" y="96" font-size="12" font-weight="700" fill="#FFFFFF">Cadence:</text>
+      <text x="84" y="96" font-size="12" fill="#FFFFFF">Daily (incidents) · weekly (rest)</text>
+      <text x="20" y="118" font-size="12" font-weight="700" fill="#FFFFFF">Action:</text>
+      <text x="80" y="118" font-size="11" fill="#FFFFFF">Validate DoR · finalize CoS · auto-Pain Score</text>
+      <text x="20" y="155" font-size="12" font-weight="700" fill="#FFFFFF">Status:</text>
+      <text x="80" y="155" font-size="12" fill="#FFD166">TRIAGED  or  BOUNCED</text>
+    </g>
+
+    <line x1="1130" y1="290" x2="1160" y2="290" stroke="#5DA460" stroke-width="3" marker-end="url(#arrowGreen)"/>
+
+    <!-- Step 4 -->
+    <g transform="translate(1170,0)">
+      <rect width="280" height="180" rx="10" fill="#15304F" stroke="#F08A3E" stroke-width="2"/>
+      <circle cx="32" cy="32" r="22" fill="#F08A3E"/>
+      <text x="32" y="40" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">4</text>
+      <text x="64" y="40" font-size="16" font-weight="800" fill="#F08A3E">BACKLOG ENTRY</text>
+      <text x="20" y="74" font-size="12" font-weight="700" fill="#FFFFFF">Actor:</text>
+      <text x="80" y="74" font-size="12" fill="#FFFFFF">PM steward</text>
+      <text x="20" y="96" font-size="12" font-weight="700" fill="#FFFFFF">Action:</text>
+      <text x="80" y="96" font-size="11" fill="#FFFFFF">Add to portfolio backlog · ranked by Pain Score</text>
+      <text x="20" y="130" font-size="12" font-weight="700" fill="#FFFFFF">Branch by Size:</text>
+      <text x="80" y="155" font-size="11" fill="#FFD166">→ Step 5 if Build/Transform</text>
+      <text x="80" y="170" font-size="11" fill="#FFD166">→ Step 6 if BAU/Run/Small</text>
+    </g>
+
+    <!-- Step 5 (conditional) -->
+    <g transform="translate(1560,0)">
+      <rect width="280" height="180" rx="10" fill="#3A2D52" stroke="#7C3AED" stroke-width="2"/>
+      <circle cx="32" cy="32" r="22" fill="#7C3AED"/>
+      <text x="32" y="40" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">5</text>
+      <text x="64" y="40" font-size="14" font-weight="800" fill="#D4C4E8">GATE 1 · SHARK TANK</text>
+      <text x="20" y="68" font-size="11" fill="#D4C4E8" font-style="italic">Build/Transform Large only</text>
+      <text x="20" y="90" font-size="11" font-weight="700" fill="#FFFFFF">Actor: Shark Tank Committee</text>
+      <text x="20" y="108" font-size="11" font-weight="700" fill="#FFFFFF">Cadence: bi-weekly</text>
+      <text x="20" y="126" font-size="11" font-weight="700" fill="#FFFFFF">Artifacts:</text>
+      <text x="20" y="142" font-size="10" fill="#FFFFFF">Opportunity Canvas · Product Brief</text>
+      <text x="20" y="156" font-size="10" fill="#FFFFFF">Concept Prototypes · Discovery Report</text>
+      <text x="20" y="172" font-size="11" font-weight="700" fill="#FFD166">Status: GATE1_PASSED · REJECTED</text>
+    </g>
+
+    <line x1="1840" y1="290" x2="1870" y2="290" stroke="#5DA460" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  </g>
+
+  <!-- Steps 6, 7, 8 in second row -->
+  <g transform="translate(60,440)">
+    <!-- Step 6 -->
+    <g>
+      <rect width="280" height="180" rx="10" fill="#15304F" stroke="#F08A3E" stroke-width="2"/>
+      <circle cx="32" cy="32" r="22" fill="#F08A3E"/>
+      <text x="32" y="40" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">6</text>
+      <text x="64" y="40" font-size="14" font-weight="800" fill="#F08A3E">GATE 2 · PORTFOLIO COMMITTEE</text>
+      <text x="20" y="68" font-size="11" font-weight="700" fill="#FFFFFF">Actor:</text>
+      <text x="64" y="68" font-size="11" fill="#FFFFFF">Vitor + Carlos + Kumar + PM stewards</text>
+      <text x="20" y="88" font-size="11" font-weight="700" fill="#FFFFFF">Cadence:</text>
+      <text x="74" y="88" font-size="11" fill="#FFFFFF">monthly</text>
+      <text x="20" y="108" font-size="11" font-weight="700" fill="#FFFFFF">Action:</text>
+      <text x="64" y="108" font-size="11" fill="#FFFFFF">Investment approval · capacity slot</text>
+      <text x="20" y="138" font-size="11" font-style="italic" fill="#9FB3D1">SKIP if effort &lt; 2 days · Standard CoS</text>
+      <text x="20" y="156" font-size="11" font-style="italic" fill="#9FB3D1">SKIP if Class of Service = Expedite</text>
+      <text x="20" y="172" font-size="11" font-weight="700" fill="#FFD166">Status: READY_FOR_EXEC</text>
+    </g>
+
+    <line x1="350" y1="530" x2="380" y2="530" stroke="#5DA460" stroke-width="3" marker-end="url(#arrowGreen)"/>
+
+    <!-- Step 7 -->
+    <g transform="translate(390,0)">
+      <rect width="280" height="180" rx="10" fill="#15304F" stroke="#F08A3E" stroke-width="2"/>
+      <circle cx="32" cy="32" r="22" fill="#F08A3E"/>
+      <text x="32" y="40" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">7</text>
+      <text x="64" y="40" font-size="16" font-weight="800" fill="#F08A3E">PULL TO SQUAD</text>
+      <text x="20" y="74" font-size="12" font-weight="700" fill="#FFFFFF">Actor:</text>
+      <text x="80" y="74" font-size="12" fill="#FFFFFF">Squad Lead + PM steward</text>
+      <text x="20" y="96" font-size="12" font-weight="700" fill="#FFFFFF">Cadence:</text>
+      <text x="84" y="96" font-size="12" fill="#FFFFFF">weekly Replenishment</text>
+      <text x="20" y="118" font-size="12" font-weight="700" fill="#FFFFFF">Action:</text>
+      <text x="80" y="118" font-size="11" fill="#FFFFFF">Pull from Ready · respect CoS ratios</text>
+      <text x="20" y="140" font-size="12" font-weight="700" fill="#FFFFFF">Status:</text>
+      <text x="80" y="140" font-size="12" fill="#FFD166">SQUAD_TODO</text>
+      <text x="20" y="166" font-size="10" font-style="italic" fill="#9FB3D1">Auto-link to current sprint</text>
+    </g>
+
+    <line x1="740" y1="530" x2="770" y2="530" stroke="#5DA460" stroke-width="3" marker-end="url(#arrowGreen)"/>
+
+    <!-- Step 8 -->
+    <g transform="translate(780,0)">
+      <rect width="280" height="180" rx="10" fill="#15304F" stroke="#F08A3E" stroke-width="2"/>
+      <circle cx="32" cy="32" r="22" fill="#F08A3E"/>
+      <text x="32" y="40" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">8</text>
+      <text x="64" y="40" font-size="16" font-weight="800" fill="#F08A3E">EXECUTION</text>
+      <text x="20" y="74" font-size="12" font-weight="700" fill="#FFFFFF">Actor:</text>
+      <text x="80" y="74" font-size="12" fill="#FFFFFF">Squad (FTE + vendor)</text>
+      <text x="20" y="96" font-size="12" font-weight="700" fill="#FFFFFF">Cadence:</text>
+      <text x="84" y="96" font-size="12" fill="#FFFFFF">Daily Flow Review</text>
+      <text x="20" y="118" font-size="12" font-weight="700" fill="#FFFFFF">Flow:</text>
+      <text x="80" y="118" font-size="11" fill="#FFFFFF">TODO → IN_PROGRESS → REVIEW → DONE</text>
+      <text x="20" y="140" font-size="12" font-weight="700" fill="#FFFFFF">WIP:</text>
+      <text x="80" y="140" font-size="12" fill="#FFD166">Per CoS swimlane</text>
+      <text x="20" y="166" font-size="10" font-style="italic" fill="#9FB3D1">Done = released to production · KPIs captured</text>
+    </g>
+  </g>
+
+  <!-- Size-conditional paths summary -->
+  <g transform="translate(60,680)" filter="url(#cardShadow)">
+    <rect width="2280" height="610" rx="12" fill="#15304F" stroke="#F08A3E" stroke-width="2"/>
+    <rect width="2280" height="50" rx="12" fill="#F08A3E"/>
+    <text x="20" y="34" font-size="20" font-weight="800" fill="#0E2240">PATHS BY SIZE &amp; CLASS OF SERVICE — what to skip, what to require</text>
+
+    <!-- Path 1: Expedite -->
+    <g transform="translate(20,70)">
+      <rect width="1110" height="120" rx="8" fill="#3A1F2A" stroke="#B83567"/>
+      <text x="14" y="28" font-size="14" font-weight="800" fill="#B83567" letter-spacing="1">PATH A · EXPEDITE  (P1/P2 customer impact · Production outage · Regulatory &lt; 30 days)</text>
+      <text x="14" y="52" font-size="13" fill="#FFFFFF">1 → 2 → 3 → <tspan fill="#B83567" text-decoration="line-through">5</tspan> <tspan fill="#FFFFFF">(skip Gate 1)</tspan> → <tspan fill="#B83567" text-decoration="line-through">6</tspan> <tspan fill="#FFFFFF">(skip Gate 2)</tspan> → 7 → 8</text>
+      <text x="14" y="74" font-size="12" fill="#FFFFFF">DoR relaxed (best-guess fields acceptable) · pulled into Squad Expedite swimlane on next Daily Flow Review</text>
+      <text x="14" y="96" font-size="11" font-style="italic" fill="#FCD2DD">Capacity reserve: 5–10% per quarter blocked-out for Expedite · WIP limit 1 per squad</text>
+    </g>
+
+    <!-- Path 2: Regulatory -->
+    <g transform="translate(1150,70)">
+      <rect width="1110" height="120" rx="8" fill="#1F2A33" stroke="#FFAB00"/>
+      <text x="14" y="28" font-size="14" font-weight="800" fill="#FFAB00" letter-spacing="1">PATH B · REGULATORY  (Regulatory flag = TRUE · CoS = Fixed-Date)</text>
+      <text x="14" y="52" font-size="13" fill="#FFFFFF">1 → 2 → 3 → <tspan fill="#FFAB00" text-decoration="line-through">5</tspan> <tspan fill="#FFFFFF">(skip Gate 1 — no Go/No-Go decision: it is mandatory)</tspan> → 6 → 7 → 8</text>
+      <text x="14" y="74" font-size="12" fill="#FFFFFF">Sponsor must be Compliance / Legal / Regulatory Affairs · scheduled to Fixed-Date swimlane on Squad Board</text>
+      <text x="14" y="96" font-size="11" font-style="italic" fill="#FFE5A8">Capacity reserve: 25% target on VS-3 squads · driven by deadline</text>
+    </g>
+
+    <!-- Path 3: Small/quick -->
+    <g transform="translate(20,200)">
+      <rect width="1110" height="120" rx="8" fill="#1F2D1F" stroke="#5DA460"/>
+      <text x="14" y="28" font-size="14" font-weight="800" fill="#5DA460" letter-spacing="1">PATH C · SMALL  (Size = Small · CoS = Standard · effort &lt; 5 days)</text>
+      <text x="14" y="52" font-size="13" fill="#FFFFFF">1 → 2 → 3 → 4 → <tspan fill="#5DA460" text-decoration="line-through">5</tspan> <tspan fill="#FFFFFF">(skip Gate 1)</tspan> → <tspan fill="#5DA460" text-decoration="line-through">6</tspan> <tspan fill="#FFFFFF">if effort &lt; 2 days  ·  6 if effort 2–5 days</tspan> → 7 → 8</text>
+      <text x="14" y="74" font-size="12" fill="#FFFFFF">Quick-fix path · handled by squad's duty engineer · pulled into Standard swimlane</text>
+      <text x="14" y="96" font-size="11" font-style="italic" fill="#C2E5C2">Production errors and small enhancements live here · no separate ops squad needed</text>
+    </g>
+
+    <!-- Path 4: Build/Transform -->
+    <g transform="translate(1150,200)">
+      <rect width="1110" height="120" rx="8" fill="#2D2240" stroke="#7C3AED"/>
+      <text x="14" y="28" font-size="14" font-weight="800" fill="#7C3AED" letter-spacing="1">PATH D · BUILD/TRANSFORM  (Size = Medium/Large · Work Type = Build/Transform)</text>
+      <text x="14" y="52" font-size="13" fill="#FFFFFF">1 → 2 → 3 → 4 → 5 (Gate 1 Shark Tank) → 6 (Gate 2 Portfolio Committee) → 7 → 8</text>
+      <text x="14" y="74" font-size="12" fill="#FFFFFF">Full path · all artifacts required · Epic created in Jira before Step 5</text>
+      <text x="14" y="96" font-size="11" font-style="italic" fill="#D4C4E8">Cadence: Gate 1 bi-weekly · Gate 2 monthly · BRP quarterly slots large items</text>
+    </g>
+
+    <!-- Path 5: BAU/Run -->
+    <g transform="translate(20,330)">
+      <rect width="2240" height="80" rx="8" fill="#1F2A33" stroke="#9FB3D1"/>
+      <text x="14" y="28" font-size="14" font-weight="800" fill="#9FB3D1" letter-spacing="1">PATH E · BAU / RUN  (Work Type = BAU · keep-the-lights-on)</text>
+      <text x="14" y="52" font-size="13" fill="#FFFFFF">1 → 2 → 3 → 4 → <tspan fill="#9FB3D1" text-decoration="line-through">5</tspan> <tspan fill="#FFFFFF">(skip Gate 1 — operational continuity, not strategic investment)</tspan> → 6 → 7 → 8</text>
+      <text x="14" y="74" font-size="11" font-style="italic" fill="#9FB3D1">BAU tagged at intake · Standard CoS · ranked by Pain Score · most break-fix work goes here in VS-2 and Squad Global SAP</text>
+    </g>
+
+    <!-- DoR + bounce note -->
+    <g transform="translate(20,420)">
+      <rect width="2240" height="170" rx="8" fill="#0E2240" stroke="#36B37E"/>
+      <text x="14" y="26" font-size="14" font-weight="800" fill="#36B37E" letter-spacing="1">DEFINITION OF READY  ·  bounce condition between Step 3 and Step 4</text>
+      <text x="14" y="52" font-size="12" font-weight="700" fill="#FFFFFF">An item moves from TRIAGED → BACKLOG only if:</text>
+      <text x="14" y="74" font-size="12" fill="#FFFFFF">  ✓ Title is outcome-based · Description describes the problem (not the solution)</text>
+      <text x="14" y="92" font-size="12" fill="#FFFFFF">  ✓ Business Value is quantified · Acceptance Criteria are measurable and verifiable</text>
+      <text x="14" y="110" font-size="12" fill="#FFFFFF">  ✓ Class of Service is set (best-guess at intake acceptable; finalized at triage)</text>
+      <text x="14" y="128" font-size="12" fill="#FFFFFF">  ✓ Sponsor is identified · OPCO selected · Value Stream / Domain confirmed</text>
+      <text x="14" y="152" font-size="11" font-style="italic" fill="#36B37E">If DoR fails → status BOUNCED · ticket auto-assigned back to Requestor with bounce reason · loop until DoR passes</text>
+    </g>
+  </g>
+
+  <text x="60" y="1320" font-size="11" fill="#6F87A8">Source: Renewables DTO Slide 33 (Submit Jira Request Ticket) · Slide 28 (End-to-End Kanban Workflow) · Customer Services — Proposed Value Streams Slide 3</text>
+  <text x="2340" y="1320" text-anchor="end" font-size="11" fill="#6F87A8">07 / 12</text>
+</svg>

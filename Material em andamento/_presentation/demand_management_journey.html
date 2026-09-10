@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demand Management · From Today to Target Operating Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0F1C50;
+  --navy-2: #1F3A68;
+  --blue: #2C578B;
+  --blue-light: #6785C1;
+  --blue-pale: #DCE6F5;
+  --cyan: #0B76A0;
+  --gold: #F9A825;
+  --green: #2E7D32;
+  --green-light: #4CAF50;
+  --red: #B6 3B1F;
+  --red-bright: #C0392B;
+  --amber: #E88B2F;
+  --purple: #7A66B8;
+  --bg: #0a0e1f;
+  --bg-2: #0f1430;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #ECEFF6;
+  --text-dim: #A8B0C2;
+  --text-muted: #6B7388;
+  --max-width: 1180px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-md: 0 10px 30px rgba(0,0,0,0.35);
+  --shadow-lg: 0 25px 60px rgba(0,0,0,0.5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Animated background gradient */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(44, 87, 139, 0.18), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 80% 100%, rgba(11, 118, 160, 0.12), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(31, 58, 104, 0.08), transparent 60%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ─── PROGRESS BAR (sticky top) ─── */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cyan), var(--blue-light), var(--gold));
+  width: 0%;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(11, 118, 160, 0.6);
+  transition: width 0.1s linear;
+}
+
+/* ─── STICKY NAV ─── */
+.nav {
+  position: fixed;
+  top: 24px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  background: rgba(15, 20, 48, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 8px 12px;
+  display: flex;
+  gap: 4px;
+  box-shadow: var(--shadow-md);
+  font-size: 12.5px;
+  font-weight: 500;
+  max-width: 92vw;
+  overflow-x: auto;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+}
+.nav a:hover { color: var(--text); background: var(--surface); }
+.nav a.active {
+  color: var(--bg);
+  background: linear-gradient(135deg, var(--gold), #ffc857);
+  font-weight: 600;
+}
+
+/* ─── BRAND MARK top right ─── */
+.brand {
+  position: fixed;
+  top: 28px; right: 32px;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 20, 48, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--text-dim);
+}
+.brand .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+/* ─── SECTION layout ─── */
+section {
+  position: relative;
+  padding: 120px 32px 80px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  scroll-margin-top: 100px;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.section-tag::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--gold);
+}
+
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.2rem, 2.4vw, 1.6rem); }
+
+.lead {
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  color: var(--text-dim);
+  max-width: 720px;
+  margin-top: 22px;
+  line-height: 1.7;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 32px 120px;
+  position: relative;
+}
+.hero h1 {
+  background: linear-gradient(135deg, #fff 0%, #C0D0FF 60%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 18px;
+}
+.hero .lead { font-size: 1.4rem; color: var(--text); margin-top: 28px; max-width: 800px; }
+.hero .scroll-hint {
+  position: absolute;
+  bottom: 50px; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.hero .scroll-hint .arrow {
+  width: 1px; height: 50px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  animation: scrollDown 2s infinite;
+}
+@keyframes scrollDown {
+  0% { transform: translateY(-15px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0; }
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  margin-top: 70px;
+  max-width: 900px;
+}
+.stat {
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+}
+.stat .num {
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--gold), #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.03em;
+}
+.stat .lbl {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── JOURNEY FLOW (horizontal steps) ─── */
+.journey-flow {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-top: 40px;
+  position: relative;
+}
+.journey-flow::before {
+  content: '';
+  position: absolute;
+  top: 36px; left: 12%; right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--gold), var(--green-light));
+  z-index: 0;
+}
+.flow-step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.flow-step .circle {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-2), var(--blue));
+  border: 2px solid var(--blue-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 auto 14px;
+  box-shadow: var(--shadow-md), 0 0 24px rgba(103, 133, 193, 0.3);
+}
+.flow-step.active .circle {
+  background: linear-gradient(135deg, var(--gold), #ffc857);
+  border-color: var(--gold);
+  color: var(--bg);
+  box-shadow: 0 0 35px rgba(249, 168, 37, 0.6);
+}
+.flow-step .lbl {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.flow-step .sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ─── COMPARISON CARDS (AS-IS vs TO-BE) ─── */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  margin-top: 28px;
+  align-items: stretch;
+}
+.compare .card {
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.compare .card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: var(--gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.compare .card.as-is { --gradient: linear-gradient(135deg, rgba(192, 57, 43, 0.5), rgba(192, 57, 43, 0)); }
+.compare .card.to-be { --gradient: linear-gradient(135deg, rgba(76, 175, 80, 0.5), rgba(76, 175, 80, 0)); }
+.compare .card.as-is::before { background: linear-gradient(135deg, rgba(192, 57, 43, 0.5), rgba(192, 57, 43, 0)); }
+.compare .card.to-be::before { background: linear-gradient(135deg, rgba(76, 175, 80, 0.5), rgba(76, 175, 80, 0)); }
+
+.compare .label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.compare .as-is .label { color: var(--red-bright); }
+.compare .to-be .label { color: var(--green-light); }
+.compare .label .badge {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+.compare .as-is .label .badge { background: rgba(192, 57, 43, 0.15); }
+.compare .to-be .label .badge { background: rgba(76, 175, 80, 0.15); }
+.compare h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.compare .body {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+.compare ul { list-style: none; padding: 0; margin-top: 10px; }
+.compare ul li {
+  padding: 4px 0 4px 20px;
+  position: relative;
+  font-size: 0.92rem;
+}
+.compare ul li::before {
+  content: '';
+  position: absolute;
+  left: 4px; top: 12px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+.compare .as-is ul li::before { background: var(--red-bright); }
+.compare .to-be ul li::before { background: var(--green-light); }
+
+.arrow-mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--gold);
+  font-weight: 700;
+  filter: drop-shadow(0 0 10px rgba(249, 168, 37, 0.5));
+}
+
+/* ─── ITEM COUNTER (small pill) ─── */
+.item-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+.item-pill .num {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ─── CATEGORY HEADER (big visual) ─── */
+.category-header {
+  margin-top: 100px;
+  margin-bottom: 40px;
+  padding: 50px 40px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--cat-color-1, var(--blue)), var(--cat-color-2, var(--navy-2)));
+  position: relative;
+  overflow: hidden;
+}
+.category-header::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -10%;
+  width: 60%; height: 200%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.08), transparent 70%);
+  pointer-events: none;
+}
+.category-header .num-big {
+  font-size: 8rem;
+  font-weight: 900;
+  line-height: 0.9;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.05em;
+  position: absolute;
+  bottom: 10px; right: 30px;
+}
+.category-header h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  margin-bottom: 8px;
+}
+.category-header .subtitle {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+.category-header .count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+/* Per-category gradients */
+.cat-cap { --cat-color-1: #2E7D32; --cat-color-2: #1B5E20; }
+.cat-roles { --cat-color-1: #00838F; --cat-color-2: #006064; }
+.cat-tools { --cat-color-1: #E88B2F; --cat-color-2: #B26F1A; }
+.cat-gov { --cat-color-1: #1F3A68; --cat-color-2: #0F1C50; }
+.cat-perf { --cat-color-1: #C0392B; --cat-color-2: #7B241C; }
+
+/* ─── ITEM CARD (one per capability/role/tool/governance/performance) ─── */
+.item {
+  margin-top: 32px;
+  padding: 28px 32px;
+  background: var(--surface);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  align-items: start;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(249, 168, 37, 0.3);
+}
+.item .item-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.6;
+  width: 60px;
+}
+.item-body { width: 100%; }
+.item h3 {
+  font-size: 1.35rem;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+.compare-mini {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+.compare-mini .col {
+  padding: 18px 20px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+.compare-mini .col.as-is {
+  background: rgba(192, 57, 43, 0.06);
+  border: 1px solid rgba(192, 57, 43, 0.2);
+  color: #FFB4A8;
+}
+.compare-mini .col.to-be {
+  background: rgba(76, 175, 80, 0.06);
+  border: 1px solid rgba(76, 175, 80, 0.2);
+  color: #B8E5BA;
+}
+.compare-mini .col .tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+.compare-mini .as-is .tag { color: var(--red-bright); }
+.compare-mini .to-be .tag { color: var(--green-light); }
+
+/* ─── GLASSMORPHIC PANEL ─── */
+.panel {
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+  margin-top: 28px;
+}
+
+/* ─── 11 SOURCES grid ─── */
+.sources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+.source-pill {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+.source-pill:hover {
+  border-color: var(--blue-light);
+  background: rgba(103, 133, 193, 0.08);
+  transform: translateY(-2px);
+}
+.source-pill .num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--navy-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.source-pill .name { color: var(--text); font-weight: 500; }
+.source-pill .ctx { color: var(--text-muted); font-size: 11px; display: block; margin-top: 2px; }
+
+/* ─── DIMENSION cards (TO-BE 4 dimensions) ─── */
+.dims-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+.dim {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.dim:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.dim::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--dim-color, var(--gold));
+}
+.dim .num { font-family: 'JetBrains Mono', monospace; color: var(--dim-color); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; }
+.dim h4 { font-size: 1.15rem; margin: 8px 0 14px; }
+.dim ul { list-style: none; }
+.dim li {
+  font-size: 0.85rem;
+  padding: 6px 0 6px 18px;
+  position: relative;
+  color: var(--text-dim);
+}
+.dim li::before {
+  content: '';
+  position: absolute;
+  left: 2px; top: 14px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--dim-color);
+}
+.dim-1 { --dim-color: #6785C1; }
+.dim-2 { --dim-color: #F9A825; }
+.dim-3 { --dim-color: #4CAF50; }
+.dim-4 { --dim-color: #7A66B8; }
+
+/* ─── REVEAL ANIMATION ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── FINAL CTA ─── */
+.cta-section {
+  text-align: center;
+  padding: 120px 32px 100px;
+  margin-top: 100px;
+  background: linear-gradient(180deg, transparent, rgba(15, 28, 80, 0.4));
+  border-top: 1px solid var(--border);
+}
+.cta-section h2 {
+  background: linear-gradient(135deg, #fff, var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+}
+.cta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 50px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+}
+.cta-card .icon { font-size: 2rem; margin-bottom: 12px; }
+.cta-card h4 { font-size: 1rem; margin-bottom: 8px; color: var(--gold); letter-spacing: 0.05em; }
+.cta-card p { font-size: 0.88rem; color: var(--text-dim); }
+
+/* ─── FOOTER ─── */
+footer {
+  text-align: center;
+  padding: 40px 32px 80px;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ─── BIG QUOTE ─── */
+.quote {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 50px 40px;
+  position: relative;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.quote::before {
+  content: '"';
+  font-family: Georgia, serif;
+  font-size: 8rem;
+  color: var(--gold);
+  position: absolute;
+  top: -20px; left: 0;
+  opacity: 0.3;
+  line-height: 1;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .compare { grid-template-columns: 1fr; }
+  .arrow-mid { transform: rotate(90deg); padding: 12px 0; }
+  .compare-mini { grid-template-columns: 1fr; }
+  .item { grid-template-columns: 1fr; }
+  .journey-flow { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .journey-flow::before { display: none; }
+  .nav { font-size: 11px; padding: 6px 8px; }
+  .nav a { padding: 6px 12px; }
+  .brand { display: none; }
+  .category-header .num-big { font-size: 5rem; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- progress + nav + brand -->
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="nav" id="topnav">
+  <a href="#hero" class="active">Start</a>
+  <a href="#journey">Journey</a>
+  <a href="#sources">Sources</a>
+  <a href="#types">Types</a>
+  <a href="#capabilities">Capabilities</a>
+  <a href="#roles">Roles</a>
+  <a href="#tools">Tools</a>
+  <a href="#governance">Governance</a>
+  <a href="#performance">Performance</a>
+  <a href="#shift">The Shift</a>
+</nav>
+
+<div class="brand">
+  <span class="dot"></span>
+  AVANGRID · DIGITAL PRODUCTS
+</div>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<!-- HERO -->
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section id="hero" class="hero">
+  <div class="section-tag">DEMAND MANAGEMENT · TARGET OPERATING MODEL</div>
+  <h1>The journey of a demand,<br>from request to delivery.</h1>
+  <p class="lead">
+    Today, a single customer request travels through six disconnected channels, gets re-classified
+    by every team it touches, and waits months for a decision. Tomorrow, it enters one front door,
+    is sized and routed in days, and reaches the right squad with a clear contract of value.
+  </p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="num">11</div>
+      <div class="lbl">SOURCE AREAS<br>FUNNELING DEMAND</div>
+    </div>
+    <div class="stat">
+      <div class="num">6+</div>
+      <div class="lbl">DISCONNECTED<br>CHANNELS TODAY</div>
+    </div>
+    <div class="stat">
+      <div class="num">8</div>
+      <div class="lbl">VALUE STREAM<br>SQUADS PROPOSED</div>
+    </div>
+    <div class="stat">
+      <div class="num">36</div>
+      <div class="lbl">FRAMEWORK ITEMS<br>RE-DESIGNED</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>SCROLL TO BEGIN</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<!-- JOURNEY OVERVIEW -->
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section id="journey">
+  <div class="reveal">
+    <div class="section-tag">THE STAGES</div>
+    <h2>One demand · six checkpoints.</h2>
+    <p class="lead">
+      Every request passes the same six checkpoints — but today each one is a black hole.
+      The Target Operating Model rebuilds them as visible, measurable, governed steps.
+    </p>
+  </div>
+
+  <div class="journey-flow reveal">
+    <div class="flow-step active">
+      <div class="circle">①</div>
+      <div class="lbl">Sources</div>
+      <div class="sub">Who sends</div>
+    </div>
+    <div class="flow-step">
+      <div class="circle">②</div>
+      <div class="lbl">Channels</div>
+      <div class="sub">How it arrives</div>
+    </div>
+    <div class="flow-step">
+      <div class="circle">③</div>
+      <div class="lbl">Types</div>
+      <div class="sub">What kind</div>
+    </div>
+    <div class="flow-step">
+      <div class="circle">④</div>
+      <div class="lbl">Triage</div>
+      <div class="sub">Accept / route</div>
+    </div>
+    <div class="flow-step">
+      <div class="circle">⑤</div>
+      <div class="lbl">Portfolio</div>
+      <div class="sub">Prioritize</div>
+    </div>
+    <div class="flow-step">
+      <div class="circle">⑥</div>
+      <div class="lbl">Squad</div>
+      <div class="sub">Deliver</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<!-- 1 · SOURCES -->
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section id="sources">
+  <div class="reveal">
+    <div class="section-tag">CHECKPOINT 01 · WHO SENDS THE DEMAND</div>
+    <h2>Eleven source areas. <span style="color: var(--text-dim)">One front door.</span></h2>
+    <p class="lead">
+      The same eleven business areas exist today and tomorrow — what changes is the route.
+      Today they push demand through six different tools; tomorrow they all enter via one Jira request type per Value Stream.
+    </p>
+  </div>
+
+  <div class="panel reveal">
+    <h3 style="margin-bottom: 8px; font-size: 1.1rem; color: var(--text-dim);">All 11 source areas funneling demand into Digital Products</h3>
+    <div class="sources-grid">
+      <div class="source-pill"><span class="num">01</span><div><span class="name">BRS</span><span class="ctx">Business Relationship Services · 7 OPCOs gateway</span></div></div>
+      <div class="source-pill"><span class="num">02</span><div><span class="name">CX & Digital CoE</span><span class="ctx">Customer-facing CX layer</span></div></div>
+      <div class="source-pill"><span class="num">03</span><div><span class="name">Data & Analytics</span><span class="ctx">D&A teams</span></div></div>
+      <div class="source-pill"><span class="num">04</span><div><span class="name">Infrastructure</span><span class="ctx">IT infrastructure</span></div></div>
+      <div class="source-pill"><span class="num">05</span><div><span class="name">IA</span><span class="ctx">Industrial Automation · OT-adjacent</span></div></div>
+      <div class="source-pill"><span class="num">06</span><div><span class="name">OT</span><span class="ctx">Operational Technology · plant / control</span></div></div>
+      <div class="source-pill"><span class="num">07</span><div><span class="name">Procurement</span><span class="ctx">Procurement function</span></div></div>
+      <div class="source-pill"><span class="num">08</span><div><span class="name">Regulatory</span><span class="ctx">Compliance / regulatory affairs</span></div></div>
+      <div class="source-pill"><span class="num">09</span><div><span class="name">Corporate Areas</span><span class="ctx">Finance · HR · Legal</span></div></div>
+      <div class="source-pill"><span class="num">10</span><div><span class="name">P&T — GIS</span><span class="ctx">Networks IT · Planning & Tracking</span></div></div>
+      <div class="source-pill"><span class="num">11</span><div><span class="name">P&T — Global SAP</span><span class="ctx">Iberdrola SAP cycle</span></div></div>
+    </div>
+  </div>
+
+  <div class="compare reveal">
+    <div class="card as-is">
+      <div class="label"><span class="badge">×</span> AS-IS · TODAY</div>
+      <h4>Sources scatter into 6+ disconnected channels</h4>
+      <div class="body">
+        Each source picks the channel they prefer — some teams route through Email, some through SharePoint, some directly to a vendor.
+        Only G&E operates at scale today; the rest run a parallel maze.
+      </div>
+      <ul>
+        <li>IT Now · BSS Log · PDD · MS Office · SharePoint · Confluence · Jira</li>
+        <li>"Across both branches, only 1 area operates at scale — G&E"</li>
+        <li>Same OPCO drops the same demand into multiple channels</li>
+      </ul>
+    </div>
+    <div class="arrow-mid">→</div>
+    <div class="card to-be">
+      <div class="label"><span class="badge">✓</span> TO-BE · TARGET MODEL</div>
+      <h4>Same 11 sources · single Jira request type per Value Stream</h4>
+      <div class="body">
+        Each source still originates demand the same way — but they all converge into one mandatory Jira request type per Value Stream.
+        Mandatory fields enforce a Definition of Ready at intake.
+      </div>
+      <ul>
+        <li>One front door per VS · IT Now reserved for incidents only</li>
+        <li>Email · SharePoint · Word decommissioned for new demand</li>
+        <li>Auto-routing by selected Value Stream + sub-routing internal</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<!-- 2 · TYPES -->
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section id="types">
+  <div class="reveal">
+    <div class="section-tag">CHECKPOINT 03 · WHAT KIND OF DEMAND</div>
+    <h2>From 6+ overlapping taxonomies to <span style="color: var(--gold)">four orthogonal dimensions</span>.</h2>
+    <p class="lead">
+      Today's classification depends on which team you ask. Tomorrow, every card carries the same four-axis label, captured once at intake.
+    </p>
+  </div>
+
+  <div class="compare reveal">
+    <div class="card as-is">
+      <div class="label"><span class="badge">×</span> AS-IS</div>
+      <h4>Two dimensions · used inconsistently</h4>
+      <div class="body">
+        Three official type buckets <em>(Regulatory · Non-Regulatory · Production Support)</em> mixed with team-specific size variants
+        <em>(Break/fix · Small · Medium · Large · Minor · Incidents)</em>. Each team uses its own combination.
+      </div>
+      <ul>
+        <li>GIS uses · Break/fix · Small · Large</li>
+        <li>Corporate uses · Regulatory · Small/Medium</li>
+        <li>G&E uses · Small · Medium · Large · BRP cycles  (only mature)</li>
+        <li>Smart Metering uses · Incidents · Large · Small  (intrinsic common sense)</li>
+      </ul>
+    </div>
+    <div class="arrow-mid">→</div>
+    <div class="card to-be">
+      <div class="label"><span class="badge">✓</span> TO-BE</div>
+      <h4>Four orthogonal dimensions · captured once</h4>
+      <div class="body">
+        Every demand carries four labels at intake. Each label is a mandatory field on the Jira request type.
+        Each dimension drives a different downstream behavior.
+      </div>
+      <ul>
+        <li>Class of Service — Standard · Fixed-Date · Expedite ≤20% · Intangible</li>
+        <li>Size (T-shirt) — S / M / L / XL  (drives routing path)</li>
+        <li>Investment intent — Run / Grow / Transform</li>
+        <li>Work hierarchy — Initiative → Story  (Epic only when > 3 months)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dims-grid reveal">
+    <div class="dim dim-1">
+      <div class="num">DIMENSION 01</div>
+      <h4>Class of Service</h4>
+      <ul>
+        <li>Standard — pulled by capacity</li>
+        <li>Fixed-Date — locked sequence</li>
+        <li>Expedite — capped ≤ 20% throughput</li>
+        <li>Intangible — 10–15% capacity reserve</li>
+      </ul>
+    </div>
+    <div class="dim dim-2">
+      <div class="num">DIMENSION 02</div>
+      <h4>Size · T-shirt</h4>
+      <ul>
+        <li>S · ≤ $10k · 1–3 months · &lt; 5 res. → squad direct</li>
+        <li>M · ≤ $500k · 3–6 months → squad direct, flagged</li>
+        <li>L · cross-team → Portfolio Gate</li>
+        <li>XL · multi-quarter → Gate + VP Sync</li>
+      </ul>
+    </div>
+    <div class="dim dim-3">
+      <div class="num">DIMENSION 03</div>
+      <h4>Investment intent</h4>
+      <ul>
+        <li>Run — operations · stability</li>
+        <li>Grow — enhancement · new features</li>
+        <li>Transform — re-platform · innovation</li>
+        <li>Mix per VS · target ratio set per quarter</li>
+      </ul>
+    </div>
+    <div class="dim dim-4">
+      <div class="num">DIMENSION 04</div>
+      <h4>Work item hierarchy</h4>
+      <ul>
+        <li>Initiative — portfolio level (≤ 3 mo)</li>
+        <li>Story — squad level (default unit)</li>
+        <li>Epic — exception, only Initiative > 3 mo</li>
+        <li>Default flow · Initiative → Story</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="quote reveal">
+  Every team has its own dialect for the same problem.<br>
+  The Target Operating Model gives them one language.
+</div>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<!-- CAPABILITIES (14 items) -->
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section id="capabilities">
+  <div class="category-header cat-cap reveal">
+    <div class="num-big">01</div>
+    <div class="count">14 ITEMS</div>
+    <h2>Capabilities</h2>
+    <div class="subtitle">What the organization must be able to do, end to end.</div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">01</div>
+    <div class="item-body">
+      <h3>Demand intake channels (formal and informal)</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>6+ disconnected channels (Jira · IT Now · RITM · SharePoint · Email · Word). No formal versus informal distinction — everything is informal except for G&E.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>One Jira request type per Value Stream as the only formal channel. IT Now restricted to incidents. Informal channels (email · Teams · Word) decommissioned for new demand.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">02</div>
+    <div class="item-body">
+      <h3>Demand registration and logging</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Per-team spreadsheets, OneNote pages and email threads. No SLA, no volume tracking. Logging only for items that hit PDD threshold.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Auto-created backlog item from intake form with immutable audit fields (requester · BU · team · date · sponsor). Every state change logged.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">03</div>
+    <div class="item-body">
+      <h3>Channel consolidation level (single vs multiple entry points)</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Multiple entry points per team. Same OPCO can drop the same demand into 3+ different channels with no de-dup.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>One adaptive intake form per Value Stream. Target — 90% of demand via the single channel by month 6. No alternative formal channels accepted.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">04</div>
+    <div class="item-body">
+      <h3>Standard intake formats or templates</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>No standard template. Each team improvises — some use a Word doc, some use a Jira free-text card, some send PowerPoint slides.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Canonical template enforcing Definition of Ready — title · business value · acceptance criteria · Class of Service · due date · sponsor.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">05</div>
+    <div class="item-body">
+      <h3>Demand classification (type, size, urgency)</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Three official buckets (Regulatory · Non-Regulatory · Production Support) mixed with per-team size variants. Inconsistent across teams.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Three independent axes — type · size · urgency. Closed taxonomy. Classification done at the intake gate, never self-declared.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">06</div>
+    <div class="item-body">
+      <h3>Run · Change · Regulatory · Innovation differentiation</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Implicit. Regulatory is the default priority by convention. Innovation appears only as a one-off project line in the Large-Demand portfolio.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Four explicit Classes of Service with capacity caps. Replaces the ad-hoc "urgent override" culture with a numeric policy (Expedite ≤ 20% · Intangible 10–15%).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">07</div>
+    <div class="item-body">
+      <h3>Business value definition</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>"Intrinsic common sense" (Smart Metering's exact wording). PDD provides a value section but it's narrative, not scored. No shared definition.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Weighted Pain Score combining Business Value · UX · Safety · Effort. Sponsor signs off the score at intake. CS-weighted for UX-heavy · IT-weighted for Safety-heavy.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">08</div>
+    <div class="item-body">
+      <h3>Availability of acceptance criteria</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Sometimes present in PDD documents for Large items. Almost never present for Small / break-fix demand — closure decided by the executor.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Mandatory in the Definition of Ready. Format · Given / When / Then or measurable outcome. Reviewed before scoring. Immutable post-prioritization.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">09</div>
+    <div class="item-body">
+      <h3>Technical feasibility input</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Asked late, often after the demand is already approved. Tech leads pulled into ad-hoc reviews when items get stuck.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Lightweight check at the intake gate by a rotating architect. Time-boxed (2 hours max). Output · Feasible · Conditional · Not feasible. Advisory, not a veto.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">10</div>
+    <div class="item-body">
+      <h3>Triage and initial validation activities</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>No formal triage for items below PDD threshold. Sr Managers absorb intake reactively. SLA undefined.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Weekly 30-minute Gate 1 triage committee. Outcomes · Accept · Send-back · Reject · Redirect. Five-business-day SLA. Decision logged with reason.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">11</div>
+    <div class="item-body">
+      <h3>Demand routing and assignment</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Routing happens by tribal knowledge — the requester knows whom to email. Cross-team items bounce around for weeks.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Routing by Value Stream, not by team or person. Auto-routing based on the requester's selection. Cross-stream items go to Architecture review.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">12</div>
+    <div class="item-body">
+      <h3>Handling of urgent or exception requests</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>"Regulatory always wins" + "Incidents first → strategic starved" (Global SAP). Any sponsor with enough seniority can claim Expedite.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Expedite Class of Service capped at 20% of throughput. Real-time incidents bypass intake entirely (Service Desk SLA). Every Expedite reviewed at the next Gate 2.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">13</div>
+    <div class="item-body">
+      <h3>Demand visibility and tracking</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Visibility is monthly · manual · per-team · in PowerPoint. Leadership lacks real-time view of inflow, capacity, or status.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Single dashboard, public read-only. Five views — inflow funnel · backlog by team · CoS mix · aging · top priorities. Auto-refresh under one hour.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">14</div>
+    <div class="item-body">
+      <h3>Identification of duplicate or overlapping demand</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>"PDD is the driver. Lots of overlapping projects" (Amit Patel quote). De-dup happens by accident when two PMs talk.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Similarity search at submit (top-3 matches surfaced). Weekly de-dup query. Overlaps escalated to the Portfolio Committee.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<!-- ROLES (4 items) -->
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section id="roles">
+  <div class="category-header cat-roles reveal">
+    <div class="num-big">02</div>
+    <div class="count">4 ITEMS</div>
+    <h2>Roles</h2>
+    <div class="subtitle">Who owns and operates the framework.</div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">01</div>
+    <div class="item-body">
+      <h3>Business requestors / stakeholders</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Anyone with a problem and an email address. No standard sponsor sign-off. Requesters often submit without business-value justification.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>All originating business units route through a single intake form per Value Stream. Sponsor sign-off mandatory at intake. Status visible through requester portal.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">02</div>
+    <div class="item-body">
+      <h3>Product or Demand Managers</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>The Product Manager role does <strong>not exist</strong> at Avangrid today. Project Managers (PJMs), Sr Managers and area Champions absorb the role inconsistently.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>One Product Manager per Value Stream Team — accountable for outcome, scoring and backlog priority. NEW role for all 8 squads. Bridges IT to business (folds in Process Owner / Demand Manager scope).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">03</div>
+    <div class="item-body">
+      <h3>Architects or technical reviewers</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>No standing architecture function. Technical reviews happen ad-hoc when something goes wrong. Solution and Integration Architect roles absent.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Architecture Council with rotating members from existing technical leads. Solution Architect (SAP) and Integration Architect roles owned by the Capability Crew. Time-boxed advisory at intake gate (≤ 2 h).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">04</div>
+    <div class="item-body">
+      <h3>Triage / intake committee</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>No committee. No standard cadence. No published outcomes. Conflicts surface in 1:1 conversations between Sr Managers.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Weekly committee per portfolio. Composition · Demand Manager (chair) plus PMs and Architect. Decisions logged with reason. Cross-portfolio escalations go to monthly Portfolio Committee.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<!-- TOOLS (5 items) -->
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section id="tools">
+  <div class="category-header cat-tools reveal">
+    <div class="num-big">03</div>
+    <div class="count">5 ITEMS</div>
+    <h2>Tools</h2>
+    <div class="subtitle">The systems and platforms used end to end.</div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">01</div>
+    <div class="item-body">
+      <h3>Demand capture tools</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Email, Teams, Word, PowerPoint, OneNote, SharePoint, Jira free-text cards, IT Now tickets, BSS Log, PDD workbook — all parallel.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>One Jira request type per Value Stream. Mandatory fields enforce DoR. Size captured as a field (S · M · L · XL), not a separate request type. IT Now reserved for incidents only.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">02</div>
+    <div class="item-body">
+      <h3>Demand tracking and backlog tools</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Per-team Excel sheets and Jira boards. Smart Metering uses PPM Now. No common backlog view.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Single Jira backlog system as system of record. Item hierarchy · Initiative → Story (Epic optional when Initiative > 3 mo). Run vs Build separated tracks per squad.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">03</div>
+    <div class="item-body">
+      <h3>Communication channels</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Status delivered by ad-hoc reply, sometimes by Teams chat, sometimes never. Requester chases the executor.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Triage outcomes auto-published to requesters. Per-requester portal with live status. Cross-team coordination through dedicated forums (5 forums, named cadences).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">04</div>
+    <div class="item-body">
+      <h3>Documentation tools for capturing request details</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Documentation lives in PDD (large items only). For everything else, the request body itself is the documentation. Inconsistent, often missing.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Confluence as single source of truth for Definition of Ready, Class of Service taxonomy, per-team product brief. Sponsor approval logged within the intake form itself.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">05</div>
+    <div class="item-body">
+      <h3>Reporting or visibility tools</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Monthly PowerPoint by Sr Managers. No real-time visibility. Director-level rollups manually built.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Demand dashboard with five views — inflow funnel · backlog by team · class-of-service mix · aging · top priorities. Auto-refresh under one hour. Director-level rollups automatic.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<!-- GOVERNANCE (6 items) -->
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section id="governance">
+  <div class="category-header cat-gov reveal">
+    <div class="num-big">04</div>
+    <div class="count">6 ITEMS</div>
+    <h2>Governance</h2>
+    <div class="subtitle">Decisions, forums, and controls that keep the funnel honest.</div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">01</div>
+    <div class="item-body">
+      <h3>Demand review forums</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Nine recurring forums exist but none covers portfolio-level decisions. ERP Steering Committee · MISSING.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Two-gate structure. Gate 1 — weekly triage (30 min). Gate 2 — monthly Portfolio Committee (90 min). Quarterly cross-portfolio Big Room Planning.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">02</div>
+    <div class="item-body">
+      <h3>Decision-making practices for accepting, rejecting, or redirecting demand</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Decisions made in 1:1 conversations or absorbed silently. No published outcomes. No reasons logged.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Four explicit outcomes — Accept · Send-back · Reject · Redirect. Every decision audit-logged with reason. No silent overrides.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">03</div>
+    <div class="item-body">
+      <h3>Escalation mechanisms for urgent or conflicting requests</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Escalation by political weight. Whoever shouts loudest gets the slot. Conflicts surface late, in delivery.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Cross-team conflicts → Customer Journey Forum. Cross-portfolio conflicts → VP Portfolio Sync. Every Expedite reviewed at the next Portfolio Committee.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">04</div>
+    <div class="item-body">
+      <h3>Definition of intake guidelines or policies</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Each team has its own informal rules of thumb. No published guideline document. New requesters learn by trial and error.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Single source of truth for the Definition of Ready template, Class of Service taxonomy, and capacity caps. Reviewed every six months by the Demand Council.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">05</div>
+    <div class="item-body">
+      <h3>Alignment mechanisms with business stakeholders</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>One Customer Journey Forum exists for some streams; no consistent rhythm. Sponsor sign-off optional.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Quarterly Big Room Planning. Customer Journey Forum per major customer journey. Sponsor sign-off mandatory at intake (business value approval).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">06</div>
+    <div class="item-body">
+      <h3>Oversight of demand inflow and backlog health</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>No backlog-health metric. No aging policy. Items rot in queues for months without anyone noticing.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Demand Manager owns the demand dashboard. Aging beyond threshold triggers automatic escalation. Quarterly demand-vs-delivery conversion review.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<!-- PERFORMANCE (7 items) -->
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section id="performance">
+  <div class="category-header cat-perf reveal">
+    <div class="num-big">05</div>
+    <div class="count">7 ITEMS</div>
+    <h2>Performance</h2>
+    <div class="subtitle">How success is measured across the demand funnel.</div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">01</div>
+    <div class="item-body">
+      <h3>Demand volume and inflow trends</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>No volume data. Sr Managers estimate counts from memory. Forecast 30–50% growth without baseline.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Submissions per week, month, quarter. Breakdown by Value Stream, Class of Service, OPCO, and source business area.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">02</div>
+    <div class="item-body">
+      <h3>Demand quality (completeness, clarity)</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Quality is felt, not measured. "We need to have standardization — processes, demand intake and report" (Carlos Garbin quote).</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Definition-of-Ready pass-rate at first submission (target 70% or higher). Re-submission rate per requester. Acceptance criteria quality score.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">03</div>
+    <div class="item-body">
+      <h3>Triage lead time</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Untracked. Anecdotally weeks for Large items, days-or-never for Small. No SLA exists.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Median time from submission to Gate 1 decision (target ≤ 5 business days). 90th-percentile to surface outliers. Breakdown per Class of Service.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">04</div>
+    <div class="item-body">
+      <h3>% of demand entering through formal channels</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Unknown — most demand never enters a system at all. Items live in email and Teams threads until someone surfaces them.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Target 90% via single channel by month 6. Decommissioned-channel residuals tracked monthly. Per-business-unit adoption visible.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">05</div>
+    <div class="item-body">
+      <h3>% of urgent or bypassed requests</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Effectively all regulatory items + many Sponsor-driven items skip the queue. Cap unknown · ratio unknown.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Expedite as percent of total throughput (cap 20%). Regulatory subset tracked. Auto-downgrade rate of unauthorized "urgent" claims.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">06</div>
+    <div class="item-body">
+      <h3>Demand duplication or overlap indicators</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Discovered late, in delivery, when two teams build the same thing. Cost invisible.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Duplicate-link rate (% submissions matched to existing). Overlap escalations resolved at Portfolio Committee.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-num">07</div>
+    <div class="item-body">
+      <h3>Visibility and traceability of demand status</h3>
+      <div class="compare-mini">
+        <div class="col as-is"><span class="tag">AS-IS</span>Requester finds status by emailing the executor. No portal. No public read-only view. Status updates manual.</div>
+        <div class="col to-be"><span class="tag">TO-BE</span>Percent of requesters who can find own submission status (target 100%). Average time to status update. Live per-business-unit portal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<!-- THE BIG SHIFT -->
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section id="shift" class="cta-section">
+  <div class="reveal">
+    <div class="section-tag">SO WHAT</div>
+    <h2>From entropy to design.</h2>
+    <p class="lead" style="margin: 24px auto 0;">
+      Thirty-six framework items, redesigned end-to-end. The proposal is not a refactor of one slot —
+      it is a coherent operating model where every checkpoint has a contract, every demand has a label,
+      and every decision has a name attached.
+    </p>
+  </div>
+
+  <div class="cta-grid reveal">
+    <div class="cta-card">
+      <div class="icon">🎯</div>
+      <h4>ONE FRONT DOOR</h4>
+      <p>Every demand · one Jira request type per Value Stream · 6+ channels collapsed into 1.</p>
+    </div>
+    <div class="cta-card">
+      <div class="icon">⚖️</div>
+      <h4>FOUR DIMENSIONS</h4>
+      <p>Class of Service · Size · Investment intent · Work hierarchy. Captured once, at intake.</p>
+    </div>
+    <div class="cta-card">
+      <div class="icon">🛡️</div>
+      <h4>TWO GATES</h4>
+      <p>Weekly triage · monthly portfolio · quarterly Big Room Planning. Predictable cadences, named outcomes.</p>
+    </div>
+    <div class="cta-card">
+      <div class="icon">📊</div>
+      <h4>SEVEN KPIs</h4>
+      <p>Volume · quality · lead time · channel mix · expedite cap · duplication · visibility. Live dashboard.</p>
+    </div>
+    <div class="cta-card">
+      <div class="icon">🎭</div>
+      <h4>ONE NEW ROLE</h4>
+      <p>Product Manager — single accountability per Value Stream. New across all 8 squads.</p>
+    </div>
+    <div class="cta-card">
+      <div class="icon">🚀</div>
+      <h4>WAVE 1 PILOT</h4>
+      <p>14 weeks, 5 steps · pilot one Value Stream end-to-end · learn · adjust · scale.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  AVANGRID · DIGITAL PRODUCTS · TARGET OPERATING MODEL · DEMAND MANAGEMENT WAVE 1<br>
+  Built from the AS-IS assessment and the TO-BE proposal · 2026
+</footer>
+
+<script>
+// Progress bar
+const progressBar = document.getElementById('progressBar');
+const updateProgress = () => {
+  const scrolled = window.scrollY;
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (scrolled / max * 100) + '%';
+};
+window.addEventListener('scroll', updateProgress, { passive: true });
+updateProgress();
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => io.observe(el));
+
+// Active nav
+const navLinks = document.querySelectorAll('.nav a');
+const sections = document.querySelectorAll('section[id]');
+const navIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(s => navIO.observe(s));
+
+// Animate journey flow circles step by step on scroll
+const flowSteps = document.querySelectorAll('.flow-step');
+let activeFlowIdx = 0;
+const journeyIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      let i = 0;
+      const interval = setInterval(() => {
+        flowSteps.forEach((s, idx) => s.classList.toggle('active', idx === i));
+        i++;
+        if (i >= flowSteps.length) {
+          clearInterval(interval);
+          flowSteps.forEach(s => s.classList.add('active'));
+        }
+      }, 350);
+      journeyIO.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+const journey = document.querySelector('.journey-flow');
+if (journey) journeyIO.observe(journey);
+</script>
+</body>
+</html>

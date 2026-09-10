@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <marker id="serviceArrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#5C2A91"/>
+    </marker>
+  </defs>
+
+  <rect width="2400" height="1350" fill="#FFFFFF"/>
+
+  <!-- Header band -->
+  <rect width="2400" height="80" fill="#3B6E8F"/>
+  <text x="40" y="36" font-size="22" font-weight="800" fill="#FFFFFF">ENABLING TEAM — FOUNDATION SERVICES</text>
+  <text x="40" y="64" font-size="13" font-weight="700" fill="#FFFFFF">SHARED CAPABILITIES THAT KEEP THE 4 DVS RUNNING · NO PRODUCT MANAGER · GOVERNED BY DIRECTOR CS + SR MGR SAP ARCHITECTURE</text>
+  <text x="2360" y="48" text-anchor="end" font-size="14" font-weight="800" fill="#FFFFFF">NTT DATA</text>
+
+  <!-- Top row: 4 DVS boards (mini) ===================================== -->
+  <text x="60" y="120" font-size="13" font-weight="800" fill="#172B4D" letter-spacing="2">4 DEVELOPMENT VALUE STREAMS  ·  REQUEST FOUNDATION SERVICES VIA SHARED CATALOG</text>
+
+  <!-- DVS 1 -->
+  <g transform="translate(60,140)">
+    <rect width="540" height="160" rx="6" fill="#FFFFFF" stroke="#E8A24C" stroke-width="2"/>
+    <rect width="540" height="32" rx="6" fill="#E8A24C"/>
+    <text x="270" y="22" text-anchor="middle" font-size="13" font-weight="800" fill="#5A3A0E">DVS 1 — METER &amp; DEVICE OPERATIONS</text>
+    <text x="14" y="56" font-size="10" fill="#42526E">PM: TBD (candidate: Iram Chowdhury)  ·  Apps: Smart Metering · MDM · SAP IS-U Device · Group 8760 EDI</text>
+    <g transform="translate(14,68)" font-size="9">
+      <rect width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <text x="42" y="14" text-anchor="middle" font-weight="700" fill="#172B4D">Funnel</text>
+      <rect x="6" y="22" width="72" height="14" rx="2" fill="#F4C988"/>
+      <rect x="86" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <text x="128" y="14" text-anchor="middle" font-weight="700" fill="#172B4D">Reviewing</text>
+      <rect x="172" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <text x="214" y="14" text-anchor="middle" font-weight="700" fill="#172B4D">Analyzing</text>
+      <rect x="178" y="22" width="72" height="14" rx="2" fill="#F4C988"/>
+      <rect x="258" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <text x="300" y="14" text-anchor="middle" font-weight="700" fill="#172B4D">Backlog</text>
+      <rect x="344" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <text x="386" y="14" text-anchor="middle" font-weight="700" fill="#172B4D">Implem.</text>
+      <rect x="350" y="22" width="72" height="14" rx="2" fill="#F4C988"/>
+      <rect x="430" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <text x="472" y="14" text-anchor="middle" font-weight="700" fill="#172B4D">Done</text>
+    </g>
+  </g>
+
+  <!-- DVS 2 -->
+  <g transform="translate(620,140)">
+    <rect width="540" height="160" rx="6" fill="#FFFFFF" stroke="#E8A24C" stroke-width="2"/>
+    <rect width="540" height="32" rx="6" fill="#E8A24C"/>
+    <text x="270" y="22" text-anchor="middle" font-size="13" font-weight="800" fill="#5A3A0E">DVS 2 — BILLING OPERATIONS</text>
+    <text x="14" y="56" font-size="10" fill="#42526E">PM: TBD  ·  Apps: SAP ECC (FI/SD) · Streamserve/OpenText · Address Validation · Print interfaces</text>
+    <g transform="translate(14,68)" font-size="9">
+      <rect width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="86" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="172" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="258" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="344" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="430" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="6" y="22" width="72" height="14" rx="2" fill="#F4C988"/>
+      <rect x="92" y="22" width="72" height="14" rx="2" fill="#F4C988"/>
+    </g>
+  </g>
+
+  <!-- DVS 3 -->
+  <g transform="translate(1180,140)">
+    <rect width="540" height="160" rx="6" fill="#FFFFFF" stroke="#E8A24C" stroke-width="2"/>
+    <rect width="540" height="32" rx="6" fill="#E8A24C"/>
+    <text x="270" y="22" text-anchor="middle" font-size="13" font-weight="800" fill="#5A3A0E">DVS 3 — REVENUE &amp; COLLECTIONS</text>
+    <text x="14" y="56" font-size="10" fill="#42526E">PM: TBD (candidate: Stephanie)  ·  Apps: SAP FICA · SOVOS Taxware · Payment processing · Dunning</text>
+    <g transform="translate(14,68)" font-size="9">
+      <rect width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="86" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="172" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="258" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="344" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="430" width="84" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="6" y="22" width="72" height="14" rx="2" fill="#F4C988"/>
+      <rect x="264" y="22" width="72" height="14" rx="2" fill="#F4C988"/>
+    </g>
+  </g>
+
+  <!-- DVS 4 -->
+  <g transform="translate(1740,140)">
+    <rect width="600" height="160" rx="6" fill="#FFFFFF" stroke="#E8A24C" stroke-width="2"/>
+    <rect width="600" height="32" rx="6" fill="#E8A24C"/>
+    <text x="300" y="22" text-anchor="middle" font-size="13" font-weight="800" fill="#5A3A0E">DVS 4 — CUSTOMER CARE &amp; ENGAGEMENT</text>
+    <text x="14" y="56" font-size="10" fill="#42526E">PM: TBD  ·  Apps: SAP CRM · Genesys · Nuance IVR · Medallia · PureConnect (legacy)</text>
+    <g transform="translate(14,68)" font-size="9">
+      <rect width="94" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="96" width="94" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="192" width="94" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="288" width="94" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="384" width="94" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="480" width="94" height="80" fill="#FAFBFC" stroke="#DFE1E6"/>
+      <rect x="6" y="22" width="82" height="14" rx="2" fill="#F4C988"/>
+      <rect x="102" y="22" width="82" height="14" rx="2" fill="#F4C988"/>
+    </g>
+  </g>
+
+  <!-- Connection arrows from each DVS down to Enabling Team -->
+  <g stroke="#5C2A91" stroke-width="2" stroke-dasharray="6 4" fill="none" opacity="0.85">
+    <path d="M330,300 L330,420" marker-end="url(#serviceArrow)"/>
+    <path d="M890,300 L890,420" marker-end="url(#serviceArrow)"/>
+    <path d="M1450,300 L1450,420" marker-end="url(#serviceArrow)"/>
+    <path d="M2040,300 L2040,420" marker-end="url(#serviceArrow)"/>
+  </g>
+  <text x="60" y="380" font-size="11" font-style="italic" fill="#5C2A91">service requests · pull from DVS to Enabling Team via internal Jira board</text>
+
+  <!-- Middle: ENABLING TEAM BOARD (large) ============================ -->
+  <g transform="translate(60,440)">
+    <rect width="2280" height="450" rx="8" fill="#FFFFFF" stroke="#5C2A91" stroke-width="3"/>
+    <rect width="2280" height="50" rx="8" fill="#5C2A91"/>
+    <text x="20" y="34" font-size="20" font-weight="800" fill="#FFFFFF">ENABLING TEAM — FOUNDATION SERVICES KANBAN BOARD</text>
+    <text x="2260" y="34" text-anchor="end" font-size="13" font-weight="700" fill="#D4C4E8">Tech Lead: Naggi Reddy · Architecture: Sr Mgr SAP Architecture (🔴 vacancy) · No PM · Coordinated by Director CS Apps (Kumar)</text>
+
+    <!-- Service-Category Swimlanes (rows) × Kanban Columns (cols) -->
+    <!-- Column headers -->
+    <g transform="translate(160,60)" font-size="12" font-weight="800" fill="#FFFFFF">
+      <rect width="350" height="32" fill="#3A2D52"/>
+      <text x="175" y="22" text-anchor="middle">REQUEST</text>
+      <rect x="350" width="350" height="32" fill="#3A2D52"/>
+      <text x="525" y="22" text-anchor="middle">TRIAGE / SIZED</text>
+      <rect x="700" width="350" height="32" fill="#3A2D52"/>
+      <text x="875" y="22" text-anchor="middle">IN PROGRESS</text>
+      <rect x="1050" width="350" height="32" fill="#3A2D52"/>
+      <text x="1225" y="22" text-anchor="middle">REVIEW / UAT</text>
+      <rect x="1400" width="350" height="32" fill="#3A2D52"/>
+      <text x="1575" y="22" text-anchor="middle">DONE</text>
+      <rect x="1750" width="370" height="32" fill="#3A2D52"/>
+      <text x="1935" y="22" text-anchor="middle">CONSUMED BY</text>
+    </g>
+
+    <!-- Service rows -->
+    <!-- Row 1: SAP Basis -->
+    <g transform="translate(0,92)">
+      <rect width="160" height="62" fill="#3A2D52"/>
+      <text x="80" y="26" text-anchor="middle" font-size="12" font-weight="800" fill="#FFFFFF">SAP BASIS</text>
+      <text x="80" y="44" text-anchor="middle" font-size="9" fill="#D4C4E8">kernel · transports</text>
+      <text x="80" y="56" text-anchor="middle" font-size="9" fill="#D4C4E8">environments</text>
+
+      <rect x="160" width="2120" height="62" fill="#FCFAFF" stroke="#DFE1E6"/>
+      <line x1="510" y1="0" x2="510" y2="62" stroke="#DFE1E6"/>
+      <line x1="860" y1="0" x2="860" y2="62" stroke="#DFE1E6"/>
+      <line x1="1210" y1="0" x2="1210" y2="62" stroke="#DFE1E6"/>
+      <line x1="1560" y1="0" x2="1560" y2="62" stroke="#DFE1E6"/>
+      <line x1="1910" y1="0" x2="1910" y2="62" stroke="#DFE1E6"/>
+
+      <rect x="170" y="8" width="320" height="46" rx="4" fill="#D4C4E8" stroke="#5C2A91"/>
+      <text x="180" y="24" font-size="10" font-weight="800" fill="#5C2A91">ENT-1018 · Kernel patch ECC</text>
+      <text x="180" y="38" font-size="9" fill="#5C2A91">requested by DVS 2 · 2026-Q3</text>
+      <text x="180" y="50" font-size="8" font-style="italic" fill="#5C2A91">SAP partner vendor</text>
+
+      <rect x="870" y="8" width="320" height="46" rx="4" fill="#D4C4E8" stroke="#5C2A91"/>
+      <text x="880" y="24" font-size="10" font-weight="800" fill="#5C2A91">ENT-1015 · Transport route refactor</text>
+      <text x="880" y="38" font-size="9" fill="#5C2A91">all DVS · in-flight</text>
+
+      <rect x="1920" y="8" width="350" height="46" rx="4" fill="#FFE0CC" stroke="#E8702A"/>
+      <text x="1930" y="24" font-size="10" font-weight="800" fill="#E8702A">DVS 1 · DVS 2 · DVS 3</text>
+      <text x="1930" y="38" font-size="9" fill="#E8702A">all SAP-anchored DVS</text>
+    </g>
+
+    <!-- Row 2: Gold Client -->
+    <g transform="translate(0,156)">
+      <rect width="160" height="62" fill="#3A2D52"/>
+      <text x="80" y="26" text-anchor="middle" font-size="12" font-weight="800" fill="#FFFFFF">GOLD CLIENT</text>
+      <text x="80" y="44" text-anchor="middle" font-size="9" fill="#D4C4E8">data migration</text>
+      <text x="80" y="56" text-anchor="middle" font-size="9" fill="#D4C4E8">env refresh</text>
+
+      <rect x="160" width="2120" height="62" fill="#FCFAFF" stroke="#DFE1E6"/>
+      <line x1="510" y1="0" x2="510" y2="62" stroke="#DFE1E6"/>
+      <line x1="860" y1="0" x2="860" y2="62" stroke="#DFE1E6"/>
+      <line x1="1210" y1="0" x2="1210" y2="62" stroke="#DFE1E6"/>
+      <line x1="1560" y1="0" x2="1560" y2="62" stroke="#DFE1E6"/>
+      <line x1="1910" y1="0" x2="1910" y2="62" stroke="#DFE1E6"/>
+
+      <rect x="520" y="8" width="320" height="46" rx="4" fill="#D4C4E8" stroke="#5C2A91"/>
+      <text x="530" y="24" font-size="10" font-weight="800" fill="#5C2A91">ENT-1022 · QA env refresh DVS 3</text>
+      <text x="530" y="38" font-size="9" fill="#5C2A91">sized · 5 days · vendor SAP partner</text>
+
+      <rect x="1920" y="8" width="350" height="46" rx="4" fill="#FFE0CC" stroke="#E8702A"/>
+      <text x="1930" y="24" font-size="10" font-weight="800" fill="#E8702A">DVS 1 · DVS 2 · DVS 3 · DVS 4</text>
+    </g>
+
+    <!-- Row 3: Blue Prism RPA -->
+    <g transform="translate(0,220)">
+      <rect width="160" height="62" fill="#3A2D52"/>
+      <text x="80" y="26" text-anchor="middle" font-size="12" font-weight="800" fill="#FFFFFF">BLUE PRISM (RPA)</text>
+      <text x="80" y="44" text-anchor="middle" font-size="9" fill="#D4C4E8">automation factory</text>
+      <text x="80" y="56" text-anchor="middle" font-size="9" fill="#D4C4E8">bots embedded in DVS</text>
+
+      <rect x="160" width="2120" height="62" fill="#FCFAFF" stroke="#DFE1E6"/>
+      <line x1="510" y1="0" x2="510" y2="62" stroke="#DFE1E6"/>
+      <line x1="860" y1="0" x2="860" y2="62" stroke="#DFE1E6"/>
+      <line x1="1210" y1="0" x2="1210" y2="62" stroke="#DFE1E6"/>
+      <line x1="1560" y1="0" x2="1560" y2="62" stroke="#DFE1E6"/>
+      <line x1="1910" y1="0" x2="1910" y2="62" stroke="#DFE1E6"/>
+
+      <rect x="870" y="8" width="320" height="46" rx="4" fill="#D4C4E8" stroke="#5C2A91"/>
+      <text x="880" y="24" font-size="10" font-weight="800" fill="#5C2A91">ENT-1031 · Dunning bot for DVS 3</text>
+      <text x="880" y="38" font-size="9" fill="#5C2A91">RPA engineer embedded · vendor BP</text>
+
+      <rect x="1220" y="8" width="320" height="46" rx="4" fill="#D4C4E8" stroke="#5C2A91"/>
+      <text x="1230" y="24" font-size="10" font-weight="800" fill="#5C2A91">ENT-1027 · IVR survey bot</text>
+      <text x="1230" y="38" font-size="9" fill="#5C2A91">UAT with DVS 4 · CSAT</text>
+
+      <rect x="1920" y="8" width="350" height="46" rx="4" fill="#FFE0CC" stroke="#E8702A"/>
+      <text x="1930" y="24" font-size="10" font-weight="800" fill="#E8702A">DVS 3 (collections) · DVS 4 (CSR)</text>
+    </g>
+
+    <!-- Row 4: TOSCA / Test -->
+    <g transform="translate(0,284)">
+      <rect width="160" height="62" fill="#3A2D52"/>
+      <text x="80" y="26" text-anchor="middle" font-size="12" font-weight="800" fill="#FFFFFF">TRICENTIS TOSCA</text>
+      <text x="80" y="44" text-anchor="middle" font-size="9" fill="#D4C4E8">test automation</text>
+      <text x="80" y="56" text-anchor="middle" font-size="9" fill="#D4C4E8">regression suite</text>
+
+      <rect x="160" width="2120" height="62" fill="#FCFAFF" stroke="#DFE1E6"/>
+      <line x1="510" y1="0" x2="510" y2="62" stroke="#DFE1E6"/>
+      <line x1="860" y1="0" x2="860" y2="62" stroke="#DFE1E6"/>
+      <line x1="1210" y1="0" x2="1210" y2="62" stroke="#DFE1E6"/>
+      <line x1="1560" y1="0" x2="1560" y2="62" stroke="#DFE1E6"/>
+      <line x1="1910" y1="0" x2="1910" y2="62" stroke="#DFE1E6"/>
+
+      <rect x="870" y="8" width="320" height="46" rx="4" fill="#D4C4E8" stroke="#5C2A91"/>
+      <text x="880" y="24" font-size="10" font-weight="800" fill="#5C2A91">ENT-1042 · Billing regression suite</text>
+      <text x="880" y="38" font-size="9" fill="#5C2A91">DVS 2 · vendor Tricentis</text>
+
+      <rect x="1570" y="8" width="320" height="46" rx="4" fill="#A0CAA0" stroke="#1F5722"/>
+      <text x="1580" y="24" font-size="10" font-weight="800" fill="#1F5722">ENT-1019 · CRM smoke tests ✓</text>
+      <text x="1580" y="38" font-size="9" fill="#1F5722">delivered 2026-04-12</text>
+
+      <rect x="1920" y="8" width="350" height="46" rx="4" fill="#FFE0CC" stroke="#E8702A"/>
+      <text x="1930" y="24" font-size="10" font-weight="800" fill="#E8702A">All DVS · cross-cutting</text>
+    </g>
+
+    <!-- Row 5: Enable Now / Jira -->
+    <g transform="translate(0,348)">
+      <rect width="160" height="62" fill="#3A2D52"/>
+      <text x="80" y="26" text-anchor="middle" font-size="12" font-weight="800" fill="#FFFFFF">ENABLE NOW · JIRA</text>
+      <text x="80" y="44" text-anchor="middle" font-size="9" fill="#D4C4E8">training · ALM admin</text>
+      <text x="80" y="56" text-anchor="middle" font-size="9" fill="#D4C4E8">tooling</text>
+
+      <rect x="160" width="2120" height="62" fill="#FCFAFF" stroke="#DFE1E6"/>
+      <line x1="510" y1="0" x2="510" y2="62" stroke="#DFE1E6"/>
+      <line x1="860" y1="0" x2="860" y2="62" stroke="#DFE1E6"/>
+      <line x1="1210" y1="0" x2="1210" y2="62" stroke="#DFE1E6"/>
+      <line x1="1560" y1="0" x2="1560" y2="62" stroke="#DFE1E6"/>
+      <line x1="1910" y1="0" x2="1910" y2="62" stroke="#DFE1E6"/>
+
+      <rect x="170" y="8" width="320" height="46" rx="4" fill="#D4C4E8" stroke="#5C2A91"/>
+      <text x="180" y="24" font-size="10" font-weight="800" fill="#5C2A91">ENT-1051 · Jira workflow update</text>
+      <text x="180" y="38" font-size="9" fill="#5C2A91">CS workflow refactor · all DVS</text>
+
+      <rect x="1570" y="8" width="320" height="46" rx="4" fill="#A0CAA0" stroke="#1F5722"/>
+      <text x="1580" y="24" font-size="10" font-weight="800" fill="#1F5722">ENT-1009 · CRM Enable Now ✓</text>
+
+      <rect x="1920" y="8" width="350" height="46" rx="4" fill="#FFE0CC" stroke="#E8702A"/>
+      <text x="1930" y="24" font-size="10" font-weight="800" fill="#E8702A">All DVS</text>
+    </g>
+  </g>
+
+  <!-- Bottom row: how it connects (3 panels) ========================== -->
+  <g transform="translate(60,910)">
+    <!-- Panel 1: Connection mechanism -->
+    <rect width="740" height="350" rx="8" fill="#F2F6FA" stroke="#3B6E8F" stroke-width="2"/>
+    <rect width="740" height="36" rx="8" fill="#3B6E8F"/>
+    <text x="14" y="24" font-size="13" font-weight="800" fill="#FFFFFF">HOW DVS REQUEST FOUNDATION SERVICES</text>
+
+    <text x="20" y="64" font-size="12" font-weight="800" fill="#172B4D">1. Request via Jira (same intake form)</text>
+    <text x="20" y="84" font-size="11" fill="#42526E">Demand type = "Foundation request" · routes to Enabling Team board (not DVS board)</text>
+
+    <text x="20" y="116" font-size="12" font-weight="800" fill="#172B4D">2. Triage by Naggi + SAP Architecture (weekly)</text>
+    <text x="20" y="136" font-size="11" fill="#42526E">No PM gate · governance is technical (Tech Lead + Architecture)</text>
+
+    <text x="20" y="168" font-size="12" font-weight="800" fill="#172B4D">3. Sized → pulled into Enabling kanban</text>
+    <text x="20" y="188" font-size="11" fill="#42526E">Service-category swimlane (Basis · Gold Client · RPA · TOSCA · Enable Now / Jira)</text>
+
+    <text x="20" y="220" font-size="12" font-weight="800" fill="#172B4D">4. Engineer embedded in DVS or central work</text>
+    <text x="20" y="240" font-size="11" fill="#42526E">RPA · Test · ALM engineers embedded in DVS where feasible · central where not</text>
+
+    <text x="20" y="272" font-size="12" font-weight="800" fill="#172B4D">5. UAT with requesting DVS</text>
+    <text x="20" y="292" font-size="11" fill="#42526E">Foundation work moves to DONE only when DVS confirms acceptance</text>
+
+    <text x="20" y="324" font-size="11" font-style="italic" fill="#5C2A91">No separate front-door · no separate intake · same Jira project · different routing</text>
+  </g>
+
+  <!-- Panel 2: Team shape -->
+  <g transform="translate(820,910)">
+    <rect width="740" height="350" rx="8" fill="#F2F6FA" stroke="#5C2A91" stroke-width="2"/>
+    <rect width="740" height="36" rx="8" fill="#5C2A91"/>
+    <text x="14" y="24" font-size="13" font-weight="800" fill="#FFFFFF">TEAM SHAPE  ·  GOVERNANCE  ·  VENDORS</text>
+
+    <text x="20" y="64" font-size="12" font-weight="800" fill="#172B4D">Roles</text>
+    <text x="20" y="84" font-size="11" fill="#42526E">• Tech Lead — Naggi Reddy (Sr. Mgr SAP Basis)</text>
+    <text x="20" y="100" font-size="11" fill="#42526E">• Architecture — Sr. Mgr SAP Architecture (🔴 vacancy → fill)</text>
+    <text x="20" y="116" font-size="11" fill="#42526E">• RPA / Test / ALM Engineers — embedded in DVS where feasible, central where not</text>
+    <text x="20" y="132" font-size="11" fill="#42526E">• <tspan font-weight="700">No dedicated Product Manager</tspan> — coordinated by Director CS Apps (Kumar)</text>
+
+    <text x="20" y="170" font-size="12" font-weight="800" fill="#172B4D">Why no PM</text>
+    <text x="20" y="188" font-size="11" fill="#42526E">"At this headcount, productizing the platform would create overhead</text>
+    <text x="20" y="204" font-size="11" fill="#42526E">without a real internal customer roadmap" — source CS doc Slide 14</text>
+
+    <text x="20" y="234" font-size="12" font-weight="800" fill="#172B4D">Vendor extension</text>
+    <text x="20" y="254" font-size="11" fill="#42526E">• Tricentis (test platform)</text>
+    <text x="20" y="270" font-size="11" fill="#42526E">• Blue Prism vendor + Automation CoE</text>
+    <text x="20" y="286" font-size="11" fill="#42526E">• Atlassian Jira admins</text>
+    <text x="20" y="302" font-size="11" fill="#42526E">• SAP partner for Basis / Gold Client</text>
+
+    <text x="20" y="332" font-size="11" font-style="italic" fill="#5C2A91">Avangrid governs the team operationally · vendors execute specific capabilities</text>
+  </g>
+
+  <!-- Panel 3: Cadences & forums -->
+  <g transform="translate(1580,910)">
+    <rect width="760" height="350" rx="8" fill="#F2F6FA" stroke="#5DA460" stroke-width="2"/>
+    <rect width="760" height="36" rx="8" fill="#5DA460"/>
+    <text x="14" y="24" font-size="13" font-weight="800" fill="#FFFFFF">CADENCES  ·  FORUMS  ·  KPIs</text>
+
+    <text x="20" y="64" font-size="12" font-weight="800" fill="#172B4D">Daily</text>
+    <text x="20" y="80" font-size="11" fill="#42526E">Daily Flow Review (Naggi + embedded engineers · 15 min)</text>
+
+    <text x="20" y="108" font-size="12" font-weight="800" fill="#172B4D">Weekly</text>
+    <text x="20" y="124" font-size="11" fill="#42526E">Foundation Triage (Naggi + Sr. Mgr SAP Architecture · 30 min)</text>
+    <text x="20" y="140" font-size="11" fill="#42526E">DVS-Enabling Sync (4 DVS PMs + Naggi · 30 min · queue review)</text>
+
+    <text x="20" y="168" font-size="12" font-weight="800" fill="#172B4D">Monthly</text>
+    <text x="20" y="184" font-size="11" fill="#42526E">Cross-DVS Capacity Forum (Director CS + 4 PMs + Naggi · re-balance)</text>
+
+    <text x="20" y="212" font-size="12" font-weight="800" fill="#172B4D">KPIs</text>
+    <text x="20" y="228" font-size="11" fill="#42526E">• Service request lead time (request → done)</text>
+    <text x="20" y="244" font-size="11" fill="#42526E">• Embedded engineer utilization per DVS</text>
+    <text x="20" y="260" font-size="11" fill="#42526E">• Vendor capacity consumed (Tricentis · Blue Prism · SAP partner hours)</text>
+    <text x="20" y="276" font-size="11" fill="#42526E">• Foundation-driven savings (RPA hours saved · regression coverage uplift)</text>
+
+    <text x="20" y="312" font-size="11" font-style="italic" fill="#1F5722">Foundation services support all 4 DVS — they do NOT constitute</text>
+    <text x="20" y="328" font-size="11" font-style="italic" fill="#1F5722">a separate product line (no roadmap of their own)</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="40" y="1335" font-size="9" fill="#6B778C">Source: Customer Services - Proposed Value Streams + Value Definition.pptx · Slide 14 (Enabling Team Foundation Services) · Slide 8 (Value Stream Framing)</text>
+</svg>

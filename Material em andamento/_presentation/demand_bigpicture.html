@@ -1,0 +1,2785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demand Management · End-to-End Visual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #06081a;
+  --bg-2: #0c1232;
+  --surface: rgba(255,255,255,0.04);
+  --surface-2: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.10);
+  --text: #ECEFF6;
+  --dim: #A8B0C2;
+  --muted: #6B7388;
+  --navy: #0F1C50;
+  --blue: #2C578B;
+  --blue-light: #6785C1;
+  --cyan: #00BCD4;
+  --gold: #F9A825;
+  --gold-bright: #FFD54F;
+  --green: #4CAF50;
+  --green-dark: #2E7D32;
+  --red: #E74C3C;
+  --red-dark: #C0392B;
+  --purple: #B388FF;
+  /* CS Apps theme = gold/yellow · IT Apps theme = green */
+  --cs: #F9A825;
+  --cs-bright: #FFD54F;
+  --cs-deep: #E88B2F;
+  --it: #4CAF50;
+  --it-bright: #66BB6A;
+  --it-deep: #2E7D32;
+  --max: 1340px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(44, 87, 139, 0.25), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 90%, rgba(76, 175, 80, 0.10), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(249, 168, 37, 0.08), transparent 60%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* PROGRESS */
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0;
+  z-index: 1000;
+  background: linear-gradient(90deg, var(--cyan), var(--cs), var(--it));
+  box-shadow: 0 0 20px rgba(11, 118, 160, 0.5);
+}
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 24px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  background: rgba(6, 8, 26, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 999px;
+  padding: 6px 10px;
+  display: flex;
+  gap: 2px;
+  font-size: 11.5px;
+  font-weight: 600;
+  max-width: 92vw;
+  overflow-x: auto;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav a {
+  color: var(--dim);
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.nav a:hover { color: var(--text); background: var(--surface); }
+.nav a.active {
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  color: var(--bg);
+  font-weight: 800;
+}
+
+/* SECTIONS */
+section {
+  position: relative;
+  padding: 80px 32px 40px;
+  max-width: var(--max);
+  margin: 0 auto;
+  scroll-margin-top: 80px;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin-bottom: 12px;
+}
+.tag::before { content: ''; width: 32px; height: 1px; background: var(--gold-bright); }
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); }
+h2 { font-size: clamp(1.6rem, 4vw, 2.8rem); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 32px 80px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+.hero h1 {
+  background: linear-gradient(135deg, #fff 0%, #C0D0FF 50%, var(--gold-bright) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 14px;
+}
+.hero .lead {
+  font-size: 1.15rem;
+  color: var(--dim);
+  max-width: 800px;
+  margin: 18px 0 40px;
+}
+
+/* BIG PICTURE */
+.bp {
+  position: relative;
+  background: linear-gradient(135deg, rgba(15, 28, 80, 0.4), rgba(31, 58, 104, 0.3));
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 28px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+}
+.bp-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.bp-meta .ttl {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.bp-meta .brp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(76, 175, 80, 0.12);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #B8E5BA;
+}
+.bp svg { width: 100%; height: auto; display: block; }
+
+/* CLICKABLE BIG PICTURE NODES */
+.bp svg a { cursor: pointer; outline: none; }
+.bp svg a > g { transition: all 0.25s ease; }
+.bp svg a:hover > g {
+  filter: brightness(1.25) drop-shadow(0 0 14px rgba(249, 168, 37, 0.7));
+}
+.bp svg a:hover .click-hint { opacity: 1; }
+.click-hint { opacity: 0; transition: opacity 0.25s ease; pointer-events: none; }
+.bp svg a:focus-visible > g {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 4px;
+}
+.bp .clickable-banner {
+  position: absolute;
+  top: 64px; right: 32px;
+  background: rgba(249, 168, 37, 0.12);
+  border: 1px solid rgba(249, 168, 37, 0.4);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--gold-bright);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  animation: pulseHint 2.5s infinite;
+}
+@keyframes pulseHint {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(249,168,37,0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(249,168,37,0); }
+}
+
+@keyframes flowDash { to { stroke-dashoffset: -40; } }
+@keyframes pulseG {
+  0%, 100% { filter: drop-shadow(0 0 6px currentColor); }
+  50% { filter: drop-shadow(0 0 18px currentColor); }
+}
+.bp-flow { stroke-dasharray: 4 4; animation: flowDash 1.5s linear infinite; }
+.bp-pulse { animation: pulseG 3s infinite; }
+
+/* HERO STATS */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 30px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.stat .n {
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold-bright), #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.03em;
+}
+.stat .l {
+  font-size: 10px;
+  color: var(--dim);
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+/* BRANCHES BIG VISUAL */
+.branches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 30px;
+}
+.branch {
+  background: linear-gradient(135deg, var(--br-bg), transparent);
+  border: 2px solid var(--br-c);
+  border-radius: 24px;
+  padding: 28px 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.branch.cs { --br-c: var(--cs); --br-bg: rgba(249, 168, 37, 0.08); --br-bright: var(--cs-bright); }
+.branch.it { --br-c: var(--it); --br-bg: rgba(76, 175, 80, 0.08); --br-bright: var(--it-bright); }
+.branch::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: radial-gradient(ellipse at top right, rgba(255,255,255,0.05), transparent 60%);
+  pointer-events: none;
+}
+.branch .branch-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--br-c);
+  text-transform: uppercase;
+}
+.branch h3 {
+  font-size: 1.6rem;
+  margin: 6px 0 4px;
+  color: #fff;
+}
+.branch .owner {
+  font-size: 0.85rem;
+  color: var(--dim);
+  margin-bottom: 18px;
+}
+.branch .vs-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--br-bright);
+  margin-bottom: 18px;
+}
+.branch .vs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.branch .vs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--br-c);
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.branch .vs:hover { transform: translateX(4px); border-color: var(--br-c); }
+.branch .vs .code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--br-c);
+  width: 70px;
+  flex-shrink: 0;
+}
+.branch .vs .name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+}
+.branch .vs .icon {
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* BOARDS · 3 layers high-level mockup */
+.boards-arch {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 24px;
+  position: relative;
+}
+.layer-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.layer-label .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--gold-bright);
+  background: rgba(249,168,37,0.15);
+  border: 1px solid rgba(249,168,37,0.35);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.layer-label .lb {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+.layer-connector {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  color: var(--gold);
+  font-weight: 100;
+  filter: drop-shadow(0 0 8px rgba(249,168,37,0.5));
+}
+
+/* Layer 0 · VP Dashboard mock */
+.vp-dash {
+  background: linear-gradient(135deg, rgba(11,118,160,0.12), rgba(15,28,80,0.2));
+  border: 2px solid var(--cyan);
+  border-radius: 18px;
+  padding: 18px 22px;
+  position: relative;
+}
+.vp-dash::before {
+  content: '👑 VP DASHBOARD';
+  position: absolute;
+  top: -10px; left: 18px;
+  background: var(--bg);
+  padding: 0 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--cyan);
+}
+.vp-dash .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.vp-dash .tile {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+}
+.vp-dash .tile .em { font-size: 22px; }
+.vp-dash .tile .v {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--cyan);
+  margin-top: 2px;
+}
+.vp-dash .tile .l { font-size: 9px; color: var(--dim); letter-spacing: 0.05em; }
+.vp-dash .who { font-size: 10px; color: var(--dim); margin-top: 10px; font-style: italic; }
+
+/* Layer 1 · 2 Portfolio Boards */
+.portfolio-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 900px) { .portfolio-row { grid-template-columns: 1fr; } }
+.portfolio-board {
+  background: linear-gradient(135deg, var(--pb-bg), transparent);
+  border: 2px solid var(--pb-c);
+  border-radius: 18px;
+  padding: 18px 20px;
+  position: relative;
+}
+.portfolio-board.cs { --pb-c: var(--cs); --pb-bg: rgba(249,168,37,0.06); }
+.portfolio-board.it { --pb-c: var(--it); --pb-bg: rgba(76,175,80,0.06); }
+.portfolio-board::before {
+  position: absolute;
+  top: -10px; left: 18px;
+  background: var(--bg);
+  padding: 0 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--pb-c);
+}
+.portfolio-board.cs::before { content: '📊 CS PORTFOLIO BOARD'; }
+.portfolio-board.it::before { content: '📊 IT PORTFOLIO BOARD'; }
+.portfolio-board .who {
+  font-size: 10px;
+  color: var(--dim);
+  margin-bottom: 10px;
+  font-style: italic;
+}
+.portfolio-board .stages {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  margin-top: 6px;
+}
+.portfolio-board .col {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 4px;
+  font-size: 8.5px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  position: relative;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3px;
+}
+.portfolio-board .col .ttl { color: var(--pb-c); font-size: 8.5px; }
+.portfolio-board .col .card-mini {
+  background: var(--pb-c);
+  height: 6px;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+.portfolio-board .col .card-mini.gate {
+  background: var(--red);
+  height: 14px;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+.portfolio-board .gate-marker {
+  background: rgba(231,76,60,0.15) !important;
+  border: 1px dashed var(--red) !important;
+}
+.portfolio-board .gate-marker .ttl { color: var(--red); }
+
+/* Layer 2 · 8 Team Kanbans */
+.kanbans-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+}
+@media (max-width: 1100px) { .kanbans-row { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 600px) { .kanbans-row { grid-template-columns: repeat(2, 1fr); } }
+.kanban {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--kb-c);
+  border-radius: 10px;
+  padding: 10px 8px;
+  position: relative;
+  text-align: center;
+}
+.kanban.cs { --kb-c: var(--cs); }
+.kanban.it { --kb-c: var(--it); }
+.kanban .ic { font-size: 20px; }
+.kanban .code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 800;
+  color: var(--kb-c);
+  margin: 3px 0 6px;
+}
+.kanban .mini {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5px;
+  margin-bottom: 4px;
+}
+.kanban .mini-col {
+  height: 30px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 1.5px;
+}
+.kanban .mini-card {
+  background: var(--kb-c);
+  height: 4px;
+  border-radius: 1px;
+  opacity: 0.6;
+}
+.kanban .nm { font-size: 9px; color: var(--text); font-weight: 600; line-height: 1.2; }
+
+/* MORE VIEWS hub */
+.views-hub {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-top: 24px;
+}
+.view-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+.view-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+}
+.view-card .icon { font-size: 26px; margin-bottom: 8px; }
+.view-card .lb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--gold-bright);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+.view-card h5 { font-size: 0.95rem; margin: 4px 0 6px; }
+.view-card p { font-size: 11px; color: var(--dim); line-height: 1.4; }
+.view-card .arr {
+  position: absolute;
+  top: 16px; right: 18px;
+  color: var(--gold);
+  font-size: 16px;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+.view-card:hover .arr { opacity: 1; transform: translateX(4px); }
+
+/* BEFORE / AFTER COMPARISON */
+.beforeafter {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 14px;
+  align-items: stretch;
+  margin-top: 24px;
+}
+@media (max-width: 900px) { .beforeafter { grid-template-columns: 1fr; } }
+.ba-col {
+  border-radius: 18px;
+  padding: 18px 18px;
+  position: relative;
+}
+.ba-col.before {
+  background: linear-gradient(135deg, rgba(192,57,43,0.05), transparent);
+  border: 1px dashed var(--red);
+}
+.ba-col.after {
+  background: linear-gradient(135deg, rgba(76,175,80,0.05), transparent);
+  border: 2px solid var(--it);
+}
+.ba-col .ba-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+.ba-col.before .ba-tag { background: rgba(192,57,43,0.15); color: var(--red); }
+.ba-col.after .ba-tag { background: rgba(76,175,80,0.15); color: var(--it); }
+.ba-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.06);
+}
+.ba-row:last-child { border-bottom: none; }
+.ba-row .step {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+.ba-row .v {
+  font-size: 12px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.ba-col.before .v { color: #FFB4A8; }
+.ba-col.after .v { color: #B8E5BA; }
+.ba-row .ic { font-size: 16px; }
+.ba-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--gold);
+  font-weight: 100;
+  filter: drop-shadow(0 0 12px rgba(249,168,37,0.5));
+  padding: 0 4px;
+}
+.ba-arrow .lbl {
+  writing-mode: vertical-rl;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-top: 8px;
+}
+@media (max-width: 900px) {
+  .ba-arrow { transform: rotate(90deg); padding: 12px 0; }
+  .ba-arrow .lbl { writing-mode: horizontal-tb; }
+}
+
+/* DIFFERENCES SECTION */
+.diff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+@media (max-width: 1000px) { .diff-grid { grid-template-columns: 1fr; } }
+.diff-col {
+  background: linear-gradient(135deg, var(--dc-bg), transparent);
+  border: 2px solid var(--dc-c);
+  border-radius: 22px;
+  padding: 28px 26px;
+  position: relative;
+  overflow: hidden;
+}
+.diff-col.cs { --dc-c: var(--cs); --dc-bg: rgba(249,168,37,0.08); --dc-bright: var(--cs-bright); }
+.diff-col.it { --dc-c: var(--it); --dc-bg: rgba(76,175,80,0.08); --dc-bright: var(--it-bright); }
+.diff-col::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(255,255,255,0.04), transparent 60%);
+  pointer-events: none;
+  border-radius: 22px;
+}
+.diff-col .diff-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+.diff-col .diff-head h3 {
+  font-size: 1.3rem;
+  color: var(--dc-c);
+  margin-bottom: 2px;
+}
+.diff-col .diff-head .owner {
+  font-size: 0.85rem;
+  color: var(--dim);
+}
+.diff-col .diff-head .vs-num {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--dc-bright), #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.diff-col .diff-head .vs-num-l {
+  font-size: 9.5px;
+  color: var(--dim);
+  letter-spacing: 0.1em;
+  text-align: right;
+  margin-top: 2px;
+}
+.diff-col .row {
+  margin-top: 22px;
+  position: relative;
+  z-index: 1;
+}
+.diff-col .row .h {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--dc-c);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.diff-col .row .h::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--dc-c);
+}
+.diff-col .pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.diff-col .pill {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.diff-col .pill.solid {
+  background: var(--dc-c);
+  color: var(--bg);
+  font-weight: 700;
+  border-color: var(--dc-c);
+}
+.diff-col .icons-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.diff-col .ic-pill {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+.diff-col .ic-pill .em { font-size: 14px; }
+
+/* Stacked bar charts */
+.stacked-bar {
+  display: flex;
+  height: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+}
+.stacked-bar .seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.04em;
+  transition: width 1.2s ease;
+}
+.stacked-bar .seg-std { background: var(--blue-light); }
+.stacked-bar .seg-fix { background: var(--gold); }
+.stacked-bar .seg-exp { background: var(--red); }
+.stacked-bar .seg-int { background: var(--purple); }
+.stacked-bar .seg-run { background: var(--blue); }
+.stacked-bar .seg-grow { background: var(--gold); }
+.stacked-bar .seg-trans { background: var(--green); }
+.stacked-bar-legend {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--dim);
+  flex-wrap: wrap;
+}
+.stacked-bar-legend .lg {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.stacked-bar-legend .lg::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--lc);
+}
+
+/* Pain score donut */
+.pain-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+.pain-donut svg { display: block; }
+.pain-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--text);
+}
+.pain-meta .pm-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.pain-meta .pm-line .k {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.pain-meta .pm-line .k::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pmc);
+}
+.pain-meta .pm-line .v {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: var(--dc-bright);
+}
+.pain-meta .pm-line.heavy { font-weight: 800; }
+.pain-meta .pm-line.heavy .k { color: var(--dc-bright); }
+
+/* SOURCES VISUAL */
+.sources-vis {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 8px;
+  margin-top: 24px;
+}
+@media (max-width: 1100px) {
+  .sources-vis { grid-template-columns: repeat(6, 1fr); }
+}
+.src {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, rgba(103,133,193,0.18), rgba(31,58,104,0.1));
+  border: 1px solid rgba(103,133,193,0.3);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  transition: all 0.3s;
+  position: relative;
+  cursor: default;
+}
+.src:hover {
+  border-color: var(--gold);
+  background: linear-gradient(135deg, rgba(249,168,37,0.18), rgba(31,58,104,0.1));
+  transform: translateY(-4px);
+}
+.src .ic { font-size: 28px; margin-bottom: 4px; }
+.src .nm { font-size: 9.5px; font-weight: 700; color: var(--text); line-height: 1.2; }
+.src .nb {
+  position: absolute;
+  top: 4px; right: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+/* CHANNELS VISUAL */
+.channels-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-top: 24px;
+}
+.channels-old {
+  background: rgba(192,57,43,0.05);
+  border: 1px dashed var(--red-dark);
+  border-radius: 18px;
+  padding: 24px;
+  position: relative;
+}
+.channels-old::before {
+  content: 'CHAOS';
+  position: absolute; top: 10px; right: 12px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  background: rgba(192,57,43,0.15);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.channels-old .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.channels-old .ch {
+  background: rgba(192,57,43,0.1);
+  border: 1px solid rgba(192,57,43,0.25);
+  border-radius: 10px;
+  padding: 12px 6px;
+  text-align: center;
+  font-size: 10px;
+  color: #FFB4A8;
+  font-weight: 600;
+}
+.channels-old .ch .em { font-size: 22px; display: block; margin-bottom: 4px; }
+.vs-arrow-big {
+  font-size: 50px;
+  color: var(--gold);
+  text-align: center;
+  filter: drop-shadow(0 0 16px rgba(249,168,37,0.6));
+  font-weight: 100;
+}
+.channels-new {
+  background: rgba(76,175,80,0.05);
+  border: 2px solid var(--it);
+  border-radius: 18px;
+  padding: 36px 24px;
+  text-align: center;
+  position: relative;
+}
+.channels-new::before {
+  content: 'ORDER';
+  position: absolute; top: 10px; right: 12px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--it);
+  background: rgba(76,175,80,0.15);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.channels-new .em-big { font-size: 56px; }
+.channels-new .name { font-size: 1.3rem; font-weight: 800; color: #fff; margin-top: 8px; }
+.channels-new .sub { font-size: 0.85rem; color: #B8E5BA; margin-top: 4px; }
+.channels-new .pip {
+  margin-top: 12px;
+  display: inline-block;
+  font-size: 10px;
+  background: rgba(232,139,47,0.1);
+  border: 1px dashed rgba(232,139,47,0.4);
+  color: #FFD9B0;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* DIMENSIONS */
+.dims {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+@media (max-width: 900px) { .dims { grid-template-columns: repeat(2, 1fr); } }
+.dim {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.3s;
+}
+.dim:hover { transform: translateY(-4px); border-color: var(--c); }
+.dim::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--c);
+}
+.dim .ic-big {
+  width: 64px; height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--c), var(--c-2, var(--c)));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 12px;
+}
+.dim .nb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  color: var(--c);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+.dim h4 { font-size: 1rem; margin: 6px 0 12px; }
+.dim .pills { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
+.dim .p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: var(--text);
+}
+.d1 { --c: var(--blue-light); --c-2: var(--blue); }
+.d2 { --c: var(--gold); --c-2: var(--cs-deep); }
+.d3 { --c: var(--green); --c-2: var(--green-dark); }
+.d4 { --c: var(--purple); --c-2: #6E5BB8; }
+
+/* SIZE PATHS */
+.paths {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+@media (max-width: 900px) { .paths { grid-template-columns: repeat(2, 1fr); } }
+.path {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 20px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s;
+}
+.path:hover { transform: translateY(-4px); }
+.path .badge-big {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pc), var(--pc-2));
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+  box-shadow: 0 0 30px var(--pc);
+}
+.path h5 { font-size: 1rem; font-weight: 800; }
+.path .lim {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  margin: 4px 0 12px;
+}
+.path .route {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--pc);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 8px;
+  background: var(--surface-2);
+  border-radius: 8px;
+}
+.p-s { --pc: var(--green); --pc-2: var(--green-dark); }
+.p-m { --pc: var(--blue-light); --pc-2: var(--blue); }
+.p-l { --pc: var(--gold); --pc-2: var(--cs-deep); }
+.p-xl { --pc: var(--red); --pc-2: var(--red-dark); }
+
+/* GATES */
+.gates {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+@media (max-width: 900px) { .gates { grid-template-columns: 1fr; } }
+.gate {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gc);
+  border-radius: 14px;
+  padding: 22px;
+  position: relative;
+}
+.gate .ic {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+.gate .cad {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: var(--gc);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+.gate h5 { font-size: 1.1rem; margin: 6px 0 12px; }
+.gate .who {
+  font-size: 11px;
+  color: var(--dim);
+  margin-bottom: 12px;
+  font-style: italic;
+}
+.gate .acts { display: flex; gap: 5px; flex-wrap: wrap; }
+.gate .a {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--gc);
+  color: var(--gc);
+  background: rgba(255,255,255,0.02);
+}
+.g1 { --gc: var(--blue-light); }
+.g2 { --gc: var(--gold-bright); }
+.g3 { --gc: var(--green-bright, var(--green)); }
+
+/* SQUADS BY BRANCH */
+.squads-branches {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 900px) { .squads-branches { grid-template-columns: 1fr; } }
+.squad-branch {
+  background: linear-gradient(135deg, var(--sb-bg), transparent);
+  border: 2px solid var(--sb-c);
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+}
+.squad-branch.cs { --sb-c: var(--cs); --sb-bg: rgba(249,168,37,0.08); }
+.squad-branch.it { --sb-c: var(--it); --sb-bg: rgba(76,175,80,0.08); }
+.squad-branch h4 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+  color: var(--sb-c);
+}
+.squad-branch .who {
+  font-size: 0.85rem;
+  color: var(--dim);
+  margin-bottom: 16px;
+}
+.squad-branch .squads-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 10px;
+}
+.sq {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--sb-c);
+  border-radius: 12px;
+  padding: 14px 12px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.sq:hover { transform: translateY(-3px); }
+.sq .ic { font-size: 22px; margin-bottom: 5px; }
+.sq .c {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--sb-c);
+  margin-bottom: 3px;
+}
+.sq .n { font-size: 0.78rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+
+/* CAPABILITIES HEX-LIKE GRID */
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 24px;
+}
+@media (max-width: 1100px) { .cap-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 600px) { .cap-grid { grid-template-columns: repeat(2, 1fr); } }
+.cap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 12px;
+  text-align: center;
+  transition: all 0.3s;
+  cursor: default;
+}
+.cap:hover {
+  background: rgba(76,175,80,0.06);
+  border-color: var(--it);
+  transform: translateY(-3px);
+}
+.cap .ic { font-size: 26px; margin-bottom: 6px; }
+.cap .nb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--it);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+.cap .lb { font-size: 11px; font-weight: 700; line-height: 1.3; color: var(--text); }
+
+/* ROLES PERSONAS */
+.roles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+@media (max-width: 900px) { .roles { grid-template-columns: repeat(2, 1fr); } }
+.role {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px 18px;
+  text-align: center;
+  border-top: 4px solid var(--rc);
+  position: relative;
+  transition: all 0.3s;
+}
+.role:hover { transform: translateY(-4px); }
+.role .av {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rc), var(--rc-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  margin: 0 auto 14px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.05);
+}
+.role h5 { font-size: 0.95rem; font-weight: 800; margin-bottom: 4px; }
+.role .scope {
+  font-size: 11px;
+  color: var(--rc);
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.role .verdict {
+  font-size: 10px;
+  background: var(--surface-2);
+  border-radius: 6px;
+  padding: 5px 9px;
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.role .new {
+  position: absolute;
+  top: 12px; right: 12px;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: var(--bg);
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+.r1 { --rc: var(--blue-light); --rc-2: var(--blue); }
+.r2 { --rc: var(--gold); --rc-2: var(--cs-deep); }
+.r3 { --rc: var(--green); --rc-2: var(--green-dark); }
+.r4 { --rc: var(--purple); --rc-2: #6E5BB8; }
+
+/* TOOLS STACK */
+.tools-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+}
+.tool {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--tc);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 50px 60px 1fr;
+  gap: 18px;
+  align-items: center;
+  transition: all 0.3s;
+}
+.tool:hover { transform: translateX(6px); }
+.tool .ic { font-size: 26px; text-align: center; }
+.tool .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--tc);
+}
+.tool .nm { font-size: 0.95rem; font-weight: 700; }
+.tool .desc { font-size: 0.78rem; color: var(--dim); margin-top: 2px; }
+.t1 { --tc: var(--blue-light); }
+.t2 { --tc: var(--blue); }
+.t3 { --tc: var(--gold); }
+.t4 { --tc: var(--green); }
+.t5 { --tc: var(--purple); }
+
+/* KPI GAUGES */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+.kpi {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 18px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s;
+}
+.kpi:hover { transform: translateY(-4px); }
+.kpi .ic { font-size: 30px; margin-bottom: 6px; }
+.kpi .lb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  color: var(--kc);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+.kpi .nm { font-size: 12px; font-weight: 700; margin: 4px 0 10px; }
+.kpi .big {
+  font-size: 1.7rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #fff, var(--kc));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+.kpi .bar {
+  height: 4px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.kpi .fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--kc), var(--gold-bright));
+  border-radius: 999px;
+  width: 0%;
+  transition: width 1.4s ease;
+}
+.k1 { --kc: var(--blue-light); }
+.k2 { --kc: var(--green); }
+.k3 { --kc: var(--gold); }
+.k4 { --kc: var(--purple); }
+.k5 { --kc: var(--red); }
+.k6 { --kc: var(--cyan); }
+.k7 { --kc: var(--gold-bright); }
+
+/* SECTION DIVIDER */
+.divider {
+  margin: 60px auto 30px;
+  text-align: center;
+  position: relative;
+}
+.divider .num-big {
+  font-size: 7rem;
+  font-weight: 900;
+  line-height: 0.85;
+  background: linear-gradient(135deg, var(--blue-light), var(--gold-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.05em;
+  opacity: 0.35;
+}
+.divider h2 { margin-top: -45px; position: relative; z-index: 1; }
+.divider .lead {
+  margin: 12px auto 0;
+  color: var(--dim);
+  max-width: 600px;
+  font-size: 0.95rem;
+}
+
+/* QUOTE / SHIFT */
+.quote {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 30px 32px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.quote em {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-style: normal;
+}
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* FINAL */
+.final {
+  text-align: center;
+  padding: 80px 32px;
+  margin-top: 60px;
+  border-top: 1px solid var(--border);
+}
+.final h2 {
+  background: linear-gradient(135deg, #fff, var(--gold-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+.final-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 30px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.final-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 16px;
+  text-align: center;
+}
+.final-card .ic { font-size: 32px; margin-bottom: 8px; }
+.final-card .n { font-size: 1.4rem; font-weight: 900; color: var(--gold-bright); }
+.final-card .l { font-size: 10px; color: var(--dim); margin-top: 3px; letter-spacing: 0.06em; }
+
+footer {
+  text-align: center;
+  padding: 30px 32px 60px;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+  .branches { grid-template-columns: 1fr; }
+  .channels-row { grid-template-columns: 1fr; }
+  .vs-arrow-big { transform: rotate(90deg); padding: 12px 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav" id="topnav">
+  <a href="#hero" class="active">Big Picture</a>
+  <a href="#beforeafter">Before · After</a>
+  <a href="#branches">Branches</a>
+  <a href="#diff">Differences</a>
+  <a href="#boards">Boards</a>
+  <a href="#sources">Sources</a>
+  <a href="#channels">Channels</a>
+  <a href="#types">Types</a>
+  <a href="#paths">Routing</a>
+  <a href="#gates">Gates</a>
+  <a href="#squads">Squads</a>
+  <a href="#caps">Capabilities</a>
+  <a href="#roles">Roles</a>
+  <a href="#tools">Tools</a>
+  <a href="#kpis">Performance</a>
+</nav>
+
+<!-- ═════════ HERO · BIG PICTURE ═════════ -->
+<section id="hero" class="hero">
+  <div class="tag">DEMAND MANAGEMENT · END-TO-END</div>
+  <h1>One demand.<br>From request to value.</h1>
+  <p class="lead">Two areas · eight Value Streams · one front door.</p>
+
+  <div class="bp reveal">
+    <div class="bp-meta">
+      <div class="ttl">▸ END-TO-END FLOW</div>
+      <div class="brp">◐ BIG ROOM PLANNING · QUARTERLY · OVERARCHING</div>
+    </div>
+    <div class="clickable-banner">👆 CLICK ANY ELEMENT FOR DETAIL</div>
+
+    <svg viewBox="0 0 1400 640" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="srcG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#6785C1"/><stop offset="100%" stop-color="#2C578B"/>
+        </linearGradient>
+        <linearGradient id="formG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#FFD54F"/><stop offset="100%" stop-color="#F9A825"/>
+        </linearGradient>
+        <linearGradient id="g1G" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#6785C1"/><stop offset="100%" stop-color="#2C578B"/>
+        </linearGradient>
+        <linearGradient id="g2G" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#F9A825"/><stop offset="100%" stop-color="#E88B2F"/>
+        </linearGradient>
+        <linearGradient id="csG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#FFD54F"/><stop offset="100%" stop-color="#F9A825"/>
+        </linearGradient>
+        <linearGradient id="itG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#66BB6A"/><stop offset="100%" stop-color="#2E7D32"/>
+        </linearGradient>
+        <radialGradient id="brpG" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stop-color="#4CAF50" stop-opacity="0.18"/>
+          <stop offset="100%" stop-color="#4CAF50" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- BRP overall halo -->
+      <rect x="20" y="20" width="1360" height="600" rx="20" fill="url(#brpG)"/>
+
+      <!-- column headers · with AS-IS vs TO-BE annotation -->
+      <text x="40" y="48" fill="#A8B0C2" font-size="11" font-family="JetBrains Mono" font-weight="700" letter-spacing="2">01 · SOURCES</text>
+      <text x="40" y="63" fill="#FFB4A8" font-size="9" font-family="Inter" font-style="italic">×  AS-IS — 11 dispersed</text>
+      <text x="160" y="63" fill="#B8E5BA" font-size="9" font-family="Inter" font-style="italic">✓  TO-BE — color-routed</text>
+
+      <text x="380" y="48" fill="#A8B0C2" font-size="11" font-family="JetBrains Mono" font-weight="700" letter-spacing="2">02 · JIRA INTAKE</text>
+      <text x="380" y="63" fill="#FFB4A8" font-size="9" font-family="Inter" font-style="italic">×  AS-IS — 6+ channels</text>
+      <text x="500" y="63" fill="#B8E5BA" font-size="9" font-family="Inter" font-style="italic">✓  TO-BE — 1 Jira request type</text>
+
+      <text x="725" y="48" fill="#A8B0C2" font-size="11" font-family="JetBrains Mono" font-weight="700" letter-spacing="2">03 · GATES + JIRA PORTFOLIO BOARDS</text>
+      <text x="725" y="63" fill="#FFB4A8" font-size="9" font-family="Inter" font-style="italic">×  AS-IS — PDD only · no portfolio</text>
+      <text x="910" y="63" fill="#B8E5BA" font-size="9" font-family="Inter" font-style="italic">✓  TO-BE — 2 gates + 2 Jira boards</text>
+
+      <text x="1080" y="48" fill="#A8B0C2" font-size="11" font-family="JetBrains Mono" font-weight="700" letter-spacing="2">04 · 8 JIRA TEAM KANBANS · 2 BRANCHES</text>
+      <text x="1080" y="63" fill="#FFB4A8" font-size="9" font-family="Inter" font-style="italic">×  AS-IS — spreadsheets, OneNote</text>
+      <text x="1235" y="63" fill="#B8E5BA" font-size="9" font-family="Inter" font-style="italic">✓  TO-BE — 8 Jira Kanbans</text>
+
+      <!-- Branch dividers -->
+      <line x1="1060" y1="80" x2="1060" y2="600" stroke="#FFFFFF" stroke-opacity="0.05" stroke-dasharray="3 4"/>
+
+      <!-- ICON SYMBOLS · clean line-art style -->
+      <defs>
+        <symbol id="ic-handshake" viewBox="0 0 24 24"><path d="M11 17l2 2 4-4M9 13l-3 3 3 3M3 12l4-4M17 8l4 4M7 8h10l3 4-5 5-1.5-1.5M14 4h-4l-3 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="ic-spark" viewBox="0 0 24 24"><path d="M12 3l1.5 5L19 9.5l-5.5 1.5L12 16l-1.5-5L5 9.5 10.5 8 12 3zM5 18l.7 2L8 20.7 5.7 21.3 5 23l-.7-1.7L2 20.7 4.3 20 5 18z" fill="currentColor"/></symbol>
+        <symbol id="ic-chart" viewBox="0 0 24 24"><path d="M3 3v18h18M7 16V11M11 16V8M15 16v-3M19 16V6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+        <symbol id="ic-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="18" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="7" cy="7" r="0.8" fill="currentColor"/><circle cx="7" cy="17" r="0.8" fill="currentColor"/></symbol>
+        <symbol id="ic-robot" viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 11h0M15 11h0M9 16h6M12 7V3M9 3h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+        <symbol id="ic-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+        <symbol id="ic-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5" fill="currentColor"/><circle cx="18" cy="20" r="1.5" fill="currentColor"/><path d="M3 4h2l3 11h11l3-8H7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3 9-8 11-5-2-8-6-8-11V6l8-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="ic-building" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 7h0M14 7h0M9 11h0M14 11h0M9 15h0M14 15h0M10 21v-3h4v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+        <symbol id="ic-map" viewBox="0 0 24 24"><path d="M9 4l-6 2v15l6-2 6 2 6-2V4l-6 2-6-2zM9 4v15M15 6v15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+        <symbol id="ic-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+
+        <!-- Destination marker symbols -->
+        <symbol id="dest-cs" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#F9A825"/><text x="12" y="16" text-anchor="middle" font-family="Inter" font-size="11" font-weight="900" fill="#0a0e1f">CS</text></symbol>
+        <symbol id="dest-it" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#4CAF50"/><text x="12" y="16" text-anchor="middle" font-family="Inter" font-size="11" font-weight="900" fill="#0a0e1f">IT</text></symbol>
+        <symbol id="dest-both" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="url(#bothG)"/><text x="12" y="15" text-anchor="middle" font-family="Inter" font-size="9" font-weight="900" fill="#0a0e1f">BOTH</text></symbol>
+        <linearGradient id="bothG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#FFD54F"/>
+          <stop offset="100%" stop-color="#66BB6A"/>
+        </linearGradient>
+      </defs>
+
+      <!-- 11 sources column · CLICKABLE · with destination markers -->
+      <a href="#sources">
+      <g font-family="Inter" font-size="11" fill="#fff" font-weight="600">
+        <title>Click to see all 11 demand sources and which branch each feeds</title>
+
+        <!-- BRS · BOTH -->
+        <rect x="40" y="80" width="220" height="36" rx="18" fill="url(#srcG)" opacity="0.9"/>
+        <g color="#FFD54F"><use href="#ic-handshake" x="56" y="86" width="22" height="22"/></g>
+        <text x="86" y="103">BRS · 7 OPCOs</text>
+        <use href="#dest-both" x="220" y="86" width="36" height="24"/>
+
+        <!-- CX & Digital CoE · CS only -->
+        <rect x="40" y="124" width="220" height="36" rx="18" fill="url(#srcG)" opacity="0.85"/>
+        <g color="#FFD54F"><use href="#ic-spark" x="56" y="130" width="22" height="22"/></g>
+        <text x="86" y="147">CX &amp; Digital CoE</text>
+        <use href="#dest-cs" x="234" y="130" width="22" height="22"/>
+
+        <!-- Data & Analytics · CS only -->
+        <rect x="40" y="168" width="220" height="36" rx="18" fill="url(#srcG)" opacity="0.85"/>
+        <g color="#FFD54F"><use href="#ic-chart" x="56" y="174" width="22" height="22"/></g>
+        <text x="86" y="191">Data &amp; Analytics</text>
+        <use href="#dest-cs" x="234" y="174" width="22" height="22"/>
+
+        <!-- Infrastructure · CS only -->
+        <rect x="40" y="212" width="220" height="36" rx="18" fill="url(#srcG)" opacity="0.85"/>
+        <g color="#FFD54F"><use href="#ic-server" x="56" y="218" width="22" height="22"/></g>
+        <text x="86" y="235">Infrastructure</text>
+        <use href="#dest-cs" x="234" y="218" width="22" height="22"/>
+
+        <!-- IA · IT only -->
+        <rect x="40" y="256" width="220" height="36" rx="18" fill="url(#srcG)" opacity="0.85"/>
+        <g color="#66BB6A"><use href="#ic-robot" x="56" y="262" width="22" height="22"/></g>
+        <text x="86" y="279">IA · Industrial Auto.</text>
+        <use href="#dest-it" x="234" y="262" width="22" height="22"/>
+
+        <!-- OT · BOTH -->
+        <rect x="40" y="300" width="220" height="36" rx="18" fill="url(#srcG)" opacity="0.85"/>
+        <g color="#C0D0FF"><use href="#ic-bolt" x="56" y="306" width="22" height="22"/></g>
+        <text x="86" y="323">OT · Operational Tech.</text>
+        <use href="#dest-both" x="220" y="306" width="36" height="24"/>
+
+        <!-- Procurement · IT only -->
+        <rect x="40" y="344" width="220" height="36" rx="18" fill="url(#srcG)" opacity="0.85"/>
+        <g color="#66BB6A"><use href="#ic-cart" x="56" y="350" width="22" height="22"/></g>
+        <text x="86" y="367">Procurement</text>
+        <use href="#dest-it" x="234" y="350" width="22" height="22"/>
+
+        <!-- Regulatory · BOTH -->
+        <rect x="40" y="388" width="220" height="36" rx="18" fill="url(#srcG)" opacity="0.85"/>
+        <g color="#C0D0FF"><use href="#ic-shield" x="56" y="394" width="22" height="22"/></g>
+        <text x="86" y="411">Regulatory</text>
+        <use href="#dest-both" x="220" y="394" width="36" height="24"/>
+
+        <!-- Corporate Areas · IT only -->
+        <rect x="40" y="432" width="220" height="36" rx="18" fill="url(#srcG)" opacity="0.85"/>
+        <g color="#66BB6A"><use href="#ic-building" x="56" y="438" width="22" height="22"/></g>
+        <text x="86" y="455">Corporate Areas</text>
+        <use href="#dest-it" x="234" y="438" width="22" height="22"/>
+
+        <!-- P&T · GIS · IT only -->
+        <rect x="40" y="476" width="220" height="36" rx="18" fill="url(#srcG)" opacity="0.85"/>
+        <g color="#66BB6A"><use href="#ic-map" x="56" y="482" width="22" height="22"/></g>
+        <text x="86" y="499">P&amp;T · GIS</text>
+        <use href="#dest-it" x="234" y="482" width="22" height="22"/>
+
+        <!-- P&T · Global SAP · IT only -->
+        <rect x="40" y="520" width="220" height="36" rx="18" fill="url(#srcG)" opacity="0.85"/>
+        <g color="#66BB6A"><use href="#ic-globe" x="56" y="526" width="22" height="22"/></g>
+        <text x="86" y="543">P&amp;T · Global SAP</text>
+        <use href="#dest-it" x="234" y="526" width="22" height="22"/>
+
+        <text class="click-hint" x="150" y="78" text-anchor="middle" fill="#FFD54F" font-size="10" font-weight="800">▾ CLICK ▾</text>
+      </g>
+      </a>
+
+      <!-- flow lines · color-coded by destination branch -->
+      <!-- GOLD lines · sources → CS only -->
+      <g stroke="#F9A825" stroke-width="1.6" fill="none" opacity="0.7" stroke-dasharray="4 4">
+        <path d="M 260 142 Q 340 142, 410 285" class="bp-flow"/><!-- CX & CoE -->
+        <path d="M 260 186 Q 340 186, 410 295" class="bp-flow"/><!-- Data & Analytics -->
+        <path d="M 260 230 Q 340 230, 410 305" class="bp-flow"/><!-- Infrastructure -->
+      </g>
+      <!-- GREEN lines · sources → IT only -->
+      <g stroke="#4CAF50" stroke-width="1.6" fill="none" opacity="0.7" stroke-dasharray="4 4">
+        <path d="M 260 274 Q 340 274, 410 325" class="bp-flow"/><!-- IA -->
+        <path d="M 260 362 Q 340 362, 410 345" class="bp-flow"/><!-- Procurement -->
+        <path d="M 260 450 Q 340 450, 410 365" class="bp-flow"/><!-- Corporate -->
+        <path d="M 260 494 Q 340 494, 410 375" class="bp-flow"/><!-- P&T GIS -->
+        <path d="M 260 538 Q 340 538, 410 385" class="bp-flow"/><!-- P&T Global SAP -->
+      </g>
+      <!-- BLUE lines · sources → BOTH -->
+      <g stroke="#C0D0FF" stroke-width="1.6" fill="none" opacity="0.6" stroke-dasharray="4 4">
+        <path d="M 260 98 Q 340 98, 410 275" class="bp-flow"/><!-- BRS -->
+        <path d="M 260 318 Q 340 318, 410 335" class="bp-flow"/><!-- OT -->
+        <path d="M 260 406 Q 340 406, 410 355" class="bp-flow"/><!-- Regulatory -->
+      </g>
+
+      <!-- INTAKE FORM (center) · CLICKABLE → types -->
+      <a href="#types">
+      <g class="bp-pulse" style="color:#F9A825;">
+        <title>Click to see the 4 classification dimensions</title>
+        <rect x="410" y="220" width="240" height="220" rx="14" fill="rgba(249,168,37,0.08)" stroke="#F9A825" stroke-width="2"/>
+        <rect x="410" y="220" width="240" height="50" rx="14" fill="url(#formG)"/>
+        <rect x="410" y="248" width="240" height="22" fill="url(#formG)"/>
+        <text x="530" y="252" text-anchor="middle" fill="#0a0e1f" font-size="15" font-weight="900" font-family="Inter">JIRA REQUEST</text>
+        <text x="530" y="266" text-anchor="middle" fill="#0a0e1f" font-size="9.5" font-weight="700" font-family="Inter" letter-spacing="3">SINGLE FRONT DOOR</text>
+
+        <g font-family="Inter" font-size="11" fill="#ECEFF6">
+          <text x="425" y="293">▸ Value Stream</text>
+          <text x="425" y="313">▸ R / G / T</text>
+          <text x="425" y="333">▸ Size · S/M/L/XL</text>
+          <text x="425" y="353">▸ Class of Service</text>
+          <text x="425" y="373">▸ OPCO</text>
+          <text x="425" y="393">▸ Sponsor</text>
+          <text x="425" y="413">▸ Pain Score</text>
+        </g>
+        <text x="530" y="430" text-anchor="middle" fill="#FFD54F" font-size="9.5" font-style="italic" font-family="Inter">8 mandatory fields</text>
+        <text class="click-hint" x="530" y="455" text-anchor="middle" fill="#FFD54F" font-size="10" font-weight="800">▾ CLICK · CLASSIFICATION ▾</text>
+      </g>
+      </a>
+
+      <!-- arrow form → gate1 -->
+      <g stroke="#F9A825" stroke-width="2.5" fill="#F9A825" opacity="0.9">
+        <line x1="650" y1="330" x2="710" y2="330" stroke-dasharray="4 4" class="bp-flow"/>
+        <polygon points="710,322 725,330 710,338"/>
+      </g>
+
+      <!-- GATE 1 · CLICKABLE → gates detail -->
+      <a href="#gates">
+      <g>
+        <title>Click to see Gate 1 · Triage details</title>
+        <rect x="725" y="240" width="160" height="180" rx="14" fill="rgba(103,133,193,0.1)" stroke="#6785C1" stroke-width="2"/>
+        <rect x="725" y="240" width="160" height="40" rx="14" fill="url(#g1G)"/>
+        <rect x="725" y="262" width="160" height="18" fill="url(#g1G)"/>
+        <text x="805" y="265" text-anchor="middle" fill="#fff" font-size="13" font-weight="900" font-family="Inter">GATE 1</text>
+        <text x="805" y="294" text-anchor="middle" fill="#C0D0FF" font-size="10" font-weight="700" font-family="JetBrains Mono">WEEKLY · 30 MIN</text>
+        <text x="805" y="313" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">TRIAGE</text>
+        <g font-family="Inter" font-size="9.5" fill="#C0D0FF" font-weight="700">
+          <rect x="740" y="325" width="60" height="20" rx="10" fill="rgba(103,133,193,0.2)"/><text x="770" y="339" text-anchor="middle">ACCEPT</text>
+          <rect x="810" y="325" width="60" height="20" rx="10" fill="rgba(103,133,193,0.2)"/><text x="840" y="339" text-anchor="middle">REJECT</text>
+          <rect x="740" y="350" width="60" height="20" rx="10" fill="rgba(103,133,193,0.2)"/><text x="770" y="364" text-anchor="middle">SEND-BK</text>
+          <rect x="810" y="350" width="60" height="20" rx="10" fill="rgba(103,133,193,0.2)"/><text x="840" y="364" text-anchor="middle">REDIR.</text>
+        </g>
+        <text x="805" y="395" text-anchor="middle" fill="#A8B0C2" font-size="9.5" font-style="italic">SLA · 5 days</text>
+        <text class="click-hint" x="805" y="415" text-anchor="middle" fill="#FFD54F" font-size="10" font-weight="800">▾ CLICK ▾</text>
+      </g>
+      </a>
+
+      <!-- size split label -->
+      <text x="900" y="200" fill="#A8B0C2" font-size="10" font-family="JetBrains Mono" letter-spacing="1.5" font-weight="700">SIZE ROUTING · per branch</text>
+
+      <!-- S/M direct path · split top + bottom -->
+      <g stroke="#4CAF50" stroke-width="2" fill="none" opacity="0.85" stroke-dasharray="3 3">
+        <path d="M 885 270 Q 950 235, 1080 220" class="bp-flow"/><!-- S/M → CS lane -->
+        <path d="M 885 380 Q 950 460, 1080 460" class="bp-flow"/><!-- S/M → IT lane -->
+      </g>
+      <g>
+        <rect x="900" y="210" width="60" height="22" rx="11" fill="rgba(76,175,80,0.2)" stroke="#4CAF50"/>
+        <text x="930" y="225" text-anchor="middle" fill="#66BB6A" font-size="10" font-weight="800">S / M</text>
+      </g>
+      <text x="970" y="225" fill="#B8E5BA" font-size="9" font-style="italic">→ direct (both branches)</text>
+
+      <!-- L/XL splits into two Portfolio Boards -->
+      <g stroke="#F9A825" stroke-width="2.2" fill="none" opacity="0.95" stroke-dasharray="3 3">
+        <path d="M 885 320 Q 920 320, 955 290" class="bp-flow"/><!-- to CS Portfolio -->
+        <path d="M 885 350 Q 920 350, 955 380" class="bp-flow"/><!-- to IT Portfolio -->
+      </g>
+
+      <!-- L/XL CS branch label -->
+      <g>
+        <rect x="888" y="285" width="60" height="20" rx="10" fill="rgba(249,168,37,0.2)" stroke="#F9A825"/>
+        <text x="918" y="299" text-anchor="middle" fill="#FFD54F" font-size="9.5" font-weight="800">L / XL CS</text>
+      </g>
+      <!-- L/XL IT branch label -->
+      <g>
+        <rect x="888" y="380" width="60" height="20" rx="10" fill="rgba(76,175,80,0.2)" stroke="#4CAF50"/>
+        <text x="918" y="394" text-anchor="middle" fill="#66BB6A" font-size="9.5" font-weight="800">L / XL IT</text>
+      </g>
+
+      <!-- ═══ TWO PORTFOLIO BOARDS · GATE 2 ═══ -->
+
+      <!-- CS PORTFOLIO BOARD (Gate 2 · top) -->
+      <a href="#boards">
+      <g>
+        <title>CS Portfolio Board · Gate 2 monthly · Kumar · Customer Services L/XL initiatives</title>
+        <rect x="955" y="225" width="100" height="100" rx="14" fill="rgba(249,168,37,0.1)" stroke="#F9A825" stroke-width="2"/>
+        <rect x="955" y="225" width="100" height="32" rx="14" fill="url(#csG)"/>
+        <rect x="955" y="243" width="100" height="14" fill="url(#csG)"/>
+        <text x="1005" y="240" text-anchor="middle" fill="#0a0e1f" font-size="9.5" font-weight="900" font-family="Inter">JIRA · CS BOARD</text>
+        <text x="1005" y="252" text-anchor="middle" fill="#0a0e1f" font-size="8" font-weight="700" font-family="Inter" letter-spacing="1">cards = INITIATIVES</text>
+        <!-- mini Jira columns -->
+        <g>
+          <rect x="962" y="263" width="16" height="20" rx="2" fill="rgba(249,168,37,0.25)"/>
+          <rect x="980" y="263" width="16" height="20" rx="2" fill="rgba(231,76,60,0.5)"/>
+          <rect x="998" y="263" width="16" height="20" rx="2" fill="rgba(249,168,37,0.25)"/>
+          <rect x="1016" y="263" width="16" height="20" rx="2" fill="rgba(76,175,80,0.5)"/>
+          <rect x="1034" y="263" width="16" height="20" rx="2" fill="rgba(249,168,37,0.18)"/>
+        </g>
+        <text x="1005" y="298" text-anchor="middle" fill="#FFD54F" font-size="9" font-weight="700" font-family="JetBrains Mono">GATE 2 · MONTHLY</text>
+        <text x="1005" y="313" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">Kumar · 3 VSs · L/XL</text>
+        <text class="click-hint" x="1005" y="320" text-anchor="middle" fill="#FFD54F" font-size="9" font-weight="800">▾ CLICK ▾</text>
+      </g>
+      </a>
+
+      <!-- IT PORTFOLIO BOARD (Gate 2 · bottom) -->
+      <a href="#boards">
+      <g>
+        <title>IT Portfolio Board · Gate 2 monthly · Carlos · IT Business Apps L/XL initiatives</title>
+        <rect x="955" y="345" width="100" height="100" rx="14" fill="rgba(76,175,80,0.1)" stroke="#4CAF50" stroke-width="2"/>
+        <rect x="955" y="345" width="100" height="32" rx="14" fill="url(#itG)"/>
+        <rect x="955" y="363" width="100" height="14" fill="url(#itG)"/>
+        <text x="1005" y="360" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="900" font-family="Inter">JIRA · IT BOARD</text>
+        <text x="1005" y="372" text-anchor="middle" fill="#fff" font-size="8" font-weight="700" font-family="Inter" letter-spacing="1">cards = INITIATIVES</text>
+        <!-- mini Jira columns -->
+        <g>
+          <rect x="962" y="383" width="16" height="20" rx="2" fill="rgba(76,175,80,0.25)"/>
+          <rect x="980" y="383" width="16" height="20" rx="2" fill="rgba(231,76,60,0.5)"/>
+          <rect x="998" y="383" width="16" height="20" rx="2" fill="rgba(76,175,80,0.4)"/>
+          <rect x="1016" y="383" width="16" height="20" rx="2" fill="rgba(76,175,80,0.6)"/>
+          <rect x="1034" y="383" width="16" height="20" rx="2" fill="rgba(76,175,80,0.18)"/>
+        </g>
+        <text x="1005" y="418" text-anchor="middle" fill="#B8E5BA" font-size="9" font-weight="700" font-family="JetBrains Mono">GATE 2 · MONTHLY</text>
+        <text x="1005" y="433" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">Carlos · 5 VSs · L/XL</text>
+        <text class="click-hint" x="1005" y="440" text-anchor="middle" fill="#FFD54F" font-size="9" font-weight="800">▾ CLICK ▾</text>
+      </g>
+      </a>
+
+      <!-- portfolio boards → squads -->
+      <g stroke="#F9A825" stroke-width="2" fill="none" opacity="0.7" stroke-dasharray="3 3">
+        <path d="M 1055 275 Q 1067 275, 1080 240" class="bp-flow"/>
+      </g>
+      <g stroke="#4CAF50" stroke-width="2" fill="none" opacity="0.7" stroke-dasharray="3 3">
+        <path d="M 1055 395 Q 1067 395, 1080 470" class="bp-flow"/>
+      </g>
+
+      <!-- ═════ TWO BRANCHES — VISUAL SWIM LANES ═════ -->
+
+      <!-- CS APPS BRANCH (top right) · CLICKABLE → diff / squads -->
+      <a href="#diff">
+      <g>
+        <title>Click to see Customer Services Apps · 3 Value Streams · differences</title>
+        <rect x="1080" y="80" width="290" height="240" rx="16" fill="rgba(249,168,37,0.06)" stroke="#F9A825" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="1093" y="105" fill="#FFD54F" font-size="10" font-weight="800" font-family="JetBrains Mono" letter-spacing="2">CS APPS · KUMAR</text>
+        <text x="1093" y="123" fill="#fff" font-size="14" font-weight="800" font-family="Inter">3 Value Streams</text>
+
+        <rect x="1090" y="135" width="270" height="44" rx="10" fill="url(#csG)"/>
+        <text x="1108" y="160" font-size="20">⚡</text>
+        <text x="1135" y="155" fill="#0a0e1f" font-size="10.5" font-family="JetBrains Mono" font-weight="800">M2C-SL</text>
+        <text x="1135" y="170" fill="#0a0e1f" font-size="11" font-family="Inter" font-weight="700">Service Lifecycle</text>
+
+        <rect x="1090" y="185" width="270" height="44" rx="10" fill="url(#csG)" opacity="0.92"/>
+        <text x="1108" y="210" font-size="20">💰</text>
+        <text x="1135" y="205" fill="#0a0e1f" font-size="10.5" font-family="JetBrains Mono" font-weight="800">M2C-RO</text>
+        <text x="1135" y="220" fill="#0a0e1f" font-size="11" font-family="Inter" font-weight="700">Revenue Operations</text>
+
+        <rect x="1090" y="235" width="270" height="44" rx="10" fill="url(#csG)" opacity="0.85"/>
+        <text x="1108" y="260" font-size="20">🎧</text>
+        <text x="1135" y="255" fill="#0a0e1f" font-size="10.5" font-family="JetBrains Mono" font-weight="800">CCC</text>
+        <text x="1135" y="270" fill="#0a0e1f" font-size="11" font-family="Inter" font-weight="700">Customer Care &amp; Contact</text>
+
+        <text x="1093" y="305" fill="#FFD9B0" font-size="9.5" font-style="italic">Customer Service · M2C domains</text>
+        <text class="click-hint" x="1225" y="324" text-anchor="middle" fill="#FFD54F" font-size="10" font-weight="800">▾ CLICK ▾</text>
+      </g>
+      </a>
+
+      <!-- IT APPS BRANCH (bottom right) · CLICKABLE → diff / squads -->
+      <a href="#diff">
+      <g>
+        <title>Click to see IT Business Apps · 5 Value Streams · differences</title>
+        <rect x="1080" y="335" width="290" height="265" rx="16" fill="rgba(76,175,80,0.06)" stroke="#4CAF50" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="1093" y="360" fill="#66BB6A" font-size="10" font-weight="800" font-family="JetBrains Mono" letter-spacing="2">IT BUSINESS APPS · CARLOS</text>
+        <text x="1093" y="378" fill="#fff" font-size="14" font-weight="800" font-family="Inter">5 Value Streams</text>
+
+        <rect x="1090" y="388" width="270" height="38" rx="10" fill="url(#itG)"/>
+        <text x="1108" y="411" font-size="18">🚧</text>
+        <text x="1135" y="408" fill="#fff" font-size="10" font-family="JetBrains Mono" font-weight="800">FOPS</text>
+        <text x="1135" y="421" fill="#fff" font-size="10.5" font-family="Inter" font-weight="700">Field Operations</text>
+
+        <rect x="1090" y="430" width="270" height="38" rx="10" fill="url(#itG)" opacity="0.92"/>
+        <text x="1108" y="453" font-size="18">🏗️</text>
+        <text x="1135" y="450" fill="#fff" font-size="10" font-family="JetBrains Mono" font-weight="800">E&amp;A</text>
+        <text x="1135" y="463" fill="#fff" font-size="10.5" font-family="Inter" font-weight="700">Engineering &amp; Asset Mgmt</text>
+
+        <rect x="1090" y="472" width="270" height="38" rx="10" fill="url(#itG)" opacity="0.85"/>
+        <text x="1108" y="495" font-size="18">🛰️</text>
+        <text x="1135" y="492" fill="#fff" font-size="10" font-family="JetBrains Mono" font-weight="800">NOC</text>
+        <text x="1135" y="505" fill="#fff" font-size="10.5" font-family="Inter" font-weight="700">Network Ops &amp; Control</text>
+
+        <rect x="1090" y="514" width="270" height="38" rx="10" fill="url(#itG)" opacity="0.78"/>
+        <text x="1108" y="537" font-size="18">📋</text>
+        <text x="1135" y="534" fill="#fff" font-size="10" font-family="JetBrains Mono" font-weight="800">C&amp;R</text>
+        <text x="1135" y="547" fill="#fff" font-size="10.5" font-family="Inter" font-weight="700">Corporate &amp; Regulatory</text>
+
+        <rect x="1090" y="556" width="270" height="38" rx="10" fill="url(#itG)" opacity="0.7"/>
+        <text x="1108" y="579" font-size="18">🌐</text>
+        <text x="1135" y="576" fill="#fff" font-size="10" font-family="JetBrains Mono" font-weight="800">IBD</text>
+        <text x="1135" y="589" fill="#fff" font-size="10.5" font-family="Inter" font-weight="700">Iberdrola Corp Services</text>
+        <text class="click-hint" x="1225" y="614" text-anchor="middle" fill="#FFD54F" font-size="10" font-weight="800">▾ CLICK ▾</text>
+      </g>
+      </a>
+
+      <!-- branch summary labels -->
+      <text x="1370" y="105" fill="#A8B0C2" font-size="10" font-family="JetBrains Mono" text-anchor="end" letter-spacing="1.5">▌</text>
+
+    </svg>
+  </div>
+
+  <div class="hero-stats reveal">
+    <div class="stat"><div class="n">11</div><div class="l">SOURCES</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">FRONT DOOR</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">BRANCHES</div></div>
+    <div class="stat"><div class="n">8</div><div class="l">VALUE STREAMS</div></div>
+    <div class="stat"><div class="n">2 + 1</div><div class="l">GATES + BRP</div></div>
+  </div>
+</section>
+
+<!-- ═════════ BEFORE vs AFTER · entire flow ═════════ -->
+<section id="beforeafter">
+  <div class="reveal">
+    <div class="tag">THE TRANSFORMATION · BEFORE vs AFTER</div>
+    <h2>What it was. <span style="color: var(--gold-bright);">What it becomes.</span></h2>
+  </div>
+
+  <div class="beforeafter reveal">
+    <div class="ba-col before">
+      <div class="ba-tag">×  AS-IS · TODAY</div>
+
+      <div class="ba-row"><span class="step">SOURCES</span><div class="v"><span class="ic">🌪️</span>11 areas · scattered routes</div></div>
+      <div class="ba-row"><span class="step">CHANNELS</span><div class="v"><span class="ic">📧</span>6+ disconnected (Email · Teams · IT Now · PDD · SharePoint · Word…)</div></div>
+      <div class="ba-row"><span class="step">INTAKE</span><div class="v"><span class="ic">📝</span>No standard form · no DoR</div></div>
+      <div class="ba-row"><span class="step">CLASSIFICATION</span><div class="v"><span class="ic">🏷️</span>Per-team variants · "intrinsic common sense"</div></div>
+      <div class="ba-row"><span class="step">PRIORITIZATION</span><div class="v"><span class="ic">⚖️</span>Heuristic · regulatory wins by default</div></div>
+      <div class="ba-row"><span class="step">TRIAGE</span><div class="v"><span class="ic">🚦</span>No formal gate · Sr Mgrs absorb reactively</div></div>
+      <div class="ba-row"><span class="step">PORTFOLIO</span><div class="v"><span class="ic">📊</span>Only Smart Metering uses PPM Now · others informal</div></div>
+      <div class="ba-row"><span class="step">JIRA BOARDS</span><div class="v"><span class="ic">📋</span>Free-text Jira cards + spreadsheets + OneNote</div></div>
+      <div class="ba-row"><span class="step">SQUADS</span><div class="v"><span class="ic">👥</span>Sub-teams by application · no Product Mgr role</div></div>
+      <div class="ba-row"><span class="step">VISIBILITY</span><div class="v"><span class="ic">📉</span>Manual monthly PowerPoint</div></div>
+    </div>
+
+    <div class="ba-arrow">→<span class="lbl">TRANSFORMATION</span></div>
+
+    <div class="ba-col after">
+      <div class="ba-tag">✓  TO-BE · TARGET MODEL</div>
+
+      <div class="ba-row"><span class="step">SOURCES</span><div class="v"><span class="ic">🎯</span>Same 11 · color-routed (CS/IT/BOTH)</div></div>
+      <div class="ba-row"><span class="step">CHANNELS</span><div class="v"><span class="ic">🚪</span>1 Jira request type per Value Stream</div></div>
+      <div class="ba-row"><span class="step">INTAKE</span><div class="v"><span class="ic">📋</span>8 mandatory fields · DoR enforced</div></div>
+      <div class="ba-row"><span class="step">CLASSIFICATION</span><div class="v"><span class="ic">⚖️</span>4 dimensions · CoS · Size · R/G/T · Hierarchy</div></div>
+      <div class="ba-row"><span class="step">PRIORITIZATION</span><div class="v"><span class="ic">💎</span>Pain Score H(x) · UX-heavy CS · Safety-heavy IT</div></div>
+      <div class="ba-row"><span class="step">TRIAGE</span><div class="v"><span class="ic">🚦</span>Gate 1 · weekly · 30 min · 5-day SLA</div></div>
+      <div class="ba-row"><span class="step">PORTFOLIO</span><div class="v"><span class="ic">📊</span>Gate 2 · monthly · 90 min · 2 Jira Portfolio Boards</div></div>
+      <div class="ba-row"><span class="step">JIRA BOARDS</span><div class="v"><span class="ic">📋</span>2 Portfolio Boards (CS · IT) + 8 Team Kanbans</div></div>
+      <div class="ba-row"><span class="step">SQUADS</span><div class="v"><span class="ic">👥</span>8 squads · 2 branches · Product Mgr per VS</div></div>
+      <div class="ba-row"><span class="step">VISIBILITY</span><div class="v"><span class="ic">📈</span>Live dashboard · 5 views · refresh &lt; 1h</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═════════ TWO BRANCHES ═════════ -->
+<section id="branches">
+  <div class="reveal">
+    <div class="tag">CHECKPOINT 00 · TWO BRANCHES</div>
+    <h2>Two areas. Eight Value Streams.</h2>
+  </div>
+
+  <div class="branches reveal">
+    <div class="branch cs">
+      <div class="branch-tag">CUSTOMER SERVICES APPS</div>
+      <h3>Kumar Jaladanki</h3>
+      <div class="owner">Director · Customer-facing applications</div>
+      <div class="vs-count">▸ 3 VALUE STREAMS</div>
+      <div class="vs-list">
+        <div class="vs"><span class="icon">⚡</span><span class="code">M2C-SL</span><span class="name">Meter-to-Cash · Service Lifecycle</span></div>
+        <div class="vs"><span class="icon">💰</span><span class="code">M2C-RO</span><span class="name">Meter-to-Cash · Revenue Operations</span></div>
+        <div class="vs"><span class="icon">🎧</span><span class="code">CCC</span><span class="name">Customer Care &amp; Contact Center</span></div>
+      </div>
+    </div>
+
+    <div class="branch it">
+      <div class="branch-tag">IT BUSINESS APPS</div>
+      <h3>Carlos Garbin</h3>
+      <div class="owner">Director · Operations &amp; back-office applications</div>
+      <div class="vs-count">▸ 5 VALUE STREAMS</div>
+      <div class="vs-list">
+        <div class="vs"><span class="icon">🚧</span><span class="code">FOPS</span><span class="name">Field Operations</span></div>
+        <div class="vs"><span class="icon">🏗️</span><span class="code">E&amp;A</span><span class="name">Engineering &amp; Asset Management</span></div>
+        <div class="vs"><span class="icon">🛰️</span><span class="code">NOC</span><span class="name">Network Operations &amp; Control</span></div>
+        <div class="vs"><span class="icon">📋</span><span class="code">C&amp;R</span><span class="name">Corporate &amp; Regulatory</span></div>
+        <div class="vs"><span class="icon">🌐</span><span class="code">IBD</span><span class="name">Iberdrola Corporate Services</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ DIFFERENCES side-by-side ═════════ -->
+<section id="diff">
+  <div class="reveal">
+    <div class="tag">CHECKPOINT 00b · WHAT MAKES EACH AREA DIFFERENT</div>
+    <h2>Same framework. <span style="color: var(--dim);">Different specifics.</span></h2>
+  </div>
+
+  <div class="diff-grid reveal">
+    <!-- ═══ CS APPS ═══ -->
+    <div class="diff-col cs">
+      <div class="diff-head">
+        <div>
+          <h3>CUSTOMER SERVICES APPS</h3>
+          <div class="owner">Kumar Jaladanki · Customer-facing</div>
+        </div>
+        <div>
+          <div class="vs-num">3</div>
+          <div class="vs-num-l">VALUE STREAMS</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="h">DEMAND SOURCES</div>
+        <div class="icons-row">
+          <span class="ic-pill"><span class="em">📞</span>OPCO call centers</span>
+          <span class="ic-pill"><span class="em">💼</span>Customer Operations</span>
+          <span class="ic-pill"><span class="em">📣</span>Marketing</span>
+          <span class="ic-pill"><span class="em">🤖</span>Customer Service GenAI</span>
+          <span class="ic-pill"><span class="em">⚡</span>Smart Metering program</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="h">KEY APPS</div>
+        <div class="pills-row">
+          <span class="pill solid">SAP CRM</span>
+          <span class="pill solid">IS-U FICA</span>
+          <span class="pill solid">Smart Metering</span>
+          <span class="pill solid">Itron</span>
+          <span class="pill solid">Medallia</span>
+          <span class="pill solid">IVR</span>
+          <span class="pill solid">Contact Center</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="h">VENDOR ECOSYSTEM</div>
+        <div class="pills-row">
+          <span class="pill">Lemur-Salesforce</span>
+          <span class="pill">Itron</span>
+          <span class="pill">Smart Metering vendor</span>
+          <span class="pill">Accenture</span>
+          <span class="pill">IVR partner</span>
+          <span class="pill">Medallia partner</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="h">CLASS OF SERVICE MIX  ·  estimate</div>
+        <div class="stacked-bar">
+          <div class="seg seg-std" style="width: 55%;">Standard 55%</div>
+          <div class="seg seg-exp" style="width: 20%;">Exp 20%</div>
+          <div class="seg seg-fix" style="width: 15%;">Fix 15%</div>
+          <div class="seg seg-int" style="width: 10%;">Int 10%</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="h">RUN / GROW / TRANSFORM  ·  estimate</div>
+        <div class="stacked-bar">
+          <div class="seg seg-run" style="width: 50%;">Run 50%</div>
+          <div class="seg seg-grow" style="width: 35%;">Grow 35%</div>
+          <div class="seg seg-trans" style="width: 15%;">Trans 15%</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="h">PAIN SCORE WEIGHTING  ·  UX-heavy</div>
+        <div class="pain-row">
+          <div class="pain-donut">
+            <svg viewBox="0 0 80 80" width="80" height="80">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="12"/>
+              <!-- BV 35% -->
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#6785C1" stroke-width="12" stroke-dasharray="70.4 201" transform="rotate(-90 40 40)"/>
+              <!-- UX 40% (highlighted) -->
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#FFD54F" stroke-width="12" stroke-dasharray="80.4 201" stroke-dashoffset="-70.4" transform="rotate(-90 40 40)"/>
+              <!-- Safety 25% -->
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#4CAF50" stroke-width="12" stroke-dasharray="50.3 201" stroke-dashoffset="-150.8" transform="rotate(-90 40 40)"/>
+              <text x="40" y="44" text-anchor="middle" font-family="Inter" font-weight="800" font-size="11" fill="#fff">H(x)</text>
+            </svg>
+          </div>
+          <div class="pain-meta">
+            <div class="pm-line" style="--pmc: #6785C1"><span class="k">BV</span><span class="v">w₁ = 0.35</span></div>
+            <div class="pm-line heavy" style="--pmc: #FFD54F"><span class="k">UX  ⚡</span><span class="v">w₂ = 0.40</span></div>
+            <div class="pm-line" style="--pmc: #4CAF50"><span class="k">Safety</span><span class="v">w₃ = 0.25</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ IT APPS ═══ -->
+    <div class="diff-col it">
+      <div class="diff-head">
+        <div>
+          <h3>IT BUSINESS APPS</h3>
+          <div class="owner">Carlos Garbin · Operations &amp; back-office</div>
+        </div>
+        <div>
+          <div class="vs-num">5</div>
+          <div class="vs-num-l">VALUE STREAMS</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="h">DEMAND SOURCES</div>
+        <div class="icons-row">
+          <span class="ic-pill"><span class="em">⚙️</span>G&amp;E Operations</span>
+          <span class="ic-pill"><span class="em">🏗️</span>Engineering</span>
+          <span class="ic-pill"><span class="em">⛈️</span>Storm Ops</span>
+          <span class="ic-pill"><span class="em">🛰️</span>System Operations</span>
+          <span class="ic-pill"><span class="em">🌐</span>Iberdrola corporate</span>
+          <span class="ic-pill"><span class="em">📋</span>Sarath PJM pool</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="h">KEY APPS</div>
+        <div class="pills-row">
+          <span class="pill solid">ArcGIS</span>
+          <span class="pill solid">Smallworld</span>
+          <span class="pill solid">OMS</span>
+          <span class="pill solid">SCADA</span>
+          <span class="pill solid">EMS</span>
+          <span class="pill solid">Maintenance · 16 apps</span>
+          <span class="pill solid">Global SAP</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="h">VENDOR ECOSYSTEM</div>
+        <div class="pills-row">
+          <span class="pill">HCL</span>
+          <span class="pill">Esri partners</span>
+          <span class="pill">GE</span>
+          <span class="pill">Siemens</span>
+          <span class="pill">ABB</span>
+          <span class="pill">SWF</span>
+          <span class="pill">Infosys</span>
+          <span class="pill">Iberdrola IT</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="h">CLASS OF SERVICE MIX  ·  estimate</div>
+        <div class="stacked-bar">
+          <div class="seg seg-std" style="width: 45%;">Standard 45%</div>
+          <div class="seg seg-fix" style="width: 30%;">Fix 30%</div>
+          <div class="seg seg-exp" style="width: 15%;">Exp 15%</div>
+          <div class="seg seg-int" style="width: 10%;">Int 10%</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="h">RUN / GROW / TRANSFORM  ·  estimate</div>
+        <div class="stacked-bar">
+          <div class="seg seg-run" style="width: 60%;">Run 60%</div>
+          <div class="seg seg-grow" style="width: 25%;">Grow 25%</div>
+          <div class="seg seg-trans" style="width: 15%;">Trans 15%</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="h">PAIN SCORE WEIGHTING  ·  Safety-heavy</div>
+        <div class="pain-row">
+          <div class="pain-donut">
+            <svg viewBox="0 0 80 80" width="80" height="80">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="12"/>
+              <!-- BV 40% -->
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#6785C1" stroke-width="12" stroke-dasharray="80.4 201" transform="rotate(-90 40 40)"/>
+              <!-- UX 20% -->
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#FFD54F" stroke-width="12" stroke-dasharray="40.2 201" stroke-dashoffset="-80.4" transform="rotate(-90 40 40)"/>
+              <!-- Safety 40% (highlighted) -->
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#66BB6A" stroke-width="12" stroke-dasharray="80.4 201" stroke-dashoffset="-120.6" transform="rotate(-90 40 40)"/>
+              <text x="40" y="44" text-anchor="middle" font-family="Inter" font-weight="800" font-size="11" fill="#fff">H(x)</text>
+            </svg>
+          </div>
+          <div class="pain-meta">
+            <div class="pm-line" style="--pmc: #6785C1"><span class="k">BV</span><span class="v">w₁ = 0.40</span></div>
+            <div class="pm-line" style="--pmc: #FFD54F"><span class="k">UX</span><span class="v">w₂ = 0.20</span></div>
+            <div class="pm-line heavy" style="--pmc: #66BB6A"><span class="k">Safety  🛡️</span><span class="v">w₃ = 0.40</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ BOARDS · 3-LAYER ARCHITECTURE ═════════ -->
+<section id="boards">
+  <div class="reveal">
+    <div class="tag">CHECKPOINT 07 · BOARDS</div>
+    <h2>Three layers. <span style="color: var(--dim);">One operating model.</span></h2>
+  </div>
+
+  <div class="boards-arch reveal">
+    <!-- LAYER 0 -->
+    <div class="layer-label">
+      <span class="num">LAYER 0</span>
+      <span class="lb">VP Roll-up Dashboard · monthly Portfolio Sync</span>
+    </div>
+    <div class="vp-dash">
+      <div class="grid">
+        <div class="tile"><div class="em">📊</div><div class="v">8</div><div class="l">SQUADS</div></div>
+        <div class="tile"><div class="em">🎯</div><div class="v">2</div><div class="l">PORTFOLIOS</div></div>
+        <div class="tile"><div class="em">📈</div><div class="v">live</div><div class="l">DASHBOARD</div></div>
+        <div class="tile"><div class="em">⏱️</div><div class="v">&lt; 1h</div><div class="l">REFRESH</div></div>
+      </div>
+      <div class="who">Vitor Cruz · cross-portfolio aggregated view · monthly review</div>
+    </div>
+
+    <div class="layer-connector">▼</div>
+
+    <!-- LAYER 1 -->
+    <div class="layer-label">
+      <span class="num">LAYER 1</span>
+      <span class="lb">Two Portfolio Boards · cards = Initiatives · monthly Gate 2</span>
+    </div>
+    <div class="portfolio-row">
+      <div class="portfolio-board cs">
+        <div class="who">Owner · Kumar  ·  3 Value Streams</div>
+        <div class="stages">
+          <div class="col"><div class="ttl">Funnel</div><div class="card-mini"></div><div class="card-mini"></div></div>
+          <div class="col gate-marker"><div class="ttl">▲ G1</div></div>
+          <div class="col"><div class="ttl">Reviewing</div><div class="card-mini"></div></div>
+          <div class="col"><div class="ttl">Analyzing</div><div class="card-mini"></div><div class="card-mini"></div></div>
+          <div class="col gate-marker"><div class="ttl">▲ G2</div></div>
+          <div class="col"><div class="ttl">Backlog</div><div class="card-mini"></div></div>
+        </div>
+      </div>
+      <div class="portfolio-board it">
+        <div class="who">Owner · Carlos  ·  5 Value Streams</div>
+        <div class="stages">
+          <div class="col"><div class="ttl">Funnel</div><div class="card-mini"></div><div class="card-mini"></div><div class="card-mini"></div></div>
+          <div class="col gate-marker"><div class="ttl">▲ G1</div></div>
+          <div class="col"><div class="ttl">Reviewing</div><div class="card-mini"></div><div class="card-mini"></div></div>
+          <div class="col"><div class="ttl">Analyzing</div><div class="card-mini"></div></div>
+          <div class="col gate-marker"><div class="ttl">▲ G2</div></div>
+          <div class="col"><div class="ttl">Backlog</div><div class="card-mini"></div><div class="card-mini"></div></div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size: 11px; color: var(--dim); text-align: center; margin-top: 8px; font-style: italic;">
+      Only L / XL Initiatives flow through these boards · S / M demands bypass to Team Kanbans directly
+    </p>
+
+    <div class="layer-connector">▼</div>
+
+    <!-- LAYER 2 -->
+    <div class="layer-label">
+      <span class="num">LAYER 2</span>
+      <span class="lb">Eight Team Kanbans · cards = Stories · 5 phases × dual track</span>
+    </div>
+    <div class="kanbans-row">
+      <div class="kanban cs">
+        <div class="ic">⚡</div>
+        <div class="code">M2C-SL</div>
+        <div class="mini">
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"></div>
+        </div>
+      </div>
+      <div class="kanban cs">
+        <div class="ic">💰</div>
+        <div class="code">M2C-RO</div>
+        <div class="mini">
+          <div class="mini-col"><div class="mini-card"></div><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+        </div>
+      </div>
+      <div class="kanban cs">
+        <div class="ic">🎧</div>
+        <div class="code">CCC</div>
+        <div class="mini">
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+        </div>
+      </div>
+      <div class="kanban it">
+        <div class="ic">🚧</div>
+        <div class="code">FOPS</div>
+        <div class="mini">
+          <div class="mini-col"><div class="mini-card"></div><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+        </div>
+      </div>
+      <div class="kanban it">
+        <div class="ic">🏗️</div>
+        <div class="code">E&amp;A</div>
+        <div class="mini">
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+        </div>
+      </div>
+      <div class="kanban it">
+        <div class="ic">🛰️</div>
+        <div class="code">NOC</div>
+        <div class="mini">
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"></div>
+        </div>
+      </div>
+      <div class="kanban it">
+        <div class="ic">📋</div>
+        <div class="code">C&amp;R</div>
+        <div class="mini">
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"></div>
+        </div>
+      </div>
+      <div class="kanban it">
+        <div class="ic">🌐</div>
+        <div class="code">IBD</div>
+        <div class="mini">
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+          <div class="mini-col"><div class="mini-card"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MORE VIEWS HUB -->
+  <div class="reveal" style="margin-top: 50px;">
+    <div class="tag" style="color: var(--cyan);">▸ DRILL-DOWN VIEWS · MORE BIG PICTURES</div>
+    <h2 style="font-size: clamp(1.4rem, 3vw, 2rem);">Behind every node, another big picture.</h2>
+  </div>
+  <div class="views-hub reveal">
+    <a href="#sources" class="view-card">
+      <span class="icon">🏢</span>
+      <span class="lb">VIEW · SOURCES</span>
+      <h5>11 origin areas</h5>
+      <p>Who sends demand · per-area details</p>
+      <span class="arr">→</span>
+    </a>
+    <a href="#types" class="view-card">
+      <span class="icon">🏷️</span>
+      <span class="lb">VIEW · TYPES</span>
+      <h5>4 dimensions</h5>
+      <p>CoS · Size · Intent · Hierarchy</p>
+      <span class="arr">→</span>
+    </a>
+    <a href="#paths" class="view-card">
+      <span class="icon">↗️</span>
+      <span class="lb">VIEW · ROUTING</span>
+      <h5>Size paths</h5>
+      <p>S/M direct · L/XL via Gate 2</p>
+      <span class="arr">→</span>
+    </a>
+    <a href="#gates" class="view-card">
+      <span class="icon">🚦</span>
+      <span class="lb">VIEW · GATES</span>
+      <h5>2 gates + BRP</h5>
+      <p>Cadences · roles · outcomes</p>
+      <span class="arr">→</span>
+    </a>
+    <a href="#diff" class="view-card">
+      <span class="icon">⚖️</span>
+      <span class="lb">VIEW · DIFFERENCES</span>
+      <h5>CS vs IT specifics</h5>
+      <p>Sources · apps · vendors · mix</p>
+      <span class="arr">→</span>
+    </a>
+    <a href="#squads" class="view-card">
+      <span class="icon">🎯</span>
+      <span class="lb">VIEW · SQUADS</span>
+      <h5>8 squads · 2 branches</h5>
+      <p>3 CS · 5 IT · domain badges</p>
+      <span class="arr">→</span>
+    </a>
+    <a href="#caps" class="view-card">
+      <span class="icon">🧩</span>
+      <span class="lb">VIEW · CAPABILITIES</span>
+      <h5>14 capabilities</h5>
+      <p>End-to-end framework</p>
+      <span class="arr">→</span>
+    </a>
+    <a href="#kpis" class="view-card">
+      <span class="icon">📊</span>
+      <span class="lb">VIEW · PERFORMANCE</span>
+      <h5>7 KPIs</h5>
+      <p>Live dashboard · targets · trends</p>
+      <span class="arr">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═════════ SOURCES ═════════ -->
+<section id="sources">
+  <div class="reveal">
+    <div class="tag">CHECKPOINT 01 · WHO SENDS</div>
+    <h2>Eleven origins.</h2>
+  </div>
+  <div class="sources-vis reveal">
+    <div class="src"><span class="nb">01</span><span class="ic">🏢</span><span class="nm">BRS · 7 OPCOs</span></div>
+    <div class="src"><span class="nb">02</span><span class="ic">💬</span><span class="nm">CX &amp; CoE</span></div>
+    <div class="src"><span class="nb">03</span><span class="ic">📊</span><span class="nm">Data &amp; Analytics</span></div>
+    <div class="src"><span class="nb">04</span><span class="ic">⚙️</span><span class="nm">Infrastructure</span></div>
+    <div class="src"><span class="nb">05</span><span class="ic">🔧</span><span class="nm">IA</span></div>
+    <div class="src"><span class="nb">06</span><span class="ic">🏭</span><span class="nm">OT</span></div>
+    <div class="src"><span class="nb">07</span><span class="ic">📦</span><span class="nm">Procurement</span></div>
+    <div class="src"><span class="nb">08</span><span class="ic">⚖️</span><span class="nm">Regulatory</span></div>
+    <div class="src"><span class="nb">09</span><span class="ic">🏛️</span><span class="nm">Corporate</span></div>
+    <div class="src"><span class="nb">10</span><span class="ic">🗺️</span><span class="nm">P&amp;T · GIS</span></div>
+    <div class="src"><span class="nb">11</span><span class="ic">🌐</span><span class="nm">Global SAP</span></div>
+  </div>
+</section>
+
+<!-- ═════════ CHANNELS ═════════ -->
+<section id="channels">
+  <div class="reveal">
+    <div class="tag">CHECKPOINT 02 · HOW IT ARRIVES</div>
+    <h2>From chaos · to one door.</h2>
+  </div>
+  <div class="channels-row reveal">
+    <div class="channels-old">
+      <div class="grid">
+        <div class="ch"><span class="em">📧</span>Email</div>
+        <div class="ch"><span class="em">💬</span>Teams</div>
+        <div class="ch"><span class="em">📝</span>Word</div>
+        <div class="ch"><span class="em">📁</span>SharePoint</div>
+        <div class="ch"><span class="em">🎫</span>IT Now</div>
+        <div class="ch"><span class="em">📊</span>PDD</div>
+        <div class="ch"><span class="em">📋</span>BSS Log</div>
+        <div class="ch"><span class="em">📄</span>OneNote</div>
+        <div class="ch"><span class="em">📈</span>Confluence</div>
+        <div class="ch"><span class="em">🎟️</span>Jira free</div>
+        <div class="ch"><span class="em">📞</span>Direct call</div>
+        <div class="ch"><span class="em">…</span>others</div>
+      </div>
+    </div>
+    <div class="vs-arrow-big">→</div>
+    <div class="channels-new">
+      <div class="em-big">🚪</div>
+      <div class="name">Jira Request Type</div>
+      <div class="sub">One per Value Stream · 8 mandatory fields</div>
+      <div class="pip">⚠ IT Now reserved for incidents only</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ TYPES (4 dimensions) ═════════ -->
+<section id="types">
+  <div class="reveal">
+    <div class="tag">CHECKPOINT 03 · WHAT KIND</div>
+    <h2>Four dimensions · one card.</h2>
+  </div>
+  <div class="dims reveal">
+    <div class="dim d1">
+      <div class="ic-big">⚖️</div>
+      <div class="nb">DIMENSION 01</div>
+      <h4>Class of Service</h4>
+      <div class="pills">
+        <span class="p">Standard</span><span class="p">Fixed-Date</span><span class="p">Expedite ≤20%</span><span class="p">Intangible</span>
+      </div>
+    </div>
+    <div class="dim d2">
+      <div class="ic-big">📐</div>
+      <div class="nb">DIMENSION 02</div>
+      <h4>Size · T-shirt</h4>
+      <div class="pills"><span class="p">S</span><span class="p">M</span><span class="p">L</span><span class="p">XL</span></div>
+    </div>
+    <div class="dim d3">
+      <div class="ic-big">🎯</div>
+      <div class="nb">DIMENSION 03</div>
+      <h4>Investment intent</h4>
+      <div class="pills"><span class="p">Run</span><span class="p">Grow</span><span class="p">Transform</span></div>
+    </div>
+    <div class="dim d4">
+      <div class="ic-big">🔢</div>
+      <div class="nb">DIMENSION 04</div>
+      <h4>Work hierarchy</h4>
+      <div class="pills"><span class="p">Initiative</span><span class="p">Story</span><span class="p" style="opacity:0.6;">Epic*</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ ROUTING (size paths) ═════════ -->
+<section id="paths">
+  <div class="reveal">
+    <div class="tag">CHECKPOINT 04 · ROUTING</div>
+    <h2>Size decides the path.</h2>
+  </div>
+  <div class="paths reveal">
+    <div class="path p-s">
+      <div class="badge-big">S</div>
+      <h5>Small</h5>
+      <div class="lim">≤ $10k · 1–3 mo</div>
+      <div class="route">→ Squad direct</div>
+    </div>
+    <div class="path p-m">
+      <div class="badge-big">M</div>
+      <h5>Medium</h5>
+      <div class="lim">≤ $500k · 3–6 mo</div>
+      <div class="route">→ Squad · flagged</div>
+    </div>
+    <div class="path p-l">
+      <div class="badge-big">L</div>
+      <h5>Large</h5>
+      <div class="lim">cross-team</div>
+      <div class="route">→ Gate 2</div>
+    </div>
+    <div class="path p-xl">
+      <div class="badge-big">XL</div>
+      <h5>Extra-Large</h5>
+      <div class="lim">multi-quarter</div>
+      <div class="route">→ Gate 2 + VP Sync</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ GATES ═════════ -->
+<section id="gates">
+  <div class="reveal">
+    <div class="tag">CHECKPOINT 05 · GATES</div>
+    <h2>Two gates. One quarterly heartbeat.</h2>
+  </div>
+  <div class="gates reveal">
+    <div class="gate g1">
+      <div class="ic">🚦</div>
+      <div class="cad">▸ WEEKLY · 30 MIN</div>
+      <h5>GATE 1 · Triage</h5>
+      <div class="who">Demand Manager · PMs · Architect</div>
+      <div class="acts">
+        <span class="a">Accept</span><span class="a">Send-back</span><span class="a">Reject</span><span class="a">Redirect</span>
+      </div>
+    </div>
+    <div class="gate g2">
+      <div class="ic">🎯</div>
+      <div class="cad">▸ MONTHLY · 90 MIN</div>
+      <h5>GATE 2 · Portfolio</h5>
+      <div class="who">VP · Directors · Product Managers</div>
+      <div class="acts">
+        <span class="a">Prioritize</span><span class="a">Defer</span><span class="a">Cancel</span><span class="a">Re-scope</span>
+      </div>
+    </div>
+    <div class="gate g3">
+      <div class="ic">🌍</div>
+      <div class="cad">▸ QUARTERLY · ½ DAY</div>
+      <h5>BIG ROOM PLANNING</h5>
+      <div class="who">All VSs · sponsors · Iberdrola</div>
+      <div class="acts">
+        <span class="a">Confirm WHY</span><span class="a">Align HOW</span><span class="a">Spot DEPS</span><span class="a">Lock OKRs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ SQUADS BY BRANCH ═════════ -->
+<section id="squads">
+  <div class="reveal">
+    <div class="tag">CHECKPOINT 06 · SQUADS</div>
+    <h2>Eight squads · two branches.</h2>
+  </div>
+  <div class="squads-branches reveal">
+    <div class="squad-branch cs">
+      <h4>CUSTOMER SERVICES APPS</h4>
+      <div class="who">Kumar · 3 squads</div>
+      <div class="squads-list">
+        <div class="sq"><div class="ic">⚡</div><div class="c">M2C-SL</div><div class="n">Service Lifecycle</div></div>
+        <div class="sq"><div class="ic">💰</div><div class="c">M2C-RO</div><div class="n">Revenue Operations</div></div>
+        <div class="sq"><div class="ic">🎧</div><div class="c">CCC</div><div class="n">Customer Care</div></div>
+      </div>
+    </div>
+    <div class="squad-branch it">
+      <h4>IT BUSINESS APPS</h4>
+      <div class="who">Carlos · 5 squads</div>
+      <div class="squads-list">
+        <div class="sq"><div class="ic">🚧</div><div class="c">FOPS</div><div class="n">Field Operations</div></div>
+        <div class="sq"><div class="ic">🏗️</div><div class="c">E&amp;A</div><div class="n">Engineering &amp; Asset</div></div>
+        <div class="sq"><div class="ic">🛰️</div><div class="c">NOC</div><div class="n">Network Operations</div></div>
+        <div class="sq"><div class="ic">📋</div><div class="c">C&amp;R</div><div class="n">Corporate &amp; Reg.</div></div>
+        <div class="sq"><div class="ic">🌐</div><div class="c">IBD</div><div class="n">Iberdrola Corp</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ DIVIDER · CAPABILITIES ═════════ -->
+<div class="divider reveal">
+  <div class="num-big">14</div>
+  <h2>Capabilities</h2>
+</div>
+<section id="caps">
+  <div class="cap-grid reveal">
+    <div class="cap"><div class="ic">📥</div><div class="nb">CAP 01</div><div class="lb">Intake channels</div></div>
+    <div class="cap"><div class="ic">🗂️</div><div class="nb">CAP 02</div><div class="lb">Registration &amp; logging</div></div>
+    <div class="cap"><div class="ic">🔗</div><div class="nb">CAP 03</div><div class="lb">Channel consolidation</div></div>
+    <div class="cap"><div class="ic">📋</div><div class="nb">CAP 04</div><div class="lb">Standard formats</div></div>
+    <div class="cap"><div class="ic">🏷️</div><div class="nb">CAP 05</div><div class="lb">Classification</div></div>
+    <div class="cap"><div class="ic">🔀</div><div class="nb">CAP 06</div><div class="lb">Run · Change · Reg.</div></div>
+    <div class="cap"><div class="ic">💎</div><div class="nb">CAP 07</div><div class="lb">Business value</div></div>
+    <div class="cap"><div class="ic">✅</div><div class="nb">CAP 08</div><div class="lb">Acceptance criteria</div></div>
+    <div class="cap"><div class="ic">🔍</div><div class="nb">CAP 09</div><div class="lb">Tech feasibility</div></div>
+    <div class="cap"><div class="ic">🚦</div><div class="nb">CAP 10</div><div class="lb">Triage &amp; validation</div></div>
+    <div class="cap"><div class="ic">↗️</div><div class="nb">CAP 11</div><div class="lb">Routing &amp; assignment</div></div>
+    <div class="cap"><div class="ic">⚡</div><div class="nb">CAP 12</div><div class="lb">Urgent / exception</div></div>
+    <div class="cap"><div class="ic">👁️</div><div class="nb">CAP 13</div><div class="lb">Visibility &amp; tracking</div></div>
+    <div class="cap"><div class="ic">🔁</div><div class="nb">CAP 14</div><div class="lb">Duplicate detection</div></div>
+  </div>
+</section>
+
+<!-- ═════════ DIVIDER · ROLES ═════════ -->
+<div class="divider reveal">
+  <div class="num-big">04</div>
+  <h2>Roles</h2>
+</div>
+<section id="roles">
+  <div class="roles reveal">
+    <div class="role r1">
+      <div class="av">👤</div>
+      <h5>Business Requestor</h5>
+      <div class="scope">Originating business unit</div>
+      <div class="verdict">Decides WHAT</div>
+    </div>
+    <div class="role r2">
+      <div class="new">NEW</div>
+      <div class="av">🎯</div>
+      <h5>Product Manager</h5>
+      <div class="scope">One per Value Stream</div>
+      <div class="verdict">Decides WHEN &amp; ORDER</div>
+    </div>
+    <div class="role r3">
+      <div class="av">🏛️</div>
+      <h5>Architect Reviewer</h5>
+      <div class="scope">Architecture Council</div>
+      <div class="verdict">Decides HOW</div>
+    </div>
+    <div class="role r4">
+      <div class="av">⚖️</div>
+      <h5>Demand Manager</h5>
+      <div class="scope">Cross-VS chair</div>
+      <div class="verdict">Decides IF READY</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ DIVIDER · TOOLS ═════════ -->
+<div class="divider reveal">
+  <div class="num-big">05</div>
+  <h2>Tools</h2>
+</div>
+<section id="tools">
+  <div class="tools-stack reveal">
+    <div class="tool t1"><div class="ic">📥</div><div class="num">01</div><div><div class="nm">CAPTURE</div><div class="desc">One Jira request type per Value Stream</div></div></div>
+    <div class="tool t2"><div class="ic">📊</div><div class="num">02</div><div><div class="nm">TRACK</div><div class="desc">Initiative → Story · Run vs Build separated tracks</div></div></div>
+    <div class="tool t3"><div class="ic">📡</div><div class="num">03</div><div><div class="nm">COMMUNICATE</div><div class="desc">Requester portal · auto-status</div></div></div>
+    <div class="tool t4"><div class="ic">📚</div><div class="num">04</div><div><div class="nm">DOCUMENT</div><div class="desc">Confluence · single source of truth</div></div></div>
+    <div class="tool t5"><div class="ic">📈</div><div class="num">05</div><div><div class="nm">REPORT</div><div class="desc">Dashboard · 5 views · refresh &lt; 1h</div></div></div>
+  </div>
+</section>
+
+<!-- ═════════ DIVIDER · PERFORMANCE ═════════ -->
+<div class="divider reveal">
+  <div class="num-big">07</div>
+  <h2>Performance</h2>
+</div>
+<section id="kpis">
+  <div class="kpis reveal">
+    <div class="kpi k1"><div class="ic">📊</div><div class="lb">KPI 01</div><div class="nm">Volume</div><div class="big">tracked</div><div class="bar"><div class="fill" data-w="100"></div></div></div>
+    <div class="kpi k2"><div class="ic">✅</div><div class="lb">KPI 02</div><div class="nm">DoR pass rate</div><div class="big">≥ 70%</div><div class="bar"><div class="fill" data-w="70"></div></div></div>
+    <div class="kpi k3"><div class="ic">⏱️</div><div class="lb">KPI 03</div><div class="nm">Triage lead time</div><div class="big">≤ 5d</div><div class="bar"><div class="fill" data-w="80"></div></div></div>
+    <div class="kpi k4"><div class="ic">🚪</div><div class="lb">KPI 04</div><div class="nm">Channel adoption</div><div class="big">≥ 90%</div><div class="bar"><div class="fill" data-w="90"></div></div></div>
+    <div class="kpi k5"><div class="ic">⚡</div><div class="lb">KPI 05</div><div class="nm">Expedite share</div><div class="big">≤ 20%</div><div class="bar"><div class="fill" data-w="20"></div></div></div>
+    <div class="kpi k6"><div class="ic">🔁</div><div class="lb">KPI 06</div><div class="nm">Duplication</div><div class="big">↓</div><div class="bar"><div class="fill" data-w="35"></div></div></div>
+    <div class="kpi k7"><div class="ic">👁️</div><div class="lb">KPI 07</div><div class="nm">Status visibility</div><div class="big">100%</div><div class="bar"><div class="fill" data-w="100"></div></div></div>
+  </div>
+</section>
+
+<!-- ═════════ FINAL ═════════ -->
+<section class="final">
+  <div class="reveal">
+    <div class="tag">SO WHAT</div>
+    <h2>From entropy to design.</h2>
+  </div>
+  <div class="final-grid reveal">
+    <div class="final-card"><div class="ic">🚪</div><div class="n">1</div><div class="l">FRONT DOOR</div></div>
+    <div class="final-card"><div class="ic">🏢</div><div class="n">2</div><div class="l">BRANCHES</div></div>
+    <div class="final-card"><div class="ic">⚖️</div><div class="n">4</div><div class="l">DIMENSIONS</div></div>
+    <div class="final-card"><div class="ic">🚦</div><div class="n">2</div><div class="l">GATES</div></div>
+    <div class="final-card"><div class="ic">🚀</div><div class="n">8</div><div class="l">SQUADS</div></div>
+    <div class="final-card"><div class="ic">📊</div><div class="n">7</div><div class="l">KPIs</div></div>
+  </div>
+</section>
+
+<footer>AVANGRID · DIGITAL PRODUCTS · TARGET OPERATING MODEL · 2026</footer>
+
+<script>
+const p = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  p.style.width = (window.scrollY / max * 100) + '%';
+}, { passive: true });
+
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    e.target.classList.add('in');
+    e.target.querySelectorAll('.fill').forEach(b => {
+      const w = b.getAttribute('data-w');
+      if (w) setTimeout(() => b.style.width = w + '%', 200);
+    });
+    io.unobserve(e.target);
+  }
+}), { threshold: 0.1 });
+reveals.forEach(el => io.observe(el));
+
+const links = document.querySelectorAll('.nav a');
+const sects = document.querySelectorAll('section[id]');
+const navIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    const id = e.target.id;
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+  }
+}), { rootMargin: '-40% 0px -55% 0px' });
+sects.forEach(s => navIO.observe(s));
+</script>
+</body>
+</html>

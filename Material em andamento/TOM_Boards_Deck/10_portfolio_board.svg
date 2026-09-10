@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1F3458"/>
+    </pattern>
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.40"/>
+    </filter>
+  </defs>
+
+  <rect width="2400" height="1350" fill="#0E2240"/>
+  <rect width="2400" height="1350" fill="url(#dotgrid)" opacity="0.5"/>
+
+  <text x="60" y="68" font-size="14" font-weight="700" fill="#F08A3E" letter-spacing="3">10  ·  PORTFOLIO BOARD LAYOUT</text>
+  <text x="60" y="118" font-size="40" font-weight="800" fill="#FFFFFF">Portfolio Board · Epics only · Example: CS Portfolio Board</text>
+  <text x="60" y="148" font-size="16" fill="#9FB3D1">Same column structure on all 3 portfolio boards · cards are Initiatives or Epics (not Stories) · Pain Score drives ranking</text>
+
+  <!-- Portfolio board mockup -->
+  <g transform="translate(60,200)" filter="url(#cardShadow)">
+    <rect width="2280" height="900" rx="12" fill="#FFFFFF"/>
+
+    <!-- Header bar -->
+    <rect width="2280" height="60" rx="12" fill="#E8A24C"/>
+    <text x="20" y="38" font-size="20" font-weight="800" fill="#5A3A0E">CS Portfolio Board · VS-1 · Owner: Kumar Jaladanki · PM Steward: Heather LaJoie + Digital CoE</text>
+    <text x="2260" y="38" text-anchor="end" font-size="14" font-weight="700" fill="#5A3A0E">Routes to: Squad M2C-SL · M2C-RO · CCC</text>
+
+    <!-- Column headers -->
+    <g transform="translate(0,60)">
+      <rect width="456" height="44" fill="#0747A6"/>
+      <text x="228" y="28" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">INTAKE</text>
+
+      <rect x="456" width="456" height="44" fill="#FF8B00"/>
+      <text x="684" y="28" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">TRIAGE</text>
+
+      <rect x="912" width="456" height="44" fill="#7C3AED"/>
+      <text x="1140" y="28" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">BACKLOG · ranked by Pain Score</text>
+
+      <rect x="1368" width="456" height="44" fill="#36B37E"/>
+      <text x="1596" y="28" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">READY FOR EXEC</text>
+
+      <rect x="1824" width="456" height="44" fill="#1F5722"/>
+      <text x="2052" y="28" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">IN FLIGHT (squads)</text>
+    </g>
+
+    <!-- Sub-column criteria text -->
+    <g transform="translate(0,108)">
+      <text x="228" y="20" text-anchor="middle" font-size="11" fill="#6B778C">new from Jira · auto-routed</text>
+      <text x="684" y="20" text-anchor="middle" font-size="11" fill="#6B778C">DoR check · CoS finalized · Pain Score computed</text>
+      <text x="1140" y="20" text-anchor="middle" font-size="11" fill="#6B778C">awaiting Gate 1 (if Build) or Gate 2 (all)</text>
+      <text x="1596" y="20" text-anchor="middle" font-size="11" fill="#6B778C">approved · waiting for squad pull</text>
+      <text x="2052" y="20" text-anchor="middle" font-size="11" fill="#6B778C">running on a squad board</text>
+    </g>
+
+    <!-- Cards -->
+    <g transform="translate(8,140)">
+      <!-- INTAKE column -->
+      <g transform="translate(0,0)">
+        <rect width="440" height="120" rx="6" fill="#F4F5F7" stroke="#DFE1E6"/>
+        <rect width="6" height="120" fill="#0747A6"/>
+        <text x="20" y="22" font-size="11" font-weight="800" fill="#0747A6">EPIC · DGTL-PROD-1247</text>
+        <text x="20" y="42" font-size="13" font-weight="700" fill="#172B4D">Disconnect flow rebuild — reduce errors 50%</text>
+        <text x="20" y="62" font-size="11" fill="#42526E">Sub-VS: M2C-SL · Size: Large · Type: Build</text>
+        <text x="20" y="80" font-size="11" fill="#42526E">CoS: Standard · Sponsor: @kumar</text>
+        <text x="20" y="100" font-size="10" fill="#6B778C">Delivery: Avangrid + vendor</text>
+
+        <rect y="130" width="440" height="100" rx="6" fill="#F4F5F7" stroke="#DFE1E6"/>
+        <rect y="130" width="6" height="100" fill="#0747A6"/>
+        <text x="20" y="152" font-size="11" font-weight="800" fill="#0747A6">EPIC · DGTL-PROD-1248</text>
+        <text x="20" y="172" font-size="13" font-weight="700" fill="#172B4D">Medallia survey upgrade Q3</text>
+        <text x="20" y="192" font-size="11" fill="#42526E">Sub-VS: CCC · Size: Medium · Type: Upgrade</text>
+        <text x="20" y="212" font-size="10" fill="#6B778C">Delivery: Medallia partner</text>
+
+        <rect y="240" width="440" height="100" rx="6" fill="#F4F5F7" stroke="#DFE1E6"/>
+        <rect y="240" width="6" height="100" fill="#0747A6"/>
+        <text x="20" y="262" font-size="11" font-weight="800" fill="#0747A6">EPIC · DGTL-PROD-1249</text>
+        <text x="20" y="282" font-size="13" font-weight="700" fill="#172B4D">FICA close cycle automation</text>
+        <text x="20" y="302" font-size="11" fill="#42526E">Sub-VS: M2C-RO · Size: Medium · Type: Build</text>
+        <text x="20" y="322" font-size="10" fill="#6B778C">Delivery: Avangrid + Accenture</text>
+      </g>
+
+      <!-- TRIAGE column -->
+      <g transform="translate(456,0)">
+        <rect width="440" height="120" rx="6" fill="#FFF6DD" stroke="#FFAB00"/>
+        <rect width="6" height="120" fill="#FF8B00"/>
+        <text x="20" y="22" font-size="11" font-weight="800" fill="#7A4F1A">EPIC · DGTL-PROD-1241  🅡</text>
+        <text x="20" y="42" font-size="13" font-weight="700" fill="#172B4D">Rate-case tariff banner update</text>
+        <text x="20" y="62" font-size="11" fill="#42526E">Sub-VS: M2C-RO · CoS: Fixed-Date</text>
+        <text x="20" y="80" font-size="11" fill="#FF8B00" font-weight="700">Regulatory · deadline 2026-08-15</text>
+        <text x="20" y="100" font-size="10" fill="#6B778C">Sponsor: @compliance · Pain Score: 4.2</text>
+
+        <rect y="130" width="440" height="100" rx="6" fill="#FFF6DD" stroke="#FFAB00"/>
+        <rect y="130" width="6" height="100" fill="#FF8B00"/>
+        <text x="20" y="152" font-size="11" font-weight="800" fill="#7A4F1A">EPIC · DGTL-PROD-1242</text>
+        <text x="20" y="172" font-size="13" font-weight="700" fill="#172B4D">CRM lookup latency fix</text>
+        <text x="20" y="192" font-size="11" fill="#42526E">Sub-VS: CCC · Size: Small · CoS: Standard</text>
+        <text x="20" y="212" font-size="10" fill="#6B778C">Pain Score in progress…</text>
+      </g>
+
+      <!-- BACKLOG column (ranked) -->
+      <g transform="translate(912,0)">
+        <rect width="440" height="100" rx="6" fill="#EAE2F8" stroke="#7C3AED"/>
+        <rect width="6" height="100" fill="#7C3AED"/>
+        <text x="20" y="22" font-size="11" font-weight="800" fill="#5C2A91">#1 · EPIC · DGTL-PROD-1208  🅔</text>
+        <text x="20" y="42" font-size="13" font-weight="700" fill="#172B4D">P1 outage: billing engine down</text>
+        <text x="20" y="62" font-size="11" fill="#B83567" font-weight="700">CoS: Expedite · Customer Impact: P1</text>
+        <text x="20" y="80" font-size="10" fill="#6B778C">Pain Score: 4.9 · auto-routed to squad</text>
+
+        <rect y="110" width="440" height="100" rx="6" fill="#EAE2F8" stroke="#7C3AED"/>
+        <rect y="110" width="6" height="100" fill="#7C3AED"/>
+        <text x="20" y="132" font-size="11" font-weight="800" fill="#5C2A91">#2 · EPIC · DGTL-PROD-1192  🅡</text>
+        <text x="20" y="152" font-size="13" font-weight="700" fill="#172B4D">Tax rate update Q3 2026</text>
+        <text x="20" y="172" font-size="11" fill="#42526E">Sub-VS: M2C-RO · CoS: Fixed-Date</text>
+        <text x="20" y="192" font-size="10" fill="#6B778C">Pain Score: 4.5 · Pre-Gate-2</text>
+
+        <rect y="220" width="440" height="100" rx="6" fill="#EAE2F8" stroke="#7C3AED"/>
+        <rect y="220" width="6" height="100" fill="#7C3AED"/>
+        <text x="20" y="242" font-size="11" font-weight="800" fill="#5C2A91">#3 · EPIC · DGTL-PROD-1185</text>
+        <text x="20" y="262" font-size="13" font-weight="700" fill="#172B4D">Self-service portal redesign</text>
+        <text x="20" y="282" font-size="11" fill="#42526E">Sub-VS: CCC · Size: Large · Pre-Gate-1</text>
+        <text x="20" y="302" font-size="10" fill="#6B778C">Pain Score: 4.1 · awaiting Shark Tank</text>
+
+        <rect y="330" width="440" height="100" rx="6" fill="#EAE2F8" stroke="#7C3AED"/>
+        <rect y="330" width="6" height="100" fill="#7C3AED"/>
+        <text x="20" y="352" font-size="11" font-weight="800" fill="#5C2A91">#4 · EPIC · DGTL-PROD-1180</text>
+        <text x="20" y="372" font-size="13" font-weight="700" fill="#172B4D">Disconnect-flow rebuild (DGTL-1247)</text>
+        <text x="20" y="392" font-size="11" fill="#42526E">Sub-VS: M2C-SL · Pre-Gate-1</text>
+        <text x="20" y="412" font-size="10" fill="#6B778C">Pain Score: 3.8</text>
+
+        <rect y="440" width="440" height="80" rx="6" fill="#EAE2F8" stroke="#7C3AED" opacity="0.6"/>
+        <rect y="440" width="6" height="80" fill="#7C3AED"/>
+        <text x="20" y="462" font-size="11" font-weight="800" fill="#5C2A91">#5–#23 · scrolled below</text>
+        <text x="20" y="482" font-size="11" fill="#6B778C" font-style="italic">Backlog continues; ranked monthly at Gate 2</text>
+      </g>
+
+      <!-- READY FOR EXEC column -->
+      <g transform="translate(1368,0)">
+        <rect width="440" height="100" rx="6" fill="#E3FCEF" stroke="#36B37E"/>
+        <rect width="6" height="100" fill="#36B37E"/>
+        <text x="20" y="22" font-size="11" font-weight="800" fill="#006644">EPIC · DGTL-PROD-1175  🅡</text>
+        <text x="20" y="42" font-size="13" font-weight="700" fill="#172B4D">SOX compliance Q2 release</text>
+        <text x="20" y="62" font-size="11" fill="#42526E">Sub-VS: M2C-RO · Slot: Squad M2C-RO</text>
+        <text x="20" y="80" font-size="10" fill="#6B778C">Capacity confirmed · pull next week</text>
+
+        <rect y="110" width="440" height="100" rx="6" fill="#E3FCEF" stroke="#36B37E"/>
+        <rect y="110" width="6" height="100" fill="#36B37E"/>
+        <text x="20" y="132" font-size="11" font-weight="800" fill="#006644">EPIC · DGTL-PROD-1170</text>
+        <text x="20" y="152" font-size="13" font-weight="700" fill="#172B4D">Smart meter rollout NY phase 2</text>
+        <text x="20" y="172" font-size="11" fill="#42526E">Sub-VS: M2C-SL · Slot: Squad M2C-SL</text>
+        <text x="20" y="192" font-size="10" fill="#6B778C">Vendor delivery + Avangrid PM oversight</text>
+
+        <rect y="220" width="440" height="100" rx="6" fill="#E3FCEF" stroke="#36B37E"/>
+        <rect y="220" width="6" height="100" fill="#36B37E"/>
+        <text x="20" y="242" font-size="11" font-weight="800" fill="#006644">EPIC · DGTL-PROD-1165</text>
+        <text x="20" y="262" font-size="13" font-weight="700" fill="#172B4D">CRM data deduplication</text>
+        <text x="20" y="282" font-size="11" fill="#42526E">Sub-VS: CCC · Slot: Squad CCC</text>
+        <text x="20" y="302" font-size="10" fill="#6B778C">Lemur partner lead</text>
+      </g>
+
+      <!-- IN FLIGHT column -->
+      <g transform="translate(1824,0)">
+        <rect width="440" height="100" rx="6" fill="#DFFBE5" stroke="#1F5722"/>
+        <rect width="6" height="100" fill="#1F5722"/>
+        <text x="20" y="22" font-size="11" font-weight="800" fill="#1F5722">EPIC · DGTL-PROD-1158</text>
+        <text x="20" y="42" font-size="13" font-weight="700" fill="#172B4D">Bill-once initiative</text>
+        <text x="20" y="62" font-size="11" fill="#42526E">Squad: M2C-RO · 6 stories in progress</text>
+        <text x="20" y="80" font-size="10" fill="#6B778C">Sprint 14/26 · 3 stories Done · 3 In Progress</text>
+
+        <rect y="110" width="440" height="100" rx="6" fill="#DFFBE5" stroke="#1F5722"/>
+        <rect y="110" width="6" height="100" fill="#1F5722"/>
+        <text x="20" y="132" font-size="11" font-weight="800" fill="#1F5722">EPIC · DGTL-PROD-1152</text>
+        <text x="20" y="152" font-size="13" font-weight="700" fill="#172B4D">IVR enhancement v2</text>
+        <text x="20" y="172" font-size="11" fill="#42526E">Squad: CCC · 4 stories · vendor IVR lead</text>
+        <text x="20" y="192" font-size="10" fill="#6B778C">Sprint 14 · UAT next week</text>
+
+        <rect y="220" width="440" height="100" rx="6" fill="#DFFBE5" stroke="#1F5722"/>
+        <rect y="220" width="6" height="100" fill="#1F5722"/>
+        <text x="20" y="242" font-size="11" font-weight="800" fill="#1F5722">EPIC · DGTL-PROD-1144</text>
+        <text x="20" y="262" font-size="13" font-weight="700" fill="#172B4D">Smart meter NY phase 1 GA</text>
+        <text x="20" y="282" font-size="11" fill="#42526E">Squad: M2C-SL · 100% vendor</text>
+        <text x="20" y="302" font-size="10" fill="#6B778C">Closing — moving to Done</text>
+      </g>
+    </g>
+
+    <!-- Card legend at bottom of board -->
+    <g transform="translate(20,830)">
+      <text x="0" y="14" font-size="11" font-weight="800" fill="#172B4D" letter-spacing="2">CARD ICON LEGEND</text>
+      <text x="180" y="14" font-size="12" fill="#172B4D">🅔 Expedite (CoS)</text>
+      <text x="320" y="14" font-size="12" fill="#172B4D">🅡 Regulatory flag</text>
+      <text x="470" y="14" font-size="12" fill="#172B4D">Pre-Gate-1: awaiting Shark Tank</text>
+      <text x="720" y="14" font-size="12" fill="#172B4D">Pre-Gate-2: awaiting Portfolio Committee</text>
+      <text x="1010" y="14" font-size="12" fill="#172B4D">Color stripe = Class of Service</text>
+
+      <text x="0" y="38" font-size="11" font-weight="800" fill="#172B4D" letter-spacing="2">FORUMS THAT MOVE CARDS</text>
+      <text x="220" y="38" font-size="12" fill="#172B4D">Triage cell: daily/weekly Triage</text>
+      <text x="500" y="38" font-size="12" fill="#172B4D">Backlog → Ready: monthly Portfolio Committee (Gate 2)</text>
+      <text x="990" y="38" font-size="12" fill="#172B4D">Ready → In Flight: weekly Replenishment per squad</text>
+    </g>
+  </g>
+
+  <!-- Right-side notes -->
+  <g transform="translate(60,1130)" filter="url(#cardShadow)">
+    <rect width="2280" height="160" rx="10" fill="#15304F" stroke="#E8A24C" stroke-width="2"/>
+    <rect width="2280" height="40" rx="10" fill="#E8A24C"/>
+    <text x="20" y="28" font-size="16" font-weight="800" fill="#5A3A0E">SAME LAYOUT — applies to ITBA-Field and ITBA-Corporate Portfolio Boards</text>
+
+    <text x="20" y="68" font-size="13" fill="#FFFFFF">• ITBA-Field: routes Epics to Squad G&amp;E and Squad GIS · Pain Score weights tuned for utility (Safety high)</text>
+    <text x="20" y="88" font-size="13" fill="#FFFFFF">• ITBA-Corporate: routes Epics to Squad Corporate and Squad Global SAP · heavier Fixed-Date proportion</text>
+    <text x="20" y="108" font-size="13" fill="#FFFFFF">• Cards on Portfolio Boards are <tspan font-weight="700">Epics or Initiatives</tspan> only · Stories live on Squad Boards</text>
+    <text x="20" y="132" font-size="11" font-style="italic" fill="#9FB3D1">Forums: Replenishment weekly · Customer Journey Forum monthly (CS only) · Iberdrola Sync monthly (Global SAP only) · Portfolio Committee monthly · BRP quarterly</text>
+  </g>
+
+  <text x="60" y="1320" font-size="11" fill="#6F87A8">Source: Renewables DTO Slide 33 · Customer Services Proposed Value Streams Slide 3 · Pain Score formula from Prioritization Criteria doc</text>
+  <text x="2340" y="1320" text-anchor="end" font-size="11" fill="#6F87A8">10 / 12</text>
+</svg>

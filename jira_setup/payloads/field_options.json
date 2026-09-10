@@ -1,0 +1,44 @@
+{
+  "_comment": "Options to add to each select field after creation. Apply via POST /rest/api/3/field/{fieldId}/context/{contextId}/option · Body: { \"options\": [ { \"value\": \"...\" } ] }. The first 4 fields are NEW (created by custom_fields.json). The last 4 are REUSE — only add options if Avangrid's existing global options don't already match. Skip if already populated.",
+  "_endpoint": "POST /rest/api/3/field/{fieldId}/context/{contextId}/option",
+
+  "new_fields": {
+    "DP Value Stream Destination": {
+      "options": [
+        "Field Operations",
+        "Engineering & Asset Mgmt",
+        "Network Operations & Control",
+        "Corporate & Regulatory",
+        "Iberdrola Corp Services",
+        "Meter & Device Operations",
+        "Billing Operations",
+        "Revenue & Collections",
+        "Customer Care & Engagement",
+        "Enabling Team — Foundation"
+      ]
+    },
+    "DP Run / Grow / Transform": {
+      "options": ["Run", "Grow", "Transform"]
+    },
+    "DP Class of Service": {
+      "options": ["Standard", "Fixed-Date", "Expedite", "Intangible"]
+    }
+  },
+
+  "reuse_fields_options_required": {
+    "_comment": "Verify these options exist on the listed REUSE fields before associating to DGTLPROD screens. If missing, add via the same endpoint. Field IDs are from the Avangrid global registry (see ADMIN_HANDOFF.md §4a).",
+
+    "OpCo (customfield_10800)": {
+      "options": ["UIL", "CMP", "NY", "Iberdrola", "Cross-OPCO"]
+    },
+    "Customer Impact (customfield_11061)": {
+      "options": ["P1 Critical", "P2 High", "P3 Medium", "P4 Low"]
+    },
+    "Demand Type (customfield_11682)": {
+      "options": ["Production Support", "Regulatory", "Non-Regulatory"]
+    },
+    "T-Shirt-Sizing (customfield_10850)": {
+      "options": ["S", "M", "L"]
+    }
+  }
+}

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1F3458"/>
+    </pattern>
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.40"/>
+    </filter>
+  </defs>
+
+  <rect width="2400" height="1350" fill="#0E2240"/>
+  <rect width="2400" height="1350" fill="url(#dotgrid)" opacity="0.5"/>
+
+  <text x="60" y="68" font-size="14" font-weight="700" fill="#F08A3E" letter-spacing="3">11  ·  SQUAD BOARD LAYOUT</text>
+  <text x="60" y="118" font-size="40" font-weight="800" fill="#FFFFFF">Squad Board · Stories &amp; Tasks · Class of Service Swimlanes · Vendor Visibility</text>
+  <text x="60" y="148" font-size="16" fill="#9FB3D1">Example: Squad CCC · vendors and FTE on the same board · duty rotation absorbs Expedite + Standard small items</text>
+
+  <!-- Squad board mockup -->
+  <g transform="translate(60,200)" filter="url(#cardShadow)">
+    <rect width="2280" height="940" rx="12" fill="#FFFFFF"/>
+
+    <!-- Squad header -->
+    <rect width="2280" height="56" rx="12" fill="#5A3A0E"/>
+    <text x="20" y="36" font-size="18" font-weight="800" fill="#F4C988">Squad CCC · Customer Care &amp; Contact Center · 4 FTE + 3 vendor PMs · Lead: VACANT 🔴 · PM: Heather LaJoie</text>
+    <text x="2260" y="36" text-anchor="end" font-size="13" font-weight="700" fill="#F4C988">WIP total: 9 (1 Expedite · 2 Fixed-Date · 4 Standard · 1 Intangible · 1 buffer)</text>
+
+    <!-- Column headers -->
+    <g transform="translate(0,56)">
+      <rect width="200" height="36" fill="#0E2240"/>
+      <text x="100" y="24" text-anchor="middle" font-size="12" font-weight="800" fill="#FFFFFF">CoS · WIP</text>
+
+      <rect x="200" width="510" height="36" fill="#1F4E79"/>
+      <text x="455" y="24" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">TO DO</text>
+
+      <rect x="710" width="510" height="36" fill="#0747A6"/>
+      <text x="965" y="24" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">IN PROGRESS</text>
+
+      <rect x="1220" width="510" height="36" fill="#7C3AED"/>
+      <text x="1475" y="24" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">REVIEW / UAT</text>
+
+      <rect x="1730" width="550" height="36" fill="#1F5722"/>
+      <text x="2005" y="24" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">DONE</text>
+    </g>
+
+    <!-- EXPEDITE swimlane -->
+    <g transform="translate(0,92)">
+      <rect width="200" height="180" fill="#3A1F2A"/>
+      <text x="100" y="40" text-anchor="middle" font-size="14" font-weight="800" fill="#B83567">EXPEDITE</text>
+      <text x="100" y="60" text-anchor="middle" font-size="11" fill="#FCD2DD">P1 · P2 · prod</text>
+      <text x="100" y="100" text-anchor="middle" font-size="13" font-weight="800" fill="#FCD2DD">WIP 1</text>
+      <text x="100" y="140" text-anchor="middle" font-size="10" fill="#FCD2DD">aging alert: 4h</text>
+      <text x="100" y="158" text-anchor="middle" font-size="10" fill="#FCD2DD">duty engineer</text>
+
+      <rect x="200" width="510" height="180" fill="#FCEAEA"/>
+      <rect x="200" y="0" width="510" height="180" fill="#FCEAEA" opacity="0.3"/>
+      <g transform="translate(212,8)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#B83567" stroke-width="2"/>
+        <rect width="6" height="80" fill="#B83567"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#B83567">CCC-1340 · STORY</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">P1: IVR returning 503</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">SLA: 2h · Vendor: IVR</text>
+        <rect x="14" y="64" width="50" height="14" rx="7" fill="#B83567"/>
+        <text x="39" y="74" text-anchor="middle" font-size="8" font-weight="700" fill="#FFFFFF">IVR</text>
+      </g>
+
+      <rect x="710" width="510" height="180" fill="#FCEAEA"/>
+      <g transform="translate(722,8)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#B83567" stroke-width="2"/>
+        <rect width="6" height="80" fill="#B83567"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#B83567">CCC-1338 · STORY</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">P2: chat router lookup latency</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">Aging: 3h · WIP-1 enforced</text>
+        <rect x="14" y="64" width="60" height="14" rx="7" fill="#172B4D"/>
+        <text x="44" y="74" text-anchor="middle" font-size="8" font-weight="700" fill="#FFFFFF">FTE</text>
+      </g>
+
+      <rect x="1220" width="510" height="180" fill="#FCEAEA"/>
+      <rect x="1730" width="550" height="180" fill="#FCEAEA"/>
+    </g>
+
+    <!-- FIXED-DATE swimlane -->
+    <g transform="translate(0,272)">
+      <rect width="200" height="180" fill="#3D2D0E"/>
+      <text x="100" y="40" text-anchor="middle" font-size="14" font-weight="800" fill="#FFAB00">FIXED-DATE</text>
+      <text x="100" y="60" text-anchor="middle" font-size="11" fill="#FFE5A8">regulatory · vendor</text>
+      <text x="100" y="100" text-anchor="middle" font-size="13" font-weight="800" fill="#FFE5A8">WIP 2</text>
+      <text x="100" y="140" text-anchor="middle" font-size="10" fill="#FFE5A8">aging: 50% of</text>
+      <text x="100" y="158" text-anchor="middle" font-size="10" fill="#FFE5A8">remaining timeline</text>
+
+      <rect x="200" width="510" height="180" fill="#FFF6E6"/>
+      <g transform="translate(212,8)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#FFAB00" stroke-width="2"/>
+        <rect width="6" height="80" fill="#FFAB00"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#7A5C0E">CCC-1320 · STORY  🅡</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">Tariff banner: Q3 rate update</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">Due: 2026-08-15 · Reg: PUC</text>
+        <rect x="14" y="64" width="60" height="14" rx="7" fill="#172B4D"/>
+        <text x="44" y="74" text-anchor="middle" font-size="8" font-weight="700" fill="#FFFFFF">FTE</text>
+      </g>
+
+      <rect x="710" width="510" height="180" fill="#FFF6E6"/>
+      <g transform="translate(722,8)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#FFAB00" stroke-width="2"/>
+        <rect width="6" height="80" fill="#FFAB00"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#7A5C0E">CCC-1325 · STORY</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">Medallia upgrade Q3 commit</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">Due: 2026-09-01 · Vendor lead</text>
+        <rect x="14" y="64" width="80" height="14" rx="7" fill="#5DA460"/>
+        <text x="54" y="74" text-anchor="middle" font-size="8" font-weight="700" fill="#FFFFFF">Medallia</text>
+      </g>
+
+      <rect x="1220" width="510" height="180" fill="#FFF6E6"/>
+      <g transform="translate(1232,8)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#FFAB00" stroke-width="2"/>
+        <rect width="6" height="80" fill="#FFAB00"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#7A5C0E">CCC-1318 · STORY</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">SOX audit log · M2C-RO</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">UAT in progress with Compliance</text>
+      </g>
+
+      <rect x="1730" width="550" height="180" fill="#FFF6E6"/>
+      <g transform="translate(1742,8)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#1F5722" stroke-width="2"/>
+        <rect width="6" height="80" fill="#1F5722"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#1F5722">CCC-1310 · STORY ✓</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">Q2 tax rate (released)</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">Closed 2026-04-12</text>
+      </g>
+    </g>
+
+    <!-- STANDARD swimlane -->
+    <g transform="translate(0,452)">
+      <rect width="200" height="220" fill="#15304F"/>
+      <text x="100" y="40" text-anchor="middle" font-size="14" font-weight="800" fill="#9FB3D1">STANDARD</text>
+      <text x="100" y="60" text-anchor="middle" font-size="11" fill="#9FB3D1">FIFO · Pain Score</text>
+      <text x="100" y="100" text-anchor="middle" font-size="13" font-weight="800" fill="#9FB3D1">WIP 4</text>
+      <text x="100" y="140" text-anchor="middle" font-size="10" fill="#9FB3D1">aging: 14 days</text>
+      <text x="100" y="180" text-anchor="middle" font-size="10" fill="#9FB3D1">small items + Build</text>
+
+      <rect x="200" width="510" height="220" fill="#F4F5F7"/>
+      <g transform="translate(212,8)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#0747A6" stroke-width="1.5"/>
+        <rect width="6" height="80" fill="#0747A6"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#0747A6">CCC-1300 · STORY</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">Disconnect-flow rebuild ph.1</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">Epic: DGTL-PROD-1247</text>
+        <rect x="14" y="64" width="60" height="14" rx="7" fill="#172B4D"/>
+        <text x="44" y="74" text-anchor="middle" font-size="8" font-weight="700" fill="#FFFFFF">FTE</text>
+      </g>
+
+      <g transform="translate(212,98)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#0747A6" stroke-width="1.5"/>
+        <rect width="6" height="80" fill="#0747A6"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#0747A6">CCC-1305 · STORY · Small</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">Add validation · CRM lookup</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">3 days effort · duty engineer</text>
+        <rect x="14" y="64" width="50" height="14" rx="7" fill="#7C3AED"/>
+        <text x="39" y="74" text-anchor="middle" font-size="8" font-weight="700" fill="#FFFFFF">Lemur</text>
+      </g>
+
+      <rect x="710" width="510" height="220" fill="#F4F5F7"/>
+      <g transform="translate(722,8)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#0747A6" stroke-width="1.5"/>
+        <rect width="6" height="80" fill="#0747A6"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#0747A6">CCC-1295 · STORY</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">CRM data dedup batch</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">Epic: DGTL-PROD-1165</text>
+        <rect x="14" y="64" width="50" height="14" rx="7" fill="#7C3AED"/>
+        <text x="39" y="74" text-anchor="middle" font-size="8" font-weight="700" fill="#FFFFFF">Lemur</text>
+      </g>
+
+      <g transform="translate(722,98)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#0747A6" stroke-width="1.5"/>
+        <rect width="6" height="80" fill="#0747A6"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#0747A6">CCC-1297 · STORY</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">Chat router fix · ADP</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">Vendor IVR + FTE collab</text>
+      </g>
+
+      <rect x="1220" width="510" height="220" fill="#F4F5F7"/>
+      <g transform="translate(1232,8)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+        <rect width="6" height="80" fill="#7C3AED"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#5C2A91">CCC-1280 · STORY</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">CRM dedup UAT</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">Business validation</text>
+      </g>
+
+      <rect x="1730" width="550" height="220" fill="#F4F5F7"/>
+      <g transform="translate(1742,8)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#1F5722" stroke-width="1.5"/>
+        <rect width="6" height="80" fill="#1F5722"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#1F5722">CCC-1255 ✓</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">Chatbot router v2 release</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">Closed 2026-04-08</text>
+      </g>
+
+      <g transform="translate(1742,98)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#1F5722" stroke-width="1.5"/>
+        <rect width="6" height="80" fill="#1F5722"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#1F5722">CCC-1262 ✓</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">CRM single-sign-on patch</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">Closed 2026-04-10</text>
+      </g>
+    </g>
+
+    <!-- INTANGIBLE swimlane -->
+    <g transform="translate(0,672)">
+      <rect width="200" height="180" fill="#0E1F2D"/>
+      <text x="100" y="40" text-anchor="middle" font-size="14" font-weight="800" fill="#A0CAA0">INTANGIBLE</text>
+      <text x="100" y="60" text-anchor="middle" font-size="11" fill="#A0CAA0">tech debt · refactor</text>
+      <text x="100" y="100" text-anchor="middle" font-size="13" font-weight="800" fill="#A0CAA0">WIP 1</text>
+      <text x="100" y="140" text-anchor="middle" font-size="10" fill="#A0CAA0">aging: 90 days</text>
+      <text x="100" y="158" text-anchor="middle" font-size="10" fill="#A0CAA0">10–15% capacity</text>
+
+      <rect x="200" width="510" height="180" fill="#F0F8F0"/>
+      <g transform="translate(212,8)">
+        <rect width="240" height="80" rx="6" fill="#FFFFFF" stroke="#A0CAA0" stroke-width="2"/>
+        <rect width="6" height="80" fill="#A0CAA0"/>
+        <text x="14" y="20" font-size="10" font-weight="800" fill="#1F5722">CCC-1290 · TASK</text>
+        <text x="14" y="40" font-size="11" font-weight="700" fill="#172B4D">CRM tech debt cleanup</text>
+        <text x="14" y="58" font-size="9" fill="#42526E">10% capacity reserve</text>
+      </g>
+
+      <rect x="710" width="510" height="180" fill="#F0F8F0"/>
+      <rect x="1220" width="510" height="180" fill="#F0F8F0"/>
+      <rect x="1730" width="550" height="180" fill="#F0F8F0"/>
+    </g>
+  </g>
+
+  <!-- Duty rotation + legend -->
+  <g transform="translate(60,1170)" filter="url(#cardShadow)">
+    <rect width="2280" height="120" rx="10" fill="#15304F" stroke="#5DA460" stroke-width="2"/>
+    <rect width="2280" height="34" rx="10" fill="#5DA460"/>
+    <text x="20" y="24" font-size="14" font-weight="800" fill="#FFFFFF">DUTY ROTATION + VENDOR LEGEND</text>
+
+    <g transform="translate(20,52)" font-size="12" fill="#FFFFFF">
+      <text x="0" y="0" font-weight="700" fill="#5DA460">Duty engineer (rotates weekly):</text>
+      <text x="220" y="0">handles Expedite swimlane · Standard small items · production errors · 1 person from 4 FTE on duty per week</text>
+      <text x="0" y="22" font-weight="700" fill="#5DA460">Rest of squad:</text>
+      <text x="120" y="22">protected for Build/Project work · Standard medium/large items · Fixed-Date deliverables</text>
+      <text x="0" y="44" font-weight="700" fill="#5DA460">Vendor visibility:</text>
+      <text x="130" y="44">color-coded chip on each card —</text>
+      <rect x="350" y="34" width="36" height="14" rx="7" fill="#172B4D"/><text x="368" y="44" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">FTE</text>
+      <rect x="394" y="34" width="48" height="14" rx="7" fill="#7C3AED"/><text x="418" y="44" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">Lemur</text>
+      <rect x="450" y="34" width="60" height="14" rx="7" fill="#5DA460"/><text x="480" y="44" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">Medallia</text>
+      <rect x="518" y="34" width="36" height="14" rx="7" fill="#B83567"/><text x="536" y="44" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">IVR</text>
+      <rect x="562" y="34" width="60" height="14" rx="7" fill="#FFAB00"/><text x="592" y="44" text-anchor="middle" font-size="9" font-weight="700" fill="#172B4D">Accenture</text>
+      <rect x="630" y="34" width="40" height="14" rx="7" fill="#9FB3D1"/><text x="650" y="44" text-anchor="middle" font-size="9" font-weight="700" fill="#172B4D">SWF</text>
+    </g>
+  </g>
+
+  <text x="60" y="1320" font-size="11" fill="#6F87A8">Source: Class of Service framework from Renewables DTO · Pain Score from Prioritization Criteria doc · Vendor list from CS Proposed Value Streams Slide 6</text>
+  <text x="2340" y="1320" text-anchor="end" font-size="11" fill="#6F87A8">11 / 12</text>
+</svg>

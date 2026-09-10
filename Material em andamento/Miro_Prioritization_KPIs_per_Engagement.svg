@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3400 2700" font-family="'Inter','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1F3458"/>
+    </pattern>
+    <filter id="stickyShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="cellShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.30"/>
+    </filter>
+  </defs>
+
+  <!-- ============ BACKGROUND (Miro dark theme) ============ -->
+  <rect width="3400" height="2700" fill="#0E2240"/>
+  <rect width="3400" height="2700" fill="url(#dotgrid)" opacity="0.6"/>
+
+  <!-- ============ TITLE ============ -->
+  <text x="80" y="80" font-size="44" font-weight="800" fill="#FFFFFF">Prioritization Criteria &amp; KPIs per Engagement</text>
+
+  <!-- ============ COLUMN HEADER STRIP ============ -->
+  <!-- columns: P&T/P&S, Digital CoE, Renewables, Infrastructure -->
+  <!-- col x positions: 320, 1090, 1860, 2630 ; col width 770 ; first col extra header 240 wide for section labels -->
+  <g transform="translate(0,150)">
+    <!-- left section-label gutter (no column header here) -->
+    <!-- Column 1 — P&T / P&S — amber -->
+    <g transform="translate(320,0)">
+      <rect width="770" height="64" rx="10" fill="#E8A24C" filter="url(#cellShadow)"/>
+      <text x="385" y="42" text-anchor="middle" font-size="22" font-weight="800" fill="#0E2240">P&amp;T / P&amp;S</text>
+    </g>
+    <!-- Column 2 — Digital CoE — cyan -->
+    <g transform="translate(1110,0)">
+      <rect width="770" height="64" rx="10" fill="#8FCBE8" filter="url(#cellShadow)"/>
+      <text x="385" y="42" text-anchor="middle" font-size="22" font-weight="800" fill="#0E2240">Digital CoE</text>
+    </g>
+    <!-- Column 3 — Renewables — green -->
+    <g transform="translate(1900,0)">
+      <rect width="770" height="64" rx="10" fill="#9DD89D" filter="url(#cellShadow)"/>
+      <text x="385" y="42" text-anchor="middle" font-size="22" font-weight="800" fill="#0E2240">Renewables</text>
+    </g>
+    <!-- Column 4 — Infrastructure — pink/magenta -->
+    <g transform="translate(2690,0)">
+      <rect width="630" height="64" rx="10" fill="#E8A5C4" filter="url(#cellShadow)"/>
+      <text x="315" y="42" text-anchor="middle" font-size="22" font-weight="800" fill="#0E2240">Infrastructure</text>
+    </g>
+  </g>
+
+  <!-- ============ SECTION 01 — PORTFOLIO LEVEL ============ -->
+  <g transform="translate(0,240)">
+    <!-- section bar full-width -->
+    <rect x="80" y="0" width="3240" height="56" rx="8" fill="#173458" stroke="#2D4D7A"/>
+    <!-- numbered badge -->
+    <circle cx="120" cy="28" r="22" fill="#F08A3E"/>
+    <text x="120" y="36" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">01</text>
+    <text x="160" y="26" font-size="20" font-weight="800" fill="#FFFFFF">PORTFOLIO LEVEL</text>
+    <text x="160" y="46" font-size="13" fill="#9FB3D1">how each engagement scores &amp; selects work at the portfolio top-of-funnel</text>
+
+    <!-- Section content area: y=70..720 ; height 650 -->
+
+    <!-- ===== Cell P&T/P&S — amber sticky ===== -->
+    <g transform="translate(320,70)">
+      <rect width="770" height="650" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+
+      <!-- Sticky 1: Shark Tank header + formula -->
+      <g transform="translate(20,20)">
+        <rect width="730" height="100" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+        <text x="20" y="34" font-size="16" font-weight="800" fill="#5A3A0E">SHARK TANK</text>
+        <rect x="20" y="46" width="690" height="40" rx="6" fill="#0E2240"/>
+        <text x="365" y="74" text-anchor="middle" font-size="20" font-weight="800" fill="#F4C988">Priority = PBI(x) = (BV + UX) / E</text>
+      </g>
+
+      <!-- Sticky 2: Business Value (BV) -->
+      <g transform="translate(20,135)">
+        <rect width="355" height="280" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+        <text x="20" y="32" font-size="14" font-weight="800" fill="#5A3A0E">BUSINESS VALUE (BV)</text>
+        <line x1="20" y1="42" x2="335" y2="42" stroke="#5A3A0E" stroke-width="1"/>
+        <text x="20" y="64" font-size="12" fill="#1A1A1A">• Asset Health &amp; Life Extension</text>
+        <text x="20" y="84" font-size="12" fill="#1A1A1A">• Field Productivity</text>
+        <text x="20" y="104" font-size="12" fill="#1A1A1A">• O&amp;M Reduction</text>
+        <text x="20" y="124" font-size="12" fill="#1A1A1A">• Safety</text>
+        <text x="20" y="144" font-size="12" fill="#1A1A1A">• Environmental</text>
+        <text x="20" y="164" font-size="12" fill="#1A1A1A">• Regulatory &amp; Risk</text>
+        <text x="20" y="184" font-size="12" fill="#1A1A1A">• Reliability</text>
+      </g>
+
+      <!-- Sticky 3: User Experience (UX) -->
+      <g transform="translate(395,135)">
+        <rect width="355" height="280" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+        <text x="20" y="32" font-size="14" font-weight="800" fill="#5A3A0E">USER EXPERIENCE (UX)</text>
+        <line x1="20" y1="42" x2="335" y2="42" stroke="#5A3A0E" stroke-width="1"/>
+        <text x="20" y="64" font-size="12" fill="#1A1A1A">• Correct Information Factor</text>
+        <text x="20" y="84" font-size="12" fill="#1A1A1A">• Get Things Done Fast Factor</text>
+        <text x="20" y="104" font-size="12" fill="#1A1A1A">• Everything Connected Factor</text>
+        <text x="20" y="124" font-size="12" fill="#1A1A1A">• Easy to Use Factor</text>
+        <text x="20" y="144" font-size="12" fill="#1A1A1A">• User Safety Factor</text>
+      </g>
+
+      <!-- Sticky 4: Effort (E) -->
+      <g transform="translate(20,430)">
+        <rect width="730" height="80" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+        <text x="20" y="32" font-size="14" font-weight="800" fill="#5A3A0E">EFFORT (E)</text>
+        <line x1="20" y1="42" x2="710" y2="42" stroke="#5A3A0E" stroke-width="1"/>
+        <text x="20" y="64" font-size="13" fill="#1A1A1A">Complexity measured by SMEs</text>
+      </g>
+    </g>
+
+    <!-- ===== Cell Digital CoE — cyan sticky ===== -->
+    <g transform="translate(1110,70)">
+      <rect width="770" height="650" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+
+      <g transform="translate(20,20)">
+        <rect width="730" height="200" rx="6" fill="#B7DDEF" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="16" font-weight="800" fill="#0F4A6B">PORTFOLIO PRIORITIZATION</text>
+        <line x1="20" y1="48" x2="710" y2="48" stroke="#0F4A6B" stroke-width="1"/>
+        <text x="20" y="80" font-size="14" fill="#1A1A1A">Three signals at the portfolio top of funnel:</text>
+        <g font-size="14" font-weight="700" fill="#0F4A6B">
+          <rect x="20" y="100" width="220" height="40" rx="6" fill="#FFFFFF" stroke="#0F4A6B"/>
+          <text x="130" y="126" text-anchor="middle">NPS</text>
+          <rect x="255" y="100" width="220" height="40" rx="6" fill="#FFFFFF" stroke="#0F4A6B"/>
+          <text x="365" y="126" text-anchor="middle">UX</text>
+          <rect x="490" y="100" width="220" height="40" rx="6" fill="#FFFFFF" stroke="#0F4A6B"/>
+          <text x="600" y="126" text-anchor="middle">Complaints</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- ===== Cell Renewables — green sticky ===== -->
+    <g transform="translate(1900,70)">
+      <rect width="770" height="650" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+
+      <g transform="translate(20,20)">
+        <rect width="730" height="200" rx="6" fill="#C2E5C2" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="16" font-weight="800" fill="#1F5722">PORTFOLIO PRIORITIZATION</text>
+        <line x1="20" y1="48" x2="710" y2="48" stroke="#1F5722" stroke-width="1"/>
+        <g transform="translate(0,80)">
+          <rect x="20" y="0" width="690" height="80" rx="6" fill="#FFFFFF" stroke="#1F5722" stroke-width="2"/>
+          <text x="365" y="48" text-anchor="middle" font-size="22" font-weight="800" fill="#1F5722">Not yet defined</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- ===== Cell Infrastructure — pink sticky ===== -->
+    <g transform="translate(2690,70)">
+      <rect width="630" height="650" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+
+      <g transform="translate(20,20)">
+        <rect width="590" height="220" rx="6" fill="#F0C0D6" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="16" font-weight="800" fill="#7A2A4A">PORTFOLIO PRIORITIZATION</text>
+        <line x1="20" y1="48" x2="570" y2="48" stroke="#7A2A4A" stroke-width="1"/>
+        <text x="20" y="80" font-size="13" fill="#1A1A1A">Formula:</text>
+        <rect x="20" y="92" width="550" height="56" rx="6" fill="#0E2240"/>
+        <text x="295" y="128" text-anchor="middle" font-size="22" font-weight="800" fill="#F0C0D6">Priority = (Stakeholder Impact + Urgency) / Effort</text>
+        <text x="20" y="180" font-size="12" fill="#444" font-style="italic">Stakeholder-led signals expressed as a lightweight ratio.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============ SECTION 02 — PROGRAM / PROJECT LEVEL ============ -->
+  <g transform="translate(0,970)">
+    <rect x="80" y="0" width="3240" height="56" rx="8" fill="#173458" stroke="#2D4D7A"/>
+    <circle cx="120" cy="28" r="22" fill="#F08A3E"/>
+    <text x="120" y="36" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">02</text>
+    <text x="160" y="26" font-size="20" font-weight="800" fill="#FFFFFF">PROGRAM / PROJECT LEVEL</text>
+    <text x="160" y="46" font-size="13" fill="#9FB3D1">criteria applied once an item is in flight (program / project tier)</text>
+
+    <!-- Cell P&T/P&S -->
+    <g transform="translate(320,70)">
+      <rect width="770" height="380" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+      <g transform="translate(20,20)">
+        <rect width="730" height="340" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="15" font-weight="800" fill="#5A3A0E">PROGRAM-LEVEL PRIORITIZATION</text>
+        <line x1="20" y1="48" x2="710" y2="48" stroke="#5A3A0E"/>
+        <text x="20" y="80" font-size="14" fill="#1A1A1A">Prioritization considers:</text>
+        <g font-size="14" font-weight="700" fill="#5A3A0E">
+          <rect x="20" y="98" width="220" height="44" rx="6" fill="#FFFFFF" stroke="#5A3A0E"/>
+          <text x="130" y="126" text-anchor="middle">Priority</text>
+          <rect x="255" y="98" width="220" height="44" rx="6" fill="#FFFFFF" stroke="#5A3A0E"/>
+          <text x="365" y="126" text-anchor="middle">Business Value</text>
+          <rect x="490" y="98" width="220" height="44" rx="6" fill="#FFFFFF" stroke="#5A3A0E"/>
+          <text x="600" y="126" text-anchor="middle">Estimation of Effort</text>
+        </g>
+        <text x="20" y="186" font-size="12" fill="#444" font-style="italic">Three inputs combined into the program-level decision; pulls forward Portfolio's PBI signals.</text>
+      </g>
+    </g>
+
+    <!-- Cell Digital CoE -->
+    <g transform="translate(1110,70)">
+      <rect width="770" height="380" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+      <g transform="translate(20,20)">
+        <rect width="730" height="340" rx="6" fill="#B7DDEF" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="15" font-weight="800" fill="#0F4A6B">PROGRAM / PROJECT LEVEL</text>
+        <line x1="20" y1="48" x2="710" y2="48" stroke="#0F4A6B"/>
+        <text x="20" y="80" font-size="14" fill="#1A1A1A">Four-dimension scoring:</text>
+        <g font-size="13" font-weight="700" fill="#0F4A6B">
+          <rect x="20" y="98" width="340" height="44" rx="6" fill="#FFFFFF" stroke="#0F4A6B"/>
+          <text x="190" y="126" text-anchor="middle">Business Value</text>
+          <rect x="375" y="98" width="335" height="44" rx="6" fill="#FFFFFF" stroke="#0F4A6B"/>
+          <text x="542" y="126" text-anchor="middle">User Experience</text>
+          <rect x="20" y="152" width="340" height="44" rx="6" fill="#FFFFFF" stroke="#0F4A6B"/>
+          <text x="190" y="180" text-anchor="middle">Technical Effort</text>
+          <rect x="375" y="152" width="335" height="44" rx="6" fill="#FFFFFF" stroke="#0F4A6B"/>
+          <text x="542" y="180" text-anchor="middle">Risk Level</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Cell Renewables -->
+    <g transform="translate(1900,70)">
+      <rect width="770" height="380" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+      <g transform="translate(20,20)">
+        <rect width="730" height="340" rx="6" fill="#C2E5C2" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="15" font-weight="800" fill="#1F5722">PROJECT PRIORITIZATION</text>
+        <line x1="20" y1="48" x2="710" y2="48" stroke="#1F5722"/>
+        <g font-size="13" font-weight="700" fill="#1F5722">
+          <rect x="20" y="68" width="340" height="44" rx="6" fill="#FFFFFF" stroke="#1F5722"/>
+          <text x="190" y="96" text-anchor="middle">Business Value / Impact</text>
+          <rect x="375" y="68" width="335" height="44" rx="6" fill="#FFFFFF" stroke="#1F5722"/>
+          <text x="542" y="96" text-anchor="middle">Urgency (Class of Service)</text>
+          <rect x="20" y="122" width="340" height="44" rx="6" fill="#FFFFFF" stroke="#1F5722"/>
+          <text x="190" y="150" text-anchor="middle">Risk / Dependency Impact</text>
+          <rect x="375" y="122" width="335" height="44" rx="6" fill="#FFFFFF" stroke="#1F5722"/>
+          <text x="542" y="150" text-anchor="middle">Effort vs. Value Trade-off</text>
+        </g>
+        <text x="20" y="200" font-size="12" fill="#444" font-style="italic">Effort vs. value trade-off is applied lightweight.</text>
+      </g>
+    </g>
+
+    <!-- Cell Infrastructure -->
+    <g transform="translate(2690,70)">
+      <rect width="630" height="380" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+      <g transform="translate(20,20)">
+        <rect width="590" height="340" rx="6" fill="#F0C0D6" filter="url(#stickyShadow)"/>
+        <text x="20" y="34" font-size="15" font-weight="800" fill="#7A2A4A">PROJECT-LEVEL INDEX</text>
+        <line x1="20" y1="44" x2="570" y2="44" stroke="#7A2A4A"/>
+        <text x="20" y="68" font-size="13" fill="#1A1A1A">Index based on three weighted scores:</text>
+        <g font-size="12" fill="#1A1A1A">
+          <rect x="20" y="80" width="380" height="28" rx="4" fill="#FFFFFF" stroke="#7A2A4A"/>
+          <text x="34" y="100" font-weight="700" fill="#7A2A4A">Scalability Score</text>
+          <rect x="410" y="80" width="160" height="28" rx="4" fill="#7A2A4A"/>
+          <text x="490" y="100" text-anchor="middle" font-weight="800" fill="#FFFFFF">weight = 0.2</text>
+
+          <rect x="20" y="116" width="380" height="28" rx="4" fill="#FFFFFF" stroke="#7A2A4A"/>
+          <text x="34" y="136" font-weight="700" fill="#7A2A4A">Effort Score</text>
+          <rect x="410" y="116" width="160" height="28" rx="4" fill="#7A2A4A"/>
+          <text x="490" y="136" text-anchor="middle" font-weight="800" fill="#FFFFFF">weight = 0.4</text>
+
+          <rect x="20" y="152" width="380" height="28" rx="4" fill="#FFFFFF" stroke="#7A2A4A"/>
+          <text x="34" y="172" font-weight="700" fill="#7A2A4A">Feasibility Score</text>
+          <rect x="410" y="152" width="160" height="28" rx="4" fill="#7A2A4A"/>
+          <text x="490" y="172" text-anchor="middle" font-weight="800" fill="#FFFFFF">weight = 0.6</text>
+        </g>
+        <rect x="20" y="200" width="550" height="80" rx="6" fill="#0E2240"/>
+        <text x="295" y="226" text-anchor="middle" font-size="13" font-weight="700" fill="#F0C0D6">Total Score =</text>
+        <text x="295" y="248" text-anchor="middle" font-size="12" fill="#FFFFFF">(Scalability Rating × 0.2)</text>
+        <text x="295" y="266" text-anchor="middle" font-size="12" fill="#FFFFFF">+ (Effort Rating × 0.4) + (Feasibility Rating × 0.6)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============ SECTION 03 — TEAM LEVEL ============ -->
+  <g transform="translate(0,1490)">
+    <rect x="80" y="0" width="3240" height="56" rx="8" fill="#173458" stroke="#2D4D7A"/>
+    <circle cx="120" cy="28" r="22" fill="#F08A3E"/>
+    <text x="120" y="36" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">03</text>
+    <text x="160" y="26" font-size="20" font-weight="800" fill="#FFFFFF">TEAM LEVEL</text>
+    <text x="160" y="46" font-size="13" fill="#9FB3D1">how the squad re-orders work in-flight (sprint / iteration cadence)</text>
+
+    <!-- Cell P&T/P&S -->
+    <g transform="translate(320,70)">
+      <rect width="770" height="320" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+      <g transform="translate(20,20)">
+        <rect width="730" height="280" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="15" font-weight="800" fill="#5A3A0E">TEAM-LEVEL · OWNED BY THE PO</text>
+        <line x1="20" y1="48" x2="710" y2="48" stroke="#5A3A0E"/>
+        <text x="20" y="78" font-size="14" fill="#1A1A1A">Prioritized by the PO using:</text>
+        <g font-size="14" font-weight="700" fill="#5A3A0E">
+          <rect x="20" y="96" width="220" height="44" rx="6" fill="#FFFFFF" stroke="#5A3A0E"/>
+          <text x="130" y="124" text-anchor="middle">Business Value</text>
+          <rect x="255" y="96" width="220" height="44" rx="6" fill="#FFFFFF" stroke="#5A3A0E"/>
+          <text x="365" y="124" text-anchor="middle">Priority</text>
+          <rect x="490" y="96" width="220" height="44" rx="6" fill="#FFFFFF" stroke="#5A3A0E"/>
+          <text x="600" y="124" text-anchor="middle">Effort</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Cell Digital CoE -->
+    <g transform="translate(1110,70)">
+      <rect width="770" height="320" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+      <g transform="translate(20,20)">
+        <rect width="730" height="280" rx="6" fill="#B7DDEF" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="15" font-weight="800" fill="#0F4A6B">TEAM-LEVEL · CONTINUOUS</text>
+        <line x1="20" y1="48" x2="710" y2="48" stroke="#0F4A6B"/>
+        <text x="20" y="78" font-size="13" fill="#1A1A1A">Prioritization happens continuously (each sprint and BRP):</text>
+        <g font-size="13" font-weight="700" fill="#0F4A6B">
+          <rect x="20" y="98" width="340" height="40" rx="6" fill="#FFFFFF" stroke="#0F4A6B"/>
+          <text x="190" y="124" text-anchor="middle">Business Value</text>
+          <rect x="375" y="98" width="335" height="40" rx="6" fill="#FFFFFF" stroke="#0F4A6B"/>
+          <text x="542" y="124" text-anchor="middle">User Experience</text>
+          <rect x="20" y="148" width="340" height="40" rx="6" fill="#FFFFFF" stroke="#0F4A6B"/>
+          <text x="190" y="174" text-anchor="middle">Technical Effort</text>
+          <rect x="375" y="148" width="335" height="40" rx="6" fill="#FFFFFF" stroke="#0F4A6B"/>
+          <text x="542" y="174" text-anchor="middle">Risk Level</text>
+        </g>
+        <text x="20" y="218" font-size="11" fill="#444" font-style="italic">BRP = Big Room Planning</text>
+      </g>
+    </g>
+
+    <!-- Cell Renewables -->
+    <g transform="translate(1900,70)">
+      <rect width="770" height="320" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+      <g transform="translate(20,20)">
+        <rect width="730" height="280" rx="6" fill="#C2E5C2" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="15" font-weight="800" fill="#1F5722">TEAM-LEVEL · CONTINUOUS, NOT IN BATCHES</text>
+        <line x1="20" y1="48" x2="710" y2="48" stroke="#1F5722"/>
+        <g font-size="13" font-weight="700" fill="#1F5722">
+          <rect x="20" y="70" width="340" height="40" rx="6" fill="#FFFFFF" stroke="#1F5722"/>
+          <text x="190" y="96" text-anchor="middle">Business Value / Impact</text>
+          <rect x="375" y="70" width="335" height="40" rx="6" fill="#FFFFFF" stroke="#1F5722"/>
+          <text x="542" y="96" text-anchor="middle">Urgency (Class of Service)</text>
+          <rect x="20" y="120" width="340" height="40" rx="6" fill="#FFFFFF" stroke="#1F5722"/>
+          <text x="190" y="146" text-anchor="middle">Risk / Dependency Impact</text>
+          <rect x="375" y="120" width="335" height="40" rx="6" fill="#FFFFFF" stroke="#1F5722"/>
+          <text x="542" y="146" text-anchor="middle">Effort vs. Value (lightweight)</text>
+        </g>
+        <text x="20" y="200" font-size="12" fill="#444" font-style="italic">Same criteria as Project level — applied continuously rather than in planning batches.</text>
+      </g>
+    </g>
+
+    <!-- Cell Infrastructure -->
+    <g transform="translate(2690,70)">
+      <rect width="630" height="320" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+      <g transform="translate(20,20)">
+        <rect width="590" height="280" rx="6" fill="#F0C0D6" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="15" font-weight="800" fill="#7A2A4A">TEAM-LEVEL</text>
+        <line x1="20" y1="48" x2="570" y2="48" stroke="#7A2A4A"/>
+        <text x="20" y="78" font-size="13" fill="#1A1A1A">Prioritization based on:</text>
+        <g font-size="13" font-weight="700" fill="#7A2A4A">
+          <rect x="20" y="96" width="180" height="44" rx="6" fill="#FFFFFF" stroke="#7A2A4A"/>
+          <text x="110" y="124" text-anchor="middle">Business Value</text>
+          <rect x="210" y="96" width="180" height="44" rx="6" fill="#FFFFFF" stroke="#7A2A4A"/>
+          <text x="300" y="124" text-anchor="middle">Impact</text>
+          <rect x="400" y="96" width="180" height="44" rx="6" fill="#FFFFFF" stroke="#7A2A4A"/>
+          <text x="490" y="124" text-anchor="middle">Urgency</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============ SECTION 04 — METRICS / KPIs ============ -->
+  <g transform="translate(0,1880)">
+    <rect x="80" y="0" width="3240" height="56" rx="8" fill="#173458" stroke="#2D4D7A"/>
+    <circle cx="120" cy="28" r="22" fill="#F08A3E"/>
+    <text x="120" y="36" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">04</text>
+    <text x="160" y="26" font-size="20" font-weight="800" fill="#FFFFFF">METRICS / KPIs</text>
+    <text x="160" y="46" font-size="13" fill="#9FB3D1">how each engagement instruments delivery and outcomes</text>
+
+    <!-- Cell P&T/P&S — needs much room -->
+    <g transform="translate(320,70)">
+      <rect width="770" height="540" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+
+      <!-- Sticky Portfolio metrics -->
+      <g transform="translate(20,20)">
+        <rect width="355" height="155" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+        <text x="14" y="28" font-size="13" font-weight="800" fill="#5A3A0E">PORTFOLIO</text>
+        <line x1="14" y1="36" x2="341" y2="36" stroke="#5A3A0E"/>
+        <text x="14" y="56" font-size="11" fill="#1A1A1A">• Budget Usage per Initiative</text>
+        <text x="14" y="74" font-size="11" fill="#1A1A1A">• % Initiatives per Strategic OKR</text>
+        <text x="14" y="92" font-size="11" fill="#1A1A1A">• Time to Value</text>
+      </g>
+      <!-- Sticky Program -->
+      <g transform="translate(395,20)">
+        <rect width="355" height="155" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+        <text x="14" y="28" font-size="13" font-weight="800" fill="#5A3A0E">PROGRAM</text>
+        <line x1="14" y1="36" x2="341" y2="36" stroke="#5A3A0E"/>
+        <text x="14" y="56" font-size="11" fill="#1A1A1A">• Schedule Performance Index</text>
+        <text x="14" y="74" font-size="11" fill="#1A1A1A">• Program Health</text>
+        <text x="14" y="92" font-size="11" fill="#1A1A1A">• % Change Requests Approved by Program</text>
+      </g>
+      <!-- Sticky Product -->
+      <g transform="translate(20,185)">
+        <rect width="355" height="120" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+        <text x="14" y="28" font-size="13" font-weight="800" fill="#5A3A0E">PRODUCT</text>
+        <line x1="14" y1="36" x2="341" y2="36" stroke="#5A3A0E"/>
+        <text x="14" y="56" font-size="11" fill="#1A1A1A">• User Adoption</text>
+        <text x="14" y="74" font-size="11" fill="#1A1A1A">• Validated Hypothesis</text>
+      </g>
+      <!-- Sticky Project -->
+      <g transform="translate(395,185)">
+        <rect width="355" height="245" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+        <text x="14" y="28" font-size="13" font-weight="800" fill="#5A3A0E">PROJECT</text>
+        <line x1="14" y1="36" x2="341" y2="36" stroke="#5A3A0E"/>
+        <text x="14" y="56" font-size="11" fill="#1A1A1A">• Project Delivery Rate</text>
+        <text x="14" y="74" font-size="11" fill="#1A1A1A">• Project Health</text>
+        <text x="14" y="92" font-size="11" fill="#1A1A1A">• Throughput</text>
+        <text x="14" y="110" font-size="11" fill="#1A1A1A">• Schedule Performance Index</text>
+        <text x="14" y="128" font-size="11" fill="#1A1A1A">• Aging</text>
+        <text x="14" y="146" font-size="11" fill="#1A1A1A">• External Impact Rate</text>
+        <text x="14" y="164" font-size="11" fill="#1A1A1A">• Scope Change Rate</text>
+        <text x="14" y="182" font-size="11" fill="#1A1A1A">• Dependency</text>
+        <text x="14" y="200" font-size="11" fill="#1A1A1A">• SLA Adherence</text>
+      </g>
+      <!-- Sticky Cross -->
+      <g transform="translate(20,315)">
+        <rect width="355" height="80" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+        <text x="14" y="28" font-size="13" font-weight="800" fill="#5A3A0E">CROSS</text>
+        <line x1="14" y1="36" x2="341" y2="36" stroke="#5A3A0E"/>
+        <text x="14" y="56" font-size="11" fill="#1A1A1A">• Sponsorship Engagement Index</text>
+      </g>
+      <!-- Sticky Change Management -->
+      <g transform="translate(20,405)">
+        <rect width="730" height="115" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+        <text x="14" y="28" font-size="13" font-weight="800" fill="#5A3A0E">CHANGE MANAGEMENT</text>
+        <line x1="14" y1="36" x2="716" y2="36" stroke="#5A3A0E"/>
+        <text x="14" y="56" font-size="11" fill="#1A1A1A">• Communication Strategy Completion</text>
+        <text x="14" y="74" font-size="11" fill="#1A1A1A">• Training Completion Rate</text>
+        <text x="14" y="92" font-size="11" fill="#1A1A1A">• Mean Time to Resolution (TPR)</text>
+        <text x="370" y="56" font-size="11" fill="#1A1A1A">• PCT Profile</text>
+        <text x="370" y="74" font-size="11" fill="#1A1A1A">• Change Impact Analysis</text>
+        <text x="370" y="92" font-size="11" fill="#1A1A1A">• nWOW Success Index</text>
+      </g>
+    </g>
+
+    <!-- Cell Digital CoE -->
+    <g transform="translate(1110,70)">
+      <rect width="770" height="540" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+      <g transform="translate(20,20)">
+        <rect width="730" height="500" rx="6" fill="#B7DDEF" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="15" font-weight="800" fill="#0F4A6B">KPIs</text>
+        <line x1="20" y1="48" x2="710" y2="48" stroke="#0F4A6B"/>
+        <g font-size="16" font-weight="700" fill="#0F4A6B">
+          <rect x="20" y="80" width="690" height="60" rx="8" fill="#FFFFFF" stroke="#0F4A6B" stroke-width="2"/>
+          <text x="365" y="118" text-anchor="middle">Number of Bugs</text>
+          <rect x="20" y="160" width="690" height="60" rx="8" fill="#FFFFFF" stroke="#0F4A6B" stroke-width="2"/>
+          <text x="365" y="198" text-anchor="middle">Velocity</text>
+          <rect x="20" y="240" width="690" height="60" rx="8" fill="#FFFFFF" stroke="#0F4A6B" stroke-width="2"/>
+          <text x="365" y="278" text-anchor="middle">Capacity</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Cell Renewables -->
+    <g transform="translate(1900,70)">
+      <rect width="770" height="540" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+      <g transform="translate(20,20)">
+        <rect width="730" height="500" rx="6" fill="#C2E5C2" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="15" font-weight="800" fill="#1F5722">KPIs · FLOW-FOCUSED</text>
+        <line x1="20" y1="48" x2="710" y2="48" stroke="#1F5722"/>
+        <g font-size="16" font-weight="700" fill="#FFFFFF">
+          <rect x="20" y="80" width="335" height="80" rx="8" fill="#1F5722"/>
+          <text x="187" y="128" text-anchor="middle">Lead Time</text>
+          <rect x="375" y="80" width="335" height="80" rx="8" fill="#1F5722"/>
+          <text x="542" y="128" text-anchor="middle">Cycle Time</text>
+          <rect x="20" y="180" width="335" height="80" rx="8" fill="#1F5722"/>
+          <text x="187" y="228" text-anchor="middle">Throughput</text>
+          <rect x="375" y="180" width="335" height="80" rx="8" fill="#1F5722"/>
+          <text x="542" y="228" text-anchor="middle">Work Item Aging</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Cell Infrastructure -->
+    <g transform="translate(2690,70)">
+      <rect width="630" height="540" rx="10" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+      <g transform="translate(20,20)">
+        <rect width="590" height="500" rx="6" fill="#F0C0D6" filter="url(#stickyShadow)"/>
+        <text x="20" y="36" font-size="15" font-weight="800" fill="#7A2A4A">KPIs</text>
+        <line x1="20" y1="48" x2="570" y2="48" stroke="#7A2A4A"/>
+        <rect x="20" y="80" width="550" height="200" rx="8" fill="#FFFFFF" stroke="#7A2A4A" stroke-width="2" stroke-dasharray="6 6"/>
+        <text x="295" y="190" text-anchor="middle" font-size="22" font-weight="800" fill="#7A2A4A">Not yet defined</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============ FOOTER LEGEND ============ -->
+  <g transform="translate(80,2660)">
+    <text x="0" y="0" font-size="13" fill="#9FB3D1">Engagement legend:</text>
+    <rect x="140" y="-13" width="14" height="14" fill="#E8A24C"/><text x="160" y="0" font-size="12" fill="#FFFFFF">P&amp;T / P&amp;S</text>
+    <rect x="270" y="-13" width="14" height="14" fill="#8FCBE8"/><text x="290" y="0" font-size="12" fill="#FFFFFF">Digital CoE</text>
+    <rect x="400" y="-13" width="14" height="14" fill="#9DD89D"/><text x="420" y="0" font-size="12" fill="#FFFFFF">Renewables</text>
+    <rect x="540" y="-13" width="14" height="14" fill="#E8A5C4"/><text x="560" y="0" font-size="12" fill="#FFFFFF">Infrastructure</text>
+  </g>
+</svg>

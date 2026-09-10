@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3400 2000" font-family="'Inter','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1F3458"/>
+    </pattern>
+    <filter id="stickyShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="cellShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.30"/>
+    </filter>
+    <marker id="chevron" viewBox="0 0 14 14" refX="13" refY="7" markerWidth="14" markerHeight="14" orient="auto">
+      <path d="M0,0 L14,7 L0,14 Z" fill="#F08A3E"/>
+    </marker>
+  </defs>
+
+  <!-- BG -->
+  <rect width="3400" height="2000" fill="#0E2240"/>
+  <rect width="3400" height="2000" fill="url(#dotgrid)" opacity="0.6"/>
+
+  <!-- TITLE -->
+  <text x="80" y="76" font-size="40" font-weight="800" fill="#FFFFFF">TOM Big Picture — Demand Flow End-to-End</text>
+  <text x="80" y="108" font-size="16" font-weight="500" fill="#9FB3D1">Demand opening &amp; roles  →  Jira Request (Value Stream + fields)  →  Portfolio Board (ITBA · CS)  →  Team Boards</text>
+
+  <!-- ============ STAGE NUMBER BAR ============ -->
+  <g transform="translate(0,150)">
+    <!-- 4 numbered headers above the stages -->
+    <g transform="translate(80,0)">
+      <circle cx="22" cy="22" r="22" fill="#F08A3E"/>
+      <text x="22" y="30" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">01</text>
+      <text x="60" y="20" font-size="20" font-weight="800" fill="#FFFFFF">DEMAND OPEN</text>
+      <text x="60" y="40" font-size="13" fill="#9FB3D1">who opens the demand · sources &amp; roles</text>
+    </g>
+    <g transform="translate(800,0)">
+      <circle cx="22" cy="22" r="22" fill="#F08A3E"/>
+      <text x="22" y="30" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">02</text>
+      <text x="60" y="20" font-size="20" font-weight="800" fill="#FFFFFF">JIRA REQUEST</text>
+      <text x="60" y="40" font-size="13" fill="#9FB3D1">single intake · select Value Stream + mandatory fields</text>
+    </g>
+    <g transform="translate(1640,0)">
+      <circle cx="22" cy="22" r="22" fill="#F08A3E"/>
+      <text x="22" y="30" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">03</text>
+      <text x="60" y="20" font-size="20" font-weight="800" fill="#FFFFFF">PORTFOLIO BOARD</text>
+      <text x="60" y="40" font-size="13" fill="#9FB3D1">routed to ITBA or CS · triage · backlog · ready for execution</text>
+    </g>
+    <g transform="translate(2740,0)">
+      <circle cx="22" cy="22" r="22" fill="#F08A3E"/>
+      <text x="22" y="30" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">04</text>
+      <text x="60" y="20" font-size="20" font-weight="800" fill="#FFFFFF">TEAM BOARDS</text>
+      <text x="60" y="40" font-size="13" fill="#9FB3D1">work pulled into squad kanban</text>
+    </g>
+  </g>
+
+  <!-- ============ STAGE 01 — DEMAND OPEN ============ -->
+  <g transform="translate(80,230)">
+    <rect width="660" height="1500" rx="14" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+
+    <!-- Sub-block: Demand Sources -->
+    <text x="24" y="44" font-size="15" font-weight="800" fill="#9FB3D1">DEMAND SOURCES</text>
+    <line x1="24" y1="56" x2="636" y2="56" stroke="#2D4D7A"/>
+
+    <g font-size="13" fill="#1A1A1A">
+      <rect x="24" y="74" width="612" height="54" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+      <text x="40" y="100" font-weight="800" fill="#5A3A0E">OPCOs — UIL · CMP · NY</text>
+      <text x="40" y="118" font-size="12">Call-center escalations · rollout drivers · trends</text>
+
+      <rect x="24" y="140" width="612" height="54" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+      <text x="40" y="166" font-weight="800" fill="#5A3A0E">Regulatory Affairs</text>
+      <text x="40" y="184" font-size="12">Rate cases · tariff changes · tax updates</text>
+
+      <rect x="24" y="206" width="612" height="54" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+      <text x="40" y="232" font-weight="800" fill="#5A3A0E">Smart Metering Program</text>
+      <text x="40" y="250" font-size="12">CT · ME · NY rollout mandates</text>
+
+      <rect x="24" y="272" width="612" height="54" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+      <text x="40" y="298" font-weight="800" fill="#5A3A0E">Marketing &amp; Communications</text>
+      <text x="40" y="316" font-size="12">Campaign &amp; digital-channel demand</text>
+
+      <rect x="24" y="338" width="612" height="54" rx="6" fill="#F4C988" filter="url(#stickyShadow)"/>
+      <text x="40" y="364" font-weight="800" fill="#5A3A0E">Business Operations &amp; Field</text>
+      <text x="40" y="382" font-size="12">G&amp;E · GIS · Finance · HR · Procurement · Legal</text>
+    </g>
+
+    <!-- Sub-block: Roles in Opening -->
+    <text x="24" y="430" font-size="15" font-weight="800" fill="#9FB3D1">ROLES INVOLVED IN OPENING</text>
+    <line x1="24" y1="442" x2="636" y2="442" stroke="#2D4D7A"/>
+
+    <g>
+      <!-- Requestor -->
+      <rect x="24" y="460" width="612" height="92" rx="6" fill="#B7DDEF" filter="url(#stickyShadow)"/>
+      <circle cx="56" cy="498" r="22" fill="#0F4A6B"/>
+      <text x="56" y="505" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">R</text>
+      <text x="92" y="488" font-size="15" font-weight="800" fill="#0F4A6B">Requestor</text>
+      <text x="92" y="510" font-size="12" fill="#1A1A1A">The person submitting the demand. Owns clarity</text>
+      <text x="92" y="528" font-size="12" fill="#1A1A1A">of problem, business value, acceptance criteria.</text>
+
+      <!-- BRS / Business Sponsor -->
+      <rect x="24" y="566" width="612" height="92" rx="6" fill="#B7DDEF" filter="url(#stickyShadow)"/>
+      <circle cx="56" cy="604" r="22" fill="#0F4A6B"/>
+      <text x="56" y="611" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">BR</text>
+      <text x="92" y="594" font-size="15" font-weight="800" fill="#0F4A6B">BRS / Business Sponsor</text>
+      <text x="92" y="616" font-size="12" fill="#1A1A1A">Validates business value &amp; OPCO sign-off.</text>
+      <text x="92" y="634" font-size="12" fill="#1A1A1A">Bridge between business and IT (BSS log).</text>
+
+      <!-- Application Champion -->
+      <rect x="24" y="672" width="612" height="92" rx="6" fill="#B7DDEF" filter="url(#stickyShadow)"/>
+      <circle cx="56" cy="710" r="22" fill="#0F4A6B"/>
+      <text x="56" y="717" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">AC</text>
+      <text x="92" y="700" font-size="15" font-weight="800" fill="#0F4A6B">Application Champion</text>
+      <text x="92" y="722" font-size="12" fill="#1A1A1A">Sub-team lead per area (GIS · Corporate · G&amp;E ·</text>
+      <text x="92" y="740" font-size="12" fill="#1A1A1A">Global SAP · M2C-SL · M2C-RO · CCC).</text>
+
+      <!-- Product Manager -->
+      <rect x="24" y="778" width="612" height="92" rx="6" fill="#B7DDEF" filter="url(#stickyShadow)"/>
+      <circle cx="56" cy="816" r="22" fill="#0F4A6B"/>
+      <text x="56" y="823" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">PM</text>
+      <text x="92" y="806" font-size="15" font-weight="800" fill="#0F4A6B">Product Manager <tspan fill="#B83567" font-size="12">(NEW)</tspan></text>
+      <text x="92" y="828" font-size="12" fill="#1A1A1A">Owns the Value Stream backlog. Triggers triage</text>
+      <text x="92" y="846" font-size="12" fill="#1A1A1A">&amp; routes to portfolio board after intake.</text>
+
+      <!-- Tech Lead -->
+      <rect x="24" y="884" width="612" height="92" rx="6" fill="#B7DDEF" filter="url(#stickyShadow)"/>
+      <circle cx="56" cy="922" r="22" fill="#0F4A6B"/>
+      <text x="56" y="929" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">TL</text>
+      <text x="92" y="912" font-size="15" font-weight="800" fill="#0F4A6B">Tech Lead</text>
+      <text x="92" y="934" font-size="12" fill="#1A1A1A">Co-owner with PM. Drives feasibility, sizing,</text>
+      <text x="92" y="952" font-size="12" fill="#1A1A1A">DoR compliance before backlog entry.</text>
+    </g>
+
+    <!-- Footer guidance -->
+    <rect x="24" y="1000" width="612" height="80" rx="6" fill="#173458" stroke="#F08A3E" stroke-dasharray="4 4"/>
+    <text x="40" y="1028" font-size="13" font-weight="700" fill="#F08A3E">UNIFIED FRONT DOOR</text>
+    <text x="40" y="1050" font-size="12" fill="#FFFFFF">Email · Word · Teams are decommissioned for new demand.</text>
+    <text x="40" y="1068" font-size="12" fill="#FFFFFF">IT Now restricted to incidents only (CCC / Smart Metering).</text>
+  </g>
+
+  <!-- arrow Stage1 → Stage2 -->
+  <line x1="755" y1="900" x2="800" y2="900" stroke="#F08A3E" stroke-width="6" marker-end="url(#chevron)"/>
+
+  <!-- ============ STAGE 02 — JIRA REQUEST ============ -->
+  <g transform="translate(820,230)">
+    <rect width="780" height="1500" rx="14" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+
+    <text x="24" y="44" font-size="15" font-weight="800" fill="#9FB3D1">SINGLE JIRA INTAKE — STANDARD TEMPLATE</text>
+    <line x1="24" y1="56" x2="756" y2="56" stroke="#2D4D7A"/>
+
+    <!-- Mock Jira form -->
+    <g transform="translate(24,76)">
+      <rect width="732" height="900" rx="8" fill="#FFFFFF" filter="url(#stickyShadow)"/>
+      <!-- Form header -->
+      <rect width="732" height="44" rx="8" fill="#0052CC"/>
+      <text x="20" y="29" font-size="14" font-weight="800" fill="#FFFFFF">▦  Create Issue · Avangrid Digital Products</text>
+      <text x="710" y="29" text-anchor="end" font-size="12" fill="#B5D2F7">Type: Demand</text>
+
+      <!-- Field: Value Stream (DROPDOWN HIGHLIGHTED) -->
+      <text x="20" y="78" font-size="12" font-weight="700" fill="#5A3A0E">VALUE STREAM <tspan fill="#D9534F">*</tspan></text>
+      <rect x="20" y="86" width="692" height="42" rx="4" fill="#FFF7E0" stroke="#F08A3E" stroke-width="2"/>
+      <text x="32" y="113" font-size="14" font-weight="700" fill="#5A3A0E">▼ Select your Value Stream...</text>
+
+      <!-- Dropdown options visualized -->
+      <g transform="translate(20,140)">
+        <rect width="346" height="170" rx="6" fill="#F2F8FE" stroke="#0F4A6B"/>
+        <rect width="346" height="28" rx="6" fill="#0F4A6B"/>
+        <text x="173" y="20" text-anchor="middle" font-size="12" font-weight="800" fill="#FFFFFF">ITBA — IT Business Apps</text>
+        <text x="14" y="50" font-size="12" fill="#1A1A1A">○ GIS</text>
+        <text x="14" y="70" font-size="12" fill="#1A1A1A">○ Corporate</text>
+        <text x="14" y="90" font-size="12" fill="#1A1A1A">○ G&amp;E</text>
+        <text x="14" y="110" font-size="12" fill="#1A1A1A">○ Global SAP</text>
+        <text x="14" y="130" font-size="11" fill="#999" font-style="italic">routes → ITBA Portfolio Board</text>
+      </g>
+      <g transform="translate(376,140)">
+        <rect width="336" height="170" rx="6" fill="#FFF6DD" stroke="#5A3A0E"/>
+        <rect width="336" height="28" rx="6" fill="#5A3A0E"/>
+        <text x="168" y="20" text-anchor="middle" font-size="12" font-weight="800" fill="#FFFFFF">CS — Customer Services Apps</text>
+        <text x="14" y="50" font-size="12" fill="#1A1A1A">○ M2C-SL — Service Lifecycle</text>
+        <text x="14" y="70" font-size="12" fill="#1A1A1A">○ M2C-RO — Revenue Operations</text>
+        <text x="14" y="90" font-size="12" fill="#1A1A1A">○ CCC — Customer Care &amp; Contact Center</text>
+        <text x="14" y="130" font-size="11" fill="#999" font-style="italic">routes → CS Portfolio Board</text>
+      </g>
+
+      <!-- Field: Mandatory fields list -->
+      <text x="20" y="346" font-size="12" font-weight="700" fill="#5A3A0E">MANDATORY FIELDS</text>
+      <line x1="20" y1="354" x2="712" y2="354" stroke="#CCC"/>
+
+      <g font-size="12" fill="#1A1A1A">
+        <!-- Title -->
+        <text x="20" y="378" font-weight="700">Title <tspan fill="#D9534F">*</tspan></text>
+        <rect x="20" y="386" width="692" height="32" rx="4" fill="#F8FAFC" stroke="#CCC"/>
+        <text x="32" y="406" fill="#999" font-style="italic">Outcome-based, not task-based</text>
+
+        <!-- Description -->
+        <text x="20" y="438" font-weight="700">Description <tspan fill="#D9534F">*</tspan></text>
+        <rect x="20" y="446" width="692" height="44" rx="4" fill="#F8FAFC" stroke="#CCC"/>
+        <text x="32" y="468" fill="#999" font-style="italic">Describe the problem, not the solution</text>
+
+        <!-- Two columns: Business Value / Acceptance Criteria -->
+        <text x="20" y="510" font-weight="700">Business Value <tspan fill="#D9534F">*</tspan></text>
+        <rect x="20" y="518" width="336" height="44" rx="4" fill="#F8FAFC" stroke="#CCC"/>
+        <text x="32" y="540" fill="#999" font-style="italic">Why does this matter?</text>
+
+        <text x="376" y="510" font-weight="700">Acceptance Criteria <tspan fill="#D9534F">*</tspan></text>
+        <rect x="376" y="518" width="336" height="44" rx="4" fill="#F8FAFC" stroke="#CCC"/>
+        <text x="388" y="540" fill="#999" font-style="italic">What does success look like?</text>
+
+        <!-- Type · Size · CoS · Work Type -->
+        <text x="20" y="582" font-weight="700">Type</text>
+        <rect x="20" y="590" width="160" height="32" rx="4" fill="#E8F5E9" stroke="#1F5722"/>
+        <text x="100" y="611" text-anchor="middle" font-weight="700" fill="#1F5722">Demand · Incident</text>
+
+        <text x="200" y="582" font-weight="700">Size</text>
+        <rect x="200" y="590" width="156" height="32" rx="4" fill="#E8F5E9" stroke="#1F5722"/>
+        <text x="278" y="611" text-anchor="middle" font-weight="700" fill="#1F5722">S · M · L</text>
+
+        <text x="376" y="582" font-weight="700">Class of Service</text>
+        <rect x="376" y="590" width="336" height="32" rx="4" fill="#FCE4EC" stroke="#7A2A4A"/>
+        <text x="544" y="611" text-anchor="middle" font-weight="700" fill="#7A2A4A">Standard · Fixed-Date · Expedite · Intangible</text>
+
+        <text x="20" y="650" font-weight="700">Work Type</text>
+        <rect x="20" y="658" width="336" height="32" rx="4" fill="#E8F5E9" stroke="#1F5722"/>
+        <text x="188" y="679" text-anchor="middle" font-weight="700" fill="#1F5722">BAU · Build · Upgrade</text>
+
+        <text x="376" y="650" font-weight="700">Run / Grow / Transform</text>
+        <rect x="376" y="658" width="336" height="32" rx="4" fill="#E8F5E9" stroke="#1F5722"/>
+        <text x="544" y="679" text-anchor="middle" font-weight="700" fill="#1F5722">~50 / 35 / 15 %</text>
+
+        <!-- OPCO · Sponsor · Due Date -->
+        <text x="20" y="718" font-weight="700">OPCO</text>
+        <rect x="20" y="726" width="220" height="32" rx="4" fill="#F8FAFC" stroke="#CCC"/>
+        <text x="130" y="747" text-anchor="middle" font-style="italic" fill="#666">UIL · CMP · NY</text>
+
+        <text x="260" y="718" font-weight="700">Sponsor</text>
+        <rect x="260" y="726" width="220" height="32" rx="4" fill="#F8FAFC" stroke="#CCC"/>
+        <text x="370" y="747" text-anchor="middle" font-style="italic" fill="#666">Business owner</text>
+
+        <text x="500" y="718" font-weight="700">Requested Due Date</text>
+        <rect x="500" y="726" width="212" height="32" rx="4" fill="#F8FAFC" stroke="#CCC"/>
+        <text x="606" y="747" text-anchor="middle" font-style="italic" fill="#666">YYYY-MM-DD</text>
+
+        <!-- Pain Score -->
+        <text x="20" y="786" font-weight="700">Pain Score (auto-computed at triage)</text>
+        <rect x="20" y="794" width="692" height="40" rx="4" fill="#0E2240"/>
+        <text x="366" y="820" text-anchor="middle" font-size="14" font-weight="800" fill="#F4C988">H(x) = (BV·w₁ + UX·w₂ + Safety·w₃) / Effort</text>
+
+        <!-- Submit -->
+        <rect x="540" y="850" width="172" height="38" rx="6" fill="#0052CC"/>
+        <text x="626" y="876" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">Create &amp; Route →</text>
+      </g>
+    </g>
+
+    <!-- Definition of Ready footer -->
+    <rect x="24" y="1000" width="732" height="80" rx="6" fill="#173458" stroke="#F08A3E" stroke-dasharray="4 4"/>
+    <text x="40" y="1028" font-size="13" font-weight="700" fill="#F08A3E">DEFINITION OF READY (DoR)</text>
+    <text x="40" y="1050" font-size="12" fill="#FFFFFF">All mandatory fields filled · clear business context · Class of Service set</text>
+    <text x="40" y="1068" font-size="12" fill="#FFFFFF">Failing DoR = ticket bounces back to Requestor before reaching the portfolio board</text>
+  </g>
+
+  <!-- arrow Stage2 → Stage3 -->
+  <line x1="1615" y1="900" x2="1660" y2="900" stroke="#F08A3E" stroke-width="6" marker-end="url(#chevron)"/>
+
+  <!-- ============ STAGE 03 — PORTFOLIO BOARDS ============ -->
+  <g transform="translate(1680,230)">
+    <rect width="1040" height="1500" rx="14" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+
+    <text x="24" y="44" font-size="15" font-weight="800" fill="#9FB3D1">PORTFOLIO BOARDS — ROUTED BY VALUE STREAM</text>
+    <line x1="24" y1="56" x2="1016" y2="56" stroke="#2D4D7A"/>
+
+    <!-- ITBA BOARD -->
+    <g transform="translate(24,76)">
+      <rect width="992" height="500" rx="10" fill="#0F2A47" stroke="#0F4A6B" stroke-width="2"/>
+      <rect width="992" height="40" rx="10" fill="#0F4A6B"/>
+      <text x="20" y="27" font-size="16" font-weight="800" fill="#FFFFFF">ITBA — IT Business Apps Portfolio Board</text>
+      <text x="980" y="27" text-anchor="end" font-size="12" fill="#B5D2F7">Owner: Carlos Garbin · 4 sub-teams</text>
+
+      <!-- 5 columns: Intake · Triage · Backlog · Ready · → Teams -->
+      <g transform="translate(16,56)" font-size="12" font-weight="700">
+        <rect width="190" height="420" rx="6" fill="#173458" stroke="#0F4A6B"/>
+        <rect width="190" height="32" rx="6" fill="#0F4A6B"/>
+        <text x="95" y="22" text-anchor="middle" fill="#FFFFFF">INTAKE</text>
+        <text x="95" y="58" text-anchor="middle" font-size="11" fill="#9FB3D1">new tickets land here</text>
+        <!-- mock cards -->
+        <rect x="10" y="74" width="170" height="36" rx="4" fill="#B7DDEF"/>
+        <text x="20" y="97" font-size="10" fill="#0F4A6B">GIS — break/fix request</text>
+        <rect x="10" y="118" width="170" height="36" rx="4" fill="#B7DDEF"/>
+        <text x="20" y="141" font-size="10" fill="#0F4A6B">Corporate — Reg. update</text>
+        <rect x="10" y="162" width="170" height="36" rx="4" fill="#B7DDEF"/>
+        <text x="20" y="185" font-size="10" fill="#0F4A6B">G&amp;E — vendor upgrade</text>
+
+        <rect x="200" width="190" height="420" rx="6" fill="#173458" stroke="#0F4A6B"/>
+        <rect x="200" width="190" height="32" rx="6" fill="#0F4A6B"/>
+        <text x="295" y="22" text-anchor="middle" fill="#FFFFFF">TRIAGE</text>
+        <text x="295" y="58" text-anchor="middle" font-size="11" fill="#9FB3D1">DoR · CoS · Pain Score</text>
+        <rect x="210" y="74" width="170" height="36" rx="4" fill="#B7DDEF"/>
+        <text x="220" y="97" font-size="10" fill="#0F4A6B">Global SAP — small dem.</text>
+        <rect x="210" y="118" width="170" height="36" rx="4" fill="#B7DDEF"/>
+        <text x="220" y="141" font-size="10" fill="#0F4A6B">GIS — outage tooling</text>
+
+        <rect x="400" width="190" height="420" rx="6" fill="#173458" stroke="#0F4A6B"/>
+        <rect x="400" width="190" height="32" rx="6" fill="#0F4A6B"/>
+        <text x="495" y="22" text-anchor="middle" fill="#FFFFFF">BACKLOG</text>
+        <text x="495" y="58" text-anchor="middle" font-size="11" fill="#9FB3D1">ranked by Pain Score</text>
+        <rect x="410" y="74" width="170" height="36" rx="4" fill="#B7DDEF"/>
+        <text x="420" y="97" font-size="10" fill="#0F4A6B">#1 Corporate — PDD ratecase</text>
+        <rect x="410" y="118" width="170" height="36" rx="4" fill="#B7DDEF"/>
+        <text x="420" y="141" font-size="10" fill="#0F4A6B">#2 Global SAP — FI close</text>
+        <rect x="410" y="162" width="170" height="36" rx="4" fill="#B7DDEF"/>
+        <text x="420" y="185" font-size="10" fill="#0F4A6B">#3 G&amp;E — outage report</text>
+
+        <rect x="600" width="190" height="420" rx="6" fill="#173458" stroke="#0F4A6B"/>
+        <rect x="600" width="190" height="32" rx="6" fill="#0F4A6B"/>
+        <text x="695" y="22" text-anchor="middle" fill="#FFFFFF">READY FOR EXEC</text>
+        <text x="695" y="58" text-anchor="middle" font-size="11" fill="#9FB3D1">approved at Gate 2</text>
+        <rect x="610" y="74" width="170" height="36" rx="4" fill="#B7DDEF"/>
+        <text x="620" y="97" font-size="10" fill="#0F4A6B">→ Corporate squad</text>
+        <rect x="610" y="118" width="170" height="36" rx="4" fill="#B7DDEF"/>
+        <text x="620" y="141" font-size="10" fill="#0F4A6B">→ Global SAP squad</text>
+
+        <rect x="800" width="160" height="420" rx="6" fill="#0F4A6B"/>
+        <text x="880" y="220" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">PULL TO</text>
+        <text x="880" y="244" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">TEAM BOARD</text>
+        <text x="880" y="280" text-anchor="middle" font-size="11" fill="#B5D2F7">GIS · Corporate</text>
+        <text x="880" y="298" text-anchor="middle" font-size="11" fill="#B5D2F7">G&amp;E · Global SAP</text>
+      </g>
+    </g>
+
+    <!-- CS BOARD -->
+    <g transform="translate(24,600)">
+      <rect width="992" height="500" rx="10" fill="#2A1F0F" stroke="#5A3A0E" stroke-width="2"/>
+      <rect width="992" height="40" rx="10" fill="#5A3A0E"/>
+      <text x="20" y="27" font-size="16" font-weight="800" fill="#FFFFFF">CS — Customer Services Apps Portfolio Board</text>
+      <text x="980" y="27" text-anchor="end" font-size="12" fill="#F4C988">Owner: Kumar Jaladanki · 3 Value Streams</text>
+
+      <g transform="translate(16,56)" font-size="12" font-weight="700">
+        <rect width="190" height="420" rx="6" fill="#3D2812" stroke="#5A3A0E"/>
+        <rect width="190" height="32" rx="6" fill="#5A3A0E"/>
+        <text x="95" y="22" text-anchor="middle" fill="#FFFFFF">INTAKE</text>
+        <text x="95" y="58" text-anchor="middle" font-size="11" fill="#F4C988">new tickets land here</text>
+        <rect x="10" y="74" width="170" height="36" rx="4" fill="#F4C988"/>
+        <text x="20" y="97" font-size="10" fill="#5A3A0E">M2C-RO — billing change</text>
+        <rect x="10" y="118" width="170" height="36" rx="4" fill="#F4C988"/>
+        <text x="20" y="141" font-size="10" fill="#5A3A0E">CCC — IVR enhancement</text>
+        <rect x="10" y="162" width="170" height="36" rx="4" fill="#F4C988"/>
+        <text x="20" y="185" font-size="10" fill="#5A3A0E">M2C-SL — connect flow</text>
+
+        <rect x="200" width="190" height="420" rx="6" fill="#3D2812" stroke="#5A3A0E"/>
+        <rect x="200" width="190" height="32" rx="6" fill="#5A3A0E"/>
+        <text x="295" y="22" text-anchor="middle" fill="#FFFFFF">TRIAGE</text>
+        <text x="295" y="58" text-anchor="middle" font-size="11" fill="#F4C988">DoR · CoS · Pain Score</text>
+        <rect x="210" y="74" width="170" height="36" rx="4" fill="#F4C988"/>
+        <text x="220" y="97" font-size="10" fill="#5A3A0E">CCC — chatbot v2</text>
+        <rect x="210" y="118" width="170" height="36" rx="4" fill="#F4C988"/>
+        <text x="220" y="141" font-size="10" fill="#5A3A0E">M2C-RO — collect rules</text>
+
+        <rect x="400" width="190" height="420" rx="6" fill="#3D2812" stroke="#5A3A0E"/>
+        <rect x="400" width="190" height="32" rx="6" fill="#5A3A0E"/>
+        <text x="495" y="22" text-anchor="middle" fill="#FFFFFF">BACKLOG</text>
+        <text x="495" y="58" text-anchor="middle" font-size="11" fill="#F4C988">ranked by Pain Score (UX-heavy)</text>
+        <rect x="410" y="74" width="170" height="36" rx="4" fill="#F4C988"/>
+        <text x="420" y="97" font-size="10" fill="#5A3A0E">#1 CCC — Medallia survey</text>
+        <rect x="410" y="118" width="170" height="36" rx="4" fill="#F4C988"/>
+        <text x="420" y="141" font-size="10" fill="#5A3A0E">#2 M2C-SL — disconnect</text>
+        <rect x="410" y="162" width="170" height="36" rx="4" fill="#F4C988"/>
+        <text x="420" y="185" font-size="10" fill="#5A3A0E">#3 M2C-RO — bill once</text>
+
+        <rect x="600" width="190" height="420" rx="6" fill="#3D2812" stroke="#5A3A0E"/>
+        <rect x="600" width="190" height="32" rx="6" fill="#5A3A0E"/>
+        <text x="695" y="22" text-anchor="middle" fill="#FFFFFF">READY FOR EXEC</text>
+        <text x="695" y="58" text-anchor="middle" font-size="11" fill="#F4C988">approved at Customer Journey Forum</text>
+        <rect x="610" y="74" width="170" height="36" rx="4" fill="#F4C988"/>
+        <text x="620" y="97" font-size="10" fill="#5A3A0E">→ CCC squad</text>
+        <rect x="610" y="118" width="170" height="36" rx="4" fill="#F4C988"/>
+        <text x="620" y="141" font-size="10" fill="#5A3A0E">→ M2C-SL squad</text>
+
+        <rect x="800" width="160" height="420" rx="6" fill="#5A3A0E"/>
+        <text x="880" y="220" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">PULL TO</text>
+        <text x="880" y="244" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">TEAM BOARD</text>
+        <text x="880" y="280" text-anchor="middle" font-size="11" fill="#F4C988">M2C-SL · M2C-RO</text>
+        <text x="880" y="298" text-anchor="middle" font-size="11" fill="#F4C988">CCC</text>
+      </g>
+    </g>
+
+    <!-- Two-gate governance footer -->
+    <rect x="24" y="1124" width="992" height="80" rx="6" fill="#173458" stroke="#F08A3E" stroke-dasharray="4 4"/>
+    <text x="40" y="1152" font-size="13" font-weight="700" fill="#F08A3E">TWO-GATE GOVERNANCE  ·  Same model on both boards</text>
+    <text x="40" y="1174" font-size="12" fill="#FFFFFF">Gate 1 — Shark Tank Committee · pre-investment pitch · Go / No-Go</text>
+    <text x="40" y="1192" font-size="12" fill="#FFFFFF">Gate 2 — Portfolio Committee · investment approval &amp; portfolio slotting</text>
+  </g>
+
+  <!-- arrow Stage3 → Stage4 -->
+  <line x1="2735" y1="900" x2="2780" y2="900" stroke="#F08A3E" stroke-width="6" marker-end="url(#chevron)"/>
+
+  <!-- ============ STAGE 04 — TEAM BOARDS ============ -->
+  <g transform="translate(2800,230)">
+    <rect width="520" height="1500" rx="14" fill="#15304F" stroke="#2D4D7A" filter="url(#cellShadow)"/>
+
+    <text x="24" y="44" font-size="15" font-weight="800" fill="#9FB3D1">SQUAD KANBAN BOARDS</text>
+    <line x1="24" y1="56" x2="496" y2="56" stroke="#2D4D7A"/>
+
+    <!-- Example team board: 4 columns -->
+    <g transform="translate(24,76)">
+      <rect width="472" height="500" rx="10" fill="#0F2A47" stroke="#0F4A6B" stroke-width="2"/>
+      <rect width="472" height="36" rx="10" fill="#0F4A6B"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#FFFFFF">▦ ITBA Squad — e.g. Corporate / G&amp;E</text>
+
+      <g transform="translate(8,46)" font-size="11" font-weight="700">
+        <rect width="110" height="446" rx="4" fill="#173458"/>
+        <rect width="110" height="24" rx="4" fill="#1F4E79"/>
+        <text x="55" y="17" text-anchor="middle" fill="#FFFFFF">TO DO</text>
+        <rect x="6" y="34" width="98" height="36" rx="3" fill="#B7DDEF"/>
+        <text x="14" y="56" font-size="9" fill="#0F4A6B">PDD ratecase</text>
+        <rect x="6" y="76" width="98" height="36" rx="3" fill="#B7DDEF"/>
+        <text x="14" y="98" font-size="9" fill="#0F4A6B">FI close fix</text>
+
+        <rect x="118" width="110" height="446" rx="4" fill="#173458"/>
+        <rect x="118" width="110" height="24" rx="4" fill="#1F4E79"/>
+        <text x="173" y="17" text-anchor="middle" fill="#FFFFFF">WIP</text>
+        <text x="173" y="38" text-anchor="middle" font-size="9" fill="#9FB3D1">WIP limit: 3</text>
+        <rect x="124" y="50" width="98" height="36" rx="3" fill="#FFE08A"/>
+        <text x="132" y="72" font-size="9" fill="#5A3A0E">Outage report</text>
+
+        <rect x="236" width="110" height="446" rx="4" fill="#173458"/>
+        <rect x="236" width="110" height="24" rx="4" fill="#1F4E79"/>
+        <text x="291" y="17" text-anchor="middle" fill="#FFFFFF">REVIEW</text>
+        <rect x="242" y="34" width="98" height="36" rx="3" fill="#FFE08A"/>
+        <text x="250" y="56" font-size="9" fill="#5A3A0E">UAT — small dem.</text>
+
+        <rect x="354" width="110" height="446" rx="4" fill="#173458"/>
+        <rect x="354" width="110" height="24" rx="4" fill="#1F4E79"/>
+        <text x="409" y="17" text-anchor="middle" fill="#FFFFFF">DONE</text>
+        <rect x="360" y="34" width="98" height="36" rx="3" fill="#A0CAA0"/>
+        <text x="368" y="56" font-size="9" fill="#1F5722">Vendor upgrade</text>
+        <rect x="360" y="76" width="98" height="36" rx="3" fill="#A0CAA0"/>
+        <text x="368" y="98" font-size="9" fill="#1F5722">GIS hotfix</text>
+      </g>
+    </g>
+
+    <!-- CS team board -->
+    <g transform="translate(24,600)">
+      <rect width="472" height="500" rx="10" fill="#2A1F0F" stroke="#5A3A0E" stroke-width="2"/>
+      <rect width="472" height="36" rx="10" fill="#5A3A0E"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#FFFFFF">▦ CS Squad — e.g. CCC / M2C-SL</text>
+
+      <g transform="translate(8,46)" font-size="11" font-weight="700">
+        <rect width="110" height="446" rx="4" fill="#3D2812"/>
+        <rect width="110" height="24" rx="4" fill="#7E4D0F"/>
+        <text x="55" y="17" text-anchor="middle" fill="#FFFFFF">TO DO</text>
+        <rect x="6" y="34" width="98" height="36" rx="3" fill="#F4C988"/>
+        <text x="14" y="56" font-size="9" fill="#5A3A0E">Medallia survey</text>
+        <rect x="6" y="76" width="98" height="36" rx="3" fill="#F4C988"/>
+        <text x="14" y="98" font-size="9" fill="#5A3A0E">Disconnect flow</text>
+
+        <rect x="118" width="110" height="446" rx="4" fill="#3D2812"/>
+        <rect x="118" width="110" height="24" rx="4" fill="#7E4D0F"/>
+        <text x="173" y="17" text-anchor="middle" fill="#FFFFFF">WIP</text>
+        <rect x="124" y="50" width="98" height="36" rx="3" fill="#F4C988"/>
+        <text x="132" y="72" font-size="9" fill="#5A3A0E">Bill once rule</text>
+
+        <rect x="236" width="110" height="446" rx="4" fill="#3D2812"/>
+        <rect x="236" width="110" height="24" rx="4" fill="#7E4D0F"/>
+        <text x="291" y="17" text-anchor="middle" fill="#FFFFFF">REVIEW</text>
+        <rect x="242" y="34" width="98" height="36" rx="3" fill="#F4C988"/>
+        <text x="250" y="56" font-size="9" fill="#5A3A0E">IVR enh. v2</text>
+
+        <rect x="354" width="110" height="446" rx="4" fill="#3D2812"/>
+        <rect x="354" width="110" height="24" rx="4" fill="#7E4D0F"/>
+        <text x="409" y="17" text-anchor="middle" fill="#FFFFFF">DONE</text>
+        <rect x="360" y="34" width="98" height="36" rx="3" fill="#A0CAA0"/>
+        <text x="368" y="56" font-size="9" fill="#1F5722">Chatbot v2</text>
+      </g>
+    </g>
+
+    <!-- Lean ceremonies footer -->
+    <rect x="24" y="1124" width="472" height="80" rx="6" fill="#173458" stroke="#F08A3E" stroke-dasharray="4 4"/>
+    <text x="40" y="1152" font-size="13" font-weight="700" fill="#F08A3E">LEAN CEREMONIES</text>
+    <text x="40" y="1172" font-size="11" fill="#FFFFFF">Daily Flow Review · Replenishment</text>
+    <text x="40" y="1190" font-size="11" fill="#FFFFFF">Service Delivery Review · Retro / Kaizen</text>
+  </g>
+
+  <!-- ============ FOOTER LEGEND ============ -->
+  <g transform="translate(80,1940)">
+    <text x="0" y="0" font-size="13" fill="#9FB3D1">Branch legend:</text>
+    <rect x="120" y="-13" width="14" height="14" fill="#0F4A6B"/><text x="140" y="0" font-size="12" fill="#FFFFFF">ITBA — IT Business Apps</text>
+    <rect x="380" y="-13" width="14" height="14" fill="#5A3A0E"/><text x="400" y="0" font-size="12" fill="#FFFFFF">CS — Customer Services Apps</text>
+    <rect x="660" y="-13" width="14" height="14" fill="#F08A3E"/><text x="680" y="0" font-size="12" fill="#FFFFFF">Stage transition / governance gate</text>
+  </g>
+</svg>

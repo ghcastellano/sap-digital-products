@@ -1,0 +1,50 @@
+{
+  "_comment": "A3 · Auto-Fixed-Date · when Demand Type = Regulatory, set Class of Service = Fixed-Date and prompt PM to fill due date.",
+  "_format": "Atlassian Automation rule (Cloud)",
+  "_import_path": "Project Settings → Automation → Import rule",
+
+  "name": "A3 · Auto-Fixed-Date (Regulatory)",
+  "description": "When Demand Type = Regulatory, force Fixed-Date class of service",
+  "scope": { "type": "PROJECT", "key": "DGTLPROD" },
+
+  "trigger": {
+    "type": "jira.field.value.changed",
+    "field": "Demand Type"
+  },
+
+  "conditions": [
+    {
+      "type": "jira.condition.field.value",
+      "field": "Demand Type",
+      "operator": "EQUALS",
+      "value": "Regulatory"
+    }
+  ],
+
+  "actions": [
+    {
+      "type": "jira.action.edit.issue",
+      "fields": {
+        "DP Class of Service": "Fixed-Date"
+      }
+    },
+    {
+      "type": "jira.action.send.email",
+      "to": "{{issue.assignee.emailAddress}}",
+      "subject": "[DGTLPROD] Action required · set deadline for Regulatory demand {{issue.key}}",
+      "body": "Demand {{issue.key}} has been auto-classified as Fixed-Date because Demand Type = Regulatory.\n\nPlease set the regulatory deadline in the Due Date field within 2 business days.\n\nLink: {{issue.url}}"
+    },
+    {
+      "type": "jira.action.add.comment",
+      "comment": "Auto-Fixed-Date triggered by A3 (Demand Type = Regulatory). PM must fill Due Date."
+    }
+  ],
+
+  "_steps_human_readable": [
+    "1. Trigger: Field value changed → Demand Type.",
+    "2. Condition: Demand Type = Regulatory.",
+    "3. Action: Edit · set DP Class of Service = Fixed-Date.",
+    "4. Action: Email PM (Assignee) requesting Due Date.",
+    "5. Action: Add comment audit trail."
+  ]
+}

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Products — Discovery Sessions Board</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:#0a1628;color:#c8d6e5;min-height:100vh}
+.header{padding:20px 32px;background:#041630;border-bottom:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center}
+.header h1{font-size:22px;font-weight:800;color:#fff}
+.header span{font-size:13px;color:#5a7090}
+.board{display:flex;gap:16px;padding:20px 32px;overflow-x:auto;align-items:flex-start}
+.column{min-width:320px;max-width:320px;background:#0f1d30;border-radius:12px;border:1px solid rgba(255,255,255,.05)}
+.col-header{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.04);display:flex;justify-content:space-between;align-items:center}
+.col-header h2{font-size:14px;font-weight:700;color:#fff}
+.col-header .count{font-size:12px;color:#5a7090;background:rgba(255,255,255,.05);padding:2px 8px;border-radius:10px}
+.col-body{padding:8px}
+.card{background:#162240;border:1px solid rgba(255,255,255,.04);border-radius:10px;padding:14px;margin-bottom:8px;cursor:default;transition:border-color .2s}
+.card:hover{border-color:rgba(255,255,255,.1)}
+.card .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.tag-session{background:rgba(0,82,155,.2);color:#4a90d9}
+.tag-prep{background:rgba(247,148,29,.2);color:#f7941d}
+.tag-kb{background:rgba(120,190,32,.2);color:#78be20}
+.tag-miro{background:rgba(155,89,182,.2);color:#b388ff}
+.tag-excel{background:rgba(232,85,85,.2);color:#e85555}
+.tag-done{background:rgba(120,190,32,.15);color:#78be20}
+.card h3{font-size:14px;font-weight:600;color:#e0e8f0;margin-bottom:6px;line-height:1.4}
+.card p{font-size:12px;color:#6880a0;line-height:1.5}
+.card .meta{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.card .meta span{font-size:10px;color:#4a6080;background:rgba(255,255,255,.03);padding:2px 8px;border-radius:4px}
+.card .source{font-size:11px;color:#4a90d9;margin-top:8px;font-style:italic}
+.priority-high{border-left:3px solid #e85555}
+.priority-med{border-left:3px solid #f7941d}
+.priority-low{border-left:3px solid #4a90d9}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>Digital Products — Discovery Sessions</h1>
+    <span>Weeks 1-2 Preparation & Execution Board</span>
+  </div>
+  <span style="font-size:12px;color:#3d5070">Last updated: Apr 9, 2026</span>
+</div>
+<div class="board">
+
+<!-- COLUMN: PRE-SESSION PREP -->
+<div class="column">
+  <div class="col-header"><h2>📋 Pre-Session Prep</h2><span class="count">8</span></div>
+  <div class="col-body">
+    <div class="card priority-high">
+      <span class="tag tag-prep">PREP</span>
+      <h3>Get org charts for each stakeholder</h3>
+      <p>Ana: "Tener de base para el stakeholder su org chart". Need org charts for Carlos (Corporate/GISS), Kumar, Heather, Vitor.</p>
+      <div class="meta"><span>Session 1</span><span>High Priority</span></div>
+    </div>
+    <div class="card priority-high">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>Prepare Demand Sources AS-IS slide</h3>
+      <p>Ana: "Tener mapeado ya la slide Demand refinada". Use Proposal slide 6 + DTO slide 20 as base.</p>
+      <div class="meta"><span>Session 2</span><span>High Priority</span></div>
+      <div class="source">KB: SAP CoE Proposal Sl.6, DTO Sl.20</div>
+    </div>
+    <div class="card priority-high">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>Prepare KPIs from previous projects</h3>
+      <p>Ana: "Traer de base los KPIS definidos e implementados anteriores para ver cuales reusamos".</p>
+      <div class="meta"><span>Session 6</span><span>High Priority</span></div>
+      <div class="source">KB: PM Playbook Sl.138, nWOW Sl.83, DTO Sl.49</div>
+    </div>
+    <div class="card priority-high">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>Draft first portfolio prioritization view</h3>
+      <p>Ana: "Tener de base un primer draft que permita priorizar ya sus iniciativas". Use CoE Portfolio Kanban + P&S framework.</p>
+      <div class="meta"><span>Session 3</span><span>High Priority</span></div>
+      <div class="source">KB: CoE Playbook Sl.25, nWOW Sl.35</div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-prep">PREP</span>
+      <h3>Map existing governance meetings</h3>
+      <p>Ana: "Tener mapeado el gobierno que nos han dado / reuniones activas". Document all current meetings, attendees, frequency.</p>
+      <div class="meta"><span>Sessions 1,2,3</span><span>Medium</span></div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>Prepare Roles & Responsibilities analysis</h3>
+      <p>Ana: "Venir con un análisis de la info sobre Roles y Responsabilidades para retarlo o alinearlo".</p>
+      <div class="meta"><span>Session 5</span><span>Medium</span></div>
+      <div class="source">KB: PM Playbook Sl.125-130, DTO Sl.17</div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>Prepare Capacity Allocation model</h3>
+      <p>Ana: "Enfocar en como les gustaría evolucionarlo". Bring DTO capacity split (60/25/15) and P&S capacity logic as reference.</p>
+      <div class="meta"><span>Session 5</span><span>Medium</span></div>
+      <div class="source">KB: DTO Sl.39, nWOW Sl.63</div>
+    </div>
+    <div class="card priority-low">
+      <span class="tag tag-prep">PREP</span>
+      <h3>Prepare vendor/software factory mapping</h3>
+      <p>Ana: "Explicar bien vendors / software factory vs ellos" for Tool Ecosystem session.</p>
+      <div class="meta"><span>Session 4</span><span>Low</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- COLUMN: EXCEL UPDATES -->
+<div class="column">
+  <div class="col-header"><h2>📝 Excel Updates (Ana's feedback)</h2><span class="count">7</span></div>
+  <div class="col-body">
+    <div class="card priority-high">
+      <span class="tag tag-excel">EXCEL</span>
+      <h3>Remove Q13 (duplicate of Q8) — Tab 1</h3>
+      <p>Ana: "Duplicada con la 8". Remove "If you could fix one thing about how work gets done" — already covered by Q8.</p>
+      <div class="meta"><span>Stakeholder Interviews</span></div>
+    </div>
+    <div class="card priority-high">
+      <span class="tag tag-excel">EXCEL</span>
+      <h3>Rewrite Q16 — Tab 1</h3>
+      <p>Ana: Culture question too generic. Change to: "How do you think the pilot could work for BRS, and how would you scale it to the rest of the department?"</p>
+      <div class="meta"><span>Stakeholder Interviews</span></div>
+    </div>
+    <div class="card priority-high">
+      <span class="tag tag-excel">EXCEL</span>
+      <h3>Rewrite Q1 context — Tab 1</h3>
+      <p>Ana: Add context about CIO transformation, new directives, and how we can help align. Update Response/Findings column.</p>
+      <div class="meta"><span>Stakeholder Interviews</span></div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-excel">EXCEL</span>
+      <h3>Remove Q22 (redundant) — Tab 4</h3>
+      <p>Ana: "Redundante la quitaría". Remove "How easy is it to generate reports and dashboards?"</p>
+      <div class="meta"><span>Tool Ecosystem</span></div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-excel">EXCEL</span>
+      <h3>Remove Q22 (duplicate of Q10) — Tab 5</h3>
+      <p>Ana: "Duplicada con la 10". Remove duplicate over-allocation question.</p>
+      <div class="meta"><span>Capacity & Resource</span></div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-excel">EXCEL</span>
+      <h3>Update Tab 3 approach</h3>
+      <p>Ana: Focus session on what they'd LIKE, not deep AS-IS. Add note about coming with first draft to prioritize. Less Q&A, more "show and validate".</p>
+      <div class="meta"><span>Portfolio Review</span></div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-excel">EXCEL</span>
+      <h3>Update Tab 4 approach</h3>
+      <p>Ana: Introduce minimum traceability concept. Note that Q1-3 are covered during Demand/Portfolio sessions — connect process + tool in discovery.</p>
+      <div class="meta"><span>Tool Ecosystem</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- COLUMN: MIRO BOARDS -->
+<div class="column">
+  <div class="col-header"><h2>🎨 Miro Boards to Create</h2><span class="count">6</span></div>
+  <div class="col-body">
+    <div class="card priority-high">
+      <span class="tag tag-miro">MIRO</span>
+      <h3>Session 1: Stakeholder Interview Template</h3>
+      <p>Template per stakeholder with: their org chart, prepared questions, governance map, blind spots to explore. One frame per person.</p>
+      <div class="meta"><span>Week 1</span><span>6-10 interviews</span></div>
+    </div>
+    <div class="card priority-high">
+      <span class="tag tag-miro">MIRO</span>
+      <h3>Session 2: Demand Mapping Board</h3>
+      <p>Pre-populated with known demand channels from Proposal Sl.6 + DTO Sl.20. Team refines and validates. Include governance meeting overlay.</p>
+      <div class="meta"><span>Week 1</span><span>90-120 min</span></div>
+    </div>
+    <div class="card priority-high">
+      <span class="tag tag-miro">MIRO</span>
+      <h3>Session 3: Portfolio Review Board</h3>
+      <p>Come with first draft of initiatives + prioritization framework from P&S/CoE. Focus on "what SHOULD be measured" not "what IS measured".</p>
+      <div class="meta"><span>Week 2</span><span>90-120 min</span></div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-miro">MIRO</span>
+      <h3>Session 4: Tool Landscape Canvas</h3>
+      <p>Show process E2E + where tools sit. Already have the canvas template. Add vendor vs internal mapping per Ana's request.</p>
+      <div class="meta"><span>Week 2</span><span>90-120 min</span></div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-miro">MIRO</span>
+      <h3>Session 5: Capacity & Roles Board</h3>
+      <p>Bring R&R analysis + DTO capacity model (60/25/15) as reference. Focus on "how they'd like to evolve" not just AS-IS.</p>
+      <div class="meta"><span>Week 2</span><span>60-90 min</span></div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-miro">MIRO</span>
+      <h3>Session 6: KPIs & Reporting Board</h3>
+      <p>Pre-populated with KPIs from PM Playbook (Sl.138), nWOW (Sl.83), DTO (Sl.49). Team selects which to reuse.</p>
+      <div class="meta"><span>Week 2</span><span>60-90 min</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- COLUMN: SESSION APPROACH -->
+<div class="column">
+  <div class="col-header"><h2>🎯 Session Approach (Ana's Input)</h2><span class="count">6</span></div>
+  <div class="col-body">
+    <div class="card">
+      <span class="tag tag-session">SESSION 1</span>
+      <h3>Stakeholder Interviews — 45 min each</h3>
+      <p><strong>Ana's approach:</strong> Per stakeholder, understand blind spots. Have org chart + governance map as base. Two levels of prioritization questions. Combine delivery process with tools.</p>
+      <div class="meta"><span>6-10 sessions</span><span>Week 1</span></div>
+    </div>
+    <div class="card">
+      <span class="tag tag-session">SESSION 2</span>
+      <h3>Demand Sources — Internal first, then validate</h3>
+      <p><strong>Ana's approach:</strong> Do first exercise internally with core team. Then send to stakeholders to validate. Come with refined Demand slide. Connect with governance meetings.</p>
+      <div class="meta"><span>1-2 sessions</span><span>Week 1</span></div>
+    </div>
+    <div class="card">
+      <span class="tag tag-session">SESSION 3</span>
+      <h3>Portfolio Review — Show & Define, not just Ask</h3>
+      <p><strong>Ana's approach:</strong> General review focused on what they'd LIKE. Come with first draft to prioritize. Less AS-IS deep dive, more "what is value for them and what should be measured".</p>
+      <div class="meta"><span>1-2 sessions</span><span>Week 2</span></div>
+    </div>
+    <div class="card">
+      <span class="tag tag-session">SESSION 4</span>
+      <h3>Tool Ecosystem — Connect to Process</h3>
+      <p><strong>Ana's approach:</strong> Introduce minimum traceability concept. Tool questions emerge during Demand & Portfolio sessions. Explain vendor/factory vs internal. No official tools exist.</p>
+      <div class="meta"><span>1-2 sessions</span><span>Week 2</span></div>
+    </div>
+    <div class="card">
+      <span class="tag tag-session">SESSION 5</span>
+      <h3>Capacity — Evolve, not just Document</h3>
+      <p><strong>Ana's approach:</strong> Focus on how they'd like to evolve. Bring R&R analysis to challenge or align. Remove duplicate Q22.</p>
+      <div class="meta"><span>1 session</span><span>Week 2</span></div>
+    </div>
+    <div class="card">
+      <span class="tag tag-session">SESSION 6</span>
+      <h3>Reporting — Reuse Previous KPIs</h3>
+      <p><strong>Ana's approach:</strong> Bring KPIs from P&S, CoE, DTO projects. Discuss which to reuse, adapt, or create new. Less "what do you track" more "here's what works".</p>
+      <div class="meta"><span>1 session</span><span>Week 2</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- COLUMN: KB EXTRACTIONS NEEDED -->
+<div class="column">
+  <div class="col-header"><h2>🔍 KB Materials to Extract</h2><span class="count">8</span></div>
+  <div class="col-body">
+    <div class="card priority-high">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>Demand Sources AS-IS (Proposal Sl.6)</h3>
+      <p>Multiple unmonitored channels (Email, Teams, ServiceNow). Single structured intake proposed. Use as base for Session 2.</p>
+      <div class="source">SAP CoE New Ways of Working v2.0 — Slide 6</div>
+    </div>
+    <div class="card priority-high">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>DTO Demand Intake Design (DTO Sl.20)</h3>
+      <p>Jira-only single entry, Class of Service, standardized form, DoR gate. Most operational intake — use as reference.</p>
+      <div class="source">NextGen_DTO_Deliverable1 — Slide 20</div>
+    </div>
+    <div class="card priority-high">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>KPI Ecosystem (PM Playbook Sl.138)</h3>
+      <p>Multi-level KPIs: Portfolio → Program → Product → Project. Formulas for Throughput, Lead Time, Velocity. Scorecards.</p>
+      <div class="source">PM Playbook — Slide 138</div>
+    </div>
+    <div class="card priority-high">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>Portfolio Kanban (CoE Playbook Sl.25)</h3>
+      <p>8 stage-gate Portfolio Kanban board. Discovery → Delivery flow. Use as first draft for Portfolio Review session.</p>
+      <div class="source">CoE Playbook — Slide 25</div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>Capacity Allocation (DTO Sl.39)</h3>
+      <p>Build 60%, BAU 25%, Upgrades 15%. Clear capacity split model to use as reference in Capacity session.</p>
+      <div class="source">NextGen_DTO_Deliverable1 — Slide 39</div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>Flow Metrics Dashboard (DTO Sl.49)</h3>
+      <p>Lead Time, Cycle Time, Throughput, Aging. Jira dashboard example for Reporting session.</p>
+      <div class="source">NextGen_DTO_Deliverable1 — Slide 49</div>
+    </div>
+    <div class="card priority-med">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>RACI Templates (PM Playbook Sl.125-130)</h3>
+      <p>RACI per lifecycle phase in Confluence+Jira. Use for Capacity & Roles session.</p>
+      <div class="source">PM Playbook — Slides 125-130</div>
+    </div>
+    <div class="card priority-low">
+      <span class="tag tag-kb">FROM KB</span>
+      <h3>When to Use KPI (nWOW Sl.83)</h3>
+      <p>Matrix showing which metric at which governance level. Reference for Reporting session.</p>
+      <div class="source">nWOW Lean Operating Model — Slide 83</div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discovery Sessions — Task Board</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a1628;color:#c8d6e5;font-family:'Inter',system-ui,sans-serif;min-height:100vh}
+.header{padding:20px 32px;background:#0d1f35;border-bottom:1px solid rgba(255,255,255,.06)}
+.header h1{font-size:24px;font-weight:800;color:#fff}
+.header p{font-size:13px;color:#6b82a0;margin-top:4px}
+.board{display:flex;gap:16px;padding:20px 32px;overflow-x:auto;align-items:flex-start}
+.column{min-width:340px;max-width:340px;background:#0d1f35;border-radius:12px;border:1px solid rgba(255,255,255,.05)}
+.column-header{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px}
+.column-header .dot{width:8px;height:8px;border-radius:4px}
+.column-header h2{font-size:14px;font-weight:700;color:#fff}
+.column-header .count{font-size:11px;color:#4a6080;background:rgba(255,255,255,.05);padding:2px 8px;border-radius:10px;margin-left:auto}
+.cards{padding:8px;max-height:calc(100vh - 160px);overflow-y:auto}
+.card{background:#112240;border:1px solid rgba(255,255,255,.04);border-radius:10px;padding:14px;margin-bottom:8px;cursor:default;transition:border-color .2s}
+.card:hover{border-color:rgba(255,255,255,.1)}
+.card .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.card h3{font-size:14px;font-weight:600;color:#e0e8f0;margin-bottom:6px;line-height:1.4}
+.card p{font-size:12px;color:#6b82a0;line-height:1.5}
+.card .meta{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.card .meta span{font-size:10px;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,.04);color:#5a7a9a}
+.card .ana{margin-top:10px;padding:10px 12px;border-radius:8px;background:rgba(247,148,29,.06);border-left:3px solid #F7941D;font-size:11px;color:#d4a050;line-height:1.5}
+.card .kb{margin-top:8px;padding:8px 12px;border-radius:8px;background:rgba(0,82,155,.06);border-left:3px solid #00529B;font-size:11px;color:#5a9fd4;line-height:1.5}
+.filters{padding:12px 32px;display:flex;gap:8px;flex-wrap:wrap}
+.filters button{padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:transparent;color:#6b82a0;font-size:12px;cursor:pointer;font-family:inherit}
+.filters button.active{background:rgba(0,82,155,.15);border-color:rgba(0,82,155,.3);color:#4a9fd4}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Digital Products — Discovery Sessions Board</h1>
+  <p>Weeks 1-2 Task Tracker  •  Based on Ana's feedback  •  NTT DATA × Avangrid</p>
+</div>
+
+<div class="filters" id="filters"></div>
+<div class="board" id="board"></div>
+
+<script>
+const SESSIONS = [
+  {id:'prep',name:'Pre-Session Prep',color:'#9B59B6',tasks:[
+    {title:'Prepare org chart for each stakeholder',desc:'Have the organizational structure ready as a visual aid for each interview',tags:['Prep'],session:'Stakeholder Interviews',ana:'Para cada stakeholder, tener de base su org chart'},
+    {title:'Refine Demand Sources slide from proposal',desc:'Update the AS-IS demand mapping slide with what we already know — to be complemented, not created from scratch',tags:['Prep','KB'],session:'Demand Sources',ana:'Tener mapeado ya la slide Demand pero refinada con lo que sabemos',kb:'KB: Proposal Slide 6 — Demand Sources AS-IS shows current channels (email, Teams, ServiceNow, Jira)'},
+    {title:'Map existing governance & meetings',desc:'Document all known governance forums, meetings, and cadences before interviews',tags:['Prep'],session:'Stakeholder Interviews',ana:'Tener de base el governance que hayan descrito / reuniones activas'},
+    {title:'Draft first portfolio view for review',desc:'Create initial portfolio draft that enables prioritization during the session — focus on what SHOULD be measured, not deep AS-IS',tags:['Prep','KB'],session:'Portfolio Review',ana:'Tener de base un primer draft que permita priorizar',kb:'KB: CoE Playbook Slide 25 — Portfolio Kanban model with swimlanes and governance'},
+    {title:'Collect KPIs from previous projects',desc:'Gather all KPI frameworks defined in P&S, CoE, and DTO projects to show as reference during metrics session',tags:['Prep','KB'],session:'Reporting & Metrics',ana:'Traer de base los KPIS definidos e implementados anteriores para ver cuales reusamos',kb:'KB: PM Playbook Slide 138 — KPI Ecosystem (Portfolio→Program→Product→Project). nWOW Slide 83 — When to Use each metric'},
+    {title:'Analyze Roles & Responsibilities data',desc:'Review R&R documentation to challenge or align during capacity session',tags:['Prep'],session:'Capacity & Resources',ana:'Venir con un analisis de la info que nos trasladen sobre Roles y Responsabilidades para retarlo o alinearlo'},
+    {title:'Prepare Carlos briefing (Corporate & GISS)',desc:'Understand blind spots: Corporate services, GISS context, key sensitivities',tags:['Prep'],session:'Stakeholder Interviews',ana:'Carlos (Corporate y GISS) — entender blind spots'},
+    {title:'Prepare Kumar briefing (Apps & Business)',desc:'Understand blind spots: list of applications, business sensitivity, team dynamics',tags:['Prep'],session:'Stakeholder Interviews',ana:'Kumar (lista de apps, sensibilidad de negocio)'},
+  ]},
+  {id:'s1',name:'1. Stakeholder Interviews',color:'#00529B',tasks:[
+    {title:'Conduct 6-10 individual interviews (45 min each)',desc:'Key stakeholders: Exec Sponsor, Core Team, Champions, BRS leadership. Focus on blind spots and transformation context.',tags:['Execute'],session:'Stakeholder Interviews'},
+    {title:'Q1: Role + CIO transformation context',desc:'How is your role changing with the new CIO direction? How can we help align with the transformation focus?',tags:['Question'],session:'Stakeholder Interviews',ana:'Cómo está cambiando su rol actualmente por el contexto de transformación con el nuevo CIO'},
+    {title:'Q5: Two-level prioritization',desc:'Ask at two levels: how does the DEPARTMENT prioritize, and how does YOUR AREA prioritize?',tags:['Question'],session:'Stakeholder Interviews',ana:'Hablemos en dos niveles como cree que lo hace el dpto y como lo hace su area'},
+    {title:'Q6: Combine delivery process + tools + screenshots',desc:'Map the delivery stream WITH the tools used at each step — get screenshots or examples',tags:['Question'],session:'Stakeholder Interviews',ana:'Combinar siempre el delivery process / stream mapping con el uso de tools y pantallazos / ejemplos'},
+    {title:'Q16 (rewritten): Pilot adoption approach',desc:'How do you think the pilot could work for your area? What would it take to scale across the department?',tags:['Question','Changed'],session:'Stakeholder Interviews',ana:'La cambiaría — como crees que el piloto podría funcionar'},
+    {title:'Q13: REMOVED (duplicate of Q8)',desc:'This question was a duplicate — removed per Ana',tags:['Removed'],session:'Stakeholder Interviews'},
+  ]},
+  {id:'s2',name:'2. Demand Sources',color:'#78BE20',tasks:[
+    {title:'Internal mapping FIRST, then validate',desc:'Do the demand mapping exercise internally with what we know, THEN bring to stakeholders to validate and complement',tags:['Approach'],session:'Demand Sources',ana:'Hacer el primer ejercicio y después mandar a validar con los intervinientes'},
+    {title:'Connect demand channels with governance meetings',desc:'For each demand channel, connect it to existing governance meetings where decisions are made',tags:['Execute'],session:'Demand Sources',ana:'Conectarlo con reuniones existentes del governance'},
+    {title:'Map key dates and cyclical patterns',desc:'Document regulatory deadlines, quarter-end cycles, budget cycles that drive demand spikes',tags:['Execute'],session:'Demand Sources',ana:'Mapeo de fechas clave'},
+    {title:'Investigate duplicate request root causes',desc:'We know duplicates happen — understand WHY: is it tooling? process? communication?',tags:['Deep Dive'],session:'Demand Sources',ana:'Sabemos que pasa, por qué pasa, cual es el root cause'},
+    {title:'Understand regulatory demand volume',desc:'Regulatory demand exists but we dont know volume or types — map this specifically',tags:['Execute'],session:'Demand Sources',ana:'Regulatory pero no sabemos cuantos y de que tipo'},
+  ]},
+  {id:'s3',name:'3. Portfolio Review',color:'#F7941D',tasks:[
+    {title:'Focus on DESIRED STATE, not deep AS-IS',desc:'We know there isnt much in place. Focus the session on what they WANT and what VALUE means, not auditing what exists.',tags:['Approach'],session:'Portfolio Review',ana:'Hacer una revision mas general en lo que les gustaría, no tanto foco en as is'},
+    {title:'Show existing models as inspiration',desc:'Present portfolio frameworks from other projects (P&S, CoE) as options — let them choose what fits',tags:['Execute','KB'],session:'Portfolio Review',ana:'Enseñar lo que se tiene y definir lo que haría sentido para ellos',kb:'KB: CoE Playbook Slide 25 — Portfolio Kanban. P&S nWOW Slide 35 — Portfolio Framework & Demand Funnel'},
+    {title:'Map equivalent governance (there is no formal one)',desc:'No formal portfolio governance exists — understand what the equivalent is and map to what they described',tags:['Execute'],session:'Portfolio Review',ana:'N/A no existe pero queremos entender que sería lo equivalente'},
+    {title:'Define what VALUE means to them',desc:'Key outcome: agreement on what should be measured at portfolio level',tags:['Key Output'],session:'Portfolio Review'},
+  ]},
+  {id:'s4',name:'4. Tool Ecosystem',color:'#E74C3C',tasks:[
+    {title:'Introduce minimum traceability concept',desc:'Frame the session: what is the MINIMUM they need for E2E traceability and day-to-day management?',tags:['Approach'],session:'Tool Ecosystem',ana:'Introducir que es lo minimo que debería tener traceability'},
+    {title:'Connect tools mapping with demand & portfolio discovery',desc:'Tool inventory is captured DURING demand and portfolio sessions — dont duplicate',tags:['Approach'],session:'Tool Ecosystem',ana:'Se levanta durante demand y portfolio / conectar proceso + tool en el discovery'},
+    {title:'Explain vendor/software factory model clearly',desc:'Clarify the relationship between vendors, software factory, and internal teams',tags:['Execute'],session:'Tool Ecosystem',ana:'Explicar bien vendors / software factory vs ellos'},
+    {title:'Q22: REMOVED (redundant)',desc:'How easy is it to generate reports — redundant with other reporting questions',tags:['Removed'],session:'Tool Ecosystem'},
+    {title:'Acknowledge: no single source of truth YET',desc:'They dont have one — thats what were trying to build. Frame it positively.',tags:['Execute'],session:'Tool Ecosystem',ana:'No lo tienen eso es lo que estamos intentando conseguir'},
+  ]},
+  {id:'s5',name:'5. Capacity & Resources',color:'#1ABC9C',tasks:[
+    {title:'Frame as evolution, not just assessment',desc:'Focus on how they WANT to evolve, not just current state audit',tags:['Approach'],session:'Capacity & Resources',ana:'Enfocarlo más a como les gustaría evolucionarlo'},
+    {title:'Bring R&R analysis to challenge/align',desc:'Come prepared with analysis of Roles & Responsibilities documentation — use it to challenge or validate',tags:['Prep','Execute'],session:'Capacity & Resources',ana:'Venir con un analisis de la info para retarlo o alinearlo'},
+    {title:'Show capacity models from other projects',desc:'Present DTO capacity allocation (Build 60%, BAU 25%, Upgrades 15%) and P&S capacity logic as options',tags:['KB'],session:'Capacity & Resources',kb:'KB: DTO Slide 39 — Capacity Allocation model. nWOW Slide 63 — Capacity Logic v1.0'},
+    {title:'Q22: REMOVED (duplicate of Q10)',desc:'Over-allocation question was duplicate — removed per Ana',tags:['Removed'],session:'Capacity & Resources'},
+  ]},
+  {id:'s6',name:'6. Reporting & Metrics',color:'#3498DB',tasks:[
+    {title:'Bring previous KPIs as reference to reuse',desc:'Show KPI frameworks from P&S, CoE, DTO and discuss which to adopt/adapt',tags:['KB','Key Output'],session:'Reporting & Metrics',ana:'Traer de base los KPIS definidos e implementados anteriores para ver cuales reusamos',kb:'KB: PM Playbook Slide 138 — Multi-level KPI pyramid. nWOW Slide 83 — When to Use. DTO Slide 49 — Flow Metrics Dashboard'},
+    {title:'Define which KPIs to adopt vs build new',desc:'For each KPI from previous projects: ADOPT, ADAPT, or BUILD NEW for Digital Products',tags:['Key Output'],session:'Reporting & Metrics'},
+  ]},
+]
+
+// Render
+const board = document.getElementById('board')
+const filters = document.getElementById('filters')
+
+// Filter buttons
+let activeFilter = 'all'
+const tags = ['all','Prep','Execute','Question','Approach','KB','Key Output','Changed','Removed','Deep Dive']
+tags.forEach(tag => {
+  const btn = document.createElement('button')
+  btn.textContent = tag === 'all' ? 'All Tasks' : tag
+  btn.className = tag === 'all' ? 'active' : ''
+  btn.onclick = () => {
+    activeFilter = tag
+    document.querySelectorAll('.filters button').forEach(b => b.className = '')
+    btn.className = 'active'
+    render()
+  }
+  filters.appendChild(btn)
+})
+
+function render() {
+  board.innerHTML = ''
+  SESSIONS.forEach(session => {
+    const tasks = session.tasks.filter(t => activeFilter === 'all' || t.tags.includes(activeFilter))
+    if (tasks.length === 0 && activeFilter !== 'all') return
+
+    const col = document.createElement('div')
+    col.className = 'column'
+    col.innerHTML = `
+      <div class="column-header">
+        <div class="dot" style="background:${session.color}"></div>
+        <h2>${session.name}</h2>
+        <span class="count">${tasks.length}</span>
+      </div>
+      <div class="cards">
+        ${tasks.map(task => {
+          const tagColors = {Prep:'#9B59B6',Execute:'#00529B',Question:'#78BE20',Approach:'#F7941D',KB:'#3498DB','Key Output':'#1ABC9C',Changed:'#E67E22',Removed:'#E74C3C','Deep Dive':'#8E44AD'}
+          return `
+            <div class="card">
+              <div style="display:flex;gap:4px;flex-wrap:wrap">
+                ${task.tags.map(t => `<span class="tag" style="background:${tagColors[t]||'#555'}20;color:${tagColors[t]||'#999'}">${t}</span>`).join('')}
+              </div>
+              <h3>${task.title}</h3>
+              <p>${task.desc}</p>
+              ${task.ana ? `<div class="ana">💬 Ana: ${task.ana}</div>` : ''}
+              ${task.kb ? `<div class="kb">📚 ${task.kb}</div>` : ''}
+            </div>
+          `
+        }).join('')}
+      </div>
+    `
+    board.appendChild(col)
+  })
+}
+
+render()
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+{
+  "_comment": "Six Field Configurations · one per stage of the Demand Lifecycle. Each maps fields to required/optional/hidden. Apply via POST /rest/api/3/fieldconfiguration to create each, then POST /rest/api/3/fieldconfiguration/{id}/fields to set the per-field behavior. Then create a Field Configuration Scheme (POST /rest/api/3/fieldconfigurationscheme) and map issue type → config; finally associate the scheme with DGTLPROD.",
+  "_endpoint_create": "POST /rest/api/3/fieldconfiguration",
+  "_endpoint_set_fields": "PUT /rest/api/3/fieldconfiguration/{id}/fields",
+  "_endpoint_scheme": "POST /rest/api/3/fieldconfigurationscheme",
+  "_endpoint_associate": "PUT /rest/api/3/fieldconfigurationscheme/project",
+
+  "_field_id_map": {
+    "_comment": "Reference: REUSE field IDs (Avangrid global) + NEW fields (created via custom_fields.json — IDs assigned at creation, replace placeholders below).",
+    "OpCo": "customfield_10800",
+    "Business Value": "customfield_11440",
+    "Acceptance Criteria": "customfield_10795",
+    "Customer Impact": "customfield_11061",
+    "Demand Type": "customfield_11682",
+    "T-Shirt-Sizing": "customfield_10850",
+    "Safety": "customfield_11438",
+    "Effort": "customfield_11282",
+    "Discovery": "customfield_11646",
+    "Epic Link": "customfield_10014",
+    "DP Value Stream Destination": "customfield_NEW_VS_DEST",
+    "DP Sponsor": "customfield_NEW_SPONSOR",
+    "DP Run / Grow / Transform": "customfield_NEW_RGT",
+    "DP Pain Score": "customfield_NEW_PAIN",
+    "DP UX Score": "customfield_NEW_UX",
+    "DP OPCO Multiplier": "customfield_NEW_OPCOMULT",
+    "DP Concept Prototype": "customfield_NEW_CONCEPT",
+    "DP Class of Service": "customfield_NEW_COS"
+  },
+
+  "configurations": [
+    {
+      "name": "FC_FUNNEL",
+      "description": "Status NEW · Requester intake form · only narrative + routing fields editable",
+      "applies_to_status": ["NEW"],
+      "editable_role": "dp_requester",
+      "fields": {
+        "summary":                       { "isRequired": true,  "isHidden": false },
+        "description":                   { "isRequired": true,  "isHidden": false },
+        "Business Value":                { "isRequired": true,  "isHidden": false },
+        "Acceptance Criteria":           { "isRequired": true,  "isHidden": false },
+        "DP Value Stream Destination":   { "isRequired": true,  "isHidden": false },
+        "OpCo":                          { "isRequired": true,  "isHidden": false },
+        "DP Sponsor":                    { "isRequired": true,  "isHidden": false },
+        "Customer Impact":               { "isRequired": false, "isHidden": false },
+        "Discovery":                     { "isRequired": false, "isHidden": false },
+        "Demand Type":                   { "isRequired": false, "isHidden": true  },
+        "T-Shirt-Sizing":                { "isRequired": false, "isHidden": true  },
+        "DP Class of Service":           { "isRequired": false, "isHidden": true  },
+        "DP Run / Grow / Transform":     { "isRequired": false, "isHidden": true  },
+        "Safety":                        { "isRequired": false, "isHidden": true  },
+        "DP UX Score":                   { "isRequired": false, "isHidden": true  },
+        "Effort":                        { "isRequired": false, "isHidden": true  },
+        "DP Pain Score":                 { "isRequired": false, "isHidden": true  },
+        "DP OPCO Multiplier":            { "isRequired": false, "isHidden": true  },
+        "DP Concept Prototype":          { "isRequired": false, "isHidden": true  }
+      }
+    },
+
+    {
+      "name": "FC_AUTO_ONLY",
+      "description": "Statuses ROUTED + TRIAGED · automation-only · everything read-only",
+      "applies_to_status": ["ROUTED", "TRIAGED"],
+      "editable_role": "(automation only)",
+      "_note": "Mark all fields not required + visible read-only. Jira Field Config has Required/Optional/Hidden; use Hidden=false + Optional and rely on Permission Scheme to block edits except automation."
+    },
+
+    {
+      "name": "FC_REVIEW",
+      "description": "Status REVIEWING · PM defines Type/Size/CoS/RGT",
+      "applies_to_status": ["REVIEWING"],
+      "editable_role": "dp_pm_per_vs",
+      "fields": {
+        "Demand Type":                   { "isRequired": true,  "isHidden": false },
+        "T-Shirt-Sizing":                { "isRequired": true,  "isHidden": false },
+        "DP Class of Service":           { "isRequired": true,  "isHidden": false },
+        "DP Run / Grow / Transform":     { "isRequired": true,  "isHidden": false },
+        "Customer Impact":               { "isRequired": false, "isHidden": false },
+        "Business Value":                { "isRequired": false, "isHidden": false },
+        "DP Value Stream Destination":   { "isRequired": false, "isHidden": false },
+        "OpCo":                          { "isRequired": false, "isHidden": false },
+        "Safety":                        { "isRequired": false, "isHidden": true  },
+        "DP UX Score":                   { "isRequired": false, "isHidden": true  },
+        "Effort":                        { "isRequired": false, "isHidden": true  },
+        "DP Pain Score":                 { "isRequired": false, "isHidden": true  },
+        "DP OPCO Multiplier":            { "isRequired": false, "isHidden": true  }
+      }
+    },
+
+    {
+      "name": "FC_ANALYZE",
+      "description": "Status ANALYZING · PM + Architect score · Pain Score read-only (A4 writes)",
+      "applies_to_status": ["ANALYZING"],
+      "editable_role": "dp_pm_per_vs + dp_architect",
+      "fields": {
+        "Business Value":                { "isRequired": true,  "isHidden": false },
+        "DP UX Score":                   { "isRequired": true,  "isHidden": false },
+        "Effort":                        { "isRequired": true,  "isHidden": false },
+        "Safety":                        { "isRequired": false, "isHidden": false, "_note": "Required only when DP Value Stream is in ITBA area · enforce via validator on transition" },
+        "Discovery":                     { "isRequired": false, "isHidden": false },
+        "DP Concept Prototype":          { "isRequired": false, "isHidden": false, "_note": "Required when DP Run / Grow / Transform = Transform" },
+        "DP Pain Score":                 { "isRequired": false, "isHidden": false, "_note": "Read-only · A4 populates" },
+        "DP OPCO Multiplier":            { "isRequired": false, "isHidden": false, "_note": "Read-only · A4 populates" }
+      }
+    },
+
+    {
+      "name": "FC_DELIVERY",
+      "description": "Statuses BACKLOG / IMPLEMENTING / DONE · squad execution",
+      "applies_to_status": ["BACKLOG", "IMPLEMENTING", "DONE"],
+      "editable_role": "dp_squad_lead",
+      "fields": {
+        "summary":                       { "isRequired": false, "isHidden": false },
+        "description":                   { "isRequired": false, "isHidden": false },
+        "assignee":                      { "isRequired": false, "isHidden": false },
+        "Epic Link":                     { "isRequired": false, "isHidden": false },
+        "DP Pain Score":                 { "isRequired": false, "isHidden": false, "_note": "Display only · do not allow edit" },
+        "DP Class of Service":           { "isRequired": false, "isHidden": false, "_note": "Display only" }
+      }
+    },
+
+    {
+      "name": "FC_TERMINAL",
+      "description": "Statuses DEFERRED / REJECTED / BOUNCED · only reason field editable",
+      "applies_to_status": ["DEFERRED", "REJECTED", "BOUNCED"],
+      "editable_role": "dp_director_cs / dp_director_itba / dp_vp",
+      "fields": {
+        "comment":                       { "isRequired": true,  "isHidden": false, "_note": "Reason for deferral/rejection/bounce — captured in comment stream" }
+      }
+    }
+  ],
+
+  "scheme": {
+    "name": "DP Field Configuration Scheme",
+    "description": "Maps each Demand Lifecycle status to its appropriate Field Configuration",
+    "issueTypeMappings": {
+      "_comment": "All five issue types use the same scheme; configurations are status-driven, not type-driven",
+      "default": "FC_FUNNEL"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "_comment": "POST /rest/api/3/component once per item. project=DGTLPROD. assigneeType=PROJECT_LEAD or specify per VS lead later.",
+  "_endpoint": "POST /rest/api/3/component",
+  "items": [
+    { "name": "Field Operations",            "description": "ITBA Value Stream · Director: Carlos Garbin",   "project": "DGTLPROD", "assigneeType": "PROJECT_LEAD" },
+    { "name": "Engineering & Asset Mgmt",    "description": "ITBA Value Stream · Director: Carlos Garbin",   "project": "DGTLPROD", "assigneeType": "PROJECT_LEAD" },
+    { "name": "Network Operations & Control","description": "ITBA Value Stream · Director: Carlos Garbin",   "project": "DGTLPROD", "assigneeType": "PROJECT_LEAD" },
+    { "name": "Corporate & Regulatory",      "description": "ITBA Value Stream · Director: Carlos Garbin",   "project": "DGTLPROD", "assigneeType": "PROJECT_LEAD" },
+    { "name": "Iberdrola Corp Services",     "description": "ITBA Value Stream · Director: Carlos Garbin",   "project": "DGTLPROD", "assigneeType": "PROJECT_LEAD" },
+    { "name": "Meter & Device Operations",   "description": "CS Value Stream · Director: Kumar Jaladanki",   "project": "DGTLPROD", "assigneeType": "PROJECT_LEAD" },
+    { "name": "Billing Operations",          "description": "CS Value Stream · Director: Kumar Jaladanki",   "project": "DGTLPROD", "assigneeType": "PROJECT_LEAD" },
+    { "name": "Revenue & Collections",       "description": "CS Value Stream · Director: Kumar Jaladanki",   "project": "DGTLPROD", "assigneeType": "PROJECT_LEAD" },
+    { "name": "Customer Care & Engagement",  "description": "CS Value Stream · Director: Heather LaJoie",    "project": "DGTLPROD", "assigneeType": "PROJECT_LEAD" },
+    { "name": "Enabling Team — Foundation",  "description": "CS Enabling Team · Director: Kumar Jaladanki",  "project": "DGTLPROD", "assigneeType": "PROJECT_LEAD" }
+  ]
+}

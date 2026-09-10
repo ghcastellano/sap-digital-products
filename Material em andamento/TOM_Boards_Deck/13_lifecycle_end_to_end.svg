@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <linearGradient id="funnel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4A7FA8"/>
+      <stop offset="100%" stop-color="#1F4E79"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="2400" height="1350" fill="#FFFFFF"/>
+
+  <!-- Header -->
+  <rect width="2400" height="110" fill="#3B6E8F"/>
+  <text x="60" y="56" font-size="40" font-weight="800" fill="#FFFFFF">LIFECYCLE MODEL</text>
+  <text x="60" y="90" font-size="18" font-weight="700" fill="#FFFFFF">DEMAND MANAGEMENT — END-TO-END</text>
+  <text x="2340" y="68" text-anchor="end" font-size="22" font-weight="800" fill="#FFFFFF">NTT DATA</text>
+
+  <!-- ROLES PANEL (left) -->
+  <g transform="translate(40,140)">
+    <rect width="280" height="50" rx="4" fill="#3B6E8F"/>
+    <text x="140" y="33" text-anchor="middle" font-size="22" font-weight="800" fill="#FFFFFF">Roles</text>
+
+    <rect y="60" width="280" height="780" rx="4" fill="#FFFFFF" stroke="#3B6E8F" stroke-width="1.5"/>
+
+    <!-- 5 role avatars -->
+    <g transform="translate(0,80)">
+      <circle cx="140" cy="32" r="22" fill="#F4C988"/>
+      <circle cx="140" cy="26" r="8" fill="#5A3A0E"/>
+      <path d="M122,46 Q140,34 158,46 L158,54 L122,54 Z" fill="#5A3A0E"/>
+      <text x="140" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#172B4D">Business Requester</text>
+      <text x="140" y="98" text-anchor="middle" font-size="11" fill="#42526E">Sponsor · OPCO</text>
+    </g>
+
+    <g transform="translate(0,230)">
+      <circle cx="140" cy="32" r="22" fill="#B7DDEF"/>
+      <circle cx="140" cy="26" r="8" fill="#0F4A6B"/>
+      <path d="M122,46 Q140,34 158,46 L158,54 L122,54 Z" fill="#0F4A6B"/>
+      <text x="140" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#172B4D">Application Champion</text>
+      <text x="140" y="98" text-anchor="middle" font-size="11" fill="#42526E">First-line triage</text>
+    </g>
+
+    <g transform="translate(0,380)">
+      <circle cx="140" cy="32" r="22" fill="#D4C4E8"/>
+      <circle cx="140" cy="26" r="8" fill="#5C2A91"/>
+      <path d="M122,46 Q140,34 158,46 L158,54 L122,54 Z" fill="#5C2A91"/>
+      <text x="140" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#172B4D">Product Manager</text>
+      <text x="140" y="98" text-anchor="middle" font-size="11" fill="#42526E">Heather + CoE / P&amp;T pool</text>
+    </g>
+
+    <g transform="translate(0,530)">
+      <circle cx="140" cy="32" r="22" fill="#C2E5C2"/>
+      <circle cx="140" cy="26" r="8" fill="#1F5722"/>
+      <path d="M122,46 Q140,34 158,46 L158,54 L122,54 Z" fill="#1F5722"/>
+      <text x="140" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#172B4D">Squad / Tech Lead</text>
+      <text x="140" y="98" text-anchor="middle" font-size="11" fill="#42526E">Pulls work · executes</text>
+    </g>
+
+    <g transform="translate(0,680)">
+      <circle cx="140" cy="32" r="22" fill="#9FB3D1"/>
+      <circle cx="140" cy="26" r="8" fill="#0F2A47"/>
+      <path d="M122,46 Q140,34 158,46 L158,54 L122,54 Z" fill="#0F2A47"/>
+      <text x="140" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#172B4D">IT Program Delivery</text>
+      <text x="140" y="98" text-anchor="middle" font-size="11" fill="#42526E">Travis (PMO Lead)</text>
+    </g>
+  </g>
+
+  <!-- PROCESS BOX -->
+  <g transform="translate(360,140)">
+    <rect width="1980" height="780" rx="6" fill="#FFFFFF" stroke="#5DA460" stroke-width="3"/>
+    <rect width="1980" height="50" rx="6" fill="#5DA460"/>
+    <text x="990" y="34" text-anchor="middle" font-size="24" font-weight="800" fill="#FFFFFF">Process</text>
+
+    <!-- Top labels -->
+    <text x="280" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#172B4D">Intake of demand from requestors</text>
+    <line x1="60" y1="110" x2="500" y2="110" stroke="#172B4D" stroke-width="1"/>
+
+    <text x="1180" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#172B4D">Initial classification and triage  ·  3 Portfolio Kanban Boards</text>
+    <line x1="540" y1="110" x2="1820" y2="110" stroke="#172B4D" stroke-width="1"/>
+
+    <!-- LEFT: Funnel + requestors -->
+    <g transform="translate(60,140)">
+      <!-- Demand bubbles -->
+      <circle cx="60" cy="40" r="10" fill="#0747A6"/>
+      <circle cx="100" cy="32" r="10" fill="#FFAB00"/>
+      <circle cx="140" cy="44" r="10" fill="#5DA460"/>
+      <circle cx="180" cy="36" r="10" fill="#B83567"/>
+      <circle cx="220" cy="44" r="10" fill="#5C2A91"/>
+      <circle cx="80" cy="68" r="10" fill="#FFAB00"/>
+      <circle cx="120" cy="62" r="10" fill="#0747A6"/>
+      <circle cx="160" cy="68" r="10" fill="#5DA460"/>
+      <circle cx="200" cy="64" r="10" fill="#B83567"/>
+
+      <text x="140" y="14" text-anchor="middle" font-size="13" font-weight="700" fill="#172B4D">REQUESTS</text>
+
+      <!-- Funnel -->
+      <path d="M40,90 L240,90 L170,210 L110,210 Z" fill="url(#funnel)"/>
+      <text x="140" y="160" text-anchor="middle" font-size="28" font-weight="800" fill="#FFFFFF">JIRA</text>
+
+      <!-- Funnel spout -->
+      <rect x="120" y="210" width="40" height="50" fill="url(#funnel)"/>
+
+      <!-- Avatar requestors below -->
+      <g transform="translate(40,300)" font-size="12">
+        <circle cx="20" cy="20" r="14" fill="#F4C988"/>
+        <circle cx="20" cy="16" r="5" fill="#5A3A0E"/>
+        <path d="M9,28 Q20,22 31,28 L31,32 L9,32 Z" fill="#5A3A0E"/>
+        <text x="44" y="20" font-weight="700" fill="#172B4D">Business Requester</text>
+
+        <circle cx="20" cy="60" r="14" fill="#B7DDEF"/>
+        <circle cx="20" cy="56" r="5" fill="#0F4A6B"/>
+        <path d="M9,68 Q20,62 31,68 L31,72 L9,72 Z" fill="#0F4A6B"/>
+        <text x="44" y="60" font-weight="700" fill="#172B4D">Application Champion</text>
+
+        <circle cx="20" cy="100" r="14" fill="#D4C4E8"/>
+        <circle cx="20" cy="96" r="5" fill="#5C2A91"/>
+        <path d="M9,108 Q20,102 31,108 L31,112 L9,112 Z" fill="#5C2A91"/>
+        <text x="44" y="100" font-weight="700" fill="#172B4D">Product Manager</text>
+      </g>
+
+      <text x="140" y="450" text-anchor="middle" font-size="11" fill="#42526E" font-style="italic">Submits via Jira request</text>
+      <text x="140" y="466" text-anchor="middle" font-size="11" fill="#42526E" font-style="italic">single front door</text>
+    </g>
+
+    <!-- Auto redirects label between funnel and boards -->
+    <g transform="translate(360,330)">
+      <path d="M0,0 L100,0 L100,-12 L140,8 L100,28 L100,16 L0,16 Z" fill="#5DA460"/>
+      <text x="70" y="50" text-anchor="middle" font-size="13" font-weight="800" fill="#172B4D">auto redirects</text>
+      <text x="70" y="66" text-anchor="middle" font-size="11" fill="#42526E">by Value Stream field</text>
+    </g>
+
+    <!-- 3 Portfolio Kanban Boards -->
+    <!-- VS-1 CS -->
+    <g transform="translate(540,140)">
+      <rect width="640" height="180" rx="6" fill="#FFFFFF" stroke="#E8A24C" stroke-width="2"/>
+      <rect width="640" height="32" rx="6" fill="#E8A24C"/>
+      <text x="320" y="22" text-anchor="middle" font-size="14" font-weight="800" fill="#5A3A0E">CUSTOMER SERVICES PORTFOLIO KANBAN</text>
+      <text x="14" y="56" font-size="11" font-weight="700" fill="#42526E">Owner: Kumar  ·  PM: Heather + CoE</text>
+
+      <g transform="translate(14,68)">
+        <rect width="100" height="100" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="50" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Funnel</text>
+        <rect x="6" y="22" width="88" height="14" rx="2" fill="#F4C988"/>
+        <rect x="6" y="40" width="88" height="14" rx="2" fill="#F4C988"/>
+
+        <rect x="102" width="100" height="100" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="152" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Reviewing</text>
+        <rect x="108" y="22" width="88" height="14" rx="2" fill="#F4C988"/>
+
+        <rect x="204" width="100" height="100" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="254" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Analyzing</text>
+        <rect x="210" y="22" width="88" height="14" rx="2" fill="#F4C988"/>
+
+        <rect x="306" width="100" height="100" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="356" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Backlog</text>
+        <rect x="312" y="22" width="88" height="14" rx="2" fill="#F4C988"/>
+        <rect x="312" y="40" width="88" height="14" rx="2" fill="#F4C988"/>
+
+        <rect x="408" width="100" height="100" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="458" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Implementing</text>
+        <rect x="414" y="22" width="88" height="14" rx="2" fill="#F4C988"/>
+
+        <rect x="510" width="100" height="100" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="560" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Done</text>
+        <rect x="516" y="22" width="88" height="14" rx="2" fill="#A0CAA0"/>
+      </g>
+
+      <text x="14" y="178" font-size="10" fill="#42526E" font-style="italic">→ 3 squads: M2C-SL · M2C-RO · CCC</text>
+    </g>
+
+    <!-- VS-2 ITBA-Field -->
+    <g transform="translate(540,335)">
+      <rect width="640" height="155" rx="6" fill="#FFFFFF" stroke="#5DA460" stroke-width="2"/>
+      <rect width="640" height="32" rx="6" fill="#5DA460"/>
+      <text x="320" y="22" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">ITBA-FIELD PORTFOLIO KANBAN</text>
+      <text x="14" y="56" font-size="11" font-weight="700" fill="#42526E">Owner: Carlos  ·  PM: P&amp;T pool</text>
+
+      <g transform="translate(14,68)">
+        <rect width="100" height="78" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="50" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Funnel</text>
+        <rect x="6" y="22" width="88" height="12" rx="2" fill="#C2E5C2"/>
+
+        <rect x="102" width="100" height="78" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="152" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Reviewing</text>
+
+        <rect x="204" width="100" height="78" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="254" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Analyzing</text>
+        <rect x="210" y="22" width="88" height="12" rx="2" fill="#C2E5C2"/>
+
+        <rect x="306" width="100" height="78" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="356" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Backlog</text>
+        <rect x="312" y="22" width="88" height="12" rx="2" fill="#C2E5C2"/>
+        <rect x="312" y="38" width="88" height="12" rx="2" fill="#C2E5C2"/>
+
+        <rect x="408" width="100" height="78" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="458" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Implementing</text>
+        <rect x="414" y="22" width="88" height="12" rx="2" fill="#C2E5C2"/>
+
+        <rect x="510" width="100" height="78" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="560" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Done</text>
+      </g>
+
+      <text x="14" y="148" font-size="10" fill="#42526E" font-style="italic">→ 2 squads: G&amp;E · GIS</text>
+    </g>
+
+    <!-- VS-3 ITBA-Corporate -->
+    <g transform="translate(540,505)">
+      <rect width="640" height="155" rx="6" fill="#FFFFFF" stroke="#4A90B8" stroke-width="2"/>
+      <rect width="640" height="32" rx="6" fill="#4A90B8"/>
+      <text x="320" y="22" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">ITBA-CORPORATE PORTFOLIO KANBAN</text>
+      <text x="14" y="56" font-size="11" font-weight="700" fill="#42526E">Owner: Carlos  ·  PM: P&amp;T pool</text>
+
+      <g transform="translate(14,68)">
+        <rect width="100" height="78" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="50" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Funnel</text>
+        <rect x="6" y="22" width="88" height="12" rx="2" fill="#B7DDEF"/>
+        <rect x="6" y="38" width="88" height="12" rx="2" fill="#B7DDEF"/>
+
+        <rect x="102" width="100" height="78" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="152" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Reviewing</text>
+        <rect x="108" y="22" width="88" height="12" rx="2" fill="#B7DDEF"/>
+
+        <rect x="204" width="100" height="78" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="254" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Analyzing</text>
+
+        <rect x="306" width="100" height="78" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="356" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Backlog</text>
+        <rect x="312" y="22" width="88" height="12" rx="2" fill="#B7DDEF"/>
+
+        <rect x="408" width="100" height="78" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="458" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Implementing</text>
+        <rect x="414" y="22" width="88" height="12" rx="2" fill="#B7DDEF"/>
+        <rect x="414" y="38" width="88" height="12" rx="2" fill="#B7DDEF"/>
+
+        <rect x="510" width="100" height="78" fill="#FAFBFC" stroke="#DFE1E6"/>
+        <text x="560" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#172B4D">Done</text>
+      </g>
+
+      <text x="14" y="148" font-size="10" fill="#42526E" font-style="italic">→ 2 squads: Corporate Apps · Global SAP</text>
+    </g>
+
+    <!-- RIGHT: Squad boards -->
+    <g transform="translate(1220,140)">
+      <text x="290" y="-30" text-anchor="middle" font-size="14" font-weight="700" fill="#172B4D">Squad Kanban Boards · 7</text>
+
+      <g transform="translate(0,0)">
+        <rect width="580" height="58" rx="4" fill="#FFFFFF" stroke="#E8A24C" stroke-width="1.5"/>
+        <rect width="580" height="20" rx="4" fill="#E8A24C"/>
+        <text x="10" y="14" font-size="11" font-weight="800" fill="#5A3A0E">SERVICE LIFECYCLE TEAM KANBAN BOARD</text>
+        <text x="570" y="14" text-anchor="end" font-size="9" fill="#5A3A0E">M2C-SL · 8 FTE</text>
+        <g transform="translate(10,26)" font-size="8">
+          <rect width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="138" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="276" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="414" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="3" y="6" width="129" height="6" rx="1" fill="#F4C988"/>
+        </g>
+      </g>
+
+      <g transform="translate(0,68)">
+        <rect width="580" height="58" rx="4" fill="#FFFFFF" stroke="#E8A24C" stroke-width="1.5"/>
+        <rect width="580" height="20" rx="4" fill="#E8A24C"/>
+        <text x="10" y="14" font-size="11" font-weight="800" fill="#5A3A0E">REVENUE OPERATIONS TEAM KANBAN BOARD</text>
+        <text x="570" y="14" text-anchor="end" font-size="9" fill="#5A3A0E">M2C-RO · 8 FTE</text>
+        <g transform="translate(10,26)" font-size="8">
+          <rect width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="138" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="276" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="414" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="3" y="6" width="129" height="6" rx="1" fill="#F4C988"/>
+          <rect x="141" y="6" width="129" height="6" rx="1" fill="#F4C988"/>
+        </g>
+      </g>
+
+      <g transform="translate(0,136)">
+        <rect width="580" height="58" rx="4" fill="#FFFFFF" stroke="#E8A24C" stroke-width="1.5"/>
+        <rect width="580" height="20" rx="4" fill="#E8A24C"/>
+        <text x="10" y="14" font-size="11" font-weight="800" fill="#5A3A0E">CUSTOMER CARE &amp; CONTACT CENTER KANBAN</text>
+        <text x="570" y="14" text-anchor="end" font-size="9" fill="#5A3A0E">CCC · 4 FTE</text>
+        <g transform="translate(10,26)" font-size="8">
+          <rect width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="138" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="276" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="414" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="3" y="6" width="129" height="6" rx="1" fill="#F4C988"/>
+        </g>
+      </g>
+
+      <g transform="translate(0,212)">
+        <rect width="580" height="58" rx="4" fill="#FFFFFF" stroke="#5DA460" stroke-width="1.5"/>
+        <rect width="580" height="20" rx="4" fill="#5DA460"/>
+        <text x="10" y="14" font-size="11" font-weight="800" fill="#FFFFFF">FIELD OPERATIONS TEAM KANBAN BOARD</text>
+        <text x="570" y="14" text-anchor="end" font-size="9" fill="#FFFFFF">G&amp;E · 7 FTE</text>
+        <g transform="translate(10,26)" font-size="8">
+          <rect width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="138" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="276" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="414" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="3" y="6" width="129" height="6" rx="1" fill="#C2E5C2"/>
+          <rect x="141" y="6" width="129" height="6" rx="1" fill="#C2E5C2"/>
+        </g>
+      </g>
+
+      <g transform="translate(0,280)">
+        <rect width="580" height="58" rx="4" fill="#FFFFFF" stroke="#5DA460" stroke-width="1.5"/>
+        <rect width="580" height="20" rx="4" fill="#5DA460"/>
+        <text x="10" y="14" font-size="11" font-weight="800" fill="#FFFFFF">GIS &amp; OSG TEAM KANBAN BOARD</text>
+        <text x="570" y="14" text-anchor="end" font-size="9" fill="#FFFFFF">GIS · 6 FTE</text>
+        <g transform="translate(10,26)" font-size="8">
+          <rect width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="138" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="276" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="414" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="3" y="6" width="129" height="6" rx="1" fill="#C2E5C2"/>
+        </g>
+      </g>
+
+      <g transform="translate(0,356)">
+        <rect width="580" height="58" rx="4" fill="#FFFFFF" stroke="#4A90B8" stroke-width="1.5"/>
+        <rect width="580" height="20" rx="4" fill="#4A90B8"/>
+        <text x="10" y="14" font-size="11" font-weight="800" fill="#FFFFFF">CORPORATE &amp; REGULATORY TEAM KANBAN</text>
+        <text x="570" y="14" text-anchor="end" font-size="9" fill="#FFFFFF">Corporate · 8 FTE</text>
+        <g transform="translate(10,26)" font-size="8">
+          <rect width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="138" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="276" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="414" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="3" y="6" width="129" height="6" rx="1" fill="#B7DDEF"/>
+          <rect x="141" y="6" width="129" height="6" rx="1" fill="#B7DDEF"/>
+        </g>
+      </g>
+
+      <g transform="translate(0,424)">
+        <rect width="580" height="58" rx="4" fill="#FFFFFF" stroke="#4A90B8" stroke-width="1.5"/>
+        <rect width="580" height="20" rx="4" fill="#4A90B8"/>
+        <text x="10" y="14" font-size="11" font-weight="800" fill="#FFFFFF">IBERDROLA GLOBAL SAP TEAM KANBAN</text>
+        <text x="570" y="14" text-anchor="end" font-size="9" fill="#FFFFFF">Global SAP · 5 FTE</text>
+        <g transform="translate(10,26)" font-size="8">
+          <rect width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="138" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="276" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="414" width="135" height="26" fill="#FAFBFC" stroke="#DFE1E6"/>
+          <rect x="3" y="6" width="129" height="6" rx="1" fill="#B7DDEF"/>
+          <rect x="141" y="6" width="129" height="6" rx="1" fill="#B7DDEF"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Connectors from portfolio to squads -->
+    <g stroke="#5DA460" stroke-width="1.2" stroke-dasharray="4 3" fill="none" opacity="0.7">
+      <path d="M1180,200 L1220,170"/>
+      <path d="M1180,230 L1220,235"/>
+      <path d="M1180,260 L1220,305"/>
+      <path d="M1180,400 L1220,380"/>
+      <path d="M1180,420 L1220,450"/>
+      <path d="M1180,580 L1220,520"/>
+      <path d="M1180,610 L1220,590"/>
+    </g>
+
+    <!-- Description footer -->
+    <text x="60" y="710" font-size="12" fill="#42526E">Submits demand via Jira request and it auto-redirects to Customer Services or IT Business Applications</text>
+    <text x="60" y="728" font-size="12" fill="#42526E">Portfolio Kanban Board (Epics) → Squad Kanban Boards (Stories + Tasks).</text>
+  </g>
+
+  <!-- BOTTOM: Tools | Governance | Performance -->
+  <g transform="translate(40,950)">
+    <rect width="2320" height="50" rx="4" fill="#3B6E8F"/>
+    <text x="160" y="33" text-anchor="middle" font-size="22" font-weight="800" fill="#FFFFFF">Tools</text>
+    <text x="980" y="33" text-anchor="middle" font-size="22" font-weight="800" fill="#FFFFFF">Governance</text>
+    <text x="1900" y="33" text-anchor="middle" font-size="22" font-weight="800" fill="#FFFFFF">Performance</text>
+
+    <line x1="320" y1="0" x2="320" y2="280" stroke="#FFFFFF" stroke-width="1.5"/>
+    <line x1="1640" y1="0" x2="1640" y2="280" stroke="#FFFFFF" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(40,1000)">
+    <rect width="2320" height="280" rx="0" fill="#F2F6FA" stroke="#3B6E8F"/>
+
+    <!-- Tools -->
+    <g transform="translate(40,30)">
+      <rect width="240" height="60" rx="4" fill="#FFFFFF" stroke="#0747A6" stroke-width="2"/>
+      <text x="120" y="38" text-anchor="middle" font-size="20" font-weight="800" fill="#0747A6">Jira</text>
+      <text x="120" y="86" text-anchor="middle" font-size="11" font-weight="700" fill="#172B4D">single intake (primary)</text>
+
+      <rect y="120" width="240" height="60" rx="4" fill="#FFFFFF" stroke="#36B37E" stroke-width="2"/>
+      <text x="120" y="158" text-anchor="middle" font-size="18" font-weight="800" fill="#36B37E">ServiceNow</text>
+      <text x="120" y="206" text-anchor="middle" font-size="11" font-weight="700" fill="#172B4D">incidents only (CCC · Smart Metering)</text>
+
+      <text x="0" y="240" font-size="11" font-style="italic" fill="#42526E">Email · Word · Teams = decommissioned</text>
+    </g>
+
+    <!-- Governance -->
+    <g transform="translate(360,30)">
+      <rect width="280" height="36" rx="18" fill="#5DA460"/>
+      <text x="140" y="24" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">GATE 1 · TRIAGE</text>
+      <text x="0" y="56" font-size="12" font-weight="700" fill="#172B4D">Weekly · 30 min · DoR + auto-routing</text>
+      <text x="0" y="74" font-size="11" fill="#42526E">Demand Manager (chair) · PMs · Architect</text>
+
+      <rect y="100" width="280" height="36" rx="18" fill="#5DA460"/>
+      <text x="140" y="124" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">GATE 2 · PORTFOLIO</text>
+      <text x="0" y="156" font-size="12" font-weight="700" fill="#172B4D">Monthly · investment + capacity slot</text>
+      <text x="0" y="174" font-size="11" fill="#42526E">Vitor + Carlos + Kumar + PM stewards</text>
+
+      <rect y="200" width="280" height="36" rx="18" fill="#3B6E8F"/>
+      <text x="140" y="224" font-size="14" font-weight="800" fill="#FFFFFF" text-anchor="middle">BRP · QUARTERLY</text>
+    </g>
+
+    <g transform="translate(720,30)">
+      <text x="0" y="20" font-size="13" font-weight="700" fill="#172B4D">Triage outcomes:</text>
+      <rect y="30" width="100" height="28" rx="14" fill="#5DA460"/>
+      <text x="50" y="48" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">Accept</text>
+      <rect x="110" y="30" width="100" height="28" rx="14" fill="#FFAB00"/>
+      <text x="160" y="48" text-anchor="middle" font-size="12" font-weight="700" fill="#172B4D">Send-back</text>
+      <rect x="220" y="30" width="100" height="28" rx="14" fill="#DE350B"/>
+      <text x="270" y="48" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">Reject</text>
+      <rect x="330" y="30" width="100" height="28" rx="14" fill="#7C3AED"/>
+      <text x="380" y="48" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">Redirect</text>
+
+      <text x="0" y="100" font-size="13" font-weight="700" fill="#172B4D">Class of Service:</text>
+      <rect y="110" width="100" height="28" rx="14" fill="#0F4A6B"/>
+      <text x="50" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">Standard</text>
+      <rect x="110" y="110" width="100" height="28" rx="14" fill="#FFAB00"/>
+      <text x="160" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#172B4D">Fixed-Date</text>
+      <rect x="220" y="110" width="100" height="28" rx="14" fill="#B83567"/>
+      <text x="270" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">Expedite</text>
+      <rect x="330" y="110" width="100" height="28" rx="14" fill="#A0CAA0"/>
+      <text x="380" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#172B4D">Intangible</text>
+
+      <text x="0" y="180" font-size="13" font-weight="700" fill="#172B4D">Forums (recurring):</text>
+      <text x="0" y="200" font-size="11" fill="#42526E">Replenishment weekly · Daily Flow Review · Service Delivery bi-weekly</text>
+      <text x="0" y="218" font-size="11" fill="#42526E">Customer Journey Forum monthly (CS) · Iberdrola Sync monthly (Global SAP)</text>
+    </g>
+
+    <!-- Performance -->
+    <g transform="translate(1680,30)">
+      <rect width="280" height="40" rx="4" fill="#FFFFFF" stroke="#E8702A" stroke-width="2"/>
+      <text x="140" y="26" text-anchor="middle" font-size="14" font-weight="700" fill="#172B4D">Demand volume</text>
+
+      <rect x="300" width="280" height="40" rx="4" fill="#FFFFFF" stroke="#E8702A" stroke-width="2"/>
+      <text x="440" y="26" text-anchor="middle" font-size="14" font-weight="700" fill="#172B4D">DoR Pass Rate</text>
+
+      <rect y="50" width="280" height="40" rx="4" fill="#FFFFFF" stroke="#E8702A" stroke-width="2"/>
+      <text x="140" y="76" text-anchor="middle" font-size="14" font-weight="700" fill="#172B4D">Triage lead time</text>
+
+      <rect x="300" y="50" width="280" height="40" rx="4" fill="#FFFFFF" stroke="#E8702A" stroke-width="2"/>
+      <text x="440" y="76" text-anchor="middle" font-size="14" font-weight="700" fill="#172B4D">Channel adoption</text>
+
+      <rect y="100" width="280" height="40" rx="4" fill="#FFFFFF" stroke="#E8702A" stroke-width="2"/>
+      <text x="140" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#172B4D">Lead Time / Cycle Time</text>
+
+      <rect x="300" y="100" width="280" height="40" rx="4" fill="#FFFFFF" stroke="#E8702A" stroke-width="2"/>
+      <text x="440" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#172B4D">Throughput</text>
+
+      <rect y="150" width="280" height="40" rx="4" fill="#FFFFFF" stroke="#E8702A" stroke-width="2"/>
+      <text x="140" y="176" text-anchor="middle" font-size="14" font-weight="700" fill="#172B4D">WIP Aging</text>
+
+      <rect x="300" y="150" width="280" height="40" rx="4" fill="#FFFFFF" stroke="#E8702A" stroke-width="2"/>
+      <text x="440" y="176" text-anchor="middle" font-size="14" font-weight="700" fill="#172B4D">Pain Score distribution</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="40" y="1330" font-size="11" fill="#6B778C">© 2026 NTT DATA, Inc.</text>
+  <text x="2360" y="1330" text-anchor="end" font-size="11" fill="#6B778C">13 / 13</text>
+</svg>

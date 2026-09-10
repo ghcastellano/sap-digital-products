@@ -1,0 +1,36 @@
+{
+  "_comment": "Permission Scheme `DP Permission Scheme` — assigns each permission to one or more project roles defined in project_roles.json. Apply via POST /rest/api/3/permissionscheme · then associate via PUT /rest/api/3/project/DGTLPROD/permissionscheme. Holders use type=projectRole and parameter={role name from project_roles.json}.",
+  "_endpoint_create": "POST /rest/api/3/permissionscheme",
+  "_endpoint_associate": "PUT /rest/api/3/project/DGTLPROD/permissionscheme",
+
+  "name": "DP Permission Scheme",
+  "description": "Permissions for the Digital Products demand lifecycle · roles defined in project_roles.json",
+
+  "permissions": [
+    { "permission": "BROWSE_PROJECTS",          "holders": [{ "type": "projectRole", "parameter": "dp_requester" }, { "type": "projectRole", "parameter": "dp_pm_per_vs" }, { "type": "projectRole", "parameter": "dp_architect" }, { "type": "projectRole", "parameter": "dp_director_cs" }, { "type": "projectRole", "parameter": "dp_director_itba" }, { "type": "projectRole", "parameter": "dp_vp" }, { "type": "projectRole", "parameter": "dp_squad_lead" }, { "type": "projectRole", "parameter": "dp_admin" }] },
+
+    { "permission": "CREATE_ISSUES",            "holders": [{ "type": "projectRole", "parameter": "dp_requester" }, { "type": "projectRole", "parameter": "dp_pm_per_vs" }, { "type": "projectRole", "parameter": "dp_squad_lead" }, { "type": "projectRole", "parameter": "dp_admin" }] },
+
+    { "permission": "EDIT_ISSUES",              "holders": [{ "type": "projectRole", "parameter": "dp_pm_per_vs" }, { "type": "projectRole", "parameter": "dp_architect" }, { "type": "projectRole", "parameter": "dp_squad_lead" }, { "type": "projectRole", "parameter": "dp_director_cs" }, { "type": "projectRole", "parameter": "dp_director_itba" }, { "type": "projectRole", "parameter": "dp_vp" }, { "type": "projectRole", "parameter": "dp_admin" }] },
+
+    { "permission": "TRANSITION_ISSUES",        "holders": [{ "type": "projectRole", "parameter": "dp_pm_per_vs" }, { "type": "projectRole", "parameter": "dp_architect" }, { "type": "projectRole", "parameter": "dp_squad_lead" }, { "type": "projectRole", "parameter": "dp_director_cs" }, { "type": "projectRole", "parameter": "dp_director_itba" }, { "type": "projectRole", "parameter": "dp_vp" }, { "type": "projectRole", "parameter": "dp_admin" }] },
+
+    { "permission": "ASSIGN_ISSUES",            "holders": [{ "type": "projectRole", "parameter": "dp_pm_per_vs" }, { "type": "projectRole", "parameter": "dp_squad_lead" }, { "type": "projectRole", "parameter": "dp_admin" }] },
+
+    { "permission": "ASSIGNABLE_USER",          "holders": [{ "type": "projectRole", "parameter": "dp_pm_per_vs" }, { "type": "projectRole", "parameter": "dp_architect" }, { "type": "projectRole", "parameter": "dp_squad_lead" }, { "type": "projectRole", "parameter": "dp_admin" }] },
+
+    { "permission": "ADD_COMMENTS",             "holders": [{ "type": "projectRole", "parameter": "dp_requester" }, { "type": "projectRole", "parameter": "dp_pm_per_vs" }, { "type": "projectRole", "parameter": "dp_architect" }, { "type": "projectRole", "parameter": "dp_squad_lead" }, { "type": "projectRole", "parameter": "dp_director_cs" }, { "type": "projectRole", "parameter": "dp_director_itba" }, { "type": "projectRole", "parameter": "dp_vp" }, { "type": "projectRole", "parameter": "dp_admin" }] },
+
+    { "permission": "DELETE_ISSUES",            "holders": [{ "type": "projectRole", "parameter": "dp_admin" }] },
+
+    { "permission": "CLOSE_ISSUES",             "holders": [{ "type": "projectRole", "parameter": "dp_squad_lead" }, { "type": "projectRole", "parameter": "dp_admin" }] },
+
+    { "permission": "RESOLVE_ISSUES",           "holders": [{ "type": "projectRole", "parameter": "dp_squad_lead" }, { "type": "projectRole", "parameter": "dp_admin" }] },
+
+    { "permission": "ADMINISTER_PROJECTS",      "holders": [{ "type": "projectRole", "parameter": "dp_admin" }] },
+
+    { "permission": "MANAGE_SPRINTS_PERMISSION","holders": [{ "type": "projectRole", "parameter": "dp_squad_lead" }, { "type": "projectRole", "parameter": "dp_admin" }] }
+  ],
+
+  "_note": "Field-level edit restrictions (e.g. only PMs edit Scoring fields, only Director transitions Gate 2) are enforced by Field Configurations + transition conditions — see workflow.json and field_configurations.json. The permission scheme above governs PROJECT-level capabilities."
+}

@@ -1,0 +1,22 @@
+{
+  "_comment": "Issue Type Scheme for DGTLPROD. All five types ALREADY EXIST globally — only need to associate them with the project. Default issue type = Demand Intake (so the form-submit creates a Demand placeholder).",
+  "_endpoint": "POST /rest/api/3/issuetypescheme  (then associate via POST /rest/api/3/issuetypescheme/project)",
+
+  "name": "DP Issue Type Scheme",
+  "description": "Five-type scheme for the Digital Products demand-to-delivery flow.",
+  "defaultIssueTypeId": "10350",
+  "issueTypeIds": [
+    "10350",
+    "10006",
+    "10000",
+    "10011",
+    "10010"
+  ],
+  "_human_readable_mapping": {
+    "10350": "Demand Intake (placeholder · auto-converts at Triage)",
+    "10006": "Story (Squad-level, S-sized work)",
+    "10000": "Epic (Portfolio-level, M/L-sized work)",
+    "10011": "Bug (internal QA defects · NOT incidents)",
+    "10010": "Sub-task"
+  }
+}

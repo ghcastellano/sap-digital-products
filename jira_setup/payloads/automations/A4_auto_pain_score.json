@@ -1,0 +1,97 @@
+{
+  "_comment": "A4 · Auto-Pain-Score · computes Pain Score and OPCO Multiplier when scoring fields are populated. The formula differs by VS area: ITBA includes Safety, CS does not (CS has no field crew per Avangrid TOM v3). Trigger fires whenever any of the score fields changes — guarded by the readiness condition.",
+  "_format": "Atlassian Automation rule (Cloud)",
+  "_import_path": "Project Settings → Automation → Import rule",
+
+  "name": "A4 · Auto-Pain-Score",
+  "description": "Compute DP Pain Score + DP OPCO Multiplier from BV / UX / [Safety] / Effort. Formula: ITBA → (BV·OPCOmult·0.45 + UX·0.30 + Safety·0.25)/Effort · CS → (BV·OPCOmult·0.40 + UX·0.60)/Effort.",
+  "scope": { "type": "PROJECT", "key": "DGTLPROD" },
+
+  "trigger": {
+    "type": "jira.field.value.changed",
+    "fields_any_of": ["Business Value", "DP UX Score", "Safety", "Effort", "OpCo"]
+  },
+
+  "conditions": [
+    {
+      "type": "jira.condition.field.value",
+      "field": "Business Value",
+      "operator": "IS NOT EMPTY"
+    },
+    {
+      "type": "jira.condition.field.value",
+      "field": "DP UX Score",
+      "operator": "IS NOT EMPTY"
+    },
+    {
+      "type": "jira.condition.field.value",
+      "field": "Effort",
+      "operator": "IS NOT EMPTY"
+    },
+    {
+      "type": "jira.condition.compound",
+      "operator": "OR",
+      "conditions": [
+        {
+          "_human_readable": "If VS area = CS, Safety not required",
+          "type": "jira.condition.field.value",
+          "field": "DP Value Stream Destination",
+          "operator": "IN",
+          "values": ["Meter & Device Operations", "Billing Operations", "Revenue & Collections", "Customer Care & Engagement", "Enabling Team — Foundation"]
+        },
+        {
+          "_human_readable": "Else (ITBA): Safety must be populated",
+          "type": "jira.condition.field.value",
+          "field": "Safety",
+          "operator": "IS NOT EMPTY"
+        }
+      ]
+    }
+  ],
+
+  "actions": [
+    {
+      "_step": "Compute DP OPCO Multiplier from OpCo (multi-select count)",
+      "type": "jira.action.smart.value.set",
+      "field": "DP OPCO Multiplier",
+      "expression": "{{#=}} {{issue.OpCo.size}} <= 1 ? 1.0 : ({{issue.OpCo.size}} <= 4 ? 1.3 : 1.6) {{/}}",
+      "_human_readable_logic": "1 OpCo → 1.0 · 2-4 OpCos → 1.3 · 5+ OpCos → 1.6"
+    },
+    {
+      "_step": "Compute DP Pain Score · branch by VS area",
+      "type": "jira.action.smart.value.set",
+      "field": "DP Pain Score",
+      "expression_itba": "{{#=}} ({{issue.\"Business Value\"}} * {{issue.\"DP OPCO Multiplier\"}} * 0.45 + {{issue.\"DP UX Score\"}} * 0.30 + {{issue.Safety}} * 0.25) / {{issue.Effort}} {{/}}",
+      "expression_cs":   "{{#=}} ({{issue.\"Business Value\"}} * {{issue.\"DP OPCO Multiplier\"}} * 0.40 + {{issue.\"DP UX Score\"}} * 0.60) / {{issue.Effort}} {{/}}",
+      "_branch_condition": "If DP Value Stream Destination is in the CS list → use expression_cs, else → expression_itba"
+    },
+    {
+      "type": "jira.action.add.comment",
+      "comment": "Auto-Pain-Score recalculated by A4. New Pain Score = {{issue.\"DP Pain Score\"}} (OPCO mult = {{issue.\"DP OPCO Multiplier\"}})."
+    }
+  ],
+
+  "_steps_human_readable": [
+    "1. Trigger: any of {Business Value, DP UX Score, Safety, Effort, OpCo} changes.",
+    "2. Condition: BV, UX, Effort all populated. Safety required only if VS in ITBA area.",
+    "3. Action: compute DP OPCO Multiplier (1.0 / 1.3 / 1.6 by OpCo count).",
+    "4. Action: compute DP Pain Score using ITBA or CS formula based on VS area.",
+    "5. Action: add comment with audit trail.",
+    "Note: Pain Score field must be writeable by automation but read-only to humans (enforce via field config + permission scheme)."
+  ],
+
+  "_cs_value_streams": [
+    "Meter & Device Operations",
+    "Billing Operations",
+    "Revenue & Collections",
+    "Customer Care & Engagement",
+    "Enabling Team — Foundation"
+  ],
+  "_itba_value_streams": [
+    "Field Operations",
+    "Engineering & Asset Mgmt",
+    "Network Operations & Control",
+    "Corporate & Regulatory",
+    "Iberdrola Corp Services"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:Projects",
+      "color": {
+        "a": 1,
+        "rgb": 5013760
+      }
+    },
+    {
+      "query": "path:Themes",
+      "color": {
+        "a": 1,
+        "rgb": 16220957
+      }
+    },
+    {
+      "query": "path:People",
+      "color": {
+        "a": 1,
+        "rgb": 5275228
+      }
+    },
+    {
+      "query": "path:Sessions",
+      "color": {
+        "a": 1,
+        "rgb": 13402044
+      }
+    },
+    {
+      "query": "path:Slides",
+      "color": {
+        "a": 1,
+        "rgb": 7979228
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.2,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.5,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 0.7840526816831148,
+  "close": false
+}

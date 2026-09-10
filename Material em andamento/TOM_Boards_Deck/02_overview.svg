@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1F3458"/>
+    </pattern>
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.40"/>
+    </filter>
+  </defs>
+
+  <rect width="2400" height="1350" fill="#0E2240"/>
+  <rect width="2400" height="1350" fill="url(#dotgrid)" opacity="0.5"/>
+
+  <!-- Header -->
+  <text x="60" y="60" font-size="14" font-weight="700" fill="#F08A3E" letter-spacing="3">02  ·  OVERVIEW</text>
+  <text x="60" y="108" font-size="40" font-weight="800" fill="#FFFFFF">Three Value Streams · Seven Squads · ~50 FTE</text>
+  <text x="60" y="138" font-size="16" fill="#9FB3D1">Stream-aligned model — each VS owns its applications, backlog, and board. Platform teams enable as-a-service.</text>
+
+  <!-- 3 VS columns -->
+  <!-- VS-1 -->
+  <g transform="translate(60,180)" filter="url(#cardShadow)">
+    <rect width="760" height="780" rx="12" fill="#15304F" stroke="#E8A24C" stroke-width="3"/>
+    <rect width="760" height="80" rx="12" fill="#E8A24C"/>
+    <text x="24" y="42" font-size="22" font-weight="800" fill="#5A3A0E">VS-1 · M2C &amp; Customer Service</text>
+    <text x="24" y="64" font-size="13" font-weight="600" fill="#5A3A0E">CS branch · Kumar Jaladanki · ~20 FTE</text>
+
+    <text x="24" y="120" font-size="12" font-weight="800" fill="#9FB3D1" letter-spacing="2">SQUADS  (3)</text>
+
+    <!-- Squad M2C-SL -->
+    <g transform="translate(24,140)">
+      <rect width="712" height="100" rx="6" fill="#F4C988"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#5A3A0E">Squad M2C-SL — Service Lifecycle</text>
+      <text x="16" y="48" font-size="12" fill="#1A1A1A">Lead: Vincent Lam (Sr Mgr Device &amp; Metering) · Champion: Iram Chowdhury</text>
+      <text x="16" y="66" font-size="12" fill="#1A1A1A">FTE: 8 · Apps: SAP Metering · MV90</text>
+      <text x="16" y="84" font-size="11" font-style="italic" fill="#7A4F1A">Vendor: 100% vendor-delivered (single vendor for Smart Metering)</text>
+    </g>
+
+    <!-- Squad M2C-RO -->
+    <g transform="translate(24,254)">
+      <rect width="712" height="100" rx="6" fill="#F4C988"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#5A3A0E">Squad M2C-RO — Revenue Operations</text>
+      <text x="16" y="48" font-size="12" fill="#1A1A1A">Lead: Ivelisse Velazquez (Sr Mgr FICA, Billing &amp; Collection)</text>
+      <text x="16" y="66" font-size="12" fill="#1A1A1A">FTE: 8 · Apps: SAP FICA · ECC · StreamServe</text>
+      <text x="16" y="84" font-size="11" font-style="italic" fill="#7A4F1A">Vendor: Accenture (occasional, FICA build)</text>
+    </g>
+
+    <!-- Squad CCC -->
+    <g transform="translate(24,368)">
+      <rect width="712" height="100" rx="6" fill="#F4C988"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#5A3A0E">Squad CCC — Customer Care &amp; Contact Center</text>
+      <text x="16" y="48" font-size="12" fill="#1A1A1A">Lead: VACANT (Sr Mgr CRM &amp; Contact Center) · 🔴 hire required</text>
+      <text x="16" y="66" font-size="12" fill="#1A1A1A">FTE: 4 · Apps: SAP CRM · Medallia · IVR · Blue Prism</text>
+      <text x="16" y="84" font-size="11" font-style="italic" fill="#7A4F1A">Vendors: Lemur-Salesforce (CRM) · IVR vendor · Medallia partner · Digital channel agency</text>
+    </g>
+
+    <!-- Steward -->
+    <line x1="24" y1="500" x2="736" y2="500" stroke="#2D4D7A" stroke-dasharray="4 4"/>
+    <text x="24" y="528" font-size="12" font-weight="800" fill="#9FB3D1" letter-spacing="2">PRODUCT MANAGEMENT STEWARD</text>
+    <text x="24" y="554" font-size="14" font-weight="600" fill="#FFFFFF">Heather LaJoie + Digital CoE Functional SAP PMs</text>
+    <text x="24" y="574" font-size="12" fill="#9FB3D1">First prioritization layer for Digital CoE; bridge to CS Apps</text>
+
+    <!-- Board -->
+    <text x="24" y="616" font-size="12" font-weight="800" fill="#9FB3D1" letter-spacing="2">BOARD OWNER</text>
+    <text x="24" y="642" font-size="14" font-weight="600" fill="#FFFFFF">Kumar Jaladanki — CS Portfolio Board</text>
+    <text x="24" y="662" font-size="12" fill="#9FB3D1">Routes from Jira intake → 3 sub-VS boards (M2C-SL · M2C-RO · CCC)</text>
+
+    <!-- Risk -->
+    <rect x="24" y="690" width="712" height="68" rx="6" fill="#3A1F1F" stroke="#DE350B"/>
+    <text x="36" y="714" font-size="12" font-weight="800" fill="#DE350B" letter-spacing="1">⚠ KEY RISK</text>
+    <text x="36" y="734" font-size="12" fill="#FFFFFF">Squad CCC vacant leadership · Squad M2C-SL 100% vendor lock-in</text>
+    <text x="36" y="750" font-size="12" fill="#FFFFFF">→ Hire Sr Mgr CRM/CCC before go-live · Build internal SME team for Smart Metering</text>
+  </g>
+
+  <!-- VS-2 -->
+  <g transform="translate(840,180)" filter="url(#cardShadow)">
+    <rect width="760" height="780" rx="12" fill="#15304F" stroke="#5DA460" stroke-width="3"/>
+    <rect width="760" height="80" rx="12" fill="#5DA460"/>
+    <text x="24" y="42" font-size="22" font-weight="800" fill="#FFFFFF">VS-2 · Field &amp; Network Operations</text>
+    <text x="24" y="64" font-size="13" font-weight="600" fill="#FFFFFF">ITBA branch · Carlos Garbin · ~13 FTE</text>
+
+    <text x="24" y="120" font-size="12" font-weight="800" fill="#9FB3D1" letter-spacing="2">SQUADS  (2)</text>
+
+    <!-- Squad G&E -->
+    <g transform="translate(24,140)">
+      <rect width="712" height="120" rx="6" fill="#C2E5C2"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#1F5722">Squad G&amp;E — Electric &amp; Gas Operations</text>
+      <text x="16" y="48" font-size="12" fill="#1A1A1A">Lead: Bruno Moreto (Sr Mgr E&amp;G Ops Products) · Champion: Andrew McGibbon</text>
+      <text x="16" y="66" font-size="12" fill="#1A1A1A">FTE: 7</text>
+      <text x="16" y="84" font-size="12" fill="#1A1A1A">Apps: 70–90 apps · Android/tablets · doc viewer · field apps</text>
+      <text x="16" y="104" font-size="11" font-style="italic" fill="#3D5A3F">Vendor: occasional vendor for upgrades · Third-Party Risk gate</text>
+    </g>
+
+    <!-- Squad GIS -->
+    <g transform="translate(24,274)">
+      <rect width="712" height="120" rx="6" fill="#C2E5C2"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#1F5722">Squad GIS &amp; OSG</text>
+      <text x="16" y="48" font-size="12" fill="#1A1A1A">Lead: George Porto (Sr Mgr GIS &amp; OSG) · Champion: George Porto</text>
+      <text x="16" y="66" font-size="12" fill="#1A1A1A">FTE: 6</text>
+      <text x="16" y="84" font-size="12" fill="#1A1A1A">Apps: SAP HANA · ARCFM · GIS web apps · ProjectWise · Microstation · SWF platform</text>
+      <text x="16" y="104" font-size="11" font-style="italic" fill="#3D5A3F">Vendor: SWF (software factory) for project work</text>
+    </g>
+
+    <!-- Steward -->
+    <line x1="24" y1="500" x2="736" y2="500" stroke="#2D4D7A" stroke-dasharray="4 4"/>
+    <text x="24" y="528" font-size="12" font-weight="800" fill="#9FB3D1" letter-spacing="2">PRODUCT MANAGEMENT STEWARD</text>
+    <text x="24" y="554" font-size="14" font-weight="600" fill="#FFFFFF">P&amp;T pool (existing intermediary)</text>
+    <text x="24" y="574" font-size="12" fill="#9FB3D1">"P&amp;T is the face — helping prioritize the work" — George Porto interview</text>
+
+    <!-- Board -->
+    <text x="24" y="616" font-size="12" font-weight="800" fill="#9FB3D1" letter-spacing="2">BOARD OWNER</text>
+    <text x="24" y="642" font-size="14" font-weight="600" fill="#FFFFFF">Carlos Garbin — ITBA-Field Portfolio Board</text>
+    <text x="24" y="662" font-size="12" fill="#9FB3D1">Routes from Jira intake → 2 squad boards (G&amp;E · GIS)</text>
+
+    <!-- Risk -->
+    <rect x="24" y="690" width="712" height="68" rx="6" fill="#1F2A1F" stroke="#FFAB00"/>
+    <text x="36" y="714" font-size="12" font-weight="800" fill="#FFAB00" letter-spacing="1">⚠ KEY RISK</text>
+    <text x="36" y="734" font-size="12" fill="#FFFFFF">Break/fix dominant pattern · no SLA tracking · no volume tracking (GIS)</text>
+    <text x="36" y="750" font-size="12" fill="#FFFFFF">→ Instrument Jira flow KPIs (Lead Time · Cycle Time · Throughput · Aging)</text>
+  </g>
+
+  <!-- VS-3 -->
+  <g transform="translate(1620,180)" filter="url(#cardShadow)">
+    <rect width="720" height="780" rx="12" fill="#15304F" stroke="#4A90B8" stroke-width="3"/>
+    <rect width="720" height="80" rx="12" fill="#4A90B8"/>
+    <text x="24" y="42" font-size="22" font-weight="800" fill="#FFFFFF">VS-3 · Corporate &amp; Global SAP</text>
+    <text x="24" y="64" font-size="13" font-weight="600" fill="#FFFFFF">ITBA branch · Carlos Garbin · ~13 FTE</text>
+
+    <text x="24" y="120" font-size="12" font-weight="800" fill="#9FB3D1" letter-spacing="2">SQUADS  (2)</text>
+
+    <!-- Squad Corporate -->
+    <g transform="translate(24,140)">
+      <rect width="672" height="120" rx="6" fill="#B7DDEF"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#0F4A6B">Squad Corporate Apps</text>
+      <text x="16" y="48" font-size="12" fill="#1A1A1A">Lead: Sarath Garikapati (Sr Mgr Corporate Apps) · Champion: Amit Patel</text>
+      <text x="16" y="66" font-size="12" fill="#1A1A1A">FTE: 8 · SAP Champion: Stephanie</text>
+      <text x="16" y="84" font-size="12" fill="#1A1A1A">Domains: Finance · HR · Procurement · Legal · Regulatory</text>
+      <text x="16" y="104" font-size="11" font-style="italic" fill="#1F4E7A">Vendor: SWF · SAP corporate vendor for projects</text>
+    </g>
+
+    <!-- Squad Global SAP -->
+    <g transform="translate(24,274)">
+      <rect width="672" height="120" rx="6" fill="#B7DDEF"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#0F4A6B">Squad Global SAP</text>
+      <text x="16" y="48" font-size="12" fill="#1A1A1A">Lead: Vanessa Colombo (Mgr IT Apps Global SAP) · Champion: Michael Dubois</text>
+      <text x="16" y="66" font-size="12" fill="#1A1A1A">FTE: 5</text>
+      <text x="16" y="84" font-size="12" fill="#1A1A1A">Scope: Iberdrola · FI · PO · Budget control (Spain)</text>
+      <text x="16" y="104" font-size="11" font-style="italic" fill="#1F4E7A">Vendor: Accenture (significant) · SWF pipeline · Thursday Accenture Review</text>
+    </g>
+
+    <!-- Steward -->
+    <line x1="24" y1="500" x2="696" y2="500" stroke="#2D4D7A" stroke-dasharray="4 4"/>
+    <text x="24" y="528" font-size="12" font-weight="800" fill="#9FB3D1" letter-spacing="2">PRODUCT MANAGEMENT STEWARD</text>
+    <text x="24" y="554" font-size="14" font-weight="600" fill="#FFFFFF">P&amp;T pool (existing intermediary)</text>
+    <text x="24" y="574" font-size="12" fill="#9FB3D1">"P&amp;T serves as intermediary with business — Global SAP manages Jira" — Michael Dubois</text>
+
+    <!-- Board -->
+    <text x="24" y="616" font-size="12" font-weight="800" fill="#9FB3D1" letter-spacing="2">BOARD OWNER</text>
+    <text x="24" y="642" font-size="14" font-weight="600" fill="#FFFFFF">Carlos Garbin — ITBA-Corporate Portfolio Board</text>
+    <text x="24" y="662" font-size="12" fill="#9FB3D1">Routes from Jira intake → 2 squad boards (Corporate · Global SAP)</text>
+
+    <!-- Risk -->
+    <rect x="24" y="690" width="672" height="68" rx="6" fill="#1F2A33" stroke="#FFAB00"/>
+    <text x="36" y="714" font-size="12" font-weight="800" fill="#FFAB00" letter-spacing="1">⚠ KEY RISK</text>
+    <text x="36" y="734" font-size="12" fill="#FFFFFF">Squad Global SAP: incident overload caps strategic capacity</text>
+    <text x="36" y="750" font-size="12" fill="#FFFFFF">→ Apply Class-of-Service Expedite + 1-year hiring lag mitigation plan</text>
+  </g>
+
+  <!-- Platform teams strip at bottom -->
+  <g transform="translate(60,990)" filter="url(#cardShadow)">
+    <rect width="2280" height="200" rx="12" fill="#1F1B33" stroke="#8B6FB8" stroke-width="2"/>
+    <rect width="2280" height="50" rx="12" fill="#8B6FB8"/>
+    <text x="24" y="34" font-size="20" font-weight="800" fill="#FFFFFF">PLATFORM TEAMS — cross-cutting · serve all VS as-a-service · ~8 FTE</text>
+
+    <g transform="translate(24,68)" font-size="13" fill="#FFFFFF">
+      <rect width="430" height="120" rx="6" fill="#3A2D52"/>
+      <text x="14" y="24" font-size="14" font-weight="800" fill="#D4C4E8">SAP BASIS</text>
+      <text x="14" y="46" fill="#FFFFFF">Nagi Reddy · 2 FTE</text>
+      <text x="14" y="64" fill="#9FB3D1">Serves: VS-1 (M2C-SL · M2C-RO) + VS-3 (Global SAP)</text>
+      <text x="14" y="98" font-size="11" font-style="italic" fill="#9FB3D1">DBs · kernel · transports · upgrades</text>
+
+      <rect x="450" width="430" height="120" rx="6" fill="#3A2D52"/>
+      <text x="464" y="24" font-size="14" font-weight="800" fill="#D4C4E8">SAP &amp; CS ARCHITECTURE</text>
+      <text x="464" y="46" fill="#FFFFFF">VACANT · 2 FTE  🔴</text>
+      <text x="464" y="64" fill="#9FB3D1">Serves: all 3 VS</text>
+      <text x="464" y="98" font-size="11" font-style="italic" fill="#9FB3D1">Cross-VS architecture decisions · arch reviews</text>
+
+      <rect x="900" width="430" height="120" rx="6" fill="#3A2D52"/>
+      <text x="914" y="24" font-size="14" font-weight="800" fill="#D4C4E8">DEVOPS &amp; APP SECURITY</text>
+      <text x="914" y="46" fill="#FFFFFF">Piotr Wielogorski · Charles Buynovsky</text>
+      <text x="914" y="64" fill="#9FB3D1">Serves: all 3 VS</text>
+      <text x="914" y="98" font-size="11" font-style="italic" fill="#9FB3D1">Pipelines · security gates · self-service</text>
+
+      <rect x="1350" width="430" height="120" rx="6" fill="#3A2D52"/>
+      <text x="1364" y="24" font-size="14" font-weight="800" fill="#D4C4E8">SWF &amp; TOOLS</text>
+      <text x="1364" y="46" fill="#FFFFFF">Raquel Soto · Donna Henry · 2 FTE</text>
+      <text x="1364" y="64" fill="#9FB3D1">Serves: all 3 VS</text>
+      <text x="1364" y="98" font-size="11" font-style="italic" fill="#9FB3D1">Software factory tooling owner</text>
+
+      <rect x="1800" width="430" height="120" rx="6" fill="#3A2D52"/>
+      <text x="1814" y="24" font-size="14" font-weight="800" fill="#D4C4E8">PRODUCT MANAGEMENT</text>
+      <text x="1814" y="46" fill="#FFFFFF">Heather LaJoie + 1 (vacant) · 2 FTE</text>
+      <text x="1814" y="64" fill="#9FB3D1">Bridge: VS-1 ↔ Digital CoE</text>
+      <text x="1814" y="98" font-size="11" font-style="italic" fill="#9FB3D1">PM steward primarily VS-1</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="60" y="1320" font-size="11" fill="#6F87A8">Source: AS-IS deliverable v.final · Avangrid_Hierarchy_Overview.md · Customer Services — Proposed Value Streams (April 2026) · Champion interviews</text>
+  <text x="2340" y="1320" text-anchor="end" font-size="11" fill="#6F87A8">02 / 09</text>
+</svg>

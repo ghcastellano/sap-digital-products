@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1F3458"/>
+    </pattern>
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.40"/>
+    </filter>
+    <marker id="arrowOrange" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#F08A3E"/>
+    </marker>
+  </defs>
+
+  <rect width="2400" height="1350" fill="#0E2240"/>
+  <rect width="2400" height="1350" fill="url(#dotgrid)" opacity="0.5"/>
+
+  <text x="60" y="68" font-size="14" font-weight="700" fill="#F08A3E" letter-spacing="3">06  ·  BOARD ARCHITECTURE</text>
+  <text x="60" y="118" font-size="40" font-weight="800" fill="#FFFFFF">Two Board Levels + Native Jira Hierarchy</text>
+  <text x="60" y="148" font-size="16" fill="#9FB3D1">Simplified from 3 to 2 boards · Initiatives and Epics live on Portfolio · Stories and Tasks live on Squad · Enterprise view is a read-only dashboard</text>
+
+  <!-- Left side: Jira Hierarchy -->
+  <g transform="translate(60,200)" filter="url(#cardShadow)">
+    <rect width="780" height="1080" rx="12" fill="#15304F" stroke="#F08A3E" stroke-width="2"/>
+    <rect width="780" height="60" rx="12" fill="#F08A3E"/>
+    <text x="20" y="40" font-size="22" font-weight="800" fill="#0E2240">JIRA HIERARCHY (native)</text>
+
+    <!-- Initiative -->
+    <g transform="translate(40,100)">
+      <rect width="700" height="160" rx="8" fill="#5C2A91"/>
+      <text x="20" y="36" font-size="20" font-weight="800" fill="#FFFFFF">INITIATIVE</text>
+      <text x="20" y="62" font-size="14" font-weight="600" fill="#D4C4E8">Cross-VS · multi-quarter · strategic outcome</text>
+      <text x="20" y="92" font-size="13" fill="#FFFFFF">Vive em: Enterprise Dashboard (read-only) — Vitor</text>
+      <text x="20" y="112" font-size="13" fill="#FFFFFF">Owner: Vitor / Steering Committee</text>
+      <text x="20" y="138" font-size="11" font-style="italic" fill="#D4C4E8">Example: "Customer self-service adoption +30% by Q4"</text>
+    </g>
+
+    <line x1="390" y1="270" x2="390" y2="290" stroke="#F08A3E" stroke-width="3" marker-end="url(#arrowOrange)"/>
+
+    <!-- Epic -->
+    <g transform="translate(40,300)">
+      <rect width="700" height="160" rx="8" fill="#7C3AED"/>
+      <text x="20" y="36" font-size="20" font-weight="800" fill="#FFFFFF">EPIC</text>
+      <text x="20" y="62" font-size="14" font-weight="600" fill="#E9D5FF">Single VS · spans 1–3 sprints · 1 outcome</text>
+      <text x="20" y="92" font-size="13" fill="#FFFFFF">Vive em: Portfolio Board (per VS) — Kumar / Carlos</text>
+      <text x="20" y="112" font-size="13" fill="#FFFFFF">Owner: PM steward (Heather/CoE or P&amp;T pool)</text>
+      <text x="20" y="138" font-size="11" font-style="italic" fill="#E9D5FF">Example: "Rebuild disconnect flow to reduce errors by 50%"</text>
+    </g>
+
+    <line x1="390" y1="470" x2="390" y2="490" stroke="#F08A3E" stroke-width="3" marker-end="url(#arrowOrange)"/>
+
+    <!-- Story -->
+    <g transform="translate(40,500)">
+      <rect width="700" height="160" rx="8" fill="#0F4A6B"/>
+      <text x="20" y="36" font-size="20" font-weight="800" fill="#FFFFFF">STORY · TASK · BUG</text>
+      <text x="20" y="62" font-size="14" font-weight="600" fill="#B7DDEF">Single squad · fits in 1 sprint · independently testable</text>
+      <text x="20" y="92" font-size="13" fill="#FFFFFF">Vive em: Squad Board (per squad) — Squad Lead</text>
+      <text x="20" y="112" font-size="13" fill="#FFFFFF">Owner: Tech Lead + assignee</text>
+      <text x="20" y="138" font-size="11" font-style="italic" fill="#B7DDEF">Example: "Add validation on disconnect API endpoint"</text>
+    </g>
+
+    <line x1="390" y1="670" x2="390" y2="690" stroke="#F08A3E" stroke-width="3" marker-end="url(#arrowOrange)"/>
+
+    <!-- Sub-task -->
+    <g transform="translate(40,700)">
+      <rect width="700" height="120" rx="8" fill="#1F5722"/>
+      <text x="20" y="36" font-size="20" font-weight="800" fill="#FFFFFF">SUB-TASK</text>
+      <text x="20" y="62" font-size="14" font-weight="600" fill="#C2E5C2">Decomposition within a Story</text>
+      <text x="20" y="92" font-size="13" fill="#FFFFFF">Owner: developer · not visible at portfolio level</text>
+    </g>
+
+    <!-- Standalone -->
+    <g transform="translate(40,840)">
+      <rect width="700" height="200" rx="8" fill="#1F2A33" stroke="#FFAB00"/>
+      <text x="20" y="36" font-size="14" font-weight="800" fill="#FFAB00" letter-spacing="1">STANDALONE CARDS (no Epic parent)</text>
+      <text x="20" y="62" font-size="13" fill="#FFFFFF">• Production incidents (live outage tickets)</text>
+      <text x="20" y="84" font-size="13" fill="#FFFFFF">• Expedite items (P1/P2 customer impact)</text>
+      <text x="20" y="106" font-size="13" fill="#FFFFFF">• Small ad-hoc fixes &lt; 2 days effort</text>
+      <text x="20" y="128" font-size="13" fill="#FFFFFF">• Regulatory items with imminent deadline (&lt; 30 days)</text>
+      <text x="20" y="160" font-size="11" font-style="italic" fill="#FFAB00">These bypass Epic structure and route directly to squad's Expedite or Standard swimlane.</text>
+      <text x="20" y="180" font-size="11" font-style="italic" fill="#FFAB00">Pain Score still computed for ranking; Gates skipped per CoS rules (see Slide 12).</text>
+    </g>
+  </g>
+
+  <!-- Right side: Two Board Levels -->
+  <g transform="translate(880,200)" filter="url(#cardShadow)">
+    <rect width="1460" height="1080" rx="12" fill="#15304F" stroke="#9FB3D1" stroke-width="2"/>
+    <rect width="1460" height="60" rx="12" fill="#9FB3D1"/>
+    <text x="20" y="40" font-size="22" font-weight="800" fill="#0E2240">TWO BOARD LEVELS</text>
+
+    <!-- Level 0: Enterprise Dashboard (read-only) -->
+    <g transform="translate(40,100)">
+      <rect width="1380" height="120" rx="8" fill="#0E2240" stroke="#5C2A91" stroke-width="2" stroke-dasharray="4 4"/>
+      <text x="20" y="32" font-size="13" font-weight="800" fill="#D4C4E8" letter-spacing="2">LEVEL 0  ·  ENTERPRISE DASHBOARD  ·  read-only · NOT a board</text>
+      <text x="20" y="58" font-size="16" font-weight="700" fill="#FFFFFF">Cross-VS roll-up via Jira filters &amp; advanced roadmaps</text>
+      <text x="20" y="80" font-size="13" fill="#9FB3D1">Owner: Vitor Cruz · views: Initiative roadmap · cross-VS dependency map · capacity heat-map · Pain Score top-20</text>
+      <text x="20" y="102" font-size="11" font-style="italic" fill="#9FB3D1">No standalone cards · no replenishment · no ceremonies · pure observability</text>
+    </g>
+
+    <!-- Level 1: Portfolio Boards -->
+    <g transform="translate(40,250)">
+      <rect width="1380" height="370" rx="8" fill="#3A2D52"/>
+      <text x="20" y="34" font-size="13" font-weight="800" fill="#D4C4E8" letter-spacing="2">LEVEL 1  ·  PORTFOLIO BOARDS  ·  3 boards · Epics only</text>
+
+      <g transform="translate(20,56)">
+        <rect width="440" height="290" rx="6" fill="#E8A24C"/>
+        <text x="14" y="24" font-size="14" font-weight="800" fill="#5A3A0E">CS Portfolio Board</text>
+        <text x="14" y="44" font-size="11" fill="#5A3A0E">Owner: Kumar · PM: Heather + CoE</text>
+        <line x1="14" y1="56" x2="426" y2="56" stroke="#5A3A0E" stroke-dasharray="3 3"/>
+        <text x="14" y="78" font-size="11" font-weight="700" fill="#5A3A0E">Columns:</text>
+        <text x="14" y="96" font-size="11" fill="#1A1A1A">INTAKE → TRIAGE → BACKLOG (Pain Score ranked)</text>
+        <text x="14" y="114" font-size="11" fill="#1A1A1A">→ READY FOR EXEC → IN FLIGHT (squads)</text>
+
+        <text x="14" y="146" font-size="11" font-weight="700" fill="#5A3A0E">Routes Epics to:</text>
+        <text x="14" y="166" font-size="11" fill="#1A1A1A">Squad M2C-SL · Squad M2C-RO · Squad CCC</text>
+
+        <text x="14" y="198" font-size="11" font-weight="700" fill="#5A3A0E">Forums:</text>
+        <text x="14" y="216" font-size="11" fill="#1A1A1A">Replenishment weekly · Customer Journey Forum monthly</text>
+        <text x="14" y="234" font-size="11" fill="#1A1A1A">Portfolio Committee monthly · BRP quarterly</text>
+
+        <text x="14" y="270" font-size="11" font-style="italic" fill="#7A4F1A">Sub-VS structure: 3 formally proposed (M2C-SL · M2C-RO · CCC)</text>
+      </g>
+
+      <g transform="translate(470,56)">
+        <rect width="440" height="290" rx="6" fill="#5DA460"/>
+        <text x="14" y="24" font-size="14" font-weight="800" fill="#FFFFFF">ITBA-Field Portfolio Board</text>
+        <text x="14" y="44" font-size="11" fill="#FFFFFF">Owner: Carlos · PM: P&amp;T pool</text>
+        <line x1="14" y1="56" x2="426" y2="56" stroke="#FFFFFF" stroke-dasharray="3 3"/>
+        <text x="14" y="78" font-size="11" font-weight="700" fill="#FFFFFF">Columns:</text>
+        <text x="14" y="96" font-size="11" fill="#FFFFFF">INTAKE → TRIAGE → BACKLOG → READY → IN FLIGHT</text>
+
+        <text x="14" y="128" font-size="11" font-weight="700" fill="#FFFFFF">Routes Epics to:</text>
+        <text x="14" y="148" font-size="11" fill="#FFFFFF">Squad G&amp;E · Squad GIS &amp; OSG</text>
+
+        <text x="14" y="180" font-size="11" font-weight="700" fill="#FFFFFF">Forums:</text>
+        <text x="14" y="200" font-size="11" fill="#FFFFFF">Replenishment weekly · Field Ops Sync monthly</text>
+        <text x="14" y="218" font-size="11" fill="#FFFFFF">Portfolio Committee monthly · BRP quarterly · PDD annual</text>
+
+        <text x="14" y="250" font-size="11" font-style="italic" fill="#E0F2D9">Heavy break-fix mix → Standard CoS dominant</text>
+      </g>
+
+      <g transform="translate(920,56)">
+        <rect width="440" height="290" rx="6" fill="#4A90B8"/>
+        <text x="14" y="24" font-size="14" font-weight="800" fill="#FFFFFF">ITBA-Corporate Portfolio Board</text>
+        <text x="14" y="44" font-size="11" fill="#FFFFFF">Owner: Carlos · PM: P&amp;T pool</text>
+        <line x1="14" y1="56" x2="426" y2="56" stroke="#FFFFFF" stroke-dasharray="3 3"/>
+        <text x="14" y="78" font-size="11" font-weight="700" fill="#FFFFFF">Columns:</text>
+        <text x="14" y="96" font-size="11" fill="#FFFFFF">INTAKE → TRIAGE → BACKLOG → READY → IN FLIGHT</text>
+
+        <text x="14" y="128" font-size="11" font-weight="700" fill="#FFFFFF">Routes Epics to:</text>
+        <text x="14" y="148" font-size="11" fill="#FFFFFF">Squad Corporate · Squad Global SAP</text>
+
+        <text x="14" y="180" font-size="11" font-weight="700" fill="#FFFFFF">Forums:</text>
+        <text x="14" y="200" font-size="11" fill="#FFFFFF">Replenishment weekly · Iberdrola Sync monthly</text>
+        <text x="14" y="218" font-size="11" fill="#FFFFFF">Thursday Accenture Review weekly · BRP quarterly</text>
+
+        <text x="14" y="250" font-size="11" font-style="italic" fill="#D9E9F2">Regulatory-heavy → Fixed-Date CoS frequent</text>
+      </g>
+    </g>
+
+    <!-- Level 2: Squad Boards -->
+    <g transform="translate(40,650)">
+      <rect width="1380" height="410" rx="8" fill="#1F4E79"/>
+      <text x="20" y="34" font-size="13" font-weight="800" fill="#B7DDEF" letter-spacing="2">LEVEL 2  ·  SQUAD BOARDS  ·  7 boards · Stories + Tasks + standalone cards</text>
+
+      <text x="20" y="62" font-size="13" font-weight="600" fill="#FFFFFF">Each squad has its own board with Class of Service swimlanes (Standard · Fixed-Date · Expedite · Intangible)</text>
+      <text x="20" y="80" font-size="13" fill="#9FB3D1">Vendors visible as card label (Avangrid FTE · Lemur · Accenture · Medallia · IVR · SWF)</text>
+
+      <!-- Mini cards for the 7 squads -->
+      <g transform="translate(20,110)">
+        <rect width="200" height="120" rx="6" fill="#F4C988"/>
+        <text x="14" y="24" font-size="13" font-weight="800" fill="#5A3A0E">M2C-SL</text>
+        <text x="14" y="44" font-size="11" fill="#5A3A0E">Vincent Lam · 8 FTE</text>
+        <text x="14" y="62" font-size="10" fill="#5A3A0E">Vendor: 100% delivered</text>
+        <line x1="14" y1="74" x2="186" y2="74" stroke="#5A3A0E" stroke-dasharray="2 2"/>
+        <text x="14" y="92" font-size="10" fill="#1A1A1A">CoS lanes: Standard · Fixed-Date</text>
+        <text x="14" y="108" font-size="10" fill="#1A1A1A">· Expedite · Intangible</text>
+
+        <rect x="220" width="200" height="120" rx="6" fill="#F4C988"/>
+        <text x="234" y="24" font-size="13" font-weight="800" fill="#5A3A0E">M2C-RO</text>
+        <text x="234" y="44" font-size="11" fill="#5A3A0E">Ivelisse V. · 8 FTE</text>
+        <text x="234" y="62" font-size="10" fill="#5A3A0E">Vendor: Accenture pontual</text>
+
+        <rect x="440" width="200" height="120" rx="6" fill="#F4C988"/>
+        <text x="454" y="24" font-size="13" font-weight="800" fill="#5A3A0E">CCC</text>
+        <text x="454" y="44" font-size="11" fill="#5A3A0E">Vacant · 4 FTE 🔴</text>
+        <text x="454" y="62" font-size="10" fill="#5A3A0E">Lemur · IVR · Medallia</text>
+
+        <rect x="660" width="200" height="120" rx="6" fill="#C2E5C2"/>
+        <text x="674" y="24" font-size="13" font-weight="800" fill="#1F5722">G&amp;E</text>
+        <text x="674" y="44" font-size="11" fill="#1F5722">Bruno M. · 7 FTE</text>
+        <text x="674" y="62" font-size="10" fill="#1F5722">Vendor: occasional</text>
+
+        <rect x="880" width="200" height="120" rx="6" fill="#C2E5C2"/>
+        <text x="894" y="24" font-size="13" font-weight="800" fill="#1F5722">GIS</text>
+        <text x="894" y="44" font-size="11" fill="#1F5722">George P. · 6 FTE</text>
+        <text x="894" y="62" font-size="10" fill="#1F5722">Vendor: SWF</text>
+
+        <rect x="1100" width="200" height="120" rx="6" fill="#B7DDEF"/>
+        <text x="1114" y="24" font-size="13" font-weight="800" fill="#0F4A6B">Corporate</text>
+        <text x="1114" y="44" font-size="11" fill="#0F4A6B">Sarath G. · 8 FTE</text>
+        <text x="1114" y="62" font-size="10" fill="#0F4A6B">Vendor: SWF · SAP corp</text>
+      </g>
+
+      <g transform="translate(20,250)">
+        <rect width="200" height="120" rx="6" fill="#B7DDEF"/>
+        <text x="14" y="24" font-size="13" font-weight="800" fill="#0F4A6B">Global SAP</text>
+        <text x="14" y="44" font-size="11" fill="#0F4A6B">Vanessa C. · 5 FTE</text>
+        <text x="14" y="62" font-size="10" fill="#0F4A6B">Vendor: Accenture (heavy)</text>
+        <line x1="14" y1="74" x2="186" y2="74" stroke="#0F4A6B" stroke-dasharray="2 2"/>
+        <text x="14" y="92" font-size="10" fill="#1A1A1A">⚠ Incident overload</text>
+        <text x="14" y="108" font-size="10" fill="#1A1A1A">→ duty rotation + Accenture</text>
+
+        <rect x="240" y="20" width="1060" height="80" rx="6" fill="#0E2240" stroke="#F08A3E"/>
+        <text x="260" y="44" font-size="14" font-weight="800" fill="#F08A3E">All 7 squad boards share the same column layout:</text>
+        <text x="260" y="68" font-size="14" font-weight="700" fill="#FFFFFF">TO DO  →  IN PROGRESS (WIP-limited)  →  REVIEW / UAT  →  DONE</text>
+        <text x="260" y="86" font-size="11" fill="#9FB3D1">Plus Class of Service rows · vendor visibility · WIP per swimlane (1 Expedite · 2 Fixed-Date · 3-4 Standard · 1 Intangible)</text>
+      </g>
+    </g>
+  </g>
+
+  <text x="60" y="1320" font-size="11" fill="#6F87A8">Source: Atlassian Jira hierarchy native model · Team Topologies "Stream-aligned" pattern · Renewables DTO Slide 33 (Submit Jira Request Ticket)</text>
+  <text x="2340" y="1320" text-anchor="end" font-size="11" fill="#6F87A8">06 / 12</text>
+</svg>

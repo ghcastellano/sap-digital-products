@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1F3458"/>
+    </pattern>
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.40"/>
+    </filter>
+  </defs>
+
+  <rect width="2400" height="1350" fill="#0E2240"/>
+  <rect width="2400" height="1350" fill="url(#dotgrid)" opacity="0.5"/>
+
+  <text x="60" y="68" font-size="14" font-weight="700" fill="#F08A3E" letter-spacing="3">09  ·  INTAKE FIELD DETAIL</text>
+  <text x="60" y="118" font-size="40" font-weight="800" fill="#FFFFFF">Mandatory Fields · Validation Rules · Options</text>
+  <text x="60" y="148" font-size="16" fill="#9FB3D1">Single intake template · all fields validated at Triage · Regulatory flag activates Path B (skip Gate 1)</text>
+
+  <!-- Field table -->
+  <g transform="translate(60,200)" filter="url(#cardShadow)">
+    <rect width="2280" height="1100" rx="12" fill="#FFFFFF"/>
+
+    <!-- Table header -->
+    <rect width="2280" height="56" rx="12" fill="#0747A6"/>
+    <text x="20" y="34" font-size="16" font-weight="800" fill="#FFFFFF">FIELD</text>
+    <text x="320" y="34" font-size="16" font-weight="800" fill="#FFFFFF">REQUIRED?</text>
+    <text x="520" y="34" font-size="16" font-weight="800" fill="#FFFFFF">TYPE / OPTIONS</text>
+    <text x="1240" y="34" font-size="16" font-weight="800" fill="#FFFFFF">VALIDATION RULE</text>
+    <text x="1820" y="34" font-size="16" font-weight="800" fill="#FFFFFF">DRIVES</text>
+
+    <!-- Rows -->
+    <g font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+
+      <!-- Title -->
+      <rect y="56" width="2280" height="60" fill="#F4F5F7"/>
+      <text x="20" y="80" font-size="14" font-weight="800" fill="#172B4D">Title</text>
+      <text x="20" y="100" font-size="11" fill="#6B778C" font-style="italic">summary line</text>
+      <text x="320" y="92" font-size="13" font-weight="700" fill="#DE350B">YES</text>
+      <text x="520" y="92" font-size="13" fill="#172B4D">Free text · max 120 chars</text>
+      <text x="1240" y="86" font-size="12" fill="#172B4D">Outcome-based — verb + measurable result</text>
+      <text x="1240" y="104" font-size="11" fill="#6B778C" font-style="italic">Reject "fix system", "update CRM"</text>
+      <text x="1820" y="92" font-size="12" fill="#172B4D">Card display label</text>
+
+      <!-- Description -->
+      <rect y="116" width="2280" height="60" fill="#FFFFFF"/>
+      <text x="20" y="140" font-size="14" font-weight="800" fill="#172B4D">Description</text>
+      <text x="320" y="152" font-size="13" font-weight="700" fill="#DE350B">YES</text>
+      <text x="520" y="152" font-size="13" fill="#172B4D">Rich text · min 100 chars</text>
+      <text x="1240" y="146" font-size="12" fill="#172B4D">Describes the <tspan font-style="italic">problem, not the solution</tspan></text>
+      <text x="1240" y="164" font-size="11" fill="#6B778C">Context · current pain · who is affected · what blocks</text>
+      <text x="1820" y="152" font-size="12" fill="#172B4D">Triage decision input</text>
+
+      <!-- Business Value -->
+      <rect y="176" width="2280" height="60" fill="#F4F5F7"/>
+      <text x="20" y="200" font-size="14" font-weight="800" fill="#172B4D">Business Value</text>
+      <text x="320" y="212" font-size="13" font-weight="700" fill="#DE350B">YES</text>
+      <text x="520" y="212" font-size="13" fill="#172B4D">Rich text + numeric BV component (1–5)</text>
+      <text x="1240" y="206" font-size="12" fill="#172B4D">Quantify outcome — revenue · cost · NPS · SLA · safety</text>
+      <text x="1240" y="224" font-size="11" fill="#6B778C">BV component 1–5 used in Pain Score formula</text>
+      <text x="1820" y="212" font-size="12" fill="#172B4D">Pain Score input</text>
+
+      <!-- Acceptance Criteria -->
+      <rect y="236" width="2280" height="60" fill="#FFFFFF"/>
+      <text x="20" y="260" font-size="14" font-weight="800" fill="#172B4D">Acceptance Criteria</text>
+      <text x="320" y="272" font-size="13" font-weight="700" fill="#DE350B">YES</text>
+      <text x="520" y="272" font-size="13" fill="#172B4D">Rich text · checklist format</text>
+      <text x="1240" y="266" font-size="12" fill="#172B4D">Measurable, verifiable conditions for done</text>
+      <text x="1240" y="284" font-size="11" fill="#6B778C">Each item must be testable</text>
+      <text x="1820" y="272" font-size="12" fill="#172B4D">DoD reference</text>
+
+      <!-- Value Stream / Domain -->
+      <rect y="296" width="2280" height="80" fill="#FFF7E0"/>
+      <text x="20" y="324" font-size="14" font-weight="800" fill="#172B4D">Value Stream / Domain  ⭐</text>
+      <text x="20" y="344" font-size="11" fill="#F08A3E" font-style="italic">routes the ticket</text>
+      <text x="320" y="336" font-size="13" font-weight="700" fill="#DE350B">YES</text>
+      <text x="520" y="324" font-size="13" font-weight="700" fill="#0747A6">Single-select dropdown · 7 options</text>
+      <text x="520" y="344" font-size="11" fill="#172B4D">ITBA: GIS · Corporate · G&amp;E · Global SAP</text>
+      <text x="520" y="358" font-size="11" fill="#172B4D">CS: M2C-SL · M2C-RO · CCC</text>
+      <text x="1240" y="336" font-size="12" fill="#172B4D">Auto-routes to portfolio board · auto-notifies Champion</text>
+      <text x="1820" y="336" font-size="12" fill="#172B4D">Auto-Routing (A1)</text>
+
+      <!-- Type -->
+      <rect y="376" width="2280" height="60" fill="#F4F5F7"/>
+      <text x="20" y="400" font-size="14" font-weight="800" fill="#172B4D">Type</text>
+      <text x="320" y="412" font-size="13" font-weight="700" fill="#DE350B">YES</text>
+      <text x="520" y="412" font-size="13" fill="#172B4D">Single-select · Demand · Incident · Change</text>
+      <text x="1240" y="412" font-size="12" fill="#172B4D">Incidents bypass Gates · go directly to squad</text>
+      <text x="1820" y="412" font-size="12" fill="#172B4D">Path branching</text>
+
+      <!-- Size -->
+      <rect y="436" width="2280" height="60" fill="#FFFFFF"/>
+      <text x="20" y="460" font-size="14" font-weight="800" fill="#172B4D">Size</text>
+      <text x="320" y="472" font-size="13" font-weight="700" fill="#DE350B">YES</text>
+      <text x="520" y="472" font-size="13" fill="#172B4D">Single-select · Small · Medium · Large</text>
+      <text x="1240" y="466" font-size="12" fill="#172B4D">Effort threshold: Small &lt; 5 days · Medium 5–20 · Large &gt; 20</text>
+      <text x="1240" y="484" font-size="11" fill="#6B778C">Small + &lt; 2 days effort skips Gate 2 (Path C)</text>
+      <text x="1820" y="472" font-size="12" fill="#172B4D">Gate skip rules (A5)</text>
+
+      <!-- Class of Service -->
+      <rect y="496" width="2280" height="80" fill="#FFF7E0"/>
+      <text x="20" y="524" font-size="14" font-weight="800" fill="#172B4D">Class of Service  ⭐</text>
+      <text x="20" y="544" font-size="11" fill="#F08A3E" font-style="italic">defines swimlane</text>
+      <text x="320" y="536" font-size="13" font-weight="700" fill="#DE350B">YES</text>
+      <text x="520" y="524" font-size="13" font-weight="700" fill="#0747A6">Single-select · 4 options</text>
+      <text x="520" y="544" font-size="11" fill="#172B4D">Standard · Fixed-Date · Expedite · Intangible</text>
+      <text x="520" y="558" font-size="11" fill="#6B778C" font-style="italic">Initial best-guess at intake; finalized at Triage</text>
+      <text x="1240" y="536" font-size="12" fill="#172B4D">Auto-Expedite if Customer Impact Tier ∈ {P1, P2}</text>
+      <text x="1240" y="554" font-size="11" fill="#6B778C">Auto-Fixed-Date if Regulatory flag = TRUE</text>
+      <text x="1820" y="536" font-size="12" fill="#172B4D">Squad swimlane + WIP</text>
+
+      <!-- Work Type -->
+      <rect y="576" width="2280" height="60" fill="#F4F5F7"/>
+      <text x="20" y="600" font-size="14" font-weight="800" fill="#172B4D">Work Type</text>
+      <text x="320" y="612" font-size="13" font-weight="700" fill="#DE350B">YES</text>
+      <text x="520" y="612" font-size="13" fill="#172B4D">Single-select · BAU · Build · Upgrade</text>
+      <text x="1240" y="606" font-size="12" fill="#172B4D">BAU bypasses Gate 1 · Build/Transform require Gate 1 (if Large)</text>
+      <text x="1240" y="624" font-size="11" fill="#6B778C">Drives portfolio mix tracking</text>
+      <text x="1820" y="612" font-size="12" fill="#172B4D">Gate 1 trigger</text>
+
+      <!-- Run/Grow/Transform -->
+      <rect y="636" width="2280" height="60" fill="#FFFFFF"/>
+      <text x="20" y="660" font-size="14" font-weight="800" fill="#172B4D">Run / Grow / Transform</text>
+      <text x="320" y="672" font-size="13" font-weight="700" fill="#DE350B">YES</text>
+      <text x="520" y="672" font-size="13" fill="#172B4D">Single-select · 3 options</text>
+      <text x="1240" y="666" font-size="12" fill="#172B4D">Default mix per VS-1: ~50 / 35 / 15 % (CS doc)</text>
+      <text x="1240" y="684" font-size="11" fill="#6B778C">Tracked at portfolio level for capacity planning</text>
+      <text x="1820" y="672" font-size="12" fill="#172B4D">Strategic mix tracking</text>
+
+      <!-- Customer Impact Tier -->
+      <rect y="696" width="2280" height="80" fill="#FFF7E0"/>
+      <text x="20" y="724" font-size="14" font-weight="800" fill="#172B4D">Customer Impact Tier  ⭐</text>
+      <text x="20" y="744" font-size="11" fill="#F08A3E" font-style="italic">CS only · drives Auto-Expedite</text>
+      <text x="320" y="736" font-size="13" fill="#172B4D" font-weight="700">CONDITIONAL  (CS only)</text>
+      <text x="520" y="724" font-size="13" font-weight="700" fill="#0747A6">Single-select · P1 / P2 / P3 / P4</text>
+      <text x="520" y="744" font-size="11" fill="#172B4D">P1 Critical · P2 High · P3 Medium · P4 Low</text>
+      <text x="520" y="758" font-size="11" fill="#6B778C" font-style="italic">From CS Slide 3: customer-facing severity</text>
+      <text x="1240" y="736" font-size="12" fill="#172B4D">P1/P2 → automatic Class of Service = Expedite (A2)</text>
+      <text x="1820" y="736" font-size="12" fill="#172B4D">Auto-Expedite (A2)</text>
+
+      <!-- Regulatory flag -->
+      <rect y="776" width="2280" height="80" fill="#FFF7E0"/>
+      <text x="20" y="804" font-size="14" font-weight="800" fill="#172B4D">Regulatory flag  ⭐</text>
+      <text x="20" y="824" font-size="11" fill="#F08A3E" font-style="italic">drives Path B</text>
+      <text x="320" y="816" font-size="13" fill="#172B4D" font-weight="700">CONDITIONAL  (true if regulated)</text>
+      <text x="520" y="804" font-size="13" font-weight="700" fill="#0747A6">Checkbox · with sub-fields when TRUE</text>
+      <text x="520" y="824" font-size="11" fill="#172B4D">Sub: Regulator (FERC · NERC · OSHA · State PUC · EPA · Other)</text>
+      <text x="520" y="838" font-size="11" fill="#172B4D">Sub: Regulatory deadline (date · required if Regulatory=TRUE)</text>
+      <text x="1240" y="816" font-size="12" fill="#172B4D">Auto-Fixed-Date CoS · Sponsor must be Compliance/Legal</text>
+      <text x="1820" y="816" font-size="12" fill="#172B4D">Auto-Fixed-Date (A3)</text>
+
+      <!-- OPCO -->
+      <rect y="856" width="2280" height="60" fill="#F4F5F7"/>
+      <text x="20" y="880" font-size="14" font-weight="800" fill="#172B4D">OPCO</text>
+      <text x="320" y="892" font-size="13" font-weight="700" fill="#DE350B">YES</text>
+      <text x="520" y="892" font-size="13" fill="#172B4D">Single-select · UIL · CMP · NY</text>
+      <text x="1240" y="892" font-size="12" fill="#172B4D">Determines local stakeholder routing</text>
+      <text x="1820" y="892" font-size="12" fill="#172B4D">Reporting filter</text>
+
+      <!-- Sponsor -->
+      <rect y="916" width="2280" height="60" fill="#FFFFFF"/>
+      <text x="20" y="940" font-size="14" font-weight="800" fill="#172B4D">Sponsor</text>
+      <text x="320" y="952" font-size="13" font-weight="700" fill="#DE350B">YES</text>
+      <text x="520" y="952" font-size="13" fill="#172B4D">User picker</text>
+      <text x="1240" y="946" font-size="12" fill="#172B4D">Business owner accountable for outcome</text>
+      <text x="1240" y="964" font-size="11" fill="#6B778C">If Regulatory=TRUE → Sponsor must be from Compliance/Legal</text>
+      <text x="1820" y="952" font-size="12" fill="#172B4D">Gate 1 attendance</text>
+
+      <!-- Requested Due Date -->
+      <rect y="976" width="2280" height="60" fill="#F4F5F7"/>
+      <text x="20" y="1000" font-size="14" font-weight="800" fill="#172B4D">Requested Due Date</text>
+      <text x="320" y="1012" font-size="13" fill="#0F4A6B" font-weight="700">CONDITIONAL  (mandatory if CoS = Fixed-Date)</text>
+      <text x="520" y="1006" font-size="13" fill="#172B4D">Date picker (YYYY-MM-DD)</text>
+      <text x="1240" y="1006" font-size="12" fill="#172B4D">If &lt; 30 days from today → also Auto-Expedite escalation</text>
+      <text x="1820" y="1006" font-size="12" fill="#172B4D">SLA / aging trigger</text>
+
+      <!-- Pain Score -->
+      <rect y="1036" width="2280" height="60" fill="#0E2240"/>
+      <text x="20" y="1060" font-size="14" font-weight="800" fill="#F4C988">Pain Score  (computed)</text>
+      <text x="320" y="1072" font-size="13" font-weight="700" fill="#9FB3D1">READ-ONLY</text>
+      <text x="520" y="1066" font-size="13" font-weight="700" fill="#FFFFFF">H(x) = (BV·w₁ + UX·w₂ + Safety·w₃) / Effort</text>
+      <text x="520" y="1086" font-size="11" fill="#9FB3D1">CS: w₁=0.35 · w₂=0.40 · w₃=0.25 (UX-heavy)</text>
+      <text x="1240" y="1066" font-size="12" fill="#FFFFFF">Auto-computed at TRIAGED status</text>
+      <text x="1820" y="1066" font-size="12" fill="#FFFFFF">Backlog ranking</text>
+    </g>
+  </g>
+
+  <text x="60" y="1320" font-size="11" fill="#6F87A8">Source: CS Proposed Value Streams Slide 3 · Renewables DTO Slide 33 · Pain Score formula from Prioritization Criteria doc · Pain Point Evidence Matrix Slide 41</text>
+  <text x="2340" y="1320" text-anchor="end" font-size="11" fill="#6F87A8">09 / 12</text>
+</svg>

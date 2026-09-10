@@ -1,0 +1,107 @@
+/* Scene */
+.scene{
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -15%,rgba(0,82,155,.12),transparent 70%),
+    radial-gradient(ellipse 50% 40% at 85% 100%,rgba(120,190,32,.07),transparent),
+    #02111e;
+  position:relative;
+}
+
+/* Glass card */
+.card{
+  background:rgba(4,22,44,.8);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:16px;
+  padding:28px;
+}
+.card:hover{border-color:rgba(255,255,255,.10)}
+
+/* Avangrid gradients */
+.text-ag{background:linear-gradient(135deg,#78BE20,#00a86b 50%,#00529B);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.text-ar{background:linear-gradient(135deg,#F7941D,#e85555);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* Phase bar */
+.phase{
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  border-radius:12px;padding:16px 8px;text-align:center;
+  transition:all .4s ease;position:relative;overflow:hidden;
+}
+.phase .fill{
+  position:absolute;left:0;top:0;bottom:0;border-radius:12px;
+  transition:width .15s linear;
+}
+.phase .label{position:relative;z-index:1}
+
+/* Metric counter */
+.metric{
+  text-align:center;padding:24px 16px;border-radius:14px;
+  background:rgba(4,22,44,.8);border:1px solid rgba(255,255,255,.05);
+}
+
+/* Aurora effect */
+.aurora {
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  right: -20%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(0,82,155,.08) 30%,
+    rgba(120,190,32,.06) 40%,
+    rgba(247,148,29,.05) 50%,
+    rgba(120,190,32,.06) 60%,
+    rgba(0,82,155,.08) 70%,
+    transparent 80%
+  );
+  background-size: 200% 200%;
+  animation: auroraMove 8s ease-in-out infinite;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes auroraMove {
+  0% { background-position: 0% 50%; transform: rotate(-3deg) translateY(0); }
+  33% { background-position: 50% 30%; transform: rotate(-1deg) translateY(-20px); }
+  66% { background-position: 100% 60%; transform: rotate(-4deg) translateY(10px); }
+  100% { background-position: 0% 50%; transform: rotate(-3deg) translateY(0); }
+}
+
+/* Animated border gradient for cards */
+.card-glow {
+  position: relative;
+}
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 17px;
+  background: linear-gradient(135deg, rgba(0,82,155,.2), rgba(120,190,32,.15), rgba(247,148,29,.1), transparent, transparent);
+  background-size: 300% 300%;
+  animation: borderGlow 6s ease infinite;
+  z-index: -1;
+  opacity: .5;
+}
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Pulse ring behind title */
+.pulse-ring {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(120,190,32,.1);
+  animation: pulseRing 4s ease-out infinite;
+}
+@keyframes pulseRing {
+  0% { transform: scale(.8); opacity: .3; }
+  50% { transform: scale(1.2); opacity: 0; }
+  100% { transform: scale(.8); opacity: .3; }
+}

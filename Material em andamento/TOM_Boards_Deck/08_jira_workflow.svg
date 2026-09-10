@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1F3458"/>
+    </pattern>
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.40"/>
+    </filter>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#4A90B8"/>
+    </marker>
+  </defs>
+
+  <rect width="2400" height="1350" fill="#0E2240"/>
+  <rect width="2400" height="1350" fill="url(#dotgrid)" opacity="0.5"/>
+
+  <text x="60" y="68" font-size="14" font-weight="700" fill="#F08A3E" letter-spacing="3">08  ·  JIRA WORKFLOW</text>
+  <text x="60" y="118" font-size="40" font-weight="800" fill="#FFFFFF">Jira Statuses · Transitions · Automations</text>
+  <text x="60" y="148" font-size="16" fill="#9FB3D1">Single workflow for all 7 squads · auto-routing by Value Stream · auto-CoS by Customer Impact Tier · auto-Pain Score</text>
+
+  <!-- Status flow (top) -->
+  <g transform="translate(60,200)" filter="url(#cardShadow)">
+    <rect width="2280" height="280" rx="12" fill="#15304F" stroke="#4A90B8" stroke-width="2"/>
+    <rect width="2280" height="50" rx="12" fill="#4A90B8"/>
+    <text x="20" y="34" font-size="20" font-weight="800" fill="#FFFFFF">STATUS FLOW · 9 statuses · valid transitions</text>
+
+    <g transform="translate(40,80)">
+      <!-- Statuses as horizontal pills -->
+      <g>
+        <rect width="200" height="60" rx="30" fill="#9FB3D1"/>
+        <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#0E2240">NEW</text>
+        <text x="100" y="48" text-anchor="middle" font-size="10" fill="#0E2240">just created</text>
+      </g>
+
+      <line x1="200" y1="110" x2="240" y2="110" stroke="#4A90B8" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+      <g transform="translate(250,0)">
+        <rect width="200" height="60" rx="30" fill="#FFAB00"/>
+        <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#0E2240">ROUTED</text>
+        <text x="100" y="48" text-anchor="middle" font-size="10" fill="#0E2240">VS auto-assigned</text>
+      </g>
+
+      <line x1="450" y1="110" x2="490" y2="110" stroke="#4A90B8" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+      <g transform="translate(500,0)">
+        <rect width="200" height="60" rx="30" fill="#FF8B00"/>
+        <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">TRIAGED</text>
+        <text x="100" y="48" text-anchor="middle" font-size="10" fill="#FFFFFF">DoR passed</text>
+      </g>
+
+      <line x1="700" y1="110" x2="740" y2="110" stroke="#4A90B8" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+      <g transform="translate(750,0)">
+        <rect width="200" height="60" rx="30" fill="#0747A6"/>
+        <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">BACKLOG</text>
+        <text x="100" y="48" text-anchor="middle" font-size="10" fill="#FFFFFF">Pain Score ranked</text>
+      </g>
+
+      <line x1="950" y1="110" x2="990" y2="110" stroke="#4A90B8" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+      <g transform="translate(1000,0)">
+        <rect width="200" height="60" rx="30" fill="#7C3AED"/>
+        <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">GATE1_PASSED</text>
+        <text x="100" y="48" text-anchor="middle" font-size="10" fill="#FFFFFF">Build/Transform only</text>
+      </g>
+
+      <line x1="1200" y1="110" x2="1240" y2="110" stroke="#4A90B8" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+      <g transform="translate(1250,0)">
+        <rect width="200" height="60" rx="30" fill="#36B37E"/>
+        <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">READY_FOR_EXEC</text>
+        <text x="100" y="48" text-anchor="middle" font-size="10" fill="#FFFFFF">Gate 2 approved</text>
+      </g>
+
+      <line x1="1450" y1="110" x2="1490" y2="110" stroke="#4A90B8" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+      <g transform="translate(1500,0)">
+        <rect width="200" height="60" rx="30" fill="#5DA460"/>
+        <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">IN_PROGRESS</text>
+        <text x="100" y="48" text-anchor="middle" font-size="10" fill="#FFFFFF">squad-level WIP</text>
+      </g>
+
+      <line x1="1700" y1="110" x2="1740" y2="110" stroke="#4A90B8" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+      <g transform="translate(1750,0)">
+        <rect width="200" height="60" rx="30" fill="#1F5722"/>
+        <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">REVIEW</text>
+        <text x="100" y="48" text-anchor="middle" font-size="10" fill="#FFFFFF">UAT / vendor handoff</text>
+      </g>
+
+      <line x1="1950" y1="110" x2="1990" y2="110" stroke="#4A90B8" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+      <g transform="translate(2000,0)">
+        <rect width="200" height="60" rx="30" fill="#0E2240" stroke="#36B37E" stroke-width="3"/>
+        <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#36B37E">DONE</text>
+        <text x="100" y="48" text-anchor="middle" font-size="10" fill="#36B37E">released</text>
+      </g>
+    </g>
+
+    <!-- Side branches -->
+    <g transform="translate(40,170)" font-size="12" fill="#FFFFFF">
+      <text x="0" y="0" font-size="13" font-weight="800" fill="#FFAB00" letter-spacing="1">SIDE TRANSITIONS</text>
+      <text x="0" y="22" font-weight="700">BOUNCED</text>
+      <text x="80" y="22">— from TRIAGED if DoR fails · auto-reassign to Requestor with bounce reason</text>
+      <text x="0" y="42" font-weight="700">REJECTED</text>
+      <text x="80" y="42">— from BACKLOG/GATE1 if Shark Tank Go/No-Go = No-Go · archived with rationale</text>
+      <text x="0" y="62" font-weight="700">BLOCKED</text>
+      <text x="80" y="62">— from IN_PROGRESS if dependency · auto-tag in Daily Flow Review</text>
+      <text x="0" y="82" font-weight="700">EXPEDITE_LANE</text>
+      <text x="120" y="82">— shortcut from TRIAGED to IN_PROGRESS (skip Backlog/Gates) for P1/P2 + production outage</text>
+    </g>
+  </g>
+
+  <!-- Automations -->
+  <g transform="translate(60,500)" filter="url(#cardShadow)">
+    <rect width="1140" height="780" rx="12" fill="#15304F" stroke="#5DA460" stroke-width="2"/>
+    <rect width="1140" height="50" rx="12" fill="#5DA460"/>
+    <text x="20" y="34" font-size="20" font-weight="800" fill="#FFFFFF">AUTOMATIONS · "if-this-then-that" rules</text>
+
+    <g transform="translate(20,70)">
+      <!-- Automation 1 -->
+      <rect width="1100" height="100" rx="8" fill="#0E2240" stroke="#5DA460"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#5DA460" letter-spacing="1">A1 · AUTO-ROUTING</text>
+      <text x="14" y="48" font-size="13" fill="#FFFFFF"><tspan font-weight="700">Trigger:</tspan> Value Stream / Domain field selected at creation</text>
+      <text x="14" y="68" font-size="13" fill="#FFFFFF"><tspan font-weight="700">Action:</tspan> Move to ROUTED · assign to portfolio board · notify Champion via @mention</text>
+      <text x="14" y="88" font-size="11" font-style="italic" fill="#9FB3D1">Map: GIS/Corporate/G&amp;E/Global SAP → ITBA boards · M2C-SL/M2C-RO/CCC → CS board</text>
+    </g>
+
+    <g transform="translate(20,184)">
+      <rect width="1100" height="100" rx="8" fill="#0E2240" stroke="#B83567"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#B83567" letter-spacing="1">A2 · AUTO-EXPEDITE</text>
+      <text x="14" y="48" font-size="13" fill="#FFFFFF"><tspan font-weight="700">Trigger:</tspan> Customer Impact Tier = P1 (Critical) OR P2 (High) at creation</text>
+      <text x="14" y="68" font-size="13" fill="#FFFFFF"><tspan font-weight="700">Action:</tspan> Force Class of Service = Expedite · skip BACKLOG · move directly to EXPEDITE_LANE</text>
+      <text x="14" y="88" font-size="11" font-style="italic" fill="#FCD2DD">Notify squad Tech Lead + duty engineer · WIP-1 enforced · escalate if aging &gt; 4h</text>
+    </g>
+
+    <g transform="translate(20,298)">
+      <rect width="1100" height="100" rx="8" fill="#0E2240" stroke="#FFAB00"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#FFAB00" letter-spacing="1">A3 · AUTO-FIXED-DATE  (Regulatory)</text>
+      <text x="14" y="48" font-size="13" fill="#FFFFFF"><tspan font-weight="700">Trigger:</tspan> Regulatory flag = TRUE at creation</text>
+      <text x="14" y="68" font-size="13" fill="#FFFFFF"><tspan font-weight="700">Action:</tspan> Force Class of Service = Fixed-Date · require Sponsor from Compliance/Legal · skip Gate 1</text>
+      <text x="14" y="88" font-size="11" font-style="italic" fill="#FFE5A8">If Requested Due Date &lt; 30 days → also auto-Expedite escalation · notify Portfolio Committee out-of-band</text>
+    </g>
+
+    <g transform="translate(20,412)">
+      <rect width="1100" height="100" rx="8" fill="#0E2240" stroke="#7C3AED"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#D4C4E8" letter-spacing="1">A4 · AUTO-PAIN-SCORE</text>
+      <text x="14" y="48" font-size="13" fill="#FFFFFF"><tspan font-weight="700">Trigger:</tspan> Status changes to TRIAGED</text>
+      <text x="14" y="68" font-size="13" fill="#FFFFFF"><tspan font-weight="700">Action:</tspan> Compute H(x) = (BV·w₁ + UX·w₂ + Safety·w₃) / Effort · update card rank · sort backlog</text>
+      <text x="14" y="88" font-size="11" font-style="italic" fill="#D4C4E8">Weights configurable per VS · CS uses w₁=0.35, w₂=0.40, w₃=0.25 (UX-heavy)</text>
+    </g>
+
+    <g transform="translate(20,526)">
+      <rect width="1100" height="100" rx="8" fill="#0E2240" stroke="#36B37E"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#36B37E" letter-spacing="1">A5 · AUTO-GATE-SKIP  (size-conditional)</text>
+      <text x="14" y="48" font-size="13" fill="#FFFFFF"><tspan font-weight="700">Trigger:</tspan> Size + Work Type combination at TRIAGED</text>
+      <text x="14" y="68" font-size="13" fill="#FFFFFF"><tspan font-weight="700">Action:</tspan> Skip Gate 1 (Build/Transform only requires it) · skip Gate 2 if Size=Small AND effort &lt; 2 days</text>
+      <text x="14" y="88" font-size="11" font-style="italic" fill="#A8E6C2">BAU and Run items always skip Gate 1 · Expedite skips both gates</text>
+    </g>
+
+    <g transform="translate(20,640)">
+      <rect width="1100" height="100" rx="8" fill="#0E2240" stroke="#9FB3D1"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#9FB3D1" letter-spacing="1">A6 · AGING ALERT</text>
+      <text x="14" y="48" font-size="13" fill="#FFFFFF"><tspan font-weight="700">Trigger:</tspan> Card aging exceeds CoS-specific threshold</text>
+      <text x="14" y="68" font-size="13" fill="#FFFFFF"><tspan font-weight="700">Action:</tspan> Slack/email Squad Lead + PM steward · escalate to board owner if no movement</text>
+      <text x="14" y="88" font-size="11" font-style="italic" fill="#9FB3D1">Thresholds: Expedite 4h · Fixed-Date 50% of remaining timeline · Standard 14 days · Intangible 90 days</text>
+    </g>
+  </g>
+
+  <!-- Right column: Required custom fields -->
+  <g transform="translate(1220,500)" filter="url(#cardShadow)">
+    <rect width="1120" height="780" rx="12" fill="#15304F" stroke="#E8A24C" stroke-width="2"/>
+    <rect width="1120" height="50" rx="12" fill="#E8A24C"/>
+    <text x="20" y="34" font-size="20" font-weight="800" fill="#5A3A0E">REQUIRED JIRA CUSTOMIZATION</text>
+
+    <g transform="translate(20,70)">
+      <text x="0" y="20" font-size="14" font-weight="800" fill="#F4C988" letter-spacing="1">CUSTOM FIELDS (new)</text>
+      <text x="0" y="46" font-size="13" fill="#FFFFFF">  • Value Stream / Domain  (Single-select)</text>
+      <text x="0" y="68" font-size="13" fill="#FFFFFF">  • Class of Service  (Single-select · 4 options)</text>
+      <text x="0" y="90" font-size="13" fill="#FFFFFF">  • Customer Impact Tier  (Single-select · P1–P4 · CS only)</text>
+      <text x="0" y="112" font-size="13" fill="#FFFFFF">  • Work Type  (Single-select · BAU / Build / Upgrade)</text>
+      <text x="0" y="134" font-size="13" fill="#FFFFFF">  • Run/Grow/Transform  (Single-select)</text>
+      <text x="0" y="156" font-size="13" fill="#FFFFFF">  • OPCO  (Single-select · UIL / CMP / NY)</text>
+      <text x="0" y="178" font-size="13" fill="#FFFFFF">  • Sponsor  (User picker)</text>
+      <text x="0" y="200" font-size="13" fill="#FFFFFF">  • Regulatory flag  (Checkbox · with sub-fields if true)</text>
+      <text x="0" y="222" font-size="13" fill="#FFFFFF">  • Pain Score components  (BV · UX · Safety · Effort · numeric 1–5)</text>
+      <text x="0" y="244" font-size="13" fill="#FFFFFF">  • Pain Score (computed)  (numeric · read-only · auto-updated)</text>
+      <text x="0" y="266" font-size="13" fill="#FFFFFF">  • Champion  (User picker · auto-populated by VS)</text>
+      <text x="0" y="288" font-size="13" fill="#FFFFFF">  • Vendor  (Multi-select · Avangrid / Lemur / Accenture / Medallia / IVR / SWF / etc.)</text>
+    </g>
+
+    <g transform="translate(20,400)">
+      <text x="0" y="20" font-size="14" font-weight="800" fill="#F4C988" letter-spacing="1">SCHEMES &amp; PROJECTS</text>
+      <text x="0" y="46" font-size="13" fill="#FFFFFF">  • Single Jira project: <tspan font-weight="700">DGTL-PROD</tspan></text>
+      <text x="0" y="68" font-size="13" fill="#FFFFFF">  • 1 issue type: <tspan font-weight="700">Demand</tspan>  (with Initiative · Epic · Story · Sub-task · Bug)</text>
+      <text x="0" y="90" font-size="13" fill="#FFFFFF">  • 3 boards mapped via JQL (one per VS)</text>
+      <text x="0" y="112" font-size="13" fill="#FFFFFF">  • 7 squad boards mapped via JQL (one per squad)</text>
+      <text x="0" y="134" font-size="13" fill="#FFFFFF">  • Permission scheme: Champion can edit · Requestor can comment</text>
+      <text x="0" y="156" font-size="13" fill="#FFFFFF">  • Notification scheme: Sponsor mentioned at gates · auto-Slack at Expedite</text>
+    </g>
+
+    <g transform="translate(20,580)">
+      <rect width="1080" height="170" rx="8" fill="#0E2240" stroke="#FFAB00"/>
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#FFAB00" letter-spacing="1">⚠ MIGRATION CONSIDERATIONS</text>
+      <text x="14" y="48" font-size="12" fill="#FFFFFF">• Existing Jira projects per area must be archived or merged into single DGTL-PROD project</text>
+      <text x="14" y="68" font-size="12" fill="#FFFFFF">• IT Now incidents continue to live in IT Now (CCC + Smart Metering only) — no migration needed</text>
+      <text x="14" y="88" font-size="12" fill="#FFFFFF">• PDD large projects: SharePoint stays as artifact repo · Jira holds the ticket of record (Initiative)</text>
+      <text x="14" y="108" font-size="12" fill="#FFFFFF">• RITM (minor requests Iberdrola) flows in via integration — not migrated</text>
+      <text x="14" y="132" font-size="11" font-style="italic" fill="#FFE5A8">Coexistence period during migration: 90 days · dual-track until Vitor sign-off on cut-over</text>
+    </g>
+  </g>
+
+  <text x="60" y="1320" font-size="11" fill="#6F87A8">Source: Renewables DTO Slide 33 · CS Proposed Value Streams Slide 3 · Pain Score formula from Prioritization Criteria doc</text>
+  <text x="2340" y="1320" text-anchor="end" font-size="11" fill="#6F87A8">08 / 12</text>
+</svg>

@@ -1,0 +1,56 @@
+{
+  "_comment": "Eight NEW custom fields. Use REST POST /rest/api/3/field once per item. searcherKey is the default for the chosen type — adjust if your instance prefers different searchers. After creation, options for selectlist fields must be added via POST /rest/api/3/field/{fieldId}/context/{contextId}/option (see field_options.json).",
+  "_endpoint": "POST /rest/api/3/field",
+  "_naming_convention": "DP prefix groups them in admin UI; underscore-prefixed key suggested via description tag",
+
+  "items": [
+    {
+      "name": "DP Value Stream Destination",
+      "description": "dp_value_stream_destination · Single-select · 10 Value Streams (5 ITBA + 4 CS DVS + 1 Enabling). Filled by Requester at intake.",
+      "type": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+      "searcherKey": "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+    },
+    {
+      "name": "DP Sponsor",
+      "description": "dp_sponsor · User picker · mandatory at intake. Person who agrees to be accountable for outcome.",
+      "type": "com.atlassian.jira.plugin.system.customfieldtypes:userpicker",
+      "searcherKey": "com.atlassian.jira.plugin.system.customfieldtypes:userpickergroupsearcher"
+    },
+    {
+      "name": "DP Run / Grow / Transform",
+      "description": "dp_run_grow_transform · Single-select · Strategic lens · separate from Type taxonomy.",
+      "type": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+      "searcherKey": "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+    },
+    {
+      "name": "DP Pain Score",
+      "description": "dp_pain_score · Number · READ-ONLY · auto-computed by automation A4. ITBA: (BV·OPCOmult·0.45 + UX·0.30 + Safety·0.25)/Effort. CS: (BV·OPCOmult·0.40 + UX·0.60)/Effort.",
+      "type": "com.atlassian.jira.plugin.system.customfieldtypes:float",
+      "searcherKey": "com.atlassian.jira.plugin.system.customfieldtypes:exactnumber"
+    },
+    {
+      "name": "DP UX Score",
+      "description": "dp_ux_score · Number 1–5 · scored by PM at Analyzing.",
+      "type": "com.atlassian.jira.plugin.system.customfieldtypes:float",
+      "searcherKey": "com.atlassian.jira.plugin.system.customfieldtypes:exactnumber"
+    },
+    {
+      "name": "DP OPCO Multiplier",
+      "description": "dp_opco_multiplier · Number · READ-ONLY · auto-set by A4: 1.0 (single OpCo), 1.3 (2–4 OpCos), 1.6 (all 5+ OpCos).",
+      "type": "com.atlassian.jira.plugin.system.customfieldtypes:float",
+      "searcherKey": "com.atlassian.jira.plugin.system.customfieldtypes:exactnumber"
+    },
+    {
+      "name": "DP Concept Prototype",
+      "description": "dp_concept_prototype · Text/URL · attachment-style link · required for Transform-class items.",
+      "type": "com.atlassian.jira.plugin.system.customfieldtypes:textfield",
+      "searcherKey": "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+    },
+    {
+      "name": "DP Class of Service",
+      "description": "dp_class_of_service · Single-select · Standard · Fixed-Date · Expedite · Intangible. Drives swim-lane on boards. Set by automations A2/A3 or by PM at Reviewing.",
+      "type": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+      "searcherKey": "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+    }
+  ]
+}

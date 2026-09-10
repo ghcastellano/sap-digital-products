@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+
+  <rect width="2400" height="1350" fill="#FFFFFF"/>
+
+  <!-- Header band (NTT DATA blue) -->
+  <rect width="2400" height="120" fill="#3B6E8F"/>
+  <text x="40" y="50" font-size="28" font-weight="800" fill="#FFFFFF">TO-BE DEMAND FLOW · CUSTOMER SERVICES</text>
+  <text x="40" y="86" font-size="14" font-weight="700" fill="#FFFFFF">ONE JIRA FRONT DOOR ROUTES CS DEMAND INTO 1 OPERATIONAL VS (METER-2-CASH) + 4 DEVELOPMENT VS + 1 ENABLING TEAM</text>
+  <text x="2360" y="56" text-anchor="end" font-size="20" font-weight="800" fill="#FFFFFF">NTT  DATA</text>
+
+  <!-- Subtitle -->
+  <text x="40" y="160" font-size="14" font-style="italic" font-weight="600" fill="#172B4D">Single intake form per Value Stream — every requester opens a Jira card with mandatory fields. The form auto-routes to the right DVS or Enabling Team and applies a Class of Service.</text>
+
+  <!-- ============ COLUMN HEADERS ============ -->
+  <!-- 4 columns: x = 40 / 620 / 1200 / 1780 / each width 540, gutter 40 -->
+  <!-- Col 1 -->
+  <g transform="translate(40,200)">
+    <rect width="540" height="80" rx="4" fill="#0F2A47"/>
+    <text x="270" y="38" text-anchor="middle" font-size="22" font-weight="800" fill="#FFFFFF">01 · SOURCES</text>
+    <text x="270" y="62" text-anchor="middle" font-size="12" font-style="italic" fill="#F4C988">Who sends CS demand</text>
+  </g>
+
+  <!-- Col 2 -->
+  <g transform="translate(620,200)">
+    <rect width="540" height="80" rx="4" fill="#0F2A47"/>
+    <text x="270" y="38" text-anchor="middle" font-size="22" font-weight="800" fill="#FFFFFF">02 · INTAKE FORM (JIRA)</text>
+    <text x="270" y="62" text-anchor="middle" font-size="12" font-style="italic" fill="#F4C988">Mandatory fields capture intent</text>
+  </g>
+
+  <!-- Col 3 -->
+  <g transform="translate(1200,200)">
+    <rect width="540" height="80" rx="4" fill="#0F2A47"/>
+    <text x="270" y="38" text-anchor="middle" font-size="22" font-weight="800" fill="#FFFFFF">03 · OPERATIONAL VS</text>
+    <text x="270" y="62" text-anchor="middle" font-size="12" font-style="italic" fill="#F4C988">End-to-end customer outcome</text>
+  </g>
+
+  <!-- Col 4 -->
+  <g transform="translate(1780,200)">
+    <rect width="580" height="80" rx="4" fill="#0F2A47"/>
+    <text x="290" y="38" text-anchor="middle" font-size="22" font-weight="800" fill="#FFFFFF">04 · DEVELOPMENT VS + ENABLING</text>
+    <text x="290" y="62" text-anchor="middle" font-size="12" font-style="italic" fill="#F4C988">Auto-routed to one of five</text>
+  </g>
+
+  <!-- ============ COLUMN 1 — SOURCES ============ -->
+  <g transform="translate(40,300)">
+    <!-- 7 CS-relevant sources -->
+    <g>
+      <rect width="540" height="70" rx="4" fill="#3B6E8F"/>
+      <text x="270" y="42" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">BRS · OPCO Call Centers (UIL · CMP · NY)</text>
+    </g>
+    <g transform="translate(0,86)">
+      <rect width="540" height="70" rx="4" fill="#3B6E8F"/>
+      <text x="270" y="42" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">Customer Operations (Heather LaJoie)</text>
+    </g>
+    <g transform="translate(0,172)">
+      <rect width="540" height="70" rx="4" fill="#3B6E8F"/>
+      <text x="270" y="42" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">CX &amp; Digital CoE</text>
+    </g>
+    <g transform="translate(0,258)">
+      <rect width="540" height="70" rx="4" fill="#3B6E8F"/>
+      <text x="270" y="42" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">Smart Metering Program (CT · ME · NY)</text>
+    </g>
+    <g transform="translate(0,344)">
+      <rect width="540" height="70" rx="4" fill="#3B6E8F"/>
+      <text x="270" y="42" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">Marketing &amp; Communications</text>
+    </g>
+    <g transform="translate(0,430)">
+      <rect width="540" height="70" rx="4" fill="#3B6E8F"/>
+      <text x="270" y="42" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">Regulatory Affairs (rate cases · tariffs)</text>
+    </g>
+    <g transform="translate(0,516)">
+      <rect width="540" height="70" rx="4" fill="#3B6E8F"/>
+      <text x="270" y="42" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">Compliance &amp; Legal</text>
+    </g>
+    <g transform="translate(0,602)">
+      <rect width="540" height="70" rx="4" fill="#3B6E8F"/>
+      <text x="270" y="42" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">Finance / Audit</text>
+    </g>
+    <!-- Note about removed -->
+    <g transform="translate(0,706)">
+      <rect width="540" height="70" rx="4" fill="#F2F6FA" stroke="#9FB3D1" stroke-dasharray="4 4"/>
+      <text x="270" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#42526E">ITBA sources OUT OF SCOPE</text>
+      <text x="270" y="50" text-anchor="middle" font-size="10" fill="#42526E">P&amp;T · G&amp;E · IA · OT · Corporate · Procurement → ITBA branch (Carlos)</text>
+    </g>
+  </g>
+
+  <!-- ============ COLUMN 2 — JIRA INTAKE FORM ============ -->
+  <g transform="translate(620,300)">
+    <rect width="540" height="780" rx="6" fill="#FFFFFF" stroke="#F08A3E" stroke-width="3"/>
+    <rect width="540" height="50" rx="6" fill="#F08A3E"/>
+    <text x="270" y="33" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">JIRA REQUEST FORM</text>
+
+    <g transform="translate(20,70)" font-size="14">
+      <!-- Field 1 -->
+      <text x="0" y="20" font-weight="800" fill="#172B4D">▸ Value Stream destination</text>
+      <text x="14" y="40" font-style="italic" fill="#6B778C">routes the card</text>
+
+      <!-- Field 2 -->
+      <text x="0" y="78" font-weight="800" fill="#172B4D">▸ Demand type</text>
+      <text x="14" y="98" font-style="italic" fill="#6B778C">Run · Grow · Transform</text>
+
+      <!-- Field 3 -->
+      <text x="0" y="136" font-weight="800" fill="#172B4D">▸ T-shirt size</text>
+      <text x="14" y="156" font-style="italic" fill="#6B778C">S · M · L · XL</text>
+
+      <!-- Field 4 -->
+      <text x="0" y="194" font-weight="800" fill="#172B4D">▸ Class of Service</text>
+      <text x="14" y="214" font-style="italic" fill="#6B778C">Standard · Fixed-Date · Expedite · Intangible</text>
+
+      <!-- Field 5 -->
+      <text x="0" y="252" font-weight="800" fill="#172B4D">▸ OPCO</text>
+      <text x="14" y="272" font-style="italic" fill="#6B778C">UIL · CMP · NY · Cross</text>
+
+      <!-- Field 6 -->
+      <text x="0" y="310" font-weight="800" fill="#172B4D">▸ Customer Impact Tier</text>
+      <text x="14" y="330" font-style="italic" fill="#6B778C">P1 Critical · P2 High · P3 Medium · P4 Low</text>
+
+      <!-- Field 7 -->
+      <text x="0" y="368" font-weight="800" fill="#172B4D">▸ Regulatory flag</text>
+      <text x="14" y="388" font-style="italic" fill="#6B778C">if true · auto-Fixed-Date + Compliance sponsor</text>
+
+      <!-- Field 8 -->
+      <text x="0" y="426" font-weight="800" fill="#172B4D">▸ Business value statement</text>
+      <text x="14" y="446" font-style="italic" fill="#6B778C">who benefits and how</text>
+
+      <!-- Field 9 -->
+      <text x="0" y="484" font-weight="800" fill="#172B4D">▸ Sponsor</text>
+      <text x="14" y="504" font-style="italic" fill="#6B778C">approves at intake</text>
+
+      <!-- Field 10 -->
+      <text x="0" y="542" font-weight="800" fill="#172B4D">▸ Pain Score inputs</text>
+      <text x="14" y="562" font-style="italic" fill="#6B778C">BV · UX · Safety · Effort</text>
+    </g>
+
+    <!-- Warning box -->
+    <g transform="translate(20,672)">
+      <rect width="500" height="80" rx="4" fill="#FFF6E6" stroke="#DE350B" stroke-width="1.5"/>
+      <text x="250" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#DE350B">IT Now is reserved for incidents only —</text>
+      <text x="250" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="#DE350B">not for new demand.</text>
+      <text x="250" y="68" text-anchor="middle" font-size="10" font-style="italic" fill="#42526E">Email · Word · Teams = decommissioned</text>
+    </g>
+  </g>
+
+  <!-- ============ COLUMN 3 — MAIN OPERATIONAL VS ============ -->
+  <g transform="translate(1200,300)">
+    <rect width="540" height="780" rx="6" fill="#FFFFFF" stroke="#3B6E8F" stroke-width="3"/>
+    <rect width="540" height="50" rx="6" fill="#3B6E8F"/>
+    <text x="270" y="33" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">CUSTOMER SERVICES · METER-2-CASH</text>
+
+    <text x="20" y="80" font-size="11" font-weight="700" fill="#42526E">Owner: Kumar Jaladanki (Director CS Apps)</text>
+    <text x="20" y="98" font-size="11" font-weight="700" fill="#42526E">End-to-End Business Outcome across 7 OPCOs</text>
+
+    <!-- 4 Stages of M2C OVS -->
+    <g transform="translate(20,120)">
+      <rect width="500" height="120" rx="6" fill="#E8A24C"/>
+      <text x="250" y="32" text-anchor="middle" font-size="18" font-weight="800" fill="#5A3A0E">METER</text>
+      <text x="250" y="60" text-anchor="middle" font-size="12" fill="#5A3A0E">Capture every meter read</text>
+      <text x="250" y="80" text-anchor="middle" font-size="11" font-style="italic" fill="#5A3A0E">Customer + smart meter + field crew</text>
+      <text x="250" y="104" text-anchor="middle" font-size="10" font-weight="700" fill="#5A3A0E">↓ enables DVS 1</text>
+    </g>
+
+    <g transform="translate(20,260)">
+      <rect width="500" height="120" rx="6" fill="#E8A24C"/>
+      <text x="250" y="32" text-anchor="middle" font-size="18" font-weight="800" fill="#5A3A0E">BILL</text>
+      <text x="250" y="60" text-anchor="middle" font-size="12" fill="#5A3A0E">Invoice on time · every day · every OPCO</text>
+      <text x="250" y="80" text-anchor="middle" font-size="11" font-style="italic" fill="#5A3A0E">Meter ops + billing analyst</text>
+      <text x="250" y="104" text-anchor="middle" font-size="10" font-weight="700" fill="#5A3A0E">↓ enables DVS 2</text>
+    </g>
+
+    <g transform="translate(20,400)">
+      <rect width="500" height="120" rx="6" fill="#E8A24C"/>
+      <text x="250" y="32" text-anchor="middle" font-size="18" font-weight="800" fill="#5A3A0E">COLLECT</text>
+      <text x="250" y="60" text-anchor="middle" font-size="12" fill="#5A3A0E">Convert invoices into cash · comply</text>
+      <text x="250" y="80" text-anchor="middle" font-size="11" font-style="italic" fill="#5A3A0E">Customer + bank + finance/audit</text>
+      <text x="250" y="104" text-anchor="middle" font-size="10" font-weight="700" fill="#5A3A0E">↓ enables DVS 3</text>
+    </g>
+
+    <g transform="translate(20,540)">
+      <rect width="500" height="120" rx="6" fill="#E8A24C"/>
+      <text x="250" y="32" text-anchor="middle" font-size="18" font-weight="800" fill="#5A3A0E">SERVE</text>
+      <text x="250" y="60" text-anchor="middle" font-size="12" fill="#5A3A0E">Resolve every customer interaction</text>
+      <text x="250" y="80" text-anchor="middle" font-size="11" font-style="italic" fill="#5A3A0E">CSR + customer + digital channels</text>
+      <text x="250" y="104" text-anchor="middle" font-size="10" font-weight="700" fill="#5A3A0E">↓ enables DVS 4</text>
+    </g>
+
+    <!-- Enabling Team note -->
+    <g transform="translate(20,680)">
+      <rect width="500" height="80" rx="6" fill="#3A2D52"/>
+      <text x="250" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#D4C4E8">ENABLING TEAM</text>
+      <text x="250" y="48" text-anchor="middle" font-size="11" fill="#FFFFFF">Foundation services support all 4 stages</text>
+      <text x="250" y="66" text-anchor="middle" font-size="10" font-style="italic" fill="#D4C4E8">Basis · Gold Client · Enable Now · Blue Prism · TOSCA · Jira</text>
+    </g>
+  </g>
+
+  <!-- ============ COLUMN 4 — VALUE STREAM TEAMS ============ -->
+  <g transform="translate(1780,300)">
+    <!-- DVS 1 -->
+    <g>
+      <rect width="580" height="120" rx="4" fill="#FFFFFF" stroke="#E8A24C" stroke-width="3"/>
+      <rect width="6" height="120" fill="#E8A24C"/>
+      <text x="20" y="28" font-size="16" font-weight="800" fill="#5A3A0E">DVS 1 · Meter &amp; Device Operations</text>
+      <text x="20" y="48" font-size="12" fill="#172B4D">Capture every read · zero data loss</text>
+      <text x="20" y="74" font-size="10" font-weight="700" fill="#42526E">APPS</text>
+      <text x="20" y="92" font-size="11" fill="#172B4D">Smart Metering · MDM · SAP IS-U Device · Group 8760 EDI</text>
+      <text x="20" y="108" font-size="10" font-style="italic" fill="#42526E">PM candidate: Iram Chowdhury (Smart Metering)</text>
+    </g>
+
+    <!-- DVS 2 -->
+    <g transform="translate(0,134)">
+      <rect width="580" height="120" rx="4" fill="#FFFFFF" stroke="#E8A24C" stroke-width="3"/>
+      <rect width="6" height="120" fill="#E8A24C"/>
+      <text x="20" y="28" font-size="16" font-weight="800" fill="#5A3A0E">DVS 2 · Billing Operations</text>
+      <text x="20" y="48" font-size="12" fill="#172B4D">Run the bill on time · every day · every OPCO</text>
+      <text x="20" y="74" font-size="10" font-weight="700" fill="#42526E">APPS</text>
+      <text x="20" y="92" font-size="11" fill="#172B4D">SAP ECC (FI/SD) · Streamserve/OpenText · Address Validation</text>
+      <text x="20" y="108" font-size="10" font-style="italic" fill="#42526E">PM candidate: TBD (re-skill from FICA team)</text>
+    </g>
+
+    <!-- DVS 3 -->
+    <g transform="translate(0,268)">
+      <rect width="580" height="120" rx="4" fill="#FFFFFF" stroke="#E8A24C" stroke-width="3"/>
+      <rect width="6" height="120" fill="#E8A24C"/>
+      <text x="20" y="28" font-size="16" font-weight="800" fill="#5A3A0E">DVS 3 · Revenue &amp; Collections</text>
+      <text x="20" y="48" font-size="12" fill="#172B4D">Convert invoices into cash · comply at line level</text>
+      <text x="20" y="74" font-size="10" font-weight="700" fill="#42526E">APPS</text>
+      <text x="20" y="92" font-size="11" fill="#172B4D">SAP FICA · SOVOS Taxware · Payment processing · Dunning</text>
+      <text x="20" y="108" font-size="10" font-style="italic" fill="#42526E">PM candidate: Stephanie (SAP / CS)</text>
+    </g>
+
+    <!-- DVS 4 -->
+    <g transform="translate(0,402)">
+      <rect width="580" height="120" rx="4" fill="#FFFFFF" stroke="#E8A24C" stroke-width="3"/>
+      <rect width="6" height="120" fill="#E8A24C"/>
+      <text x="20" y="28" font-size="16" font-weight="800" fill="#5A3A0E">DVS 4 · Customer Care &amp; Engagement</text>
+      <text x="20" y="48" font-size="12" fill="#172B4D">Unify CRM · contact center · digital · feedback</text>
+      <text x="20" y="74" font-size="10" font-weight="700" fill="#42526E">APPS</text>
+      <text x="20" y="92" font-size="11" fill="#172B4D">SAP CRM · Genesys · Nuance IVR · Medallia · PureConnect</text>
+      <text x="20" y="108" font-size="10" font-style="italic" fill="#42526E">PM candidate: TBD post-hire (CRM/CCC vacancy 🔴)</text>
+    </g>
+
+    <!-- Enabling Team -->
+    <g transform="translate(0,536)">
+      <rect width="580" height="160" rx="4" fill="#FFFFFF" stroke="#5C2A91" stroke-width="3"/>
+      <rect width="6" height="160" fill="#5C2A91"/>
+      <text x="20" y="28" font-size="16" font-weight="800" fill="#5C2A91">ENABLING TEAM · Foundation Services</text>
+      <text x="20" y="48" font-size="12" fill="#172B4D">Shared services consumed by the 4 DVS · NO PM</text>
+      <text x="20" y="74" font-size="10" font-weight="700" fill="#42526E">FOUNDATION SERVICES</text>
+      <text x="20" y="92" font-size="11" fill="#172B4D">SAP Basis · SAP Gold Client · SAP Enable Now</text>
+      <text x="20" y="108" font-size="11" fill="#172B4D">Blue Prism (RPA) · Tricentis TOSCA · Jira admin</text>
+      <text x="20" y="132" font-size="10" font-weight="700" fill="#42526E">GOVERNANCE</text>
+      <text x="20" y="148" font-size="10" font-style="italic" fill="#42526E">Tech Lead: Naggi Reddy · Architect: 🔴 vacancy · Coordinated by Director CS</text>
+    </g>
+
+    <!-- Total -->
+    <g transform="translate(0,710)">
+      <rect width="580" height="60" rx="4" fill="#0F2A47"/>
+      <text x="290" y="26" text-anchor="middle" font-size="13" font-weight="800" fill="#FFD166">4 DVS (1 PM each) + 1 ENABLING TEAM (no PM)</text>
+      <text x="290" y="46" text-anchor="middle" font-size="11" fill="#FFFFFF">~24 FTE total · 2 vacancies · OVS owner = Kumar Jaladanki</text>
+    </g>
+  </g>
+
+  <!-- ============ FOOTER ============ -->
+  <text x="40" y="1330" font-size="11" fill="#6B778C">© 2026 NTT DATA, Inc.  ·  Avangrid · Digital Products · Target Operating Model  ·  Source: Customer Services - Proposed Value Streams + Value Definition.pptx (Proposal 2)</text>
+</svg>

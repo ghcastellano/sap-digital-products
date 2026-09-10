@@ -1,0 +1,102 @@
+{
+  "_comment": "A5 · Auto-Convert at Triage · when status moves to TRIAGED with Size and Demand Type populated, convert the Demand placeholder into the appropriate work item. Size=S → single Story routed to squad. Size=M/L → Epic + 3 placeholder Stories under it.",
+  "_format": "Atlassian Automation rule (Cloud)",
+  "_import_path": "Project Settings → Automation → Import rule",
+
+  "name": "A5 · Auto-Convert at Triage",
+  "description": "Convert Demand to Story (S) or Epic + 3 Stories (M / L) when Triage passes",
+  "scope": { "type": "PROJECT", "key": "DGTLPROD" },
+
+  "trigger": {
+    "type": "jira.issue.event.trigger:status.changed",
+    "to_status": "TRIAGED"
+  },
+
+  "conditions": [
+    {
+      "type": "jira.condition.field.value",
+      "field": "issuetype",
+      "operator": "EQUALS",
+      "value": "Demand Intake"
+    },
+    {
+      "type": "jira.condition.field.value",
+      "field": "T-Shirt-Sizing",
+      "operator": "IS NOT EMPTY"
+    },
+    {
+      "type": "jira.condition.field.value",
+      "field": "Demand Type",
+      "operator": "IS NOT EMPTY"
+    }
+  ],
+
+  "branches": [
+    {
+      "_branch": "Size = S",
+      "condition": { "field": "T-Shirt-Sizing", "operator": "EQUALS", "value": "S" },
+      "actions": [
+        {
+          "type": "jira.action.create.issue",
+          "issuetype": "Story",
+          "fields": {
+            "summary": "{{issue.summary}}",
+            "description": "Originated from Demand {{issue.key}}. {{issue.description}}",
+            "components": "{{issue.components}}",
+            "DP Class of Service": "{{issue.\"DP Class of Service\"}}",
+            "Epic Link": null
+          },
+          "_note": "Story is squad-level, no Epic parent for S-size"
+        },
+        {
+          "type": "jira.action.add.comment",
+          "comment": "A5: Demand converted to Story (Size=S). New Story key in linked issues."
+        }
+      ]
+    },
+    {
+      "_branch": "Size = M or L",
+      "condition": { "field": "T-Shirt-Sizing", "operator": "IN", "values": ["M", "L"] },
+      "actions": [
+        {
+          "_step": "Create the Epic",
+          "type": "jira.action.create.issue",
+          "issuetype": "Epic",
+          "fields": {
+            "summary": "[Epic] {{issue.summary}}",
+            "description": "Originated from Demand {{issue.key}}. Size = {{issue.\"T-Shirt-Sizing\"}}. {{issue.description}}",
+            "components": "{{issue.components}}",
+            "DP Class of Service": "{{issue.\"DP Class of Service\"}}"
+          },
+          "save_as": "newEpic"
+        },
+        {
+          "_step": "Create 3 placeholder Stories under the Epic",
+          "type": "jira.action.create.issue.loop",
+          "count": 3,
+          "issuetype": "Story",
+          "fields": {
+            "summary": "Story {{loop.index}} of 3 — to be defined",
+            "description": "Placeholder Story under Epic {{newEpic.key}}. Originated from Demand {{issue.key}}.",
+            "components": "{{issue.components}}",
+            "Epic Link": "{{newEpic.key}}",
+            "DP Class of Service": "{{issue.\"DP Class of Service\"}}"
+          }
+        },
+        {
+          "type": "jira.action.add.comment",
+          "comment": "A5: Demand converted to Epic + 3 Stories (Size={{issue.\"T-Shirt-Sizing\"}}). New Epic key {{newEpic.key}}."
+        }
+      ]
+    }
+  ],
+
+  "_steps_human_readable": [
+    "1. Trigger: status changed to TRIAGED.",
+    "2. Conditions: issuetype = Demand Intake AND T-Shirt-Sizing not empty AND Demand Type not empty.",
+    "3. If Size=S → create one Story (no Epic), copy fields, link to original Demand.",
+    "4. If Size=M or L → create one Epic + 3 placeholder Stories under that Epic.",
+    "5. In all cases: copy Components, Class of Service, audit-comment on the original Demand.",
+    "Note: 'Demand on Existing Initiative' shortcut bypasses A5 — handled by a separate transition that goes Demand → Story directly without entering TRIAGED via this rule."
+  ]
+}

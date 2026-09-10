@@ -1,0 +1,68 @@
+{
+  "_comment": "A1 · Auto-Routing · fires on Demand creation. Sets Component from VS Destination, transitions NEW → ROUTED, notifies Lead PM. The format below mirrors Atlassian Automation's rule export structure (UI-importable: Project Settings → Automation → Import rule). Some Atlassian Cloud orgs gate this import; if blocked, recreate manually using the steps in `_steps_human_readable`.",
+  "_format": "Atlassian Automation rule (Cloud)",
+  "_import_path": "Project Settings → Automation → Import rule (or copy the steps below)",
+
+  "name": "A1 · Auto-Routing",
+  "description": "On new Demand: route to correct VS component, notify Lead PM, transition NEW → ROUTED",
+  "scope": { "type": "PROJECT", "key": "DGTLPROD" },
+
+  "trigger": {
+    "type": "jira.issue.event.trigger:created",
+    "value": {
+      "issueTypeIds": ["10350"],
+      "_human_readable": "Issue type = Demand Intake"
+    }
+  },
+
+  "conditions": [
+    {
+      "type": "jira.condition.field.value",
+      "field": "DP Value Stream Destination",
+      "operator": "IS NOT EMPTY"
+    }
+  ],
+
+  "actions": [
+    {
+      "type": "jira.action.edit.issue",
+      "fields": {
+        "components": "{{issue.\"DP Value Stream Destination\"}}",
+        "_human_readable": "Set Components = same name as VS Destination"
+      }
+    },
+    {
+      "type": "jira.action.transition.issue",
+      "to_status": "ROUTED"
+    },
+    {
+      "type": "jira.action.send.email",
+      "to": "{{lookupTable.\"VS_Lead_PMs\"[issue.\"DP Value Stream Destination\"]}}",
+      "subject": "[DGTLPROD] New Demand routed to {{issue.\"DP Value Stream Destination\"}}: {{issue.summary}}",
+      "body": "A new Demand has been auto-routed to your Value Stream.\n\nSummary: {{issue.summary}}\nRequester: {{issue.reporter.displayName}}\nSponsor: {{issue.\"DP Sponsor\".displayName}}\nOpCo: {{issue.OpCo}}\nLink: {{issue.url}}\n\nYou are the Lead PM. Please review at the next weekly Triage (Gate 1).",
+      "_note": "Replace lookupTable with hard-coded mapping if smart-values lookups aren't enabled in the instance"
+    }
+  ],
+
+  "_steps_human_readable": [
+    "1. Trigger: Issue created.",
+    "2. Condition: Issue type equals Demand Intake.",
+    "3. Condition: DP Value Stream Destination is not empty.",
+    "4. Action: Edit issue · set Component = same name as DP Value Stream Destination.",
+    "5. Action: Transition issue to ROUTED.",
+    "6. Action: Send email to Lead PM of that VS (use a smart-value lookup table or hard-coded mapping)."
+  ],
+
+  "_lead_pm_lookup_seed": {
+    "Field Operations":              "TBD-pm-FieldOps@avangrid.com",
+    "Engineering & Asset Mgmt":      "TBD-pm-EAM@avangrid.com",
+    "Network Operations & Control":  "TBD-pm-NOC@avangrid.com",
+    "Corporate & Regulatory":        "TBD-pm-CorpReg@avangrid.com",
+    "Iberdrola Corp Services":       "TBD-pm-ICS@avangrid.com",
+    "Meter & Device Operations":     "TBD-pm-MDO@avangrid.com",
+    "Billing Operations":            "TBD-pm-Billing@avangrid.com",
+    "Revenue & Collections":         "TBD-pm-RevCol@avangrid.com",
+    "Customer Care & Engagement":    "TBD-pm-CCE@avangrid.com",
+    "Enabling Team — Foundation":    "TBD-pm-Enabling@avangrid.com"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "_comment": "Eight project roles for DGTLPROD. Roles are global Jira artifacts (POST /rest/api/3/role) but actor assignments are per-project (POST /rest/api/3/project/DGTLPROD/role/{id}). Create roles globally first, then assign actors below.",
+  "_endpoint_create_role": "POST /rest/api/3/role",
+  "_endpoint_assign_actor": "POST /rest/api/3/project/DGTLPROD/role/{roleId}",
+
+  "roles": [
+    {
+      "name": "dp_requester",
+      "description": "Anyone in Avangrid · can submit demands at intake form (status NEW)",
+      "_initial_actors": [
+        { "type": "atlassian-group-role-actor", "name": "jira-software-users" }
+      ]
+    },
+    {
+      "name": "dp_pm_per_vs",
+      "description": "PMs assigned per Value Stream · review, score (BV/UX), and triage demands",
+      "_initial_actors": [
+        { "type": "atlassian-user-role-actor", "name": "TBD-pm-list-from-Heather-Kumar-Carlos" }
+      ]
+    },
+    {
+      "name": "dp_architect",
+      "description": "Cross-VS architects · score Safety + Effort at ANALYZING · feasibility judgement",
+      "_initial_actors": [
+        { "type": "atlassian-user-role-actor", "name": "TBD-architect-list" }
+      ]
+    },
+    {
+      "name": "dp_director_cs",
+      "description": "CS Directors · approve at Gate 2 (Portfolio Committee)",
+      "_initial_actors": [
+        { "type": "atlassian-user-role-actor", "name": "kumar.jaladanki@avangrid.com" },
+        { "type": "atlassian-user-role-actor", "name": "heather.lajoie@avangrid.com" }
+      ]
+    },
+    {
+      "name": "dp_director_itba",
+      "description": "ITBA Director · approves at Gate 2 (Portfolio Committee)",
+      "_initial_actors": [
+        { "type": "atlassian-user-role-actor", "name": "carlos.garbin@avangrid.com" }
+      ]
+    },
+    {
+      "name": "dp_vp",
+      "description": "VP Digital Products · chairs Gate 2",
+      "_initial_actors": [
+        { "type": "atlassian-user-role-actor", "name": "vitor.cruz@avangrid.com" }
+      ]
+    },
+    {
+      "name": "dp_squad_lead",
+      "description": "Squad lead per Value Stream · pulls from Backlog · drives delivery",
+      "_initial_actors": [
+        { "type": "atlassian-user-role-actor", "name": "TBD-squad-leads-by-VS" }
+      ]
+    },
+    {
+      "name": "dp_admin",
+      "description": "NTT DATA delivery + Avangrid product owner (post-handover) · full project admin",
+      "_initial_actors": [
+        { "type": "atlassian-user-role-actor", "name": "gustavo.castellano@avangrid.com" }
+      ]
+    }
+  ],
+
+  "_note_emails": "Email addresses listed above are best-known at design time. If any user has migrated/left, replace before assignment."
+}

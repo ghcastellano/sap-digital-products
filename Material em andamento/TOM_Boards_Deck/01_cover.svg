@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" font-family="-apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1F3458"/>
+    </pattern>
+    <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0E2240"/>
+      <stop offset="100%" stop-color="#173458"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="2400" height="1350" fill="url(#navyGrad)"/>
+  <rect width="2400" height="1350" fill="url(#dotgrid)" opacity="0.5"/>
+
+  <!-- Decorative VS color bars on left -->
+  <rect x="0" y="0" width="14" height="1350" fill="#E8A24C"/>
+  <rect x="14" y="0" width="14" height="1350" fill="#5DA460"/>
+  <rect x="28" y="0" width="14" height="1350" fill="#4A90B8"/>
+  <rect x="42" y="0" width="14" height="1350" fill="#8B6FB8"/>
+
+  <!-- Brand strip -->
+  <text x="120" y="160" font-size="20" font-weight="700" fill="#9FB3D1" letter-spacing="4">AVANGRID  ·  DIGITAL PRODUCTS  ·  TOM PROPOSAL</text>
+
+  <!-- Title -->
+  <text x="120" y="500" font-size="92" font-weight="800" fill="#FFFFFF" letter-spacing="-1">Boards &amp; Intake Model</text>
+  <text x="120" y="600" font-size="48" font-weight="600" fill="#E8A24C">Three Value Streams · Seven Squads · Platform Teams</text>
+
+  <!-- Subline -->
+  <text x="120" y="700" font-size="22" font-weight="500" fill="#9FB3D1" letter-spacing="0.5">How Customer Services Apps and IT Business Applications work as one integrated flow system</text>
+
+  <!-- Mini legend -->
+  <g transform="translate(120,860)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#6F87A8" letter-spacing="2">VALUE STREAM PALETTE</text>
+
+    <g transform="translate(0,30)">
+      <rect width="280" height="80" rx="6" fill="#E8A24C"/>
+      <text x="20" y="34" font-size="16" font-weight="800" fill="#5A3A0E">VS-1</text>
+      <text x="20" y="58" font-size="14" font-weight="600" fill="#5A3A0E">M2C &amp; Customer Service</text>
+      <text x="20" y="74" font-size="11" fill="#5A3A0E">~20 FTE · CS branch · Kumar</text>
+    </g>
+
+    <g transform="translate(300,30)">
+      <rect width="280" height="80" rx="6" fill="#5DA460"/>
+      <text x="20" y="34" font-size="16" font-weight="800" fill="#FFFFFF">VS-2</text>
+      <text x="20" y="58" font-size="14" font-weight="600" fill="#FFFFFF">Field &amp; Network Operations</text>
+      <text x="20" y="74" font-size="11" fill="#FFFFFF">~13 FTE · ITBA branch · Carlos</text>
+    </g>
+
+    <g transform="translate(600,30)">
+      <rect width="280" height="80" rx="6" fill="#4A90B8"/>
+      <text x="20" y="34" font-size="16" font-weight="800" fill="#FFFFFF">VS-3</text>
+      <text x="20" y="58" font-size="14" font-weight="600" fill="#FFFFFF">Corporate &amp; Global SAP</text>
+      <text x="20" y="74" font-size="11" fill="#FFFFFF">~13 FTE · ITBA branch · Carlos</text>
+    </g>
+
+    <g transform="translate(900,30)">
+      <rect width="280" height="80" rx="6" fill="#8B6FB8"/>
+      <text x="20" y="34" font-size="16" font-weight="800" fill="#FFFFFF">PLATFORM</text>
+      <text x="20" y="58" font-size="14" font-weight="600" fill="#FFFFFF">Cross-cutting enablers</text>
+      <text x="20" y="74" font-size="11" fill="#FFFFFF">~8 FTE · serve all VS as-a-svc</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <line x1="120" y1="1230" x2="2280" y2="1230" stroke="#2D4D7A" stroke-width="1"/>
+  <text x="120" y="1270" font-size="14" font-weight="700" fill="#9FB3D1" letter-spacing="2">VITOR CRUZ — VP, IT BUSINESS SOLUTIONS DELIVERY</text>
+  <text x="120" y="1295" font-size="13" fill="#6F87A8">Building on "Customer Services — Proposed Value Streams" (April 2026) and AS-IS deliverable v.final</text>
+  <text x="2280" y="1270" text-anchor="end" font-size="14" font-weight="700" fill="#F08A3E">v1.0  ·  April 2026</text>
+  <text x="2280" y="1295" text-anchor="end" font-size="12" fill="#6F87A8">NTT DATA Consulting</text>
+</svg>

@@ -1,0 +1,141 @@
+{
+  "_comment": "Demand Lifecycle Workflow · 11 statuses (8 main + 3 side states) + transitions. Apply via REST POST /rest/api/3/workflows/create. After creation, attach to a Workflow Scheme and associate that scheme with DGTLPROD. Note: post-functions, conditions and validators are described inline as _hints — Jira's UI/API may require them to be added separately depending on instance settings. Use the new (modern) workflow endpoint, NOT the legacy XML import.",
+  "_endpoint": "POST /rest/api/3/workflows/create",
+
+  "scope": { "type": "GLOBAL" },
+
+  "statuses": [
+    { "statusReference": "new",          "name": "NEW",          "statusCategory": "TODO",        "description": "Demand just submitted by Requester · awaiting auto-routing" },
+    { "statusReference": "routed",       "name": "ROUTED",       "statusCategory": "TODO",        "description": "Component set + Lead PM notified · awaiting Gate 1 (Triage)" },
+    { "statusReference": "triaged",      "name": "TRIAGED",      "statusCategory": "IN_PROGRESS", "description": "Passed Gate 1 · ready for PM Review" },
+    { "statusReference": "bounced",      "name": "BOUNCED",      "statusCategory": "TODO",        "description": "Returned to Requester for clarification" },
+    { "statusReference": "reviewing",    "name": "REVIEWING",    "statusCategory": "IN_PROGRESS", "description": "PM defining Type/Size/CoS/RGT (2-week SLA)" },
+    { "statusReference": "analyzing",    "name": "ANALYZING",    "statusCategory": "IN_PROGRESS", "description": "PM + Architect scoring BV/UX/Safety/Effort · A4 will compute Pain Score" },
+    { "statusReference": "backlog",      "name": "BACKLOG",      "statusCategory": "IN_PROGRESS", "description": "Approved at Gate 2 · ready for execution by squad" },
+    { "statusReference": "implementing", "name": "IMPLEMENTING", "statusCategory": "IN_PROGRESS", "description": "Squad working · WIP-limited per Class of Service" },
+    { "statusReference": "done",         "name": "DONE",         "statusCategory": "DONE",        "description": "Delivered + accepted" },
+    { "statusReference": "deferred",     "name": "DEFERRED",     "statusCategory": "DONE",        "description": "Out of scope this cycle · re-evaluate next Gate 2" },
+    { "statusReference": "rejected",     "name": "REJECTED",     "statusCategory": "DONE",        "description": "Killed at Gate 2 · will not be done" }
+  ],
+
+  "workflows": [
+    {
+      "name": "Demand Lifecycle Workflow",
+      "description": "Avangrid Digital Products · Demand intake → triage → portfolio governance → squad delivery. Designed by NTT DATA per TOM v3.",
+      "startPointLayout": { "x": 0, "y": 0 },
+
+      "statuses": [
+        { "statusReference": "new",          "layout": { "x": 0,    "y": 0 } },
+        { "statusReference": "routed",       "layout": { "x": 200,  "y": 0 } },
+        { "statusReference": "triaged",      "layout": { "x": 400,  "y": 0 } },
+        { "statusReference": "bounced",      "layout": { "x": 400,  "y": 200 } },
+        { "statusReference": "reviewing",    "layout": { "x": 600,  "y": 0 } },
+        { "statusReference": "analyzing",    "layout": { "x": 800,  "y": 0 } },
+        { "statusReference": "backlog",      "layout": { "x": 1000, "y": 0 } },
+        { "statusReference": "deferred",     "layout": { "x": 1000, "y": 200 } },
+        { "statusReference": "rejected",     "layout": { "x": 1000, "y": -200 } },
+        { "statusReference": "implementing", "layout": { "x": 1200, "y": 0 } },
+        { "statusReference": "done",         "layout": { "x": 1400, "y": 0 } }
+      ],
+
+      "transitions": [
+        {
+          "name": "Submit Demand",
+          "type": "INITIAL",
+          "toStatusReference": "new",
+          "_hint_post_functions": "Set Reporter = current user; assign sponsor; clear all auto fields"
+        },
+        {
+          "name": "A1 Auto-Route",
+          "type": "DIRECTED",
+          "from": [{ "statusReference": "new" }],
+          "toStatusReference": "routed",
+          "_hint_trigger": "Automation A1 fires on Issue Created · sets component + notifies Lead PM",
+          "_hint_conditions": "issuetype = Demand Intake AND dp_value_stream_destination IS NOT EMPTY"
+        },
+        {
+          "name": "Triage Pass · Gate 1",
+          "type": "DIRECTED",
+          "from": [{ "statusReference": "routed" }],
+          "toStatusReference": "triaged",
+          "_hint_conditions": "Project Role = dp_pm_per_vs OR dp_architect"
+        },
+        {
+          "name": "Triage Bounce",
+          "type": "DIRECTED",
+          "from": [{ "statusReference": "routed" }, { "statusReference": "triaged" }],
+          "toStatusReference": "bounced",
+          "_hint_validators": "comment field must not be empty (reason for bounce)"
+        },
+        {
+          "name": "Resubmit",
+          "type": "DIRECTED",
+          "from": [{ "statusReference": "bounced" }],
+          "toStatusReference": "new"
+        },
+        {
+          "name": "Begin PM Review",
+          "type": "DIRECTED",
+          "from": [{ "statusReference": "triaged" }],
+          "toStatusReference": "reviewing",
+          "_hint_conditions": "Project Role = dp_pm_per_vs"
+        },
+        {
+          "name": "Hand to Architect",
+          "type": "DIRECTED",
+          "from": [{ "statusReference": "reviewing" }],
+          "toStatusReference": "analyzing",
+          "_hint_validators": "dp_type, T-Shirt-Sizing, dp_class_of_service, dp_run_grow_transform must be populated"
+        },
+        {
+          "name": "Approve at Gate 2",
+          "type": "DIRECTED",
+          "from": [{ "statusReference": "analyzing" }],
+          "toStatusReference": "backlog",
+          "_hint_conditions": "Project Role = dp_director_cs OR dp_director_itba OR dp_vp",
+          "_hint_validators": "dp_pain_score IS NOT EMPTY (i.e. A4 has fired)"
+        },
+        {
+          "name": "Defer at Gate 2",
+          "type": "DIRECTED",
+          "from": [{ "statusReference": "analyzing" }],
+          "toStatusReference": "deferred",
+          "_hint_conditions": "Project Role = dp_director_cs OR dp_director_itba OR dp_vp"
+        },
+        {
+          "name": "Reject at Gate 2",
+          "type": "DIRECTED",
+          "from": [{ "statusReference": "analyzing" }],
+          "toStatusReference": "rejected",
+          "_hint_conditions": "Project Role = dp_director_cs OR dp_director_itba OR dp_vp"
+        },
+        {
+          "name": "Pull to Squad",
+          "type": "DIRECTED",
+          "from": [{ "statusReference": "backlog" }],
+          "toStatusReference": "implementing",
+          "_hint_conditions": "Project Role = dp_squad_lead"
+        },
+        {
+          "name": "Mark Done",
+          "type": "DIRECTED",
+          "from": [{ "statusReference": "implementing" }],
+          "toStatusReference": "done",
+          "_hint_conditions": "Project Role = dp_squad_lead"
+        },
+        {
+          "name": "Reopen",
+          "type": "GLOBAL",
+          "toStatusReference": "implementing",
+          "_hint_conditions": "Project Role = dp_squad_lead OR dp_pm_per_vs"
+        }
+      ]
+    }
+  ],
+
+  "_hint_after_creation": [
+    "1. Create a Workflow Scheme (POST /rest/api/3/workflowscheme) and add this workflow as the default.",
+    "2. Associate the scheme with project DGTLPROD (POST /rest/api/3/workflowscheme/project).",
+    "3. Verify by GET /rest/api/3/project/DGTLPROD/statuses — should list the 11 statuses above per issue type."
+  ]
+}
